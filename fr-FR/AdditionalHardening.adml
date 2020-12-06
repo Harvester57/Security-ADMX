@@ -57,8 +57,8 @@ Il est recommandé d'activer cette stratégie de sécurité.</string>
       <string id="Logon">Durcissement du cache des sessions liées à un domaine</string>
       <string id="Logon_Explain">Activer cette stratégie modifie deux paramètres liés au stockage en cache des identifiants d'utilisateurs de domaine :
 
-- Désactivation du cache d'identifiants en cas de non-disponiblité du contrôleur de domaine
-- Le délai de conservation en mémoire vive des identifants d'une session déconnectée est réduit à 30 secondes.
+- Réduction de la taille du cache d'identifiants sauvegardés (3 identifiants, défaut 10) en cas de non-disponiblité du contrôleur de domaine;
+- Le délai de conservation en mémoire vive des identifants d'une session déconnectée est réduit à 30 secondes;
 
 Ces paramètres permettent de réduire la durée d'exposition à un vol d'identifant par un outil tel que Mimikatz.
 
@@ -93,8 +93,11 @@ Désactiver cette stratégie positionne la valeur de registre à 0.</string>
       <string id="DisableIPSourceRouting2">Désactiver le routage par la source.</string>
       <string id="DisableIPSourceRoutingIPv6">Configurer le routage par la source sur IPv6</string>
       <string id="DisableIPSourceRoutingIPv6_Help">Permet de configurer le niveau de routage par la source sur IPv6.</string>
-      <string id="AdminShare">Désactiver les partages administratifs</string>
-      <string id="AdminShare_Explain">Les partages administratifs sont des partages créés par défaut à l'installation du système. Ils permettent notamment aux administrateurs d'accéder à distance aux périphériques disque en mode bloc, aux périphériques IPC et aux imprimantes réseau. Ces partages dépendant du service Serveur, ils ne sont plus accessibles si celui-ci à été désactivé.</string>
+      <string id="AdminShare_Wks">Désactiver les partages administratifs sur les stations de travail</string>
+      <string id="AdminShare_Wks_Explain">Les partages administratifs sont des partages créés par défaut à l'installation du système. Ils permettent notamment aux administrateurs d'accéder à distance aux périphériques disque en mode bloc, aux périphériques IPC et aux imprimantes réseau. Ces partages dépendant du service Serveur, ils ne sont plus accessibles si celui-ci à été désactivé.</string>
+      <string id="AdminShare_Srv">Désactiver les partages administratifs sur serveurs</string>
+      <string id="AdminShare_Srv_Explain">Les partages administratifs sont des partages créés par défaut à l'installation du système. Ils permettent notamment aux administrateurs d'accéder à distance aux périphériques disque en mode bloc, aux périphériques IPC et aux imprimantes réseau. Ces partages dépendant du service Serveur, ils ne sont plus accessibles si celui-ci à été désactivé.</string>
+
       <!-- PROTOCOLS -->
       <!-- Multi-Protocol Unified Hello -->
       <string id="MPUH">Multi-Protocol Unified Hello</string>

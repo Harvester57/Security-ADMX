@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--  
   Author: Florian Stosse <florian.stosse@safrangroup.com>
-  Version: 1.0.5
+  Version: 1.0.6
   Date: 06/12/2020
   -->
 <policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
@@ -236,19 +236,34 @@
         </enum>
       </elements>
     </policy>
-    <policy name="AdminShare"
+    <policy name="AdminShare_Wks"
             class="Machine"
-            displayName="$(string.AdminShare)"
-            explainText="$(string.AdminShare_Explain)"
+            displayName="$(string.AdminShare_Wks)"
+            explainText="$(string.AdminShare_Wks_Explain)"
             key="SYSTEM\CurrentControlSet\Service\LanManServer\Parameter"
             valueName="AutoShareWks">
       <parentCategory ref="Hardening" />
       <supportedOn ref="windows:SUPPORTED_Windows_6_3" />
       <enabledValue>
-        <decimal value="1" />
+        <decimal value="0" />
       </enabledValue>
       <disabledValue>
+        <decimal value="1" />
+      </disabledValue>
+    </policy>
+        <policy name="AdminShare_Srv"
+            class="Machine"
+            displayName="$(string.AdminShare_Srv)"
+            explainText="$(string.AdminShare_Srv_Explain)"
+            key="SYSTEM\CurrentControlSet\Service\LanManServer\Parameter"
+            valueName="AutoShareSrv">
+      <parentCategory ref="Hardening" />
+      <supportedOn ref="windows:SUPPORTED_Windows_6_3" />
+      <enabledValue>
         <decimal value="0" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="1" />
       </disabledValue>
     </policy>
     <policy name="MicroarchHardening"

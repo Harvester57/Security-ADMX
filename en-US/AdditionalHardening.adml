@@ -93,8 +93,10 @@ Recommended value: 65536 or above.</string>
       <string id="DisableIPSourceRouting2">Highest protection, source routing is completely disabled</string>
       <string id="DisableIPSourceRoutingIPv6">Configure the IP source routing protection level for IPv6</string>
       <string id="DisableIPSourceRoutingIPv6_Help">Allows to choose a protection for source-routed packets.</string>
-      <string id="AdminShare">Disable administrative shares</string>
-      <string id="AdminShare_Explain">Not recommended, except for highly secure environments.</string>
+      <string id="AdminShare_Wks">Disable administrative shares for workstations</string>
+      <string id="AdminShare_Wks_Explain">Not recommended, except for highly secure environments.</string>
+      <string id="AdminShare_Srv">Disable administrative shares for servers</string>
+      <string id="AdminShare_Srv_Explain">Not recommended, except for highly secure environments.</string>
       <!-- PROTOCOLS -->
       <!-- Multi-Protocol Unified Hello -->
       <string id="MPUH">Multi-Protocol Unified Hello</string>
