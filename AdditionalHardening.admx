@@ -83,7 +83,7 @@
             explainText="$(string.DisableSMB1_Explain)"
             key="SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters">
       <parentCategory ref="SMB" />
-      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
       <enabledList defaultKey="SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters">
         <item key="SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters"
               valueName="SMB1">
