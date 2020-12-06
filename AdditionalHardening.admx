@@ -10,6 +10,8 @@
                    schemaVersion="1.0"
                    xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
   <policyNamespaces>
+    <target prefix="AddHard"
+            namespace="AddHard.Policies.AddHard" />
     <using prefix="windows"
            namespace="Microsoft.Policies.Windows" />
   </policyNamespaces>
