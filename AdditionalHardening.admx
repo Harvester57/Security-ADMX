@@ -236,6 +236,21 @@
         </enum>
       </elements>
     </policy>
+    <policy name="Kerberos_Logging"
+            class="Machine"
+            displayName="$(string.KerberosLogging)"
+            explainText="$(string.KerberosLogging_Explain)"
+            key="SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters"
+            valueName="LogLevel">
+      <parentCategory ref="Network" />
+      <supportedOn ref="windows:SUPPORTED_Windows7" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
     <policy name="AdminShare_Wks"
             class="Machine"
             displayName="$(string.AdminShare_Wks)"
