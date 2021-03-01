@@ -86,10 +86,6 @@ Recommended value: 65536 or above.</string>
       <string id="Schannel_Category">Schannel</string>
       <string id="SchannelLogging">Enable advanced logging for Schannel</string>
       <string id="SchannelLogging_Explain">Increase Schannel verbosity level in Event Logs.</string>
-      <string id="KerberosLogging">Enable Kerberos events logging</string>
-      <string id="KerberosLogging_Explain">Enable logging of debug events related to Kerberos in the System Event log.
-
-If disabled, this policy disable Kerberos-related events logging (this is the default behavior). Enabling this option is only recommended for debugging purposes. Security auditing of events related to Kerberos events should be configured with Advanced Auditing policies.  </string>
       <string id="DisableIPSourceRouting">Configure the IP source routing protection level</string>
       <string id="DisableIPSourceRouting_Help">Allows to choose a protection for source-routed packets.</string>
       <string id="DisableIPSourceRouting0">Allow all packets</string>
@@ -151,7 +147,7 @@ Changing this setting will require a restart of the computer before the setting 
 Changing this setting will require a restart of the computer before the setting will take effect.
       </string>
       <!-- TLSv1.3 -->
-      <string id="TLSv13">TLS 1.3 [EXPERIMENTAL]</string>
+      <string id="TLSv13">TLS 1.3 - DO NOT ENABLE]</string>
       <string id="TLSv13_Help">Enables or disables the use of TLS 1.3.  TLS 1.3 is without known security issues.
 
 This setting is only compatible on Windows 10 1903 and above and does not require a reboot to take effect.
