@@ -86,6 +86,13 @@ Désactiver cette stratégie positionne la valeur de registre à 0.</string>
       <string id="Schannel_Category">Schannel</string>
       <string id="SchannelLogging">Activer la journalisation avancée de Schannel</string>
       <string id="SchannelLogging_Explain">Cette politique active la journalisation Schannel. Si cette politique est activée, le mode verbeux de Schannel est activé et les événements sont stockés dans les journaux système.</string>
+      <string id="KerberosLogging">Activer la journalisation des événements Kerberos</string>
+      <string id="KerberosLogging_Explain">Cette politique active la journalisation des événements liés à Kerberos. Si cette politique est activée, les événements liés à Kerberos sont loggués dans le journal Système.
+
+Si cette poliitique est désactivée, les événements liés à Kerberos ne sont pas loggués.
+
+Par défaut, ces événements ne sont pas loggués. Activer cette option n'est recommandée que pour des questions d'aide au débug des problèmes liés à Kerberos.</string>
+
       <string id="DisableIPSourceRouting">Configurer le routage par la source</string>
       <string id="DisableIPSourceRouting_Help">Permet de configurer le niveau de routage par la source.</string>
       <string id="DisableIPSourceRouting0">Autoriser tous les paquets routés par la source.</string>
