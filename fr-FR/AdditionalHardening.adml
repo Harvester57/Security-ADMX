@@ -92,6 +92,7 @@ Désactiver cette stratégie positionne la valeur de registre à 0.</string>
 Si cette poliitique est désactivée, les événements liés à Kerberos ne sont pas loggués.
 
 Par défaut, ces événements ne sont pas loggués. Activer cette option n'est recommandée que pour des questions d'aide au débug des problèmes liés à Kerberos.</string>
+
       <string id="DisableIPSourceRouting">Configurer le routage par la source</string>
       <string id="DisableIPSourceRouting_Help">Permet de configurer le niveau de routage par la source.</string>
       <string id="DisableIPSourceRouting0">Autoriser tous les paquets routés par la source.</string>
@@ -154,7 +155,7 @@ Changing this setting will require a restart of the computer before the setting 
 Changing this setting will require a restart of the computer before the setting will take effect.
       </string>
       <!-- TLSv1.3 -->
-      <string id="TLSv13">TLS 1.3 [EXPERIMENTAL]</string>
+      <string id="TLSv13">TLS 1.3 [EXPERIMENTAL - DO NOT ENABLE]</string>
       <string id="TLSv13_Help">Enables or disables the use of TLS 1.3.  TLS 1.3 is without known security issues.
 
 This setting is only compatible on Windows 10 1903 and above and does not require a reboot to take effect.
@@ -573,9 +574,9 @@ Si ce paramètre n'est pas configuré ou est désactivé, TLS 1.1 et 1.2 sont d�
       </presentation>
       <presentation id="DTLSv10">
         <checkBox refId="DTLSv10_ClientCheckbox"
-                  defaultChecked="true">Activer le support de DTLS 1.1 côté client</checkBox>
+                  defaultChecked="true">Activer le support de DTLS 1.0 côté client</checkBox>
         <checkBox refId="DTLSv10_ServerCheckbox"
-                  defaultChecked="true">Activer le support de DTLS 1.1 côté serveur</checkBox>
+                  defaultChecked="true">Activer le support de DTLS 1.0 côté serveur</checkBox>
       </presentation>
       <presentation id="DTLSv12">
         <checkBox refId="DTLSv12_ClientCheckbox"
