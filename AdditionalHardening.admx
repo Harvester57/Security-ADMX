@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--  
   Author: Florian Stosse <florian.stosse@safrangroup.com>
-  Version: 1.0.10
-  Date: 19/03/2021
+  Version: 1.0.11
+  Date: 30/03/2021
   -->
 <policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -255,7 +255,7 @@
             class="Machine"
             displayName="$(string.AdminShare_Wks)"
             explainText="$(string.AdminShare_Wks_Explain)"
-            key="SYSTEM\CurrentControlSet\Services\LanManServer\Parameter"
+            key="SYSTEM\CurrentControlSet\Services\LanManServer\Parameters"
             valueName="AutoShareWks">
       <parentCategory ref="Hardening" />
       <supportedOn ref="windows:SUPPORTED_Windows_6_3" />
@@ -270,8 +270,8 @@
             class="Machine"
             displayName="$(string.AdminShare_Srv)"
             explainText="$(string.AdminShare_Srv_Explain)"
-            key="SYSTEM\CurrentControlSet\Services\LanManServer\Parameter"
-            valueName="AutoShareSrv">
+            key="SYSTEM\CurrentControlSet\Services\LanManServer\Parameters"
+            valueName="AutoShareServer">
       <parentCategory ref="Hardening" />
       <supportedOn ref="windows:SUPPORTED_Windows_6_3" />
       <enabledValue>
