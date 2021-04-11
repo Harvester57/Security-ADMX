@@ -177,7 +177,7 @@ Changing this setting will require a restart of the computer before the setting 
       <string id="NULL">NULL</string>
       <string id="NULL_Help">Enables or disables the use of NULL encryption ciphers.  This is a weak cipher and should not be used.
 
-Changer ce paramètre activera ou désactivera la sélection de suites de chiffrement suivante :
+Changer ce paramètre activera ou désactivera la sélection des suites de chiffrement suivante :
 
 TLS_RSA_WITH_NULL_SHA
 TLS_RSA_WITH_NULL_SHA256
@@ -186,7 +186,7 @@ TLS_RSA_WITH_NULL_SHA256
       <string id="DES_56">DES 56/56</string>
       <string id="DES_56_Help">Enables or disables the use of the DES 56/56.  This is a weak cipher and should not be used.
 
-Changer ce paramètre activera ou désactivera la sélection de suites de chiffrement suivante :
+Changer ce paramètre activera ou désactivera la sélection des suites de chiffrement suivante :
 
 SSL_RSA_WITH_DES_CBC_SHA
 TLS_RSA_WITH_DES_CBC_SHA
@@ -195,7 +195,7 @@ TLS_RSA_WITH_DES_CBC_SHA
       <string id="RC2_40">RC2 40/128</string>
       <string id="RC2_40_Help">Enables or disables the use of RC2 40/128.  This is a weak cipher and shoud not be used.
 
-Changer ce paramètre activera ou désactivera la sélection de suites de chiffrement suivante :
+Changer ce paramètre activera ou désactivera la sélection des suites de chiffrement suivante :
 
 SSL_RSA_EXPORT_WITH_RC2_CBC_40_MD5
 TLS_RSA_EXPORT_WITH_RC2_CBC_40_MD5
@@ -204,7 +204,7 @@ TLS_RSA_EXPORT_WITH_RC2_CBC_40_MD5
       <string id="RC2_56">RC2 56/128</string>
       <string id="RC2_56_Help">Enables or disables the use of RC2 56/128.  This is a weak cipher and shoud not be used.
 
-Changer ce paramètre activera ou désactivera la sélection de suites de chiffrement suivante :
+Changer ce paramètre activera ou désactivera la sélection des suites de chiffrement suivante :
 
 SSL_RSA_WITH_DES_CBC_SHA
 TLS_RSA_WITH_DES_CBC_SHA
@@ -216,7 +216,7 @@ TLS_RSA_WITH_DES_CBC_SHA
       <string id="RC4_40">RC4 40/128</string>
       <string id="RC4_40_Help">Enables or disables the use of RC4 40/128.  This is a weak cipher and shoud not be used.
 
-Changer ce paramètre activera ou désactivera la sélection de suites de chiffrement suivante :
+Changer ce paramètre activera ou désactivera la sélection des suites de chiffrement suivante :
 
 SSL_RSA_EXPORT_WITH_RC4_40_MD5
 TLS_RSA_EXPORT_WITH_RC4_40_MD5
@@ -225,7 +225,7 @@ TLS_RSA_EXPORT_WITH_RC4_40_MD5
       <string id="RC4_56">RC4 56/128</string>
       <string id="RC4_56_Help">Enables or disables the use of RC4 56/128.  This is a weak cipher and shoud not be used.
 
-Changer ce paramètre activera ou désactivera la sélection de suites de chiffrement suivante :
+Changer ce paramètre activera ou désactivera la sélection des suites de chiffrement suivante :
 
 TLS_RSA_EXPORT1024_WITH_RC4_56_SHA
       </string>
@@ -236,7 +236,7 @@ TLS_RSA_EXPORT1024_WITH_RC4_56_SHA
       <string id="RC4_128">RC4 128/128</string>
       <string id="RC4_128_Help">Enables or disables the use of RC4 128/128.  This is a weak cipher and shoud not be used.
 
-Changer ce paramètre activera ou désactivera la sélection de suites de chiffrement suivante :
+Changer ce paramètre activera ou désactivera la sélection des suites de chiffrement suivante :
 
 SSL_RSA_WITH_RC4_128_MD5
 SSL_RSA_WITH_RC4_128_SHA
@@ -248,7 +248,7 @@ TLS_RSA_WITH_RC4_128_SHA
       <string id="3DES">Triple DES 168</string>
       <string id="3DES_Help">Enables or disables the use of Triple-DES 128.
 
-Changer ce paramètre activera ou désactivera la sélection de suites de chiffrement suivante :
+Changer ce paramètre activera ou désactivera la sélection des suites de chiffrement suivante :
 
 SSL_CK_DES_192_EDE_CBC_WITH_MD5
 TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
@@ -258,7 +258,7 @@ TLS_RSA_WITH_3DES_EDE_CBC_SHA
       <string id="AES128">AES 128/128</string>
       <string id="AES128_Help">Enables or disables the use of AES 128/128.  Note that in order for Windows 2003 to support AES-128, hotfix KB948963 must be installed.
 
-Changer ce paramètre activera ou désactivera la sélection de suites de chiffrement suivante :
+Changer ce paramètre activera ou désactivera la sélection des suites de chiffrement suivante :
 
 TLS_DHE_DSS_WITH_AES_128_CBC_SHA
 TLS_DHE_DSS_WITH_AES_128_CBC_SHA256
@@ -284,7 +284,7 @@ TLS_RSA_WITH_AES_128_CBC_SHA256
       <string id="AES256">AES 256/256</string>
       <string id="AES256_Help">Enables or disables the use of AES 256/256.  Note that in order for Windows 2003 to support AES-256, hotfix KB948963 must be installed.
 
-Changer ce paramètre activera ou désactivera la sélection de suites de chiffrement suivante :
+Changer ce paramètre activera ou désactivera la sélection des suites de chiffrement suivante :
 
 TLS_DHE_DSS_WITH_AES_256_CBC_SHA
 TLS_DHE_DSS_WITH_AES_256_CBC_SHA256
@@ -309,7 +309,7 @@ TLS_RSA_WITH_AES_256_CBC_SHA256
       <string id="MD5">MD5</string>
       <string id="MD5_Help">Enables or disables the use of the MD5 hashing algorithm.
 
-Changer ce paramètre activera ou désactivera la sélection de suites de chiffrement suivante :
+Changer ce paramètre activera ou désactivera la sélection des suites de chiffrement suivante :
 
 SSL_CK_DES_192_EDE3_CBC_WITH_MD5
 SSL_CK_DES_64_CBC_WITH_MD5
@@ -323,7 +323,7 @@ TLS_RSA_WITH_RC4_128_MD5
       <string id="SHA">SHA</string>
       <string id="SHA_Help">Enables or disables the use of the SHA hashing algorithm.
 
-Changer ce paramètre activera ou désactivera la sélection de suites de chiffrement suivante :
+Changer ce paramètre activera ou désactivera la sélection des suites de chiffrement suivante :
 
 TLS_DHE_DSS_EXPORT1024_WITH_DES_CBC_SHA
 TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
@@ -355,7 +355,7 @@ TLS_RSA_WITH_RC4_128_SHA
       <string id="SHA256">SHA-256</string>
       <string id="SHA256_Help">Enables or disables the use of the SHA-256 hashing algorithm.
 
-Changer ce paramètre activera ou désactivera la sélection de suites de chiffrement suivante :
+Changer ce paramètre activera ou désactivera la sélection des suites de chiffrement suivante :
 
 TLS_DHE_DSS_WITH_AES_128_CBC_SHA256
 TLS_DHE_DSS_WITH_AES_256_CBC_SHA256
@@ -376,7 +376,7 @@ TLS_RSA_WITH_NULL_SHA256
       <string id="SHA384">SHA-384</string>
       <string id="SHA384_Help">Enables or disables the use of the SHA-384 hashing algorithm.
 
-Changer ce paramètre activera ou désactivera la sélection de suites de chiffrement suivante :
+Changer ce paramètre activera ou désactivera la sélection des suites de chiffrement suivante :
 
 TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384_P384
 TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384_P521
@@ -394,7 +394,7 @@ TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P521
       <string id="DH">Diffie-Hellman</string>
       <string id="DH_Help">Enables or disables the use of the Diffie-Hellman key exchange algorithm.
 
-Changer ce paramètre activera ou désactivera la sélection de suites de chiffrement suivante :
+Changer ce paramètre activera ou désactivera la sélection des suites de chiffrement suivante :
 
 TLS_DHE_DSS_EXPORT1024_WITH_DES_CBC_SHA
 TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
@@ -434,7 +434,7 @@ Please see Microsoft Security Advisory 3174644 or https://support.microsoft.com/
       <string id="ECDH">ECDH</string>
       <string id="ECDH_Help">Active ou désactive l'utilisation de courbes elliptiques pour l'échange de clefs basé sur Diffie-Hellmann.
 
-Changer ce paramètre activera ou désactivera la sélection de suites de chiffrement suivante :
+Changer ce paramètre activera ou désactivera la sélection des suites de chiffrement suivante :
 
 TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA_P256
 TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA_P384
