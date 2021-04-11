@@ -80,7 +80,7 @@ Cela permet de corriger complètement la vulnérabilité CVE-2017-8529 de divulg
 
 Désactiver cette stratégie positionne la valeur de registre à 0.</string>
       <string id="MSCHAPv2_Iteration">Modifier le nombre d'itérations du condensat MSCHAPv2 du mot de passe de domaine en cache</string>
-      <string id="MSCHAPv2_Iteration_Explain">Lirs d'une connexion à un domaine, le mot de passe est stocké localement sous la forme d'un condensat MSCHAPv2. Par défaut, le nombre d'itérations est fixé à 10240. Activer ce paramètre permet de modifier ce nombre d'itérations en le fixant à 65536 ou plus.</string>
+      <string id="MSCHAPv2_Iteration_Explain">Lors d'une connexion à un domaine, le mot de passe est stocké localement sous la forme d'un condensat MSCHAPv2. Par défaut, le nombre d'itérations est fixé à 10240. Activer ce paramètre permet de modifier ce nombre d'itérations en le fixant à 65536 ou plus.</string>
       <string id="PSLockDownPolicy">Activer le mode Contraint du langage PowerShell</string>
       <string id="PSLockDownPolicy_Explain">Le langage PowerShell, depuis la version 5, peut s'exécuter en plusieurs modes, configurables au moyen de la variable d'environnement __PSLockdownPolicy. Cette variable permet de contraindre le langage en limitant les actions faisables avec le langage, et notamment en restreignant les usages inconsidérés des API Win32.</string>
       <string id="Schannel_Category">Schannel</string>
