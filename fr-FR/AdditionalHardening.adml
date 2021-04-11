@@ -85,7 +85,7 @@ Désactiver cette stratégie positionne la valeur de registre à 0.</string>
       <string id="PSLockDownPolicy_Explain">Le langage PowerShell, depuis la version 5, peut s'exécuter en plusieurs modes, configurables au moyen de la variable d'environnement __PSLockdownPolicy. Cette variable permet de contraindre le langage en limitant les actions faisables avec le langage, et notamment en restreignant les usages inconsidérés des API Win32.</string>
       <string id="Schannel_Category">Schannel</string>
       <string id="SchannelLogging">Activer la journalisation avancée de Schannel</string>
-      <string id="SchannelLogging_Explain">Cette politique active la journalisation Schannel. Si cette politique est activée, le mode verbeux de Schannel est activé et les événements sont stockés dans les journaux système.</string>
+      <string id="SchannelLogging_Explain">Cette politique active la journalisation avancée Schannel. Si cette politique est activée, le mode verbeux de Schannel est activé et les événements sont stockés dans le journal d'événements Système.</string>
       <string id="KerberosLogging">Activer la journalisation des événements Kerberos</string>
       <string id="KerberosLogging_Explain">Cette politique active la journalisation des événements liés à Kerberos. Si cette politique est activée, les événements liés à Kerberos sont loggués dans le journal Système.
 
