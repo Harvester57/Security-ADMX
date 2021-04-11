@@ -57,7 +57,7 @@ Il est recommandé d'activer cette stratégie de sécurité.</string>
       <string id="Logon">Durcissement du cache des sessions liées à un domaine</string>
       <string id="Logon_Explain">Activer cette stratégie modifie deux paramètres liés au stockage en cache des identifiants d'utilisateurs de domaine :
 
-- Réduction de la taille du cache d'identifiants sauvegardés (3 identifiants, défaut 10) en cas de non-disponiblité du contrôleur de domaine;
+- Réduction de la taille du cache d'identifiants sauvegardés (2 identifiants, défaut 10) en cas de non-disponiblité du contrôleur de domaine;
 - Le délai de conservation en mémoire vive des identifants d'une session déconnectée est réduit à 30 secondes;
 
 Ces paramètres permettent de réduire la durée d'exposition à un vol d'identifant par un outil tel que Mimikatz.

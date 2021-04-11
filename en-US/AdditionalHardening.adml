@@ -59,7 +59,7 @@ Keeping WDigest enabled could allow an attacker to retrieve plain-text passwords
       <string id="Logon">Domain credentials caching hardening</string>
       <string id="Logon_Explain">Enabling this policy modifiy two parameters related to how the local system handles domain-related credentials :
 
-- Reduce the caching count (3 cached credentials) of domain-related credentials for offline authentication if no domain controller is available
+- Reduce the caching count (2 cached credentials) of domain-related credentials for offline authentication if no domain controller is available
 - The delay before the credentials are cleared from memory after a logoff is set to 30 seconds.
 
 Those parameters reduce the exposure time of credentials to attack tools such as Mimikatz.
