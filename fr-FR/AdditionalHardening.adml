@@ -104,7 +104,26 @@ Par défaut, ces événements ne sont pas loggués. Activer cette option n'est r
       <string id="AdminShare_Wks_Explain">Les partages administratifs sont des partages créés par défaut à l'installation du système. Ils permettent notamment aux administrateurs d'accéder à distance aux périphériques disque en mode bloc, aux périphériques IPC et aux imprimantes réseau. Ces partages dépendant du service Station de Travail, ils ne sont plus accessibles si celui-ci à été désactivé.</string>
       <string id="AdminShare_Srv">Désactiver les partages administratifs sur serveurs</string>
       <string id="AdminShare_Srv_Explain">Les partages administratifs sont des partages créés par défaut à l'installation du système. Ils permettent notamment aux administrateurs d'accéder à distance aux périphériques disque en mode bloc, aux périphériques IPC et aux imprimantes réseau. Ces partages dépendant du service Serveur, ils ne sont plus accessibles si celui-ci à été désactivé.</string>
+      <string id="Pol_SecGuide_PrintDriver">Limiter l'installation des pilotes d'impression aux Administrateurs</string>
+      <string id="Pol_SecGuide_PrintDriver_Help">
+Détermine si les utilisateurs non privilégiés peuvent installer des pilotes d'impression.
 
+Par défaut, les utilisateurs standards ne peuvent pas installer de pilotes d'impression.
+
+Si vous activez ce paramètre, ou ne le configurez pas, le système limitera l'installation des pilotes d'impression aux Administrateurs.
+
+Si vous désactivez ce paramètre, les utilisateurs standards pourront installer des pilotes d'impression.
+
+Informations complémentaires : https://support.microsoft.com/fr-fr/topic/kb5005010-restricting-installation-of-new-printer-drivers-after-applying-the-july-6-2021-updates-31b91c02-05bc-4ada-a7ea-183b129578a7
+      </string>
+      <string id="CoInstallers">Bloquer l'installation des co-installeurs des pilotes matériels</string>
+      <string id="CoInstallers_Help">
+Un co-installeur est une librairie Win32 en espace utilisateur qui complète l'installation d'un driver en effectuant des tâches de configuration annexes (écriture Registre, installation d'application additionnelle, etc) non disponibles dans un fichier INF standard.
+
+Si vous activez ce paramètre, l'exécution des co-installeurs sera bloquée. Pour certains périphériques spécifiques (claviers paramétrables, cartes graphiques, etc), il sera nécessaire d'installer manuellement le logiciel de contrôle à partir du site du fabricant.
+
+Si vous désactivez ce paramètre, l'exécution es co-installeurs sera autorisée, ce qui pose un risque de sécurité important (exécution de code non maîtrisé sur le système).
+      </string>
       <!-- PROTOCOLS -->
       <!-- Multi-Protocol Unified Hello -->
       <string id="MPUH">Multi-Protocol Unified Hello</string>
