@@ -174,10 +174,12 @@ Changing this setting will require a restart of the computer before the setting 
 Changing this setting will require a restart of the computer before the setting will take effect.
       </string>
       <!-- TLSv1.3 -->
-      <string id="TLSv13">TLS 1.3 [EXPERIMENTAL - DO NOT ENABLE]</string>
+      <string id="TLSv13">TLS 1.3 [WARNING: READ DESCRIPTION]</string>
       <string id="TLSv13_Help">Enables or disables the use of TLS 1.3.  TLS 1.3 is without known security issues.
 
-This setting is only compatible on Windows 10 1903 and above and does not require a reboot to take effect.
+!! WARNING: This setting is only compatible with Windows 10 1903 and above. Enabling this setting on older OS versions will break SChannel, and you will need to manually remove the SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.3 key in the Registry to fix it.
+
+This setting does not require a reboot to take effect.
       </string>
       <!-- DTLSv1.0 -->
       <string id="DTLSv10">DTLS 1.0</string>
