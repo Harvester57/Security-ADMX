@@ -124,7 +124,7 @@
             key="SOFTWARE\Microsoft\Windows\CurrentVersion\Device Installer"
             valueName="DisableCoInstallers">
       <parentCategory ref="Hardening" />
-      <supportedOn ref="windows:SUPPORTED_Windows7" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
       <enabledValue>
         <decimal value="1" />
       </enabledValue>
@@ -320,7 +320,7 @@
             presentation="$(presentation.MicroarchHardening_Presentation)"
             key="SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management">
       <parentCategory ref="Hardening" />
-      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
       <elements>
         <enum id="MicroarchHardening_DropdownList"
               valueName="FeatureSettingsOverride"
