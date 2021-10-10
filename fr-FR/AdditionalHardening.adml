@@ -39,7 +39,9 @@
       <string id="MicroarchHardening_Option6">AMD et ARM : activer les durcissements contre Spectre v2</string>
       <string id="MicroarchHardening_Option7">Désactiver tous les durcissements</string>
       <string id="SEHOP">Activer la prévention des réécritures de SEH (SEHOP)</string>
-      <string id="SEHOP_Explain">SEHOP prévient certaines attaques par débordement de tampon en empêchant la réécriture des structures SEH.</string>
+      <string id="SEHOP_Explain">SEHOP prévient certaines attaques par débordement de tampon en empêchant la réécriture des structures SEH.
+
+Ce paramètre n'affecte que les versions 32 bits de Windows.</string>
       <string id="NLA">Activer l'Authentification de Niveau Réseau (NLA) pour les connexions RDP</string>
       <string id="NLA_Explain">Cette stratégie active le NLA avec le paramétrage suivant :
 

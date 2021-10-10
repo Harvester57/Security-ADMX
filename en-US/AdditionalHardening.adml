@@ -39,7 +39,9 @@
       <string id="MicroarchHardening_Option6">AMD and ARM: enable mitigations for Spectre v2</string>
       <string id="MicroarchHardening_Option7">Disable all mitigations</string>
       <string id="SEHOP">Enable Structured Exception Handling Overwrite Protection (SEHOP)</string>
-      <string id="SEHOP_Explain">SEHOP blocks exploits that use the Structured Exception Handling overwrite technique, a common buffer overflow attack.</string>
+      <string id="SEHOP_Explain">SEHOP blocks exploits that use the Structured Exception Handling overwrite technique, a common buffer overflow attack.
+      
+This parameter is only effective on 32 bits systems.</string>
       <string id="NLA">Enable Network Level Authentication (NLA) for RDP connections</string>
       <string id="NLA_Explain">This option enable the Network Level Authentication for RDP connections, with the following parameters:
 
