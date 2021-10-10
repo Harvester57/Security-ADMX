@@ -128,76 +128,76 @@ Si vous désactivez ce paramètre, l'exécution es co-installeurs sera autorisé
       <!-- PROTOCOLS -->
       <!-- Multi-Protocol Unified Hello -->
       <string id="MPUH">Multi-Protocol Unified Hello</string>
-      <string id="MPUH_Help">Active ou désactive l'usage de Multi-Protocol Unified Hello.  This protocol will never be used by Schannel SSP.
+      <string id="MPUH_Help">Active ou désactive l'usage de Multi-Protocol Unified Hello.  Ce protocole ne sera jamais utilisé par Schannel.
 
-Changing this setting will require a restart of the computer before the setting will take effect.
+Un redémarrage est nécessaire pour que la modification soit effective.
       </string>
       <!-- PCT 1.0 -->
       <string id="PCTv1">PCT 1.0</string>
-      <string id="PCTv1_Help">Active ou désactive l'usage de PCT 1.0.  This protocol will never be used by Schannel SSP.
+      <string id="PCTv1_Help">Active ou désactive l'usage de PCT 1.0.  Ce protocole ne sera jamais utilisé par Schannel.
 
-Changing this setting will require a restart of the computer before the setting will take effect.
+Un redémarrage est nécessaire pour que la modification soit effective.
       </string>
       <!-- SSLv2 -->
       <string id="SSLv2">SSL 2.0</string>
-      <string id="SSLv2_Help">Active ou désactive l'usage de SSL 2.0.  By default for Windows clients, SSL 2.0 is disabled.
+      <string id="SSLv2_Help">Active ou désactive l'usage de SSL 2.0.  Par défaut, SSL 2.0 est désactivé sur les clients Windows.
 
-Note that SSL 2.0 is insecure and must not be used.
+Ce protocole est aujourd'hui considéré comme obsolète, et ne devrait plus être utilisé. TLS 1.2 ou supérieur est recommandé en remplacement.
 
-Changing this setting will require a restart of the computer before the setting will take effect.
+Un redémarrage est nécessaire pour que la modification soit effective.
       </string>
       <!-- SSLv3 -->
       <string id="SSLv3">SSL 3.0</string>
       <string id="SSLv3_Help">Active ou désactive l'usage de SSL 3.0.
 
-SSL 3.0 is insecure when used with HTTP and weak when used with other protocols.  It is also obsolete.  TLS 1.2 or better should be used instead, if possible.
+Ce protocole est aujourd'hui considéré comme obsolète, et ne devrait plus être utilisé. TLS 1.2 ou supérieur est recommandé en remplacement.
 
-Changing this setting will require a restart of the computer before the setting will take effect.
+Un redémarrage est nécessaire pour que la modification soit effective.
       </string>
       <!-- TLSv1.0 -->
       <string id="TLSv10">TLS 1.0</string>
       <string id="TLSv10_Help">Active ou désactive l'usage de TLS 1.0.
 
-TLS 1.0 is largely still secure.  When used with HTTP, it can almost be made secure with careful configuration.  However, it may be required for backwards compatibility reasons.
+Ce protocole est aujourd'hui considéré comme obsolète, et ne devrait plus être utilisé. TLS 1.2 ou supérieur est recommandé en remplacement.
 
-Changing this setting will require a restart of the computer before the setting will take effect.
+Un redémarrage est nécessaire pour que la modification soit effective.
       </string>
       <!-- TLSv1.1 -->
       <string id="TLSv11">TLS 1.1</string>
       <string id="TLSv11_Help">Active ou désactive l'usage de TLS 1.1.
 
-Changing this setting will require a restart of the computer before the setting will take effect.
+Un redémarrage est nécessaire pour que la modification soit effective.
       </string>
       <!-- TLSv1.2 -->
       <string id="TLSv12">TLS 1.2</string>
-      <string id="TLSv12_Help">Active ou désactive l'usage de TLS 1.2.  TLS 1.2 is without known security issues.
+      <string id="TLSv12_Help">Active ou désactive l'usage de TLS 1.2.  TLS 1.2 ne présente pas de risques de sécurité connus.
 
-Changing this setting will require a restart of the computer before the setting will take effect.
+Un redémarrage est nécessaire pour que la modification soit effective.
       </string>
       <!-- TLSv1.3 -->
-      <string id="TLSv13">TLS 1.3 [WARNING: READ DESCRIPTION]</string>
-      <string id="TLSv13_Help">Active ou désactive l'usage de TLS 1.3.  TLS 1.3 is without known security issues.
+      <string id="TLSv13">TLS 1.3 [AVERTISSEMENT DANS LA DESCRIPTION]</string>
+      <string id="TLSv13_Help">Active ou désactive l'usage de TLS 1.3.  TLS 1.3 ne présente pas de risques de sécurité connus.
 
-!! WARNING: This setting is only compatible with Windows 10 1903 and above. Enabling this setting on older OS versions will break SChannel, and you will need to manually remove the SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.3 key in the Registry to fix it.
+!! AVERTISSEMENT : ce paramètre est uniquement compatible avec les versions de Windows 10 supérieures ou égales à la build 1903. Activer ce paramètre sur des versions plus anciennes rendra inutilisable Schannel, et vous devrez supprimer manuellement la clef de Registre SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.3 pour restaurer son fonctionnement nominal.
 
-This setting does not require a reboot to take effect.
+Ce paramètre ne nécessite pas de redémarrage pour prendre effet.
       </string>
       <!-- DTLSv1.0 -->
       <string id="DTLSv10">DTLS 1.0</string>
-      <string id="DTLSv10_Help">Active ou désactive l'usage de DTLS 1.0.  Windows 7 and Windows Server 2008 R2 and above.
+      <string id="DTLSv10_Help">Active ou désactive l'usage de DTLS 1.0.  Windows 7, Windows Server 2008 R2 et supérieur.
 
-Changing this setting will require a restart of the computer before the setting will take effect.
+Un redémarrage est nécessaire pour que la modification soit effective.
       </string>
       <!-- DTLSv1.2 -->
       <string id="DTLSv12">DTLS 1.2</string>
-      <string id="DTLSv12_Help">Active ou désactive l'usage de DTLS 1.2.  Windows 10 v1607 and above.
+      <string id="DTLSv12_Help">Active ou désactive l'usage de DTLS 1.2.  Windows 10 v1607 et supérieur.
 
-Changing this setting will require a restart of the computer before the setting will take effect.
+Un redémarrage est nécessaire pour que la modification soit effective.
       </string>
       <!-- WEAK CIPHERS -->
       <!-- NULL -->
       <string id="NULL">NULL</string>
-      <string id="NULL_Help">Active ou désactive l'usage de NULL encryption ciphers.  This is a weak cipher and should not be used.
+      <string id="NULL_Help">Active ou désactive l'usage de la suite de chiffrement NULL.  Cette suite de chiffrement est considérée comme obsolète, et ne devrait pas être utilisée.
 
 Changer ce paramètre activera ou désactivera la sélection des suites de chiffrement suivante :
 
@@ -206,7 +206,7 @@ TLS_RSA_WITH_NULL_SHA256
       </string>
       <!-- DES 56/56 -->
       <string id="DES_56">DES 56/56</string>
-      <string id="DES_56_Help">Active ou désactive l'usage de the DES 56/56.  This is a weak cipher and should not be used.
+      <string id="DES_56_Help">Active ou désactive l'usage de DES 56/56.  Cette suite de chiffrement est considérée comme obsolète, et ne devrait pas être utilisée.
 
 Changer ce paramètre activera ou désactivera la sélection des suites de chiffrement suivante :
 
@@ -215,7 +215,7 @@ TLS_RSA_WITH_DES_CBC_SHA
       </string>
       <!-- RC2 40/128 -->
       <string id="RC2_40">RC2 40/128</string>
-      <string id="RC2_40_Help">Active ou désactive l'usage de RC2 40/128.  Cette suite de chiffrement est obsolète, et devrait être désactivée.
+      <string id="RC2_40_Help">Active ou désactive l'usage de RC2 40/128.  Cette suite de chiffrement est considérée comme obsolète, et ne devrait pas être utilisée.
 
 Changer ce paramètre activera ou désactivera la sélection des suites de chiffrement suivante :
 
@@ -224,7 +224,7 @@ TLS_RSA_EXPORT_WITH_RC2_CBC_40_MD5
       </string>
       <!-- RC2 56/128 -->
       <string id="RC2_56">RC2 56/128</string>
-      <string id="RC2_56_Help">Active ou désactive l'usage de RC2 56/128.  Cette suite de chiffrement est obsolète, et devrait être désactivée.
+      <string id="RC2_56_Help">Active ou désactive l'usage de RC2 56/128.  Cette suite de chiffrement est considérée comme obsolète, et ne devrait pas être utilisée.
 
 Changer ce paramètre activera ou désactivera la sélection des suites de chiffrement suivante :
 
@@ -233,10 +233,10 @@ TLS_RSA_WITH_DES_CBC_SHA
       </string>
       <!-- RC2 128/128 -->
       <string id="RC2_128">RC2 128/128</string>
-      <string id="RC2_128_Help">Active ou désactive l'usage de RC2 128/128.  Cette suite de chiffrement est obsolète, et devrait être désactivée.</string>
+      <string id="RC2_128_Help">Active ou désactive l'usage de RC2 128/128.  Cette suite de chiffrement est considérée comme obsolète, et ne devrait pas être utilisée.</string>
       <!-- RC4 40/128 -->
       <string id="RC4_40">RC4 40/128</string>
-      <string id="RC4_40_Help">Active ou désactive l'usage de RC4 40/128.  Cette suite de chiffrement est obsolète, et devrait être désactivée.
+      <string id="RC4_40_Help">Active ou désactive l'usage de RC4 40/128.  Cette suite de chiffrement est considérée comme obsolète, et ne devrait pas être utilisée.
 
 Changer ce paramètre activera ou désactivera la sélection des suites de chiffrement suivante :
 
@@ -245,7 +245,7 @@ TLS_RSA_EXPORT_WITH_RC4_40_MD5
       </string>
       <!-- RC4 56/128 -->
       <string id="RC4_56">RC4 56/128</string>
-      <string id="RC4_56_Help">Active ou désactive l'usage de RC4 56/128.  Cette suite de chiffrement est obsolète, et devrait être désactivée.
+      <string id="RC4_56_Help">Active ou désactive l'usage de RC4 56/128.  Cette suite de chiffrement est considérée comme obsolète, et ne devrait pas être utilisée.
 
 Changer ce paramètre activera ou désactivera la sélection des suites de chiffrement suivante :
 
@@ -253,10 +253,10 @@ TLS_RSA_EXPORT1024_WITH_RC4_56_SHA
       </string>
       <!-- RC4 64/128 -->
       <string id="RC4_64">RC4 64/128</string>
-      <string id="RC4_64_Help">Active ou désactive l'usage de RC4 64/128.  Cette suite de chiffrement est obsolète, et devrait être désactivée.</string>
+      <string id="RC4_64_Help">Active ou désactive l'usage de RC4 64/128.  Cette suite de chiffrement est considérée comme obsolète, et ne devrait pas être utilisée.</string>
       <!-- RC4 128/128 -->
       <string id="RC4_128">RC4 128/128</string>
-      <string id="RC4_128_Help">Active ou désactive l'usage de RC4 128/128.  Cette suite de chiffrement est obsolète, et devrait être désactivée.
+      <string id="RC4_128_Help">Active ou désactive l'usage de RC4 128/128.  Cette suite de chiffrement est considérée comme obsolète, et ne devrait pas être utilisée.
 
 Changer ce paramètre activera ou désactivera la sélection des suites de chiffrement suivante :
 
@@ -278,7 +278,7 @@ TLS_RSA_WITH_3DES_EDE_CBC_SHA
       </string>
       <!-- AES 128/128 -->
       <string id="AES128">AES 128/128</string>
-      <string id="AES128_Help">Active ou désactive l'usage de AES 128/128.  Note that in order for Windows 2003 to support AES-128, hotfix KB948963 must be installed.
+      <string id="AES128_Help">Active ou désactive l'usage de AES 128/128.  Veuillez noter que le patch KB948963 est un pré-requis nécessaire sur les systèmes Windows Server 2003 pour supporter AES-128.
 
 Changer ce paramètre activera ou désactivera la sélection des suites de chiffrement suivante :
 
@@ -304,7 +304,7 @@ TLS_RSA_WITH_AES_128_CBC_SHA256
       </string>
       <!-- AES 256/256 -->
       <string id="AES256">AES 256/256</string>
-      <string id="AES256_Help">Active ou désactive l'usage de AES 256/256.  Note that in order for Windows 2003 to support AES-256, hotfix KB948963 must be installed.
+      <string id="AES256_Help">Active ou désactive l'usage de AES 256/256.  Veuillez noter que le patch KB948963 est un pré-requis nécessaire sur les systèmes Windows Server 2003 pour supporter AES-128.
 
 Changer ce paramètre activera ou désactivera la sélection des suites de chiffrement suivante :
 
@@ -329,7 +329,7 @@ TLS_RSA_WITH_AES_256_CBC_SHA256
       <!-- HASHING ALGORITHMS -->
       <!-- MD5 -->
       <string id="MD5">MD5</string>
-      <string id="MD5_Help">Active ou désactive l'usage de the MD5 hashing algorithm.
+      <string id="MD5_Help">Active ou désactive l'usage de l'algorithme de hashage MD5.
 
 Changer ce paramètre activera ou désactivera la sélection des suites de chiffrement suivante :
 
@@ -343,7 +343,7 @@ TLS_RSA_WITH_RC4_128_MD5
       </string>
       <!-- SHA -->
       <string id="SHA">SHA</string>
-      <string id="SHA_Help">Active ou désactive l'usage de the SHA hashing algorithm.
+      <string id="SHA_Help">Active ou désactive l'usage de l'algorithme de hashage SHA-1.
 
 Changer ce paramètre activera ou désactivera la sélection des suites de chiffrement suivante :
 
@@ -375,7 +375,7 @@ TLS_RSA_WITH_RC4_128_SHA
       </string>
       <!-- SHA-256 -->
       <string id="SHA256">SHA-256</string>
-      <string id="SHA256_Help">Active ou désactive l'usage de the SHA-256 hashing algorithm.
+      <string id="SHA256_Help">Active ou désactive l'usage de l'algorithme de hashage SHA-256.
 
 Changer ce paramètre activera ou désactivera la sélection des suites de chiffrement suivante :
 
@@ -396,7 +396,7 @@ TLS_RSA_WITH_NULL_SHA256
       </string>
       <!-- SHA-384 -->
       <string id="SHA384">SHA-384</string>
-      <string id="SHA384_Help">Active ou désactive l'usage de the SHA-384 hashing algorithm.
+      <string id="SHA384_Help">Active ou désactive l'usage de l'algorithme de hashage SHA-384.
 
 Changer ce paramètre activera ou désactivera la sélection des suites de chiffrement suivante :
 
@@ -410,11 +410,11 @@ TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P521
       </string>
       <!-- SHA-512 -->
       <string id="SHA512">SHA-512</string>
-      <string id="SHA512_Help">Active ou désactive l'usage de the SHA-512 hashing algorithm.</string>
+      <string id="SHA512_Help">Active ou désactive l'usage de l'algorithme de hashage SHA-512.</string>
       <!-- KEY EXCHANGE ALGORITHMS -->
       <!-- Diffie-Hellman -->
       <string id="DH">Diffie-Hellman</string>
-      <string id="DH_Help">Active ou désactive l'usage de the Diffie-Hellman key exchange algorithm.
+      <string id="DH_Help">Active ou désactive l'usage de l'algorithme d'échange de clefs Diffie-Hellman.
 
 Changer ce paramètre activera ou désactivera la sélection des suites de chiffrement suivante :
 
@@ -426,15 +426,15 @@ TLS_DHE_DSS_WITH_AES_256_CBC_SHA
 TLS_DHE_DSS_WITH_AES_256_CBC_SHA256
 TLS_DHE_DSS_WITH_DES_CBC_SHA
       </string>
-      <string id="DHServer">Diffie-Hellman Server-side Key Size</string>
-      <string id="DHServer_Help">Sets the minimum Diffie-Hellman ephemeral key size for TLS servers.
+      <string id="DHServer">Taille minimale de clef éphémère Diffie-Hellman (serveur)</string>
+      <string id="DHServer_Help">Défini la taille minimale de clef éphémère Diffie-Hellman utilisée par les serveurs lors de l'établissement d'une connexion TLS.
 
-Please see Microsoft Security Advisory 3174644 for more information on DH modulus length. 2048 is the currently recommended minimum value.
+Veuillez consulter le bulletin d'information de sécurité de Microsoft 3174644 pour plus d'informations sur les taille de clefs Diffie-Hellman. 2048 bits est la valeur minimale actuellement recommandée.
       </string>
-      <string id="DHClient">Diffie-Hellman Client-side Key Size</string>
-      <string id="DHClient_Help">Sets the minimum Diffie-Hellman ephemeral key size for TLS Client.
+      <string id="DHClient">Taille minimale de clef éphémère Diffie-Hellman (client)</string>
+      <string id="DHClient_Help">Défini la taille minimale de clef éphémère Diffie-Hellman utilisée par les clients lors de l'établissement d'une connexion TLS.
 
-Please see Microsoft Security Advisory 3174644 for more information on DH modulus length. 2048 is the currently recommended minimum value.
+Veuillez consulter le bulletin d'information de sécurité de Microsoft 3174644 pour plus d'informations sur les taille de clefs Diffie-Hellman. 2048 bits est la valeur minimale actuellement recommandée.
       </string>
       <string id="DH_Value1024">1024</string>
       <string id="DH_Value2048">2048</string>
@@ -442,11 +442,11 @@ Please see Microsoft Security Advisory 3174644 for more information on DH modulu
       <string id="DH_Value4096">4096</string>
       <!-- PKCS -->
       <string id="PKCS">PKCS</string>
-      <string id="PKCS_Help">Active ou désactive l'usage de the PKCS key exchange algorithm.</string>
-      <string id="PKCSClient">PKCS Client-side Key Size</string>
-      <string id="PKCSClient_Help">Sets the minimum PKCS ephemeral key size for TLS Client.
+      <string id="PKCS_Help">Active ou désactive l'usage de l'algorithme d'échange de clefs PKCS.</string>
+      <string id="PKCSClient">Taille minimale de clef PKCS (client)</string>
+      <string id="PKCSClient_Help">Défini la taille minimale de clef éphémère PKCS utilisée par les clients lors de l'établissement d'une connexion TLS.
 
-Please see Microsoft Security Advisory 3174644 or https://support.microsoft.com/en-us/help/3174644/microsoft-security-advisory-updated-support-for-diffie-hellman-key-exc for more information on PKCS modulus length. 2048 is the currently recommended minimum value.
+Veuillez consulter le bulletin d'information de sécurité de Microsoft 3174644 pour plus d'informations sur les taille de clefs PKCS. 2048 bits est la valeur minimale actuellement recommandée.
       </string>
       <string id="PKCS_Value1024">1024</string>
       <string id="PKCS_Value2048">2048</string>
@@ -454,7 +454,7 @@ Please see Microsoft Security Advisory 3174644 or https://support.microsoft.com/
       <string id="PKCS_Value4096">4096</string>
       <!-- ECDH -->
       <string id="ECDH">ECDH</string>
-      <string id="ECDH_Help">Active ou désactive l'utilisation de courbes elliptiques pour l'échange de clefs basé sur Diffie-Hellmann.
+      <string id="ECDH_Help">Active ou désactive le support des courbes elliptiques pour l'échange de clefs basé sur Diffie-Hellmann.
 
 Changer ce paramètre activera ou désactivera la sélection des suites de chiffrement suivante :
 
@@ -548,9 +548,9 @@ Si ce paramètre n'est pas configuré ou est désactivé, TLS 1.1 et 1.2 sont d�
       <!-- PROTOCOLS -->
       <presentation id="MPUH">
         <checkBox refId="MPUH_ClientCheckbox"
-                  defaultChecked="false">Activer le Multi-Protocol Unified Hello (i.e. Internet Explorer) côté client</checkBox>
+                  defaultChecked="false">Activer le protocole Multi-Protocol Unified Hello côté client</checkBox>
         <checkBox refId="MPUH_ServerCheckbox"
-                  defaultChecked="false">Activer le Multi-Protocol Unified Hello (i.e. IIS) côté serveur</checkBox>
+                  defaultChecked="false">Activer le protocole Multi-Protocol Unified Hello côté serveur</checkBox>
       </presentation>
       <presentation id="PCTv1">
         <checkBox refId="PCTv1_ClientCheckbox"
@@ -590,9 +590,9 @@ Si ce paramètre n'est pas configuré ou est désactivé, TLS 1.1 et 1.2 sont d�
       </presentation>
       <presentation id="TLSv13">
         <checkBox refId="TLSv13_ClientCheckbox"
-                  defaultChecked="true">Enable Client-side TLS 1.3 (eg., Edge)</checkBox>
+                  defaultChecked="true">Activer le support de TLS 1.3 côté client</checkBox>
         <checkBox refId="TLSv13_ServerCheckbox"
-                  defaultChecked="true">Enable Server-side TLS 1.3 (eg., IIS)</checkBox>
+                  defaultChecked="true">Activer le support de TLS 1.3 côté serveur</checkBox>
       </presentation>
       <presentation id="DTLSv10">
         <checkBox refId="DTLSv10_ClientCheckbox"
