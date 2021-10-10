@@ -104,8 +104,7 @@ If disabled, this policy disable Kerberos-related events logging (this is the de
       <string id="AdminShare_Srv">Disable administrative shares for servers</string>
       <string id="AdminShare_Srv_Explain">Not recommended, except for highly secure environments.</string>
       <string id="Pol_SecGuide_PrintDriver">Limits print driver installation to Administrators</string>
-      <string id="Pol_SecGuide_PrintDriver_Help">
-Determines whether users that aren't Administrator can install print drivers on this computer.
+      <string id="Pol_SecGuide_PrintDriver_Help">Determines whether users that aren't Administrator can install print drivers on this computer.
 
 By default, users that aren't Administrators can't install print drivers on this computer.
 

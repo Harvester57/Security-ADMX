@@ -107,8 +107,7 @@ Par défaut, ces événements ne sont pas loggués. Activer cette option n'est r
       <string id="AdminShare_Srv">Désactiver les partages administratifs sur serveurs</string>
       <string id="AdminShare_Srv_Explain">Les partages administratifs sont des partages créés par défaut à l'installation du système. Ils permettent notamment aux administrateurs d'accéder à distance aux périphériques disque en mode bloc, aux périphériques IPC et aux imprimantes réseau. Ces partages dépendant du service Serveur, ils ne sont plus accessibles si celui-ci à été désactivé.</string>
       <string id="Pol_SecGuide_PrintDriver">Limiter l'installation des pilotes d'impression aux Administrateurs</string>
-      <string id="Pol_SecGuide_PrintDriver_Help">
-Détermine si les utilisateurs non privilégiés peuvent installer des pilotes d'impression.
+      <string id="Pol_SecGuide_PrintDriver_Help">Détermine si les utilisateurs non privilégiés peuvent installer des pilotes d'impression.
 
 Par défaut, les utilisateurs standards ne peuvent pas installer de pilotes d'impression.
 
