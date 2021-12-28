@@ -80,9 +80,12 @@ This modification is necessary to fully fix an ASLR bypass vulnerability (CVE-20
 
 This modification is necessary to fully fix an information disclosure vulnerability in Microsoft browsers (CVE-2017-8529). For more informations, refer to the related security update guide (https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2017-8529).</string>
       <string id="MSCHAPv2_Iteration">Number of PBKDF2 iterations for cached logons credentials hashing</string>
-      <string id="MSCHAPv2_Iteration_Explain">For domains logons, if credentials cahcing is enabled, credentials are stored as MSCHAPv2 hashes. The number of iterations for the hashing operations can be controlled with this parameter.
+      <string id="MSCHAPv2_Iteration_Explain">For domains logons, if credentials caching is enabled, credentials are stored as MSCHAPv2 hashes. The number of iterations for the PBKDF2-SHA1 algorithm used for hashing operations can be controlled with this parameter, with the following logic:
+
+- For a value inferior or equal to 10240, the setting acts as a 1024-mutiplier (for example, setting it to 20 will result in 20480 iterations).
+- For a value superior to 10240, the setting acts as a raw value (modulo 1024).
       
-Recommended value: 65536 or above.</string>
+The recommended value depends on the target environment, the CPU power available and the performance hit you are willing to tolerate (a high value can incur a net performance penalty for the logon process).</string>
       <string id="PSLockDownPolicy">Enable PowerShell Constrained Language Mode</string>
       <string id="PSLockDownPolicy_Explain">Enable the Constrained Language Mode for Powershell. This mode disallow several language elements that can be leveraged by attackers to perform sensitive APIs calls.</string>
       <string id="Schannel_Category">Schannel</string>

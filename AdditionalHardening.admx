@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--  
   Author: Florian Stosse <florian.stosse@safrangroup.com>
-  Version: 1.0.14
-  Date: 10/10/2021
+  Version: 1.0.15
+  Date: 28/12/2021
   -->
 <policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -204,8 +204,8 @@
       <elements>
         <decimal id="MSCHAPv2_Iteration_count"
                  valueName="NL$IterationCount"
-                 minValue="65536"
-                 maxValue="200000" />
+                 minValue="1"
+                 maxValue="200000000" />
       </elements>
     </policy>
     <policy name="Pol_MSS_DisableIPSourceRouting"
