@@ -10,7 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Fixed
 ### Removed
 
-## [v1.0.16] - 2021-12-xx
+## [v1.0.16] - 2021-12-30
 
 ### Added
 - N/A
