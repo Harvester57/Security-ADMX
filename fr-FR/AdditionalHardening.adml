@@ -523,7 +523,7 @@ Si ce paramètre n'est pas configuré ou est désactivé, TLS 1.1 et 1.2 sont d�
       </presentation>
       <presentation id="MSCHAPv2_Iteration">
         <decimalTextBox refId="MSCHAPv2_Iteration_count"
-                        defaultValue="65536">Nombre d'itérations MSCHAPv2 :</decimalTextBox>
+                        defaultValue="1024">Nombre d'itérations MSCHAPv2 :</decimalTextBox>
       </presentation>
       <presentation id="DisableIPSourceRouting">
         <dropdownList refId="DisableIPSourceRouting"

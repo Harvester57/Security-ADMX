@@ -518,7 +518,7 @@ If this setting is left unconfigured, TLS 1.1 and TLS 1.2 will be disabled by de
       </presentation>
       <presentation id="MSCHAPv2_Iteration">
         <decimalTextBox refId="MSCHAPv2_Iteration_count"
-                        defaultValue="65536">Number of PBKDF2 rounds:</decimalTextBox>
+                        defaultValue="1024">Number of PBKDF2 rounds:</decimalTextBox>
       </presentation>
       <presentation id="DisableIPSourceRouting">
         <dropdownList refId="DisableIPSourceRouting"
