@@ -19,7 +19,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Changed the default value for the MSCHAPv2 hashing algorithm required rounds to 1 048 576 (`NL$IterationCount = 1024`)
 
 ### Fixed
-- N/A
+- Fixed a typo in fr-FR
 
 ### Removed
 * N/A

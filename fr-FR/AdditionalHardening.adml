@@ -87,7 +87,7 @@ Désactiver cette stratégie positionne la valeur de registre à 0.</string>
 - Pour une valeur inférieure ou égale à 10240, le nombre d'itérations est mutiplié par 1024 (par exemple, une valeur de 20 donne 20480 itérations).
 - Pour une valeur supérieure à 1024,  il s’agit du nombre d’itérations (arrondi à 1024).
 
-La valeur recommandée dépend de votre environnement et de la puissance CPU disponible, un grand nombre d'itérations pouvant engendrer un ralentissement important du processus de conexxion au système.</string>
+La valeur recommandée dépend de votre environnement et de la puissance CPU disponible, un grand nombre d'itérations pouvant engendrer un ralentissement important du processus de connexion au système.</string>
       <string id="PSLockDownPolicy">Activer le mode Contraint du langage PowerShell</string>
       <string id="PSLockDownPolicy_Explain">Le langage PowerShell, depuis la version 5, peut s'exécuter en plusieurs modes, configurables au moyen de la variable d'environnement __PSLockdownPolicy. Cette variable permet de contraindre le langage en limitant les actions faisables avec le langage, et notamment en restreignant les usages inconsidérés des API Win32.</string>
       <string id="Schannel_Category">Schannel</string>
