@@ -22,7 +22,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Fixed a typo in fr-FR
 
 ### Removed
-* N/A
+-  Remove support for Diffie-Hellman and PKCS 1024 bit modulus
 
 ## [v1.0.15] - 2021-12-28
 
@@ -36,4 +36,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - N/A
 
 ### Removed
-* N/A
+- N/A

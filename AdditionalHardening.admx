@@ -1595,11 +1595,6 @@
       <elements>
         <enum id="DHServer_MinLength"
               valueName="ServerMinKeyBitLength">
-          <item displayName="$(string.DH_Value1024)">
-            <value>
-              <decimal value="1024" />
-            </value>
-          </item>
           <item displayName="$(string.DH_Value2048)">
             <value>
               <decimal value="2048" />
@@ -1629,11 +1624,6 @@
       <elements>
         <enum id="DHClient_MinLength"
               valueName="ClientMinKeyBitLength">
-          <item displayName="$(string.DH_Value1024)">
-            <value>
-              <decimal value="1024" />
-            </value>
-          </item>
           <item displayName="$(string.DH_Value2048)">
             <value>
               <decimal value="2048" />
@@ -1679,11 +1669,6 @@
       <elements>
         <enum id="PKCSClient_MinLength"
               valueName="ClientMinKeyBitLength">
-          <item displayName="$(string.PKCS_Value1024)">
-            <value>
-              <decimal value="1024" />
-            </value>
-          </item>
           <item displayName="$(string.PKCS_Value2048)">
             <value>
               <decimal value="2048" />

@@ -436,7 +436,6 @@ Please see Microsoft Security Advisory 3174644 for more information on DH modulu
 
 Please see Microsoft Security Advisory 3174644 for more information on DH modulus length. 2048 is the currently recommended minimum value.
       </string>
-      <string id="DH_Value1024">1024</string>
       <string id="DH_Value2048">2048</string>
       <string id="DH_Value3072">3072</string>
       <string id="DH_Value4096">4096</string>
@@ -448,7 +447,6 @@ Please see Microsoft Security Advisory 3174644 for more information on DH modulu
 
 Please see Microsoft Security Advisory 3174644 or https://support.microsoft.com/en-us/help/3174644/microsoft-security-advisory-updated-support-for-diffie-hellman-key-exc for more information on PKCS modulus length. 2048 is the currently recommended minimum value.
       </string>
-      <string id="PKCS_Value1024">1024</string>
       <string id="PKCS_Value2048">2048</string>
       <string id="PKCS_Value3072">3072</string>
       <string id="PKCS_Value4096">4096</string>

@@ -441,7 +441,6 @@ Veuillez consulter le bulletin d'information de sécurité de Microsoft 3174644 
 
 Veuillez consulter le bulletin d'information de sécurité de Microsoft 3174644 pour plus d'informations sur les taille de clefs Diffie-Hellman. 2048 bits est la valeur minimale actuellement recommandée.
       </string>
-      <string id="DH_Value1024">1024</string>
       <string id="DH_Value2048">2048</string>
       <string id="DH_Value3072">3072</string>
       <string id="DH_Value4096">4096</string>
@@ -453,7 +452,6 @@ Veuillez consulter le bulletin d'information de sécurité de Microsoft 3174644 
 
 Veuillez consulter le bulletin d'information de sécurité de Microsoft 3174644 pour plus d'informations sur les taille de clefs PKCS. 2048 bits est la valeur minimale actuellement recommandée.
       </string>
-      <string id="PKCS_Value1024">1024</string>
       <string id="PKCS_Value2048">2048</string>
       <string id="PKCS_Value3072">3072</string>
       <string id="PKCS_Value4096">4096</string>
@@ -509,12 +507,12 @@ Si ce paramètre n'est pas configuré ou est désactivé, TLS 1.1 et 1.2 sont d�
       <presentation id="DiffieHelmannClientMinKeyBitLength_Presentation">
         <dropdownList refId="DiffieHelmannClientMinKeyBitLength_DropdownList"
                       noSort="true"
-                      defaultItem="1">Sélectionner une option :</dropdownList>
+                      defaultItem="0">Sélectionner une option :</dropdownList>
       </presentation>
       <presentation id="DiffieHelmannServerMinKeyBitLength_Presentation">
         <dropdownList refId="DiffieHelmannServerMinKeyBitLength_DropdownList"
                       noSort="true"
-                      defaultItem="1">Sélectionner une option :</dropdownList>
+                      defaultItem="0">Sélectionner une option :</dropdownList>
       </presentation>
       <presentation id="RSAClientMinKeyBitLength_Presentation">
         <dropdownList refId="RSAClientMinKeyBitLength_DropdownList"
