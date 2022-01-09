@@ -27,6 +27,8 @@
       <string id="DisableSMB1_Explain">Disable SMB 1.0 support (client and server)</string>
       <string id="LSA_RunAsPPL">Enable additional LSA process hardening</string>
       <string id="LSA_RunAsPPL_Explain">Enable this option to allow the LSA process to run as a PPL (Protected Process Light), in order to disallow its debugging.</string>
+      <string id="AuthenticodeCertVerification">Enable the strict Authenticode signature verification mechanism</string>
+      <string id="AuthenticodeCertVerification_Explain">The strict Authenticode signature verification mechanism disallow to add extraneous information in the WIN_CERTIFICATE structure.</string>
       <string id="LoadAppInit_DLLs">Allow custom DLL loading list for application processes</string>
       <string id="LoadAppInit_DLLs_Explain">The list is located in the registry key HKLM:\Software\Microsoft\Windows NT\CurrentVersion\WindowsAppInit_DLLs</string>
       <string id="MicroarchHardening">Enable Spectre and Meltdown mitigations</string>

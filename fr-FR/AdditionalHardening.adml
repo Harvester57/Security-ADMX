@@ -27,6 +27,8 @@
       <string id="DisableSMB1_Explain">Activer cette stratégie désactivera le support de SMB 1.0 (client et serveur)</string>
       <string id="LSA_RunAsPPL">Activer le durcissement additionnel du processus LSA</string>
       <string id="LSA_RunAsPPL_Explain">Activer cette stratégie pour permettre au processus LSA de se lancer en tant que PPL (Protected Process Light), interdisant son débuggage.</string>
+      <string id="AuthenticodeCertVerification">Activer la vérification stricte des signatures Authenticode</string>
+      <string id="AuthenticodeCertVerification_Explain">Le support strict des signatures Authenticode empêche l'ajout de données supplémentaires dans la structure de données WIN_CERTIFICATE.</string>
       <string id="LoadAppInit_DLLs">Autoriser le chargement d'une liste de DLL au démarrage de tout processus</string>
       <string id="LoadAppInit_DLLs_Explain">Permet d'autoriser le chargement d'une liste de DLL au démarrage de tout processus. Cette liste se trouve dans la clé HKLM:\Software\Microsoft\Windows NT\CurrentVersion\WindowsAppInit_DLLs.</string>
       <string id="MicroarchHardening">Activer les durcissements contre Spectre et Meltdown</string>
