@@ -27,6 +27,12 @@
       <string id="DisableSMB1_Explain">Disable SMB 1.0 support (client and server)</string>
       <string id="LSA_RunAsPPL">Enable additional LSA process hardening</string>
       <string id="LSA_RunAsPPL_Explain">Enable this option to allow the LSA process to run as a PPL (Protected Process Light), in order to disallow its debugging.</string>
+      <string id="SafeBootUserAccess">Disable standard users in Safe-Boot mode</string>
+      <string id="SafeBootUserAccess_Explain">An adversary with standard user credentials that can boot into Microsoft Windows using Safe Mode, Safe Mode with Networking or Safe Mode with Command Prompt options may be able to bypass system protections and security functionalities. To reduce this risk, users with standard credentials should be prevented from using Safe Mode options to log in.
+
+Enabling this policy will prevent standard users to open a session in Safe Mode.
+
+Disabling this policy will allow standard users to open a session in Safe Mode.</string>
       <string id="AuthenticodeCertVerification">Enable the strict Authenticode signature verification mechanism</string>
       <string id="AuthenticodeCertVerification_Explain">The strict Authenticode signature verification mechanism disallow to add extraneous information in the WIN_CERTIFICATE structure.</string>
       <string id="LoadAppInit_DLLs">Allow custom DLL loading list for application processes</string>

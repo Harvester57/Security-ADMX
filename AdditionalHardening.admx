@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--  
   Author: Florian Stosse <florian.stosse@safrangroup.com>
-  Version: 1.0.17
-  Date: 09/01/2021
+  Version: 1.0.18
+  Date: 2022-02-07
   -->
 <policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -182,6 +182,22 @@
           </value>
         </item>
       </disabledList>
+    </policy>
+    <!-- Disable standard user in safe-boot mode -->
+    <policy name="SafeBootUserAccess"
+            class="Machine"
+            displayName="$(string.SafeBootUserAccess)"
+            explainText="$(string.SafeBootUserAccess_Explain)"
+            key="SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
+            valueName="SafeModeBlockNonAdmins">
+      <parentCategory ref="Hardening" />
+      <supportedOn ref="windows:SUPPORTED_Windows_6_3" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
     </policy>
     <policy name="LSA_RunAsPPL"
             class="Machine"

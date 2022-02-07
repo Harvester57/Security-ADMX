@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v1.0.18] - 2022-02-07
+
+### Added
+- "Disable standard user in safe boot mode" policy (https://github.com/Harvester57/Security-ADMX/issues/5)
+
 ## [v1.0.17] - 2021-01-09
 
 ### Added
