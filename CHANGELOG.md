@@ -3,6 +3,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v1.0.19] - 2022-05-23
+
+### Added
+- New policy to enable/disable kCET support on 21H2+ systems
+  - Thanks to Yarden Shafir (@yarden_shafir) and Connor McGarr (@33y0re)
+  - Cf. https://connormcgarr.github.io/hvci/ (#Conclusion)
+
 ## [v1.0.18] - 2022-02-07
 
 ### Added

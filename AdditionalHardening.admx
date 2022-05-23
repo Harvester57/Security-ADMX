@@ -1,129 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--  
   Author: Florian Stosse <florian.stosse@safrangroup.com>
-  Version: 1.0.18
-  Date: 2022-02-07
+  Version: 1.0.19
+  Date: 2022-05-23
   -->
 <policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                   revision="1.0"
-                   schemaVersion="1.0"
-                   xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0"
+  xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
   <policyNamespaces>
-    <target prefix="AddHard"
-            namespace="AddHard.Policies.AddHard" />
-    <using prefix="windows"
-           namespace="Microsoft.Policies.Windows" />
+    <target prefix="AddHard" namespace="AddHard.Policies.AddHard" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
   </policyNamespaces>
   <resources minRequiredRevision="1.0" />
   <categories>
     <!-- Main category -->
-    <category name="Cat_AddHard"
-              displayName="$(string.Cat_AddHard)" />
+    <category name="Cat_AddHard" displayName="$(string.Cat_AddHard)" />
     <!-- Subcategories -->
-    <category name="Network"
-              displayName="$(string.Network)">
+    <category name="Network" displayName="$(string.Network)">
       <parentCategory ref="Cat_AddHard" />
     </category>
-    <category name="Hardening"
-              displayName="$(string.Hardening)">
+    <category name="System" displayName="$(string.System)">
       <parentCategory ref="Cat_AddHard" />
     </category>
     <!-- Subsubcategories -->
-    <category name="Schannel"
-              displayName="$(string.Schannel)">
+    <category name="Schannel" displayName="$(string.Schannel)">
       <parentCategory ref="Network" />
     </category>
-    <category name="SMB"
-              displayName="$(string.SMB)">
+    <category name="SMB" displayName="$(string.SMB)">
       <parentCategory ref="Network" />
     </category>
-    <category name="NETFrame"
-              displayName="$(string.Net)">
+    <category name="NETFrame" displayName="$(string.Net)">
       <parentCategory ref="Network" />
     </category>
-    <category name="Protocols"
-              displayName="$(string.Protocols)">
+    <category name="Protocols" displayName="$(string.Protocols)">
       <parentCategory ref="Schannel" />
     </category>
-    <category name="WeakProtocols"
-              displayName="$(string.WeakProtocols)">
+    <category name="WeakProtocols" displayName="$(string.WeakProtocols)">
       <parentCategory ref="Protocols" />
     </category>
-    <category name="Ciphers"
-              displayName="$(string.Ciphers)">
+    <category name="Ciphers" displayName="$(string.Ciphers)">
       <parentCategory ref="Schannel" />
     </category>
-    <category name="WeakCiphers"
-              displayName="$(string.WeakCiphers)">
+    <category name="WeakCiphers" displayName="$(string.WeakCiphers)">
       <parentCategory ref="Ciphers" />
     </category>
-    <category name="Hashes"
-              displayName="$(string.Hashes)">
+    <category name="Hashes" displayName="$(string.Hashes)">
       <parentCategory ref="Schannel" />
     </category>
-    <category name="WeakHashes"
-              displayName="$(string.WeakHashes)">
+    <category name="WeakHashes" displayName="$(string.WeakHashes)">
       <parentCategory ref="Hashes" />
     </category>
-    <category name="KeyEx"
-              displayName="$(string.KeyEx)">
+    <category name="KeyEx" displayName="$(string.KeyEx)">
       <parentCategory ref="Schannel" />
     </category>
-    <category name="WeakKeyEx"
-              displayName="$(string.WeakKeyEx)">
+    <category name="WeakKeyEx" displayName="$(string.WeakKeyEx)">
       <parentCategory ref="KeyEx" />
     </category>
   </categories>
   <policies>
-    <!-- SMB section -->
-    <policy name="DisableSMB1"
-            class="Machine"
-            displayName="$(string.DisableSMB1)"
-            explainText="$(string.DisableSMB1_Explain)"
-            key="SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters">
-      <parentCategory ref="SMB" />
-      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
-      <enabledList defaultKey="SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters">
-        <item key="SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters"
-              valueName="SMB1">
-          <value>
-            <decimal value="0" />
-          </value>
-        </item>
-        <item key="SYSTEM\CurrentControlSet\services\mrxsmb10"
-              valueName="Start">
-          <value>
-            <decimal value="4" />
-          </value>
-        </item>
-      </enabledList>
-    </policy>
-    <!-- Schannel section -->
-    <policy name="Schannel_Logging"
-            class="Machine"
-            displayName="$(string.SchannelLogging)"
-            explainText="$(string.SchannelLogging_Explain)"
-            key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL"
-            valueName="EventLogging">
-      <parentCategory ref="Schannel" />
-      <supportedOn ref="windows:SUPPORTED_Windows7" />
-      <enabledValue>
-        <decimal value="7" />
-      </enabledValue>
-      <disabledValue>
-        <decimal value="1" />
-      </disabledValue>
-    </policy>
     <!-- Hardening section -->
     <!-- Disable co-installer applications-->
-    <policy name="CoInstallers"
-            class="Machine"
-            displayName="$(string.CoInstallers)"
-            explainText="$(string.CoInstallers_Help)"
-            key="SOFTWARE\Microsoft\Windows\CurrentVersion\Device Installer"
-            valueName="DisableCoInstallers">
-      <parentCategory ref="Hardening" />
+    <policy name="CoInstallers" class="Machine" displayName="$(string.CoInstallers)" explainText="$(string.CoInstallers_Help)" key="SOFTWARE\Microsoft\Windows\CurrentVersion\Device Installer" valueName="DisableCoInstallers">
+      <parentCategory ref="System" />
       <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
       <enabledValue>
         <decimal value="1" />
@@ -133,13 +71,8 @@
       </disabledValue>
     </policy>
     <!-- Configure Print Driver Restriction -->
-    <policy name="Pol_SecGuide_0721_Print_Driver"
-            class="Machine"
-            displayName="$(string.Pol_SecGuide_PrintDriver)"
-            explainText="$(string.Pol_SecGuide_PrintDriver_Help)"
-            key="Software\Policies\Microsoft\Windows NT\Printers\PointAndPrint"
-            valueName="RestrictDriverInstallationToAdministrators">
-      <parentCategory ref="Hardening" />
+    <policy name="Pol_SecGuide_0721_Print_Driver" class="Machine" displayName="$(string.Pol_SecGuide_PrintDriver)" explainText="$(string.Pol_SecGuide_PrintDriver_Help)" key="Software\Policies\Microsoft\Windows NT\Printers\PointAndPrint" valueName="RestrictDriverInstallationToAdministrators">
+      <parentCategory ref="System" />
       <supportedOn ref="windows:SUPPORTED_Windows7" />
       <enabledValue>
         <decimal value="1" />
@@ -149,12 +82,8 @@
       </disabledValue>
     </policy>
     <!-- Strict Authenticode signatures verification -->
-    <policy name="AuthenticodeCertVerification"
-            class="Machine"
-            displayName="$(string.AuthenticodeCertVerification)"
-            explainText="$(string.AuthenticodeCertVerification_Explain)"
-            key="Software\Microsoft\Cryptography\Wintrust\Config">
-      <parentCategory ref="Hardening" />
+    <policy name="AuthenticodeCertVerification" class="Machine" displayName="$(string.AuthenticodeCertVerification)" explainText="$(string.AuthenticodeCertVerification_Explain)" key="Software\Microsoft\Cryptography\Wintrust\Config">
+      <parentCategory ref="System" />
       <supportedOn ref="windows:SUPPORTED_Windows_6_3" />
       <enabledList defaultKey="Software\Microsoft\Cryptography\Wintrust\Config">
         <item valueName="EnableCertPaddingCheck">
@@ -162,8 +91,7 @@
             <decimal value="1" />
           </value>
         </item>
-        <item key="Software\Wow6432Node\Microsoft\Cryptography\Wintrust\Config"
-              valueName="EnableCertPaddingCheck">
+        <item key="Software\Wow6432Node\Microsoft\Cryptography\Wintrust\Config" valueName="EnableCertPaddingCheck">
           <value>
             <decimal value="1" />
           </value>
@@ -175,8 +103,7 @@
             <delete />
           </value>
         </item>
-        <item key="Software\Wow6432Node\Microsoft\Cryptography\Wintrust\Config"
-              valueName="EnableCertPaddingCheck">
+        <item key="Software\Wow6432Node\Microsoft\Cryptography\Wintrust\Config" valueName="EnableCertPaddingCheck">
           <value>
             <delete />
           </value>
@@ -184,13 +111,8 @@
       </disabledList>
     </policy>
     <!-- Disable standard user in safe-boot mode -->
-    <policy name="SafeBootUserAccess"
-            class="Machine"
-            displayName="$(string.SafeBootUserAccess)"
-            explainText="$(string.SafeBootUserAccess_Explain)"
-            key="SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
-            valueName="SafeModeBlockNonAdmins">
-      <parentCategory ref="Hardening" />
+    <policy name="SafeBootUserAccess" class="Machine" displayName="$(string.SafeBootUserAccess)" explainText="$(string.SafeBootUserAccess_Explain)" key="SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" valueName="SafeModeBlockNonAdmins">
+      <parentCategory ref="System" />
       <supportedOn ref="windows:SUPPORTED_Windows_6_3" />
       <enabledValue>
         <decimal value="1" />
@@ -199,13 +121,9 @@
         <decimal value="0" />
       </disabledValue>
     </policy>
-    <policy name="LSA_RunAsPPL"
-            class="Machine"
-            displayName="$(string.LSA_RunAsPPL)"
-            explainText="$(string.LSA_RunAsPPL_Explain)"
-            key="SYSTEM\CurrentControlSet\Control\Lsa"
-            valueName="RunAsPPL">
-      <parentCategory ref="Hardening" />
+    <!-- Run LSA process as a PPL -->
+    <policy name="LSA_RunAsPPL" class="Machine" displayName="$(string.LSA_RunAsPPL)" explainText="$(string.LSA_RunAsPPL_Explain)" key="SYSTEM\CurrentControlSet\Control\Lsa" valueName="RunAsPPL">
+      <parentCategory ref="System" />
       <supportedOn ref="windows:SUPPORTED_Windows_6_3" />
       <enabledValue>
         <decimal value="1" />
@@ -214,13 +132,9 @@
         <decimal value="0" />
       </disabledValue>
     </policy>
-    <policy name="PSLockDownPolicy"
-            class="Machine"
-            displayName="$(string.PSLockDownPolicy)"
-            explainText="$(string.PSLockDownPolicy_Explain)"
-            key="SYSTEM\CurrentControlSet\Control\Session Manager\Environment"
-            valueName="__PSLockdownPolicy">
-      <parentCategory ref="Hardening" />
+    <!-- PowerShell Constrained Language Mode -->
+    <policy name="PSLockDownPolicy" class="Machine" displayName="$(string.PSLockDownPolicy)" explainText="$(string.PSLockDownPolicy_Explain)" key="SYSTEM\CurrentControlSet\Control\Session Manager\Environment" valueName="__PSLockdownPolicy">
+      <parentCategory ref="System" />
       <supportedOn ref="windows:SUPPORTED_Windows_6_3" />
       <enabledValue>
         <string>4</string>
@@ -229,13 +143,8 @@
         <string>0</string>
       </disabledValue>
     </policy>
-    <policy name="LoadAppInit_DLLs"
-            class="Machine"
-            displayName="$(string.LoadAppInit_DLLs)"
-            explainText="$(string.LoadAppInit_DLLs_Explain)"
-            key="Software\Microsoft\Windows NT\CurrentVersion\Windows"
-            valueName="LoadAppInit_DLLs">
-      <parentCategory ref="Hardening" />
+    <policy name="LoadAppInit_DLLs" class="Machine" displayName="$(string.LoadAppInit_DLLs)" explainText="$(string.LoadAppInit_DLLs_Explain)" key="Software\Microsoft\Windows NT\CurrentVersion\Windows" valueName="LoadAppInit_DLLs">
+      <parentCategory ref="System" />
       <supportedOn ref="windows:SUPPORTED_Windows7" />
       <enabledValue>
         <decimal value="1" />
@@ -244,103 +153,15 @@
         <decimal value="0" />
       </disabledValue>
     </policy>
-    <policy name="MSCHAPv2_Iteration"
-            class="Machine"
-            displayName="$(string.MSCHAPv2_Iteration)"
-            explainText="$(string.MSCHAPv2_Iteration_Explain)"
-            presentation="$(presentation.MSCHAPv2_Iteration)"
-            key="SECURITY\Cache">
-      <parentCategory ref="Hardening" />
+    <policy name="MSCHAPv2_Iteration" class="Machine" displayName="$(string.MSCHAPv2_Iteration)" explainText="$(string.MSCHAPv2_Iteration_Explain)" presentation="$(presentation.MSCHAPv2_Iteration)" key="SECURITY\Cache">
+      <parentCategory ref="System" />
       <supportedOn ref="windows:SUPPORTED_Windows7" />
       <elements>
-        <decimal id="MSCHAPv2_Iteration_count"
-                 valueName="NL$IterationCount"
-                 minValue="1"
-                 maxValue="200000000" />
+        <decimal id="MSCHAPv2_Iteration_count" valueName="NL$IterationCount" minValue="1" maxValue="200000000" />
       </elements>
     </policy>
-    <policy name="Pol_MSS_DisableIPSourceRouting"
-            class="Machine"
-            displayName="$(string.DisableIPSourceRouting)"
-            explainText="$(string.DisableIPSourceRouting_Help)"
-            presentation="$(presentation.DisableIPSourceRouting)"
-            key="System\CurrentControlSet\Services\Tcpip\Parameters">
-      <parentCategory ref="Network" />
-      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
-      <elements>
-        <enum id="DisableIPSourceRouting"
-              valueName="DisableIPSourceRouting"
-              required="true">
-          <item displayName="$(string.DisableIPSourceRouting0)">
-            <value>
-              <decimal value="0" />
-            </value>
-          </item>
-          <item displayName="$(string.DisableIPSourceRouting1)">
-            <value>
-              <decimal value="1" />
-            </value>
-          </item>
-          <item displayName="$(string.DisableIPSourceRouting2)">
-            <value>
-              <decimal value="2" />
-            </value>
-          </item>
-        </enum>
-      </elements>
-    </policy>
-    <policy name="Pol_MSS_DisableIPSourceRoutingIPv6"
-            class="Machine"
-            displayName="$(string.DisableIPSourceRoutingIPv6)"
-            explainText="$(string.DisableIPSourceRoutingIPv6_Help)"
-            presentation="$(presentation.DisableIPSourceRoutingIPv6)"
-            key="System\CurrentControlSet\Services\Tcpip6\Parameters">
-      <parentCategory ref="Network" />
-      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
-      <elements>
-        <enum id="DisableIPSourceRoutingIPv6"
-              valueName="DisableIPSourceRouting"
-              required="true">
-          <item displayName="$(string.DisableIPSourceRouting0)">
-            <value>
-              <decimal value="0" />
-            </value>
-          </item>
-          <item displayName="$(string.DisableIPSourceRouting1)">
-            <value>
-              <decimal value="1" />
-            </value>
-          </item>
-          <item displayName="$(string.DisableIPSourceRouting2)">
-            <value>
-              <decimal value="2" />
-            </value>
-          </item>
-        </enum>
-      </elements>
-    </policy>
-    <policy name="Kerberos_Logging"
-            class="Machine"
-            displayName="$(string.KerberosLogging)"
-            explainText="$(string.KerberosLogging_Explain)"
-            key="SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters"
-            valueName="LogLevel">
-      <parentCategory ref="Network" />
-      <supportedOn ref="windows:SUPPORTED_Windows7" />
-      <enabledValue>
-        <decimal value="1" />
-      </enabledValue>
-      <disabledValue>
-        <decimal value="0" />
-      </disabledValue>
-    </policy>
-    <policy name="AdminShare_Wks"
-            class="Machine"
-            displayName="$(string.AdminShare_Wks)"
-            explainText="$(string.AdminShare_Wks_Explain)"
-            key="SYSTEM\CurrentControlSet\Services\LanManServer\Parameters"
-            valueName="AutoShareWks">
-      <parentCategory ref="Hardening" />
+    <policy name="AdminShare_Wks" class="Machine" displayName="$(string.AdminShare_Wks)" explainText="$(string.AdminShare_Wks_Explain)" key="SYSTEM\CurrentControlSet\Services\LanManServer\Parameters" valueName="AutoShareWks">
+      <parentCategory ref="System" />
       <supportedOn ref="windows:SUPPORTED_Windows_6_3" />
       <enabledValue>
         <decimal value="0" />
@@ -349,13 +170,8 @@
         <decimal value="1" />
       </disabledValue>
     </policy>
-        <policy name="AdminShare_Srv"
-            class="Machine"
-            displayName="$(string.AdminShare_Srv)"
-            explainText="$(string.AdminShare_Srv_Explain)"
-            key="SYSTEM\CurrentControlSet\Services\LanManServer\Parameters"
-            valueName="AutoShareServer">
-      <parentCategory ref="Hardening" />
+    <policy name="AdminShare_Srv" class="Machine" displayName="$(string.AdminShare_Srv)" explainText="$(string.AdminShare_Srv_Explain)" key="SYSTEM\CurrentControlSet\Services\LanManServer\Parameters" valueName="AutoShareServer">
+      <parentCategory ref="System" />
       <supportedOn ref="windows:SUPPORTED_Windows_6_3" />
       <enabledValue>
         <decimal value="0" />
@@ -364,18 +180,11 @@
         <decimal value="1" />
       </disabledValue>
     </policy>
-    <policy name="MicroarchHardening"
-            class="Machine"
-            displayName="$(string.MicroarchHardening)"
-            explainText="$(string.MicroarchHardening_Explain)"
-            presentation="$(presentation.MicroarchHardening_Presentation)"
-            key="SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management">
-      <parentCategory ref="Hardening" />
+    <policy name="MicroarchHardening" class="Machine" displayName="$(string.MicroarchHardening)" explainText="$(string.MicroarchHardening_Explain)" presentation="$(presentation.MicroarchHardening_Presentation)" key="SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management">
+      <parentCategory ref="System" />
       <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
       <elements>
-        <enum id="MicroarchHardening_DropdownList"
-              valueName="FeatureSettingsOverride"
-              required="true">
+        <enum id="MicroarchHardening_DropdownList" valueName="FeatureSettingsOverride" required="true">
           <item displayName="$(string.MicroarchHardening_Option1)">
             <value>
               <decimal value="72" />
@@ -461,9 +270,7 @@
             </valueList>
           </item>
         </enum>
-        <boolean id="HyperVMitigations"
-                 key="SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization"
-                 valueName="MinVmVersionForCpuBasedMitigations">
+        <boolean id="HyperVMitigations" key="SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization" valueName="MinVmVersionForCpuBasedMitigations">
           <trueValue>
             <string>1.0</string>
           </trueValue>
@@ -473,13 +280,8 @@
         </boolean>
       </elements>
     </policy>
-    <policy name="SEHOP"
-            class="Machine"
-            displayName="$(string.SEHOP)"
-            explainText="$(string.SEHOP_Explain)"
-            key="SYSTEM\CurrentControlSet\Control\Session Manager\kernel"
-            valueName="DisableExceptionChainValidation">
-      <parentCategory ref="Hardening" />
+    <policy name="SEHOP" class="Machine" displayName="$(string.SEHOP)" explainText="$(string.SEHOP_Explain)" key="SYSTEM\CurrentControlSet\Control\Session Manager\kernel" valueName="DisableExceptionChainValidation">
+      <parentCategory ref="System" />
       <supportedOn ref="windows:SUPPORTED_WindowsVista" />
       <enabledValue>
         <decimal value="0" />
@@ -488,12 +290,8 @@
         <decimal value="1" />
       </disabledValue>
     </policy>
-    <policy name="NLA"
-            class="Machine"
-            displayName="$(string.NLA)"
-            explainText="$(string.NLA_Explain)"
-            key="SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services">
-      <parentCategory ref="Hardening" />
+    <policy name="NLA" class="Machine" displayName="$(string.NLA)" explainText="$(string.NLA_Explain)" key="SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services">
+      <parentCategory ref="System" />
       <supportedOn ref="windows:SUPPORTED_WindowsVista" />
       <enabledList defaultKey="SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services">
         <item valueName="SecurityLayer">
@@ -513,13 +311,8 @@
         </item>
       </enabledList>
     </policy>
-    <policy name="LMAuth"
-            class="Machine"
-            displayName="$(string.LMAuth)"
-            explainText="$(string.LMAuth_Explain)"
-            key="SYSTEM\CurrentControlSet\Control\Lsa"
-            valueName="LmCompatibilityLevel">
-      <parentCategory ref="Hardening" />
+    <policy name="LMAuth" class="Machine" displayName="$(string.LMAuth)" explainText="$(string.LMAuth_Explain)" key="SYSTEM\CurrentControlSet\Control\Lsa" valueName="LmCompatibilityLevel">
+      <parentCategory ref="System" />
       <supportedOn ref="windows:SUPPORTED_Windows_6_3" />
       <enabledValue>
         <decimal value="5" />
@@ -528,12 +321,8 @@
         <decimal value="1" />
       </disabledValue>
     </policy>
-    <policy name="WDigest"
-            class="Machine"
-            displayName="$(string.WDigest)"
-            explainText="$(string.WDigest_Explain)"
-            key="SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest">
-      <parentCategory ref="Hardening" />
+    <policy name="WDigest" class="Machine" displayName="$(string.WDigest)" explainText="$(string.WDigest_Explain)" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest">
+      <parentCategory ref="System" />
       <supportedOn ref="windows:SUPPORTED_WindowsVista" />
       <enabledList defaultKey="SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest">
         <item valueName="UseLogonCredential">
@@ -548,12 +337,8 @@
         </item>
       </enabledList>
     </policy>
-    <policy name="Logon"
-            class="Machine"
-            displayName="$(string.Logon)"
-            explainText="$(string.Logon_Explain)"
-            key="SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon">
-      <parentCategory ref="Hardening" />
+    <policy name="Logon" class="Machine" displayName="$(string.Logon)" explainText="$(string.Logon_Explain)" key="SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon">
+      <parentCategory ref="System" />
       <supportedOn ref="windows:SUPPORTED_WindowsVista" />
       <enabledList defaultKey="SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon">
         <item valueName="CachedLogonsCount">
@@ -561,21 +346,15 @@
             <string>2</string>
           </value>
         </item>
-        <item key="SYSTEM\CurrentControlSet\Control\Lsa"
-              valueName="TokenLeakDetectDelaySecs">
+        <item key="SYSTEM\CurrentControlSet\Control\Lsa" valueName="TokenLeakDetectDelaySecs">
           <value>
             <decimal value="30" />
           </value>
         </item>
       </enabledList>
     </policy>
-    <policy name="ASLR"
-            class="Machine"
-            displayName="$(string.ASLR)"
-            explainText="$(string.ASLR_Explain)"
-            key="SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management"
-            valueName="MoveImages">
-      <parentCategory ref="Hardening" />
+    <policy name="ASLR" class="Machine" displayName="$(string.ASLR)" explainText="$(string.ASLR_Explain)" key="SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" valueName="MoveImages">
+      <parentCategory ref="System" />
       <supportedOn ref="windows:SUPPORTED_WindowsVista" />
       <enabledValue>
         <!-- 4294967295 = 0xFFFFFFFF -->
@@ -585,94 +364,165 @@
         <decimal value="0" />
       </disabledValue>
     </policy>
-    <policy name="User32_Exception"
-            class="Machine"
-            displayName="$(string.User32_Exception)"
-            explainText="$(string.User32_Exception_Explain)"
-            key="SOFTWARE\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_ALLOW_USER32_EXCEPTION_HANDLER_HARDENING">
-      <parentCategory ref="Hardening" />
+    <policy name="User32_Exception" class="Machine" displayName="$(string.User32_Exception)" explainText="$(string.User32_Exception_Explain)" key="SOFTWARE\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_ALLOW_USER32_EXCEPTION_HANDLER_HARDENING">
+      <parentCategory ref="System" />
       <supportedOn ref="windows:SUPPORTED_Windows7" />
       <enabledList>
-        <item key="SOFTWARE\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_ALLOW_USER32_EXCEPTION_HANDLER_HARDENING"
-              valueName="iexplore.exe">
+        <item key="SOFTWARE\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_ALLOW_USER32_EXCEPTION_HANDLER_HARDENING" valueName="iexplore.exe">
           <value>
             <decimal value="1" />
           </value>
         </item>
-        <item key="SOFTWARE\Wow6432Node\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_ALLOW_USER32_EXCEPTION_HANDLER_HARDENING"
-              valueName="iexplore.exe">
+        <item key="SOFTWARE\Wow6432Node\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_ALLOW_USER32_EXCEPTION_HANDLER_HARDENING" valueName="iexplore.exe">
           <value>
             <decimal value="1" />
           </value>
         </item>
       </enabledList>
       <disabledList>
-        <item key="SOFTWARE\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_ALLOW_USER32_EXCEPTION_HANDLER_HARDENING"
-              valueName="iexplore.exe">
+        <item key="SOFTWARE\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_ALLOW_USER32_EXCEPTION_HANDLER_HARDENING" valueName="iexplore.exe">
           <value>
             <decimal value="0" />
           </value>
         </item>
-        <item key="SOFTWARE\Wow6432Node\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_ALLOW_USER32_EXCEPTION_HANDLER_HARDENING"
-              valueName="iexplore.exe">
+        <item key="SOFTWARE\Wow6432Node\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_ALLOW_USER32_EXCEPTION_HANDLER_HARDENING" valueName="iexplore.exe">
           <value>
             <decimal value="0" />
           </value>
         </item>
       </disabledList>
     </policy>
-    <policy name="Info_Disclosure"
-            class="Machine"
-            displayName="$(string.Info_Disclosure)"
-            explainText="$(string.Info_Disclosure_Explain)"
-            key="SOFTWARE\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_ENABLE_PRINT_INFO_DISCLOSURE_FIX">
-      <parentCategory ref="Hardening" />
+    <policy name="Info_Disclosure" class="Machine" displayName="$(string.Info_Disclosure)" explainText="$(string.Info_Disclosure_Explain)" key="SOFTWARE\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_ENABLE_PRINT_INFO_DISCLOSURE_FIX">
+      <parentCategory ref="System" />
       <supportedOn ref="windows:SUPPORTED_Windows7" />
       <enabledList>
-        <item key="SOFTWARE\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_ENABLE_PRINT_INFO_DISCLOSURE_FIX"
-              valueName="iexplore.exe">
+        <item key="SOFTWARE\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_ENABLE_PRINT_INFO_DISCLOSURE_FIX" valueName="iexplore.exe">
           <value>
             <decimal value="1" />
           </value>
         </item>
-        <item key="SOFTWARE\Wow6432Node\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_ENABLE_PRINT_INFO_DISCLOSURE_FIX"
-              valueName="iexplore.exe">
+        <item key="SOFTWARE\Wow6432Node\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_ENABLE_PRINT_INFO_DISCLOSURE_FIX" valueName="iexplore.exe">
           <value>
             <decimal value="1" />
           </value>
         </item>
       </enabledList>
       <disabledList>
-        <item key="SOFTWARE\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_ENABLE_PRINT_INFO_DISCLOSURE_FIX"
-              valueName="iexplore.exe">
+        <item key="SOFTWARE\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_ENABLE_PRINT_INFO_DISCLOSURE_FIX" valueName="iexplore.exe">
           <value>
             <decimal value="0" />
           </value>
         </item>
-        <item key="SOFTWARE\Wow6432Node\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_ENABLE_PRINT_INFO_DISCLOSURE_FIX"
-              valueName="iexplore.exe">
+        <item key="SOFTWARE\Wow6432Node\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_ENABLE_PRINT_INFO_DISCLOSURE_FIX" valueName="iexplore.exe">
           <value>
             <decimal value="0" />
           </value>
         </item>
       </disabledList>
     </policy>
-    <!-- Schannel configuration section -->
+    <policy name="KCET_Enable" class="Machine" displayName="$(string.KCET)" explainText="$(string.KCET_Explain)" key="SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\KernelShadowStacks" valueName="Enabled">
+      <parentCategory ref="System" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_21H2" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <!-- Network section -->
+    <policy name="Pol_MSS_DisableIPSourceRouting" class="Machine" displayName="$(string.DisableIPSourceRouting)" explainText="$(string.DisableIPSourceRouting_Help)" presentation="$(presentation.DisableIPSourceRouting)" key="System\CurrentControlSet\Services\Tcpip\Parameters">
+      <parentCategory ref="Network" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <elements>
+        <enum id="DisableIPSourceRouting" valueName="DisableIPSourceRouting" required="true">
+          <item displayName="$(string.DisableIPSourceRouting0)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.DisableIPSourceRouting1)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.DisableIPSourceRouting2)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="Pol_MSS_DisableIPSourceRoutingIPv6" class="Machine" displayName="$(string.DisableIPSourceRoutingIPv6)" explainText="$(string.DisableIPSourceRoutingIPv6_Help)" presentation="$(presentation.DisableIPSourceRoutingIPv6)" key="System\CurrentControlSet\Services\Tcpip6\Parameters">
+      <parentCategory ref="Network" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <elements>
+        <enum id="DisableIPSourceRoutingIPv6" valueName="DisableIPSourceRouting" required="true">
+          <item displayName="$(string.DisableIPSourceRouting0)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.DisableIPSourceRouting1)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.DisableIPSourceRouting2)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="Kerberos_Logging" class="Machine" displayName="$(string.KerberosLogging)" explainText="$(string.KerberosLogging_Explain)" key="SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters" valueName="LogLevel">
+      <parentCategory ref="Network" />
+      <supportedOn ref="windows:SUPPORTED_Windows7" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <!-- SMB subsection -->
+    <policy name="DisableSMB1" class="Machine" displayName="$(string.DisableSMB1)" explainText="$(string.DisableSMB1_Explain)" key="SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters">
+      <parentCategory ref="SMB" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <enabledList defaultKey="SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters">
+        <item key="SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" valueName="SMB1">
+          <value>
+            <decimal value="0" />
+          </value>
+        </item>
+        <item key="SYSTEM\CurrentControlSet\services\mrxsmb10" valueName="Start">
+          <value>
+            <decimal value="4" />
+          </value>
+        </item>
+      </enabledList>
+    </policy>
+    <!-- Schannel subsection -->
+    <policy name="Schannel_Logging" class="Machine" displayName="$(string.SchannelLogging)" explainText="$(string.SchannelLogging_Explain)" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL" valueName="EventLogging">
+      <parentCategory ref="Schannel" />
+      <supportedOn ref="windows:SUPPORTED_Windows7" />
+      <enabledValue>
+        <decimal value="7" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="1" />
+      </disabledValue>
+    </policy>
     <!-- PROTOCOLS -->
     <!-- Multi-Protocol Unified Hello should always be disabled, and
              Schannel will apparently never use it. -->
-    <policy name="MPUH"
-            class="Machine"
-            displayName="$(string.MPUH)"
-            explainText="$(string.MPUH_Help)"
-            presentation="$(presentation.MPUH)"
-            key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\Multi-Protocol Unified Hello">
+    <policy name="MPUH" class="Machine" displayName="$(string.MPUH)" explainText="$(string.MPUH_Help)" presentation="$(presentation.MPUH)" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\Multi-Protocol Unified Hello">
       <parentCategory ref="WeakProtocols" />
       <supportedOn ref="windows:SUPPORTED_Win2k" />
       <elements>
-        <boolean id="MPUH_ClientCheckbox"
-                 key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\Multi-Protocol Unified Hello\Client"
-                 valueName="Enabled">
+        <boolean id="MPUH_ClientCheckbox" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\Multi-Protocol Unified Hello\Client" valueName="Enabled">
           <trueList defaultKey="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\Multi-Protocol Unified Hello\Client">
             <item valueName="Enabled">
               <value>
@@ -698,9 +548,7 @@
             </item>
           </falseList>
         </boolean>
-        <boolean id="MPUH_ServerCheckbox"
-                 key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\Multi-Protocol Unified Hello\Server"
-                 valueName="Enabled">
+        <boolean id="MPUH_ServerCheckbox" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\Multi-Protocol Unified Hello\Server" valueName="Enabled">
           <trueList defaultKey="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\Multi-Protocol Unified Hello\Server">
             <item valueName="Enabled">
               <value>
@@ -730,18 +578,11 @@
     </policy>
     <!-- PCT 1.0 should always be disabled, and Schannel will apparently
              never use it. -->
-    <policy name="PCTv1"
-            class="Machine"
-            displayName="$(string.PCTv1)"
-            explainText="$(string.PCTv1_Help)"
-            presentation="$(presentation.PCTv1)"
-            key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\PCT 1.0">
+    <policy name="PCTv1" class="Machine" displayName="$(string.PCTv1)" explainText="$(string.PCTv1_Help)" presentation="$(presentation.PCTv1)" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\PCT 1.0">
       <parentCategory ref="WeakProtocols" />
       <supportedOn ref="windows:SUPPORTED_Win2k" />
       <elements>
-        <boolean id="PCTv1_ClientCheckbox"
-                 key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\PCT 1.0\Client"
-                 valueName="Enabled">
+        <boolean id="PCTv1_ClientCheckbox" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\PCT 1.0\Client" valueName="Enabled">
           <trueList defaultKey="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\PCT 1.0\Client">
             <item valueName="Enabled">
               <value>
@@ -767,9 +608,7 @@
             </item>
           </falseList>
         </boolean>
-        <boolean id="PCTv1_ServerCheckbox"
-                 key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\PCT 1.0\Server"
-                 valueName="Enabled">
+        <boolean id="PCTv1_ServerCheckbox" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\PCT 1.0\Server" valueName="Enabled">
           <trueList defaultKey="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\PCT 1.0\Server">
             <item valueName="Enabled">
               <value>
@@ -798,18 +637,11 @@
       </elements>
     </policy>
     <!-- SSLv2 should always be disabled. -->
-    <policy name="SSLv2"
-            class="Machine"
-            displayName="$(string.SSLv2)"
-            explainText="$(string.SSLv2_Help)"
-            presentation="$(presentation.SSLv2)"
-            key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 2.0">
+    <policy name="SSLv2" class="Machine" displayName="$(string.SSLv2)" explainText="$(string.SSLv2_Help)" presentation="$(presentation.SSLv2)" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 2.0">
       <parentCategory ref="WeakProtocols" />
       <supportedOn ref="windows:SUPPORTED_Win2k" />
       <elements>
-        <boolean id="SSLv2_ClientCheckbox"
-                 key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 2.0\Client"
-                 valueName="Enabled">
+        <boolean id="SSLv2_ClientCheckbox" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 2.0\Client" valueName="Enabled">
           <trueList defaultKey="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 2.0\Client">
             <item valueName="Enabled">
               <value>
@@ -835,9 +667,7 @@
             </item>
           </falseList>
         </boolean>
-        <boolean id="SSLv2_ServerCheckbox"
-                 key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 2.0\Server"
-                 valueName="Enabled">
+        <boolean id="SSLv2_ServerCheckbox" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 2.0\Server" valueName="Enabled">
           <trueList defaultKey="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 2.0\Server">
             <item valueName="Enabled">
               <value>
@@ -866,18 +696,11 @@
       </elements>
     </policy>
     <!-- SSLv3 should be disabled -->
-    <policy name="SSLv3"
-            class="Machine"
-            displayName="$(string.SSLv3)"
-            explainText="$(string.SSLv3_Help)"
-            presentation="$(presentation.SSLv3)"
-            key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 3.0">
+    <policy name="SSLv3" class="Machine" displayName="$(string.SSLv3)" explainText="$(string.SSLv3_Help)" presentation="$(presentation.SSLv3)" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 3.0">
       <parentCategory ref="WeakProtocols" />
       <supportedOn ref="windows:SUPPORTED_Win2k" />
       <elements>
-        <boolean id="SSLv3_ClientCheckbox"
-                 key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 3.0\Client"
-                 valueName="Enabled">
+        <boolean id="SSLv3_ClientCheckbox" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 3.0\Client" valueName="Enabled">
           <trueList defaultKey="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 3.0\Client">
             <item valueName="Enabled">
               <value>
@@ -903,9 +726,7 @@
             </item>
           </falseList>
         </boolean>
-        <boolean id="SSLv3_ServerCheckbox"
-                 key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 3.0\Server"
-                 valueName="Enabled">
+        <boolean id="SSLv3_ServerCheckbox" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 3.0\Server" valueName="Enabled">
           <trueList defaultKey="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 3.0\Server">
             <item valueName="Enabled">
               <value>
@@ -934,18 +755,11 @@
       </elements>
     </policy>
     <!-- TLSv1.0 -->
-    <policy name="TLSv10"
-            class="Machine"
-            displayName="$(string.TLSv10)"
-            explainText="$(string.TLSv10_Help)"
-            presentation="$(presentation.TLSv10)"
-            key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0">
+    <policy name="TLSv10" class="Machine" displayName="$(string.TLSv10)" explainText="$(string.TLSv10_Help)" presentation="$(presentation.TLSv10)" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0">
       <parentCategory ref="WeakProtocols" />
       <supportedOn ref="windows:SUPPORTED_Win2k" />
       <elements>
-        <boolean id="TLSv10_ClientCheckbox"
-                 key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Client"
-                 valueName="Enabled">
+        <boolean id="TLSv10_ClientCheckbox" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Client" valueName="Enabled">
           <trueList defaultKey="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Client">
             <item valueName="Enabled">
               <value>
@@ -971,9 +785,7 @@
             </item>
           </falseList>
         </boolean>
-        <boolean id="TLSv10_ServerCheckbox"
-                 key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server"
-                 valueName="Enabled">
+        <boolean id="TLSv10_ServerCheckbox" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server" valueName="Enabled">
           <trueList defaultKey="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server">
             <item valueName="Enabled">
               <value>
@@ -1002,18 +814,11 @@
       </elements>
     </policy>
     <!-- TLSv1.1 -->
-    <policy name="TLSv11"
-            class="Machine"
-            displayName="$(string.TLSv11)"
-            explainText="$(string.TLSv11_Help)"
-            presentation="$(presentation.TLSv11)"
-            key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1">
+    <policy name="TLSv11" class="Machine" displayName="$(string.TLSv11)" explainText="$(string.TLSv11_Help)" presentation="$(presentation.TLSv11)" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1">
       <parentCategory ref="WeakProtocols" />
       <supportedOn ref="windows:SUPPORTED_Windows7" />
       <elements>
-        <boolean id="TLSv11_ClientCheckbox"
-                 key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Client"
-                 valueName="Enabled">
+        <boolean id="TLSv11_ClientCheckbox" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Client" valueName="Enabled">
           <trueList defaultKey="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Client">
             <item valueName="Enabled">
               <value>
@@ -1039,9 +844,7 @@
             </item>
           </falseList>
         </boolean>
-        <boolean id="TLSv11_ServerCheckbox"
-                 key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server"
-                 valueName="Enabled">
+        <boolean id="TLSv11_ServerCheckbox" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server" valueName="Enabled">
           <trueList defaultKey="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server">
             <item valueName="Enabled">
               <value>
@@ -1070,18 +873,11 @@
       </elements>
     </policy>
     <!-- TLSv1.2 -->
-    <policy name="TLSv12"
-            class="Machine"
-            displayName="$(string.TLSv12)"
-            explainText="$(string.TLSv12_Help)"
-            presentation="$(presentation.TLSv12)"
-            key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2">
+    <policy name="TLSv12" class="Machine" displayName="$(string.TLSv12)" explainText="$(string.TLSv12_Help)" presentation="$(presentation.TLSv12)" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2">
       <parentCategory ref="Protocols" />
       <supportedOn ref="windows:SUPPORTED_Windows7" />
       <elements>
-        <boolean id="TLSv12_ClientCheckbox"
-                 key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client"
-                 valueName="Enabled">
+        <boolean id="TLSv12_ClientCheckbox" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client" valueName="Enabled">
           <trueList defaultKey="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client">
             <item valueName="Enabled">
               <value>
@@ -1107,9 +903,7 @@
             </item>
           </falseList>
         </boolean>
-        <boolean id="TLSv12_ServerCheckbox"
-                 key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server"
-                 valueName="Enabled">
+        <boolean id="TLSv12_ServerCheckbox" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" valueName="Enabled">
           <trueList defaultKey="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server">
             <item valueName="Enabled">
               <value>
@@ -1138,18 +932,11 @@
       </elements>
     </policy>
     <!-- TLSv1.3 -->
-    <policy name="TLSv13"
-            class="Machine"
-            displayName="$(string.TLSv13)"
-            explainText="$(string.TLSv13_Help)"
-            presentation="$(presentation.TLSv13)"
-            key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.3">
+    <policy name="TLSv13" class="Machine" displayName="$(string.TLSv13)" explainText="$(string.TLSv13_Help)" presentation="$(presentation.TLSv13)" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.3">
       <parentCategory ref="Protocols" />
       <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS6_NOSERVER" />
       <elements>
-        <boolean id="TLSv13_ClientCheckbox"
-                 key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.3\Client"
-                 valueName="Enabled">
+        <boolean id="TLSv13_ClientCheckbox" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.3\Client" valueName="Enabled">
           <trueList defaultKey="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.3\Client">
             <item valueName="Enabled">
               <value>
@@ -1175,9 +962,7 @@
             </item>
           </falseList>
         </boolean>
-        <boolean id="TLSv13_ServerCheckbox"
-                 key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.3\Server"
-                 valueName="Enabled">
+        <boolean id="TLSv13_ServerCheckbox" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.3\Server" valueName="Enabled">
           <trueList defaultKey="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.3\Server">
             <item valueName="Enabled">
               <value>
@@ -1206,18 +991,11 @@
       </elements>
     </policy>
     <!-- DTLSv1.0 -->
-    <policy name="DTLSv10"
-            class="Machine"
-            displayName="$(string.DTLSv10)"
-            explainText="$(string.DTLSv10_Help)"
-            presentation="$(presentation.DTLSv10)"
-            key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\DTLS 1.0">
+    <policy name="DTLSv10" class="Machine" displayName="$(string.DTLSv10)" explainText="$(string.DTLSv10_Help)" presentation="$(presentation.DTLSv10)" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\DTLS 1.0">
       <parentCategory ref="WeakProtocols" />
       <supportedOn ref="windows:SUPPORTED_Windows7" />
       <elements>
-        <boolean id="DTLSv10_ClientCheckbox"
-                 key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\DTLS 1.0\Client"
-                 valueName="Enabled">
+        <boolean id="DTLSv10_ClientCheckbox" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\DTLS 1.0\Client" valueName="Enabled">
           <trueList defaultKey="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\DTLS 1.0\Client">
             <item valueName="Enabled">
               <value>
@@ -1243,9 +1021,7 @@
             </item>
           </falseList>
         </boolean>
-        <boolean id="DTLSv10_ServerCheckbox"
-                 key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\DTLS 1.0\Server"
-                 valueName="Enabled">
+        <boolean id="DTLSv10_ServerCheckbox" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\DTLS 1.0\Server" valueName="Enabled">
           <trueList defaultKey="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\DTLS 1.0\Server">
             <item valueName="Enabled">
               <value>
@@ -1274,18 +1050,11 @@
       </elements>
     </policy>
     <!-- DTLSv1.2 -->
-    <policy name="DTLSv12"
-            class="Machine"
-            displayName="$(string.DTLSv12)"
-            explainText="$(string.DTLSv12_Help)"
-            presentation="$(presentation.DTLSv12)"
-            key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\DTLS 1.2">
+    <policy name="DTLSv12" class="Machine" displayName="$(string.DTLSv12)" explainText="$(string.DTLSv12_Help)" presentation="$(presentation.DTLSv12)" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\DTLS 1.2">
       <parentCategory ref="Protocols" />
       <supportedOn ref="windows:SUPPORTED_Windows7" />
       <elements>
-        <boolean id="DTLSv12_ClientCheckbox"
-                 key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\DTLS 1.2\Client"
-                 valueName="Enabled">
+        <boolean id="DTLSv12_ClientCheckbox" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\DTLS 1.2\Client" valueName="Enabled">
           <trueList defaultKey="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\DTLS 1.2\Client">
             <item valueName="Enabled">
               <value>
@@ -1311,9 +1080,7 @@
             </item>
           </falseList>
         </boolean>
-        <boolean id="DTLSv12_ServerCheckbox"
-                 key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\DTLS 1.2\Server"
-                 valueName="Enabled">
+        <boolean id="DTLSv12_ServerCheckbox" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\DTLS 1.2\Server" valueName="Enabled">
           <trueList defaultKey="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\DTLS 1.2\Server">
             <item valueName="Enabled">
               <value>
@@ -1344,12 +1111,7 @@
     <!-- END PROTOCOLS -->
     <!-- ENCRYPTION CIPHERS -->
     <!-- NULL -->
-    <policy name="NULL"
-            class="Machine"
-            displayName="$(string.NULL)"
-            explainText="$(string.NULL_Help)"
-            valueName="Enabled"
-            key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\NULL">
+    <policy name="NULL" class="Machine" displayName="$(string.NULL)" explainText="$(string.NULL_Help)" valueName="Enabled" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\NULL">
       <parentCategory ref="WeakCiphers" />
       <supportedOn ref="windows:SUPPORTED_WindowsUpdate" />
       <enabledValue>
@@ -1360,12 +1122,7 @@
       </disabledValue>
     </policy>
     <!-- DES 56/56 -->
-    <policy name="DES_56"
-            class="Machine"
-            displayName="$(string.DES_56)"
-            explainText="$(string.DES_56_Help)"
-            valueName="Enabled"
-            key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\DES 56/56">
+    <policy name="DES_56" class="Machine" displayName="$(string.DES_56)" explainText="$(string.DES_56_Help)" valueName="Enabled" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\DES 56/56">
       <parentCategory ref="WeakCiphers" />
       <supportedOn ref="windows:SUPPORTED_WindowsUpdate" />
       <enabledValue>
@@ -1376,12 +1133,7 @@
       </disabledValue>
     </policy>
     <!-- RC2 40/128 -->
-    <policy name="RC2_40"
-            class="Machine"
-            displayName="$(string.RC2_40)"
-            explainText="$(string.RC2_40_Help)"
-            valueName="Enabled"
-            key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC2 40/128">
+    <policy name="RC2_40" class="Machine" displayName="$(string.RC2_40)" explainText="$(string.RC2_40_Help)" valueName="Enabled" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC2 40/128">
       <parentCategory ref="WeakCiphers" />
       <supportedOn ref="windows:SUPPORTED_WindowsUpdate" />
       <enabledValue>
@@ -1392,12 +1144,7 @@
       </disabledValue>
     </policy>
     <!-- RC2 56/128 -->
-    <policy name="RC2_56"
-            class="Machine"
-            displayName="$(string.RC2_56)"
-            explainText="$(string.RC2_56_Help)"
-            valueName="Enabled"
-            key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC2 56/128">
+    <policy name="RC2_56" class="Machine" displayName="$(string.RC2_56)" explainText="$(string.RC2_56_Help)" valueName="Enabled" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC2 56/128">
       <parentCategory ref="WeakCiphers" />
       <supportedOn ref="windows:SUPPORTED_WindowsUpdate" />
       <enabledValue>
@@ -1408,12 +1155,7 @@
       </disabledValue>
     </policy>
     <!-- RC2 128/128 -->
-    <policy name="RC2_128"
-            class="Machine"
-            displayName="$(string.RC2_128)"
-            explainText="$(string.RC2_128_Help)"
-            valueName="Enabled"
-            key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC2 128/128">
+    <policy name="RC2_128" class="Machine" displayName="$(string.RC2_128)" explainText="$(string.RC2_128_Help)" valueName="Enabled" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC2 128/128">
       <parentCategory ref="WeakCiphers" />
       <supportedOn ref="windows:SUPPORTED_WindowsUpdate" />
       <enabledValue>
@@ -1424,12 +1166,7 @@
       </disabledValue>
     </policy>
     <!-- RC4 40/128 -->
-    <policy name="RC4_40"
-            class="Machine"
-            displayName="$(string.RC4_40)"
-            explainText="$(string.RC4_40_Help)"
-            valueName="Enabled"
-            key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC4 40/128">
+    <policy name="RC4_40" class="Machine" displayName="$(string.RC4_40)" explainText="$(string.RC4_40_Help)" valueName="Enabled" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC4 40/128">
       <parentCategory ref="WeakCiphers" />
       <supportedOn ref="windows:SUPPORTED_WindowsUpdate" />
       <enabledValue>
@@ -1440,12 +1177,7 @@
       </disabledValue>
     </policy>
     <!-- RC4 56/128 -->
-    <policy name="RC4_56"
-            class="Machine"
-            displayName="$(string.RC4_56)"
-            explainText="$(string.RC4_56_Help)"
-            valueName="Enabled"
-            key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC4 56/128">
+    <policy name="RC4_56" class="Machine" displayName="$(string.RC4_56)" explainText="$(string.RC4_56_Help)" valueName="Enabled" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC4 56/128">
       <parentCategory ref="WeakCiphers" />
       <supportedOn ref="windows:SUPPORTED_WindowsUpdate" />
       <enabledValue>
@@ -1456,12 +1188,7 @@
       </disabledValue>
     </policy>
     <!-- RC4 64/128 -->
-    <policy name="RC4_64"
-            class="Machine"
-            displayName="$(string.RC4_64)"
-            explainText="$(string.RC4_64_Help)"
-            valueName="Enabled"
-            key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC4 64/128">
+    <policy name="RC4_64" class="Machine" displayName="$(string.RC4_64)" explainText="$(string.RC4_64_Help)" valueName="Enabled" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC4 64/128">
       <parentCategory ref="WeakCiphers" />
       <supportedOn ref="windows:SUPPORTED_WindowsUpdate" />
       <enabledValue>
@@ -1472,12 +1199,7 @@
       </disabledValue>
     </policy>
     <!-- RC4 128/128 -->
-    <policy name="RC4_128"
-            class="Machine"
-            displayName="$(string.RC4_128)"
-            explainText="$(string.RC4_128_Help)"
-            valueName="Enabled"
-            key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC4 128/128">
+    <policy name="RC4_128" class="Machine" displayName="$(string.RC4_128)" explainText="$(string.RC4_128_Help)" valueName="Enabled" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC4 128/128">
       <parentCategory ref="WeakCiphers" />
       <supportedOn ref="windows:SUPPORTED_WindowsUpdate" />
       <enabledValue>
@@ -1488,12 +1210,7 @@
       </disabledValue>
     </policy>
     <!-- Triple-DES 168 -->
-    <policy name="3DES"
-            class="Machine"
-            displayName="$(string.3DES)"
-            explainText="$(string.3DES_Help)"
-            valueName="Enabled"
-            key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\Triple DES 168">
+    <policy name="3DES" class="Machine" displayName="$(string.3DES)" explainText="$(string.3DES_Help)" valueName="Enabled" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\Triple DES 168">
       <parentCategory ref="WeakCiphers" />
       <supportedOn ref="windows:SUPPORTED_WindowsUpdate" />
       <enabledValue>
@@ -1504,12 +1221,7 @@
       </disabledValue>
     </policy>
     <!-- AES 128/128 -->
-    <policy name="AES128"
-            class="Machine"
-            displayName="$(string.AES128)"
-            explainText="$(string.AES128_Help)"
-            valueName="Enabled"
-            key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\AES 128/128">
+    <policy name="AES128" class="Machine" displayName="$(string.AES128)" explainText="$(string.AES128_Help)" valueName="Enabled" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\AES 128/128">
       <parentCategory ref="Ciphers" />
       <supportedOn ref="windows:SUPPORTED_WindowsNET" />
       <enabledValue>
@@ -1520,12 +1232,7 @@
       </disabledValue>
     </policy>
     <!-- AES 256/256 -->
-    <policy name="AES256"
-            class="Machine"
-            displayName="$(string.AES256)"
-            explainText="$(string.AES256_Help)"
-            valueName="Enabled"
-            key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\AES 256/256">
+    <policy name="AES256" class="Machine" displayName="$(string.AES256)" explainText="$(string.AES256_Help)" valueName="Enabled" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\AES 256/256">
       <parentCategory ref="Ciphers" />
       <supportedOn ref="windows:SUPPORTED_WindowsNET" />
       <enabledValue>
@@ -1538,12 +1245,7 @@
     <!-- END ENCRYPTION CIPHERS -->
     <!-- HASHING ALGORITHMS -->
     <!-- MD5 -->
-    <policy name="MD5"
-            class="Machine"
-            displayName="$(string.MD5)"
-            explainText="$(string.MD5_Help)"
-            valueName="Enabled"
-            key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Hashes\MD5">
+    <policy name="MD5" class="Machine" displayName="$(string.MD5)" explainText="$(string.MD5_Help)" valueName="Enabled" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Hashes\MD5">
       <parentCategory ref="WeakHashes" />
       <supportedOn ref="windows:SUPPORTED_WindowsNET" />
       <enabledValue>
@@ -1554,12 +1256,7 @@
       </disabledValue>
     </policy>
     <!-- SHA-1 -->
-    <policy name="SHA"
-            class="Machine"
-            displayName="$(string.SHA)"
-            explainText="$(string.SHA_Help)"
-            valueName="Enabled"
-            key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Hashes\SHA">
+    <policy name="SHA" class="Machine" displayName="$(string.SHA)" explainText="$(string.SHA_Help)" valueName="Enabled" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Hashes\SHA">
       <parentCategory ref="WeakHashes" />
       <supportedOn ref="windows:SUPPORTED_WindowsNET" />
       <enabledValue>
@@ -1570,12 +1267,7 @@
       </disabledValue>
     </policy>
     <!-- SHA-256 -->
-    <policy name="SHA256"
-            class="Machine"
-            displayName="$(string.SHA256)"
-            explainText="$(string.SHA256_Help)"
-            valueName="Enabled"
-            key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Hashes\SHA256">
+    <policy name="SHA256" class="Machine" displayName="$(string.SHA256)" explainText="$(string.SHA256_Help)" valueName="Enabled" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Hashes\SHA256">
       <parentCategory ref="Hashes" />
       <supportedOn ref="windows:SUPPORTED_Windows7" />
       <enabledValue>
@@ -1586,12 +1278,7 @@
       </disabledValue>
     </policy>
     <!-- SHA-384 -->
-    <policy name="SHA384"
-            class="Machine"
-            displayName="$(string.SHA384)"
-            explainText="$(string.SHA384_Help)"
-            valueName="Enabled"
-            key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Hashes\SHA384">
+    <policy name="SHA384" class="Machine" displayName="$(string.SHA384)" explainText="$(string.SHA384_Help)" valueName="Enabled" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Hashes\SHA384">
       <parentCategory ref="Hashes" />
       <supportedOn ref="windows:SUPPORTED_Windows7" />
       <enabledValue>
@@ -1602,12 +1289,7 @@
       </disabledValue>
     </policy>
     <!-- SHA-512 -->
-    <policy name="SHA512"
-            class="Machine"
-            displayName="$(string.SHA512)"
-            explainText="$(string.SHA512_Help)"
-            valueName="Enabled"
-            key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Hashes\SHA512">
+    <policy name="SHA512" class="Machine" displayName="$(string.SHA512)" explainText="$(string.SHA512_Help)" valueName="Enabled" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Hashes\SHA512">
       <parentCategory ref="Hashes" />
       <supportedOn ref="windows:SUPPORTED_Windows7" />
       <enabledValue>
@@ -1620,12 +1302,7 @@
     <!-- END HASHING ALGORITHMS -->
     <!-- KEY EXCHANGE ALGORITHMS -->
     <!-- Diffie-Hellman -->
-    <policy name="DH"
-            class="Machine"
-            displayName="$(string.DH)"
-            explainText="$(string.DH_Help)"
-            valueName="Enabled"
-            key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\KeyExchangeAlgorithms\Diffie-Hellman">
+    <policy name="DH" class="Machine" displayName="$(string.DH)" explainText="$(string.DH_Help)" valueName="Enabled" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\KeyExchangeAlgorithms\Diffie-Hellman">
       <parentCategory ref="KeyEx" />
       <supportedOn ref="windows:SUPPORTED_WindowsUpdate" />
       <enabledValue>
@@ -1635,17 +1312,11 @@
         <decimal value="0" />
       </disabledValue>
     </policy>
-    <policy name="DHServer"
-            class="Machine"
-            displayName="$(string.DHServer)"
-            explainText="$(string.DHServer_Help)"
-            presentation="$(presentation.DHServer)"
-            key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\KeyExchangeAlgorithms\Diffie-Hellman">
+    <policy name="DHServer" class="Machine" displayName="$(string.DHServer)" explainText="$(string.DHServer_Help)" presentation="$(presentation.DHServer)" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\KeyExchangeAlgorithms\Diffie-Hellman">
       <parentCategory ref="KeyEx" />
       <supportedOn ref="SUPPORTED_3174644" />
       <elements>
-        <enum id="DHServer_MinLength"
-              valueName="ServerMinKeyBitLength">
+        <enum id="DHServer_MinLength" valueName="ServerMinKeyBitLength">
           <item displayName="$(string.DH_Value2048)">
             <value>
               <decimal value="2048" />
@@ -1664,17 +1335,11 @@
         </enum>
       </elements>
     </policy>
-    <policy name="DHClient"
-            class="Machine"
-            displayName="$(string.DHClient)"
-            explainText="$(string.DHClient_Help)"
-            presentation="$(presentation.DHClient)"
-            key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\KeyExchangeAlgorithms\Diffie-Hellman">
+    <policy name="DHClient" class="Machine" displayName="$(string.DHClient)" explainText="$(string.DHClient_Help)" presentation="$(presentation.DHClient)" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\KeyExchangeAlgorithms\Diffie-Hellman">
       <parentCategory ref="KeyEx" />
       <supportedOn ref="SUPPORTED_3174644" />
       <elements>
-        <enum id="DHClient_MinLength"
-              valueName="ClientMinKeyBitLength">
+        <enum id="DHClient_MinLength" valueName="ClientMinKeyBitLength">
           <item displayName="$(string.DH_Value2048)">
             <value>
               <decimal value="2048" />
@@ -1694,12 +1359,7 @@
       </elements>
     </policy>
     <!-- PKCS -->
-    <policy name="PKCS"
-            class="Machine"
-            displayName="$(string.PKCS)"
-            explainText="$(string.PKCS_Help)"
-            valueName="Enabled"
-            key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\KeyExchangeAlgorithms\PKCS">
+    <policy name="PKCS" class="Machine" displayName="$(string.PKCS)" explainText="$(string.PKCS_Help)" valueName="Enabled" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\KeyExchangeAlgorithms\PKCS">
       <parentCategory ref="KeyEx" />
       <supportedOn ref="windows:SUPPORTED_WindowsUpdate" />
       <enabledValue>
@@ -1709,17 +1369,11 @@
         <decimal value="0" />
       </disabledValue>
     </policy>
-    <policy name="PKCSClient"
-            class="Machine"
-            displayName="$(string.PKCSClient)"
-            explainText="$(string.PKCSClient_Help)"
-            presentation="$(presentation.PKCSClient)"
-            key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\KeyExchangeAlgorithms\PKCS">
+    <policy name="PKCSClient" class="Machine" displayName="$(string.PKCSClient)" explainText="$(string.PKCSClient_Help)" presentation="$(presentation.PKCSClient)" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\KeyExchangeAlgorithms\PKCS">
       <parentCategory ref="KeyEx" />
       <supportedOn ref="SUPPORTED_3174644" />
       <elements>
-        <enum id="PKCSClient_MinLength"
-              valueName="ClientMinKeyBitLength">
+        <enum id="PKCSClient_MinLength" valueName="ClientMinKeyBitLength">
           <item displayName="$(string.PKCS_Value2048)">
             <value>
               <decimal value="2048" />
@@ -1739,12 +1393,7 @@
       </elements>
     </policy>
     <!-- Elliptic-Curve Diffie-Hellman -->
-    <policy name="ECDH"
-            class="Machine"
-            displayName="$(string.ECDH)"
-            explainText="$(string.ECDH_Help)"
-            valueName="Enabled"
-            key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\KeyExchangeAlgorithms\ECDH">
+    <policy name="ECDH" class="Machine" displayName="$(string.ECDH)" explainText="$(string.ECDH_Help)" valueName="Enabled" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\KeyExchangeAlgorithms\ECDH">
       <parentCategory ref="KeyEx" />
       <supportedOn ref="windows:SUPPORTED_WindowsVista" />
       <enabledValue>
@@ -1754,61 +1403,50 @@
         <decimal value="0" />
       </disabledValue>
     </policy>
+    <!-- .NET Framework subsection -->
     <!-- .NET Framework 4 -->
-    <policy name="dotnet4"
-            class="Machine"
-            displayName="$(string.dotnet4)"
-            explainText="$(string.dotnet4_Help)"
-            key="SOFTWARE\Microsoft\.NETFramework\v4.0.30319">
+    <policy name="dotnet4" class="Machine" displayName="$(string.dotnet4)" explainText="$(string.dotnet4_Help)" key="SOFTWARE\Microsoft\.NETFramework\v4.0.30319">
       <parentCategory ref="NETFrame" />
       <supportedOn ref="windows:SUPPORTED_Windows7" />
       <enabledList>
-        <item key="SOFTWARE\Microsoft\.NETFramework\v4.0.30319"
-              valueName="SchUseStrongCrypto">
+        <item key="SOFTWARE\Microsoft\.NETFramework\v4.0.30319" valueName="SchUseStrongCrypto">
           <value>
             <decimal value="1" />
           </value>
         </item>
-        <item key="SOFTWARE\Microsoft\.NETFramework\v4.0.30319"
-              valueName="SystemDefaultTlsVersions">
+        <item key="SOFTWARE\Microsoft\.NETFramework\v4.0.30319" valueName="SystemDefaultTlsVersions">
           <value>
             <decimal value="1" />
           </value>
         </item>
-        <item key="SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v4.0.30319"
-              valueName="SchUseStrongCrypto">
+        <item key="SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v4.0.30319" valueName="SchUseStrongCrypto">
           <value>
             <decimal value="1" />
           </value>
         </item>
-        <item key="SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v4.0.30319"
-              valueName="SystemDefaultTlsVersions">
+        <item key="SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v4.0.30319" valueName="SystemDefaultTlsVersions">
           <value>
             <decimal value="1" />
           </value>
         </item>
       </enabledList>
       <disabledList>
-        <item key="SOFTWARE\Microsoft\.NETFramework\v4.0.30319"
-              valueName="SchUseStrongCrypto">
+        <item key="SOFTWARE\Microsoft\.NETFramework\v4.0.30319" valueName="SchUseStrongCrypto">
           <value>
             <decimal value="0" />
           </value>
         </item>
-        <item key="SOFTWARE\Microsoft\.NETFramework\v4.0.30319"
-              valueName="SystemDefaultTlsVersions">
+        <item key="SOFTWARE\Microsoft\.NETFramework\v4.0.30319" valueName="SystemDefaultTlsVersions">
           <value>
             <decimal value="0" />
           </value>
         </item>
-        <item key="SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v4.0.30319"
-              valueName="SchUseStrongCrypto">
+        <item key="SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v4.0.30319" valueName="SchUseStrongCrypto">
           <value>
             <decimal value="0" />
           </value>
         </item>
-        <item key="SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v4.0.30319"
-              valueName="SystemDefaultTlsVersions">
+        <item key="SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v4.0.30319" valueName="SystemDefaultTlsVersions">
           <value>
             <decimal value="0" />
           </value>
@@ -1816,60 +1454,48 @@
       </disabledList>
     </policy>
     <!-- .NET Framework 2 -->
-    <policy name="dotnet2"
-            class="Machine"
-            displayName="$(string.dotnet2)"
-            explainText="$(string.dotnet2_Help)"
-            key="SOFTWARE\Microsoft\.NETFramework\v2.0.50727">
+    <policy name="dotnet2" class="Machine" displayName="$(string.dotnet2)" explainText="$(string.dotnet2_Help)" key="SOFTWARE\Microsoft\.NETFramework\v2.0.50727">
       <parentCategory ref="NETFrame" />
       <supportedOn ref="windows:SUPPORTED_WindowsUpdate" />
       <enabledList>
-        <item key="SOFTWARE\Microsoft\.NETFramework\v2.0.50727"
-              valueName="SchUseStrongCrypto">
+        <item key="SOFTWARE\Microsoft\.NETFramework\v2.0.50727" valueName="SchUseStrongCrypto">
           <value>
             <decimal value="1" />
           </value>
         </item>
-        <item key="SOFTWARE\Microsoft\.NETFramework\v2.0.50727"
-              valueName="SystemDefaultTlsVersions">
+        <item key="SOFTWARE\Microsoft\.NETFramework\v2.0.50727" valueName="SystemDefaultTlsVersions">
           <value>
             <decimal value="1" />
           </value>
         </item>
-        <item key="SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v2.0.50727"
-              valueName="SchUseStrongCrypto">
+        <item key="SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v2.0.50727" valueName="SchUseStrongCrypto">
           <value>
             <decimal value="1" />
           </value>
         </item>
-        <item key="SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v2.0.50727"
-              valueName="SystemDefaultTlsVersions">
+        <item key="SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v2.0.50727" valueName="SystemDefaultTlsVersions">
           <value>
             <decimal value="1" />
           </value>
         </item>
       </enabledList>
       <disabledList>
-        <item key="SOFTWARE\Microsoft\.NETFramework\v2.0.50727"
-              valueName="SchUseStrongCrypto">
+        <item key="SOFTWARE\Microsoft\.NETFramework\v2.0.50727" valueName="SchUseStrongCrypto">
           <value>
             <decimal value="0" />
           </value>
         </item>
-        <item key="SOFTWARE\Microsoft\.NETFramework\v2.0.50727"
-              valueName="SystemDefaultTlsVersions">
+        <item key="SOFTWARE\Microsoft\.NETFramework\v2.0.50727" valueName="SystemDefaultTlsVersions">
           <value>
             <decimal value="0" />
           </value>
         </item>
-        <item key="SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v2.0.50727"
-              valueName="SchUseStrongCrypto">
+        <item key="SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v2.0.50727" valueName="SchUseStrongCrypto">
           <value>
             <decimal value="0" />
           </value>
         </item>
-        <item key="SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v2.0.50727"
-              valueName="SystemDefaultTlsVersions">
+        <item key="SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v2.0.50727" valueName="SystemDefaultTlsVersions">
           <value>
             <decimal value="1" />
           </value>
