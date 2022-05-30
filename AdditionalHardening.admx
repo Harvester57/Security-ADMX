@@ -59,6 +59,13 @@
   </categories>
   <policies>
     <!-- Hardening section -->
+    <!-- 
+███████ ██    ██ ███████ ████████ ███████ ███    ███         ███████ ███████  ██████ ████████ ██  ██████  ███    ██ 
+██       ██  ██  ██         ██    ██      ████  ████         ██      ██      ██         ██    ██ ██    ██ ████   ██ 
+███████   ████   ███████    ██    █████   ██ ████ ██         ███████ █████   ██         ██    ██ ██    ██ ██ ██  ██ 
+     ██    ██         ██    ██    ██      ██  ██  ██              ██ ██      ██         ██    ██ ██    ██ ██  ██ ██ 
+███████    ██    ███████    ██    ███████ ██      ██         ███████ ███████  ██████    ██    ██  ██████  ██   ████ 
+     -->
     <!-- Disable co-installer applications-->
     <policy name="CoInstallers" class="Machine" displayName="$(string.CoInstallers)" explainText="$(string.CoInstallers_Help)" key="SOFTWARE\Microsoft\Windows\CurrentVersion\Device Installer" valueName="DisableCoInstallers">
       <parentCategory ref="System" />
@@ -430,7 +437,13 @@
         <decimal value="0" />
       </disabledValue>
     </policy>
-    <!-- Network section -->
+    <!-- 
+███    ██ ███████ ████████ ██     ██  ██████  ██████  ██   ██         ███████ ███████  ██████ ████████ ██  ██████  ███    ██ 
+████   ██ ██         ██    ██     ██ ██    ██ ██   ██ ██  ██          ██      ██      ██         ██    ██ ██    ██ ████   ██ 
+██ ██  ██ █████      ██    ██  █  ██ ██    ██ ██████  █████           ███████ █████   ██         ██    ██ ██    ██ ██ ██  ██ 
+██  ██ ██ ██         ██    ██ ███ ██ ██    ██ ██   ██ ██  ██               ██ ██      ██         ██    ██ ██    ██ ██  ██ ██ 
+██   ████ ███████    ██     ███ ███   ██████  ██   ██ ██   ██         ███████ ███████  ██████    ██    ██  ██████  ██   ████ 
+    -->
     <policy name="Pol_MSS_DisableIPSourceRouting" class="Machine" displayName="$(string.DisableIPSourceRouting)" explainText="$(string.DisableIPSourceRouting_Help)" presentation="$(presentation.DisableIPSourceRouting)" key="System\CurrentControlSet\Services\Tcpip\Parameters">
       <parentCategory ref="Network" />
       <supportedOn ref="windows:SUPPORTED_WindowsVista" />
