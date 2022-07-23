@@ -51,6 +51,8 @@ Disabling this policy will allow standard users to open a session in Safe Mode.<
       <string id="KCET_Explain">The policy enable kernel-level shadow stacks, also known as Intel CET (Control-flow Enforcement Technology) or AMD Shadow Stack.
       
 Please note that this security function require specific hardware support (AMD Zen 3 or Intel 11th Gen. processors) and OS support (Windows 21H2 or newer).</string>
+      <string id="WPBT">Disable the WPBT functionnality</string>
+      <string id="WPBT_Explain">This policy disable the Windows Platform Binary Table (WPBT) functionnality, that can be used for persistence through an UEFI implant.</string>
       <string id="SEHOP">Enable Structured Exception Handling Overwrite Protection (SEHOP)</string>
       <string id="SEHOP_Explain">SEHOP blocks exploits that use the Structured Exception Handling overwrite technique, a common buffer overflow attack.
       

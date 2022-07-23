@@ -437,6 +437,16 @@
         <decimal value="0" />
       </disabledValue>
     </policy>
+    <policy name="WPBT_Disable" class="Machine" displayName="$(string.WPBT)" explainText="$(string.WPBT_Explain)" key="SYSTEM\CurrentControlSet\Control\Session Manager" valueName="DisableWpbtExecution">
+      <parentCategory ref="System" />
+      <supportedOn ref="windows:SUPPORTED_Windows_6_3" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
     <!-- 
 ███    ██ ███████ ████████ ██     ██  ██████  ██████  ██   ██         ███████ ███████  ██████ ████████ ██  ██████  ███    ██ 
 ████   ██ ██         ██    ██     ██ ██    ██ ██   ██ ██  ██          ██      ██      ██         ██    ██ ██    ██ ████   ██ 
