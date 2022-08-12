@@ -3,7 +3,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [v1.0.20] - 2022-007-23
+## [v1.0.21] - 2022-08-12
+
+### Fixed
+- Typo in the Disabled list of the NET 2 Strong Crypto policy (https://github.com/Harvester57/Security-ADMX/issues/9)
+
+## [v1.0.20] - 2022-07-23
 
 ### Added
 - "Disable the WPBT functionnality" policy (https://github.com/Harvester57/Security-ADMX/issues/8)
