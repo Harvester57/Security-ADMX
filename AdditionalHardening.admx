@@ -1520,7 +1520,7 @@
         </item>
         <item key="SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v2.0.50727" valueName="SystemDefaultTlsVersions">
           <value>
-            <decimal value="1" />
+            <decimal value="0" />
           </value>
         </item>
       </disabledList>
