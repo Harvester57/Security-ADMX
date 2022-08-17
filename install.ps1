@@ -6,7 +6,7 @@ $ErrorActionPreference = 'Stop'
 $src = Split-Path -Parent $Myinvocation.mycommand.path
 
 try {
-    Copy-Item "$src\*" -Destination "${Env:Windir}\PolicyDefinitions" -Exclude '.git' -Force -Recurse 
+    Copy-Item "$src\*" -Destination "${Env:Windir}\PolicyDefinitions" -Exclude '.git','*.md','*.ps1' -Force -Recurse 
 }
 catch {
     Write-Warning 'Unable to copy the files'
