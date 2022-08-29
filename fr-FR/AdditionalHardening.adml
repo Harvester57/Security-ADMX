@@ -50,7 +50,9 @@ Désactiver cette politique autorisera les utilisateurs standards à ouvrir une 
 
 Veuillez noter que cette fonctionnalité dépend d'un support matériel (architecture CPU AMD Zen 3 ou 11ème Génération d'Intel) et d'un système d'exploitation (Windows 21H2 ou supérieur) récents.</string>
       <string id="WPBT">Désactiver la fonctionnalité WPBT</string>
-      <string id="WPBT_Explain">Ce paramètre désactive la fonctionnalité WPBT (Windows Platform Binary Table), qui peut être utilisé comme mécanisme de persistance via l'UEFI.</string>
+      <string id="WPBT_Explain">Ce paramètre désactive la fonctionnalité WPBT (Windows Platform Binary Table), qui peut être utilisée comme mécanisme de persistance via l'UEFI.</string>
+      <string id="TTD">Désactiver la fonctionnalité TTD</string>
+      <string id="TTD_Explain">Ce paramètre désactive la fonctionnalité TTD (Time-Travel Debugging), qui peut être utilisée pour lancer des exécutables tiers, ou créer une image mémoire de processus sensibles (ex. lsass.exe).</string>
       <string id="SEHOP">Activer la prévention des réécritures de SEH (SEHOP)</string>
       <string id="SEHOP_Explain">SEHOP prévient certaines attaques par débordement de tampon en empêchant la réécriture des structures SEH.
 
@@ -136,8 +138,7 @@ Si vous désactivez ce paramètre, les utilisateurs standards pourront installer
 Informations complémentaires : https://support.microsoft.com/fr-fr/topic/kb5005010-restricting-installation-of-new-printer-drivers-after-applying-the-july-6-2021-updates-31b91c02-05bc-4ada-a7ea-183b129578a7
       </string>
       <string id="CoInstallers">Bloquer l'installation des co-installeurs des pilotes matériels</string>
-      <string id="CoInstallers_Help">
-Un co-installeur est une librairie Win32 en espace utilisateur qui complète l'installation d'un driver en effectuant des tâches de configuration annexes (écriture Registre, installation d'application additionnelle, etc) non disponibles dans un fichier INF standard.
+      <string id="CoInstallers_Help">Un co-installeur est une librairie Win32 en espace utilisateur qui complète l'installation d'un driver en effectuant des tâches de configuration annexes (écriture Registre, installation d'application additionnelle, etc) non disponibles dans un fichier INF standard.
 
 Si vous activez ce paramètre, l'exécution des co-installeurs sera bloquée. Pour certains périphériques spécifiques (claviers paramétrables, cartes graphiques, etc), il sera nécessaire d'installer manuellement le logiciel de contrôle à partir du site du fabricant.
 

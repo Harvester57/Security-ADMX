@@ -53,6 +53,8 @@ Disabling this policy will allow standard users to open a session in Safe Mode.<
 Please note that this security function require specific hardware support (AMD Zen 3 or Intel 11th Gen. processors) and OS support (Windows 21H2 or newer).</string>
       <string id="WPBT">Disable the WPBT functionnality</string>
       <string id="WPBT_Explain">This policy disable the Windows Platform Binary Table (WPBT) functionnality, that can be used for persistence through an UEFI implant.</string>
+      <string id="TTD">Disable Time-Travel Debugging</string>
+      <string id="TTD_Explain">This policy disable the Time-Travel Debugging (TTD) functionnality, that can be used to dump sensitive processes memory content, and to launch third-party executables.</string>
       <string id="SEHOP">Enable Structured Exception Handling Overwrite Protection (SEHOP)</string>
       <string id="SEHOP_Explain">SEHOP blocks exploits that use the Structured Exception Handling overwrite technique, a common buffer overflow attack.
       
@@ -133,8 +135,7 @@ If you disable this setting, the system will not limit installation of print dri
 Additional Information: https://support.microsoft.com/en-us/topic/kb5005010-restricting-installation-of-new-printer-drivers-after-applying-the-july-6-2021-updates-31b91c02-05bc-4ada-a7ea-183b129578a7 for additional information.
       </string>
       <string id="CoInstallers">Block drivers co-installers applications</string>
-      <string id="CoInstallers_Help">
-A co-installer is a user-mode Win32 DLL that typically writes additional configuration information to the registry, or performs other installation tasks that require information that is not available when an INF is written.
+      <string id="CoInstallers_Help">A co-installer is a user-mode Win32 DLL that typically writes additional configuration information to the registry, or performs other installation tasks that require information that is not available when an INF is written.
 
 If you enable this setting, co-installers execution will be prevented, and additional configuration software for specific devices (mouses, gaming keyboards, etc) must be downloaded and manually installed from the manufacturer website.
 

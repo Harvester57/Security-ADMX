@@ -447,6 +447,16 @@
         <decimal value="0" />
       </disabledValue>
     </policy>
+    <policy name="TTD_Disable" class="Machine" displayName="$(string.TTD)" explainText="$(string.TTD_Explain)" key="SOFTWARE\Microsoft\TTD" valueName="RecordingPolicy">
+      <parentCategory ref="System" />
+      <supportedOn ref="windows:SUPPORTED_Windows_6_3" />
+      <enabledValue>
+        <decimal value="2" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
     <!-- 
 ███    ██ ███████ ████████ ██     ██  ██████  ██████  ██   ██         ███████ ███████  ██████ ████████ ██  ██████  ███    ██ 
 ████   ██ ██         ██    ██     ██ ██    ██ ██   ██ ██  ██          ██      ██      ██         ██    ██ ██    ██ ████   ██ 
