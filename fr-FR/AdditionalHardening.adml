@@ -102,7 +102,7 @@ Désactiver cette stratégie positionne la valeur de registre à 0.</string>
       <string id="MSCHAPv2_Iteration_Explain">Lors d'une connexion à un domaine, le mot de passe est stocké localement sous la forme d'un condensat MSCHAPv2. Par défaut, le nombre d'itérations de l'algorithme PBKDF2-SHA1 est fixé à 10240. Activer ce paramètre permet de modifier ce nombre d'itérations, en suivant la logique suivante :
       
 - Pour une valeur inférieure ou égale à 10240, le nombre d'itérations est mutiplié par 1024 (par exemple, une valeur de 20 donne 20480 itérations).
-- Pour une valeur supérieure à 1024,  il s’agit du nombre d’itérations (arrondi à 1024).
+- Pour une valeur supérieure à 10240,  il s’agit du nombre d’itérations (arrondi à 1024).
 
 La valeur recommandée dépend de votre environnement et de la puissance CPU disponible, un grand nombre d'itérations pouvant engendrer un ralentissement important du processus de connexion au système.</string>
       <string id="PSLockDownPolicy">Activer le mode Contraint du langage PowerShell</string>
