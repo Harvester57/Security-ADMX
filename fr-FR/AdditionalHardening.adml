@@ -53,6 +53,8 @@ Veuillez noter que cette fonctionnalité dépend d'un support matériel (archite
       <string id="WPBT_Explain">Ce paramètre désactive la fonctionnalité WPBT (Windows Platform Binary Table), qui peut être utilisée comme mécanisme de persistance via l'UEFI.</string>
       <string id="TTD">Désactiver la fonctionnalité TTD</string>
       <string id="TTD_Explain">Ce paramètre désactive la fonctionnalité TTD (Time-Travel Debugging), qui peut être utilisée pour lancer des exécutables tiers, ou créer une image mémoire de processus sensibles (ex. lsass.exe).</string>
+      <string id="CWDIllegalInDllSearch">Supprimer le répertoire courant de la liste de chargement des DLLs</string>
+      <string id="CWDIllegalInDllSearch_Explain">Ce paramètre désactive la recherche et le chargement de DLLs à partir du répertoire courant.</string>
       <string id="SEHOP">Activer la prévention des réécritures de SEH (SEHOP)</string>
       <string id="SEHOP_Explain">SEHOP prévient certaines attaques par débordement de tampon en empêchant la réécriture des structures SEH.
 

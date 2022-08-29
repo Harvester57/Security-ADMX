@@ -457,6 +457,16 @@
         <decimal value="0" />
       </disabledValue>
     </policy>
+    <policy name="CWDIllegalInDllSearch_Enable" class="Machine" displayName="$(string.CWDIllegalInDllSearch)" explainText="$(string.CWDIllegalInDllSearch_Explain)" key="SYSTEM\CurrentControlSet\Control\Session Manager" valueName="CWDIllegalInDllSearch">
+      <parentCategory ref="System" />
+      <supportedOn ref="windows:SUPPORTED_Windows_6_3" />
+      <enabledValue>
+        <decimal value="4294967295" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
     <!-- 
 ███    ██ ███████ ████████ ██     ██  ██████  ██████  ██   ██         ███████ ███████  ██████ ████████ ██  ██████  ███    ██ 
 ████   ██ ██         ██    ██     ██ ██    ██ ██   ██ ██  ██          ██      ██      ██         ██    ██ ██    ██ ████   ██ 

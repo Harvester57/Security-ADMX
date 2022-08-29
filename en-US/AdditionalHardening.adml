@@ -55,6 +55,8 @@ Please note that this security function require specific hardware support (AMD Z
       <string id="WPBT_Explain">This policy disable the Windows Platform Binary Table (WPBT) functionnality, that can be used for persistence through an UEFI implant.</string>
       <string id="TTD">Disable Time-Travel Debugging</string>
       <string id="TTD_Explain">This policy disable the Time-Travel Debugging (TTD) functionnality, that can be used to dump sensitive processes memory content, and to launch third-party executables.</string>
+      <string id="CWDIllegalInDllSearch">Remove current working directory from DLL search</string>
+      <string id="CWDIllegalInDllSearch_Explain">The CWDIllegalInDllSearch registry entry is used to remove the current working directory (CWD) from the DLL search order.</string>
       <string id="SEHOP">Enable Structured Exception Handling Overwrite Protection (SEHOP)</string>
       <string id="SEHOP_Explain">SEHOP blocks exploits that use the Structured Exception Handling overwrite technique, a common buffer overflow attack.
       
