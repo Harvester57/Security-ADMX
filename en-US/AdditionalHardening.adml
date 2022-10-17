@@ -28,6 +28,10 @@
       <string id="DisableSMB1_Explain">Disable SMB 1.0 support (client and server)</string>
       <string id="LSA_RunAsPPL">Enable additional LSA process hardening</string>
       <string id="LSA_RunAsPPL_Explain">Enable this option to allow the LSA process to run as a PPL (Protected Process Light), in order to disallow its debugging.</string>
+      <string id="LSA_SamDisableListenOnTCP">Disable the SAM server TCP listener</string>
+      <string id="LSA_SamDisableListenOnTCP_Explain">By default, the SAM server (lsass.exe) is constantly listening on a random TCP port, bound to all network interfaces.
+
+Enabling this policy will disable the TCP listener.</string>
       <string id="SafeBootUserAccess">Disable standard users in Safe-Boot mode</string>
       <string id="SafeBootUserAccess_Explain">An adversary with standard user credentials that can boot into Microsoft Windows using Safe Mode, Safe Mode with Networking or Safe Mode with Command Prompt options may be able to bypass system protections and security functionalities. To reduce this risk, users with standard credentials should be prevented from using Safe Mode options to log in.
 
@@ -504,16 +508,21 @@ TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P384
 TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P521
       </string>
       <!-- .NET Framework 4 -->
-      <string id="dotnet4">.NET Framework 4 Strong Crypto</string>
+      <string id="dotnet4">.NET Framework 4: enable strong cryptographic support</string>
       <string id="dotnet4_Help">Enables or disables the use of TLS 1.1 and TLS 1.2 in .NET Framework 4.
 
 If this setting is left unconfigured, TLS 1.1 and TLS 1.2 will be enabled by default for applications targeting .NET Framework 4.6 or higher and disabled otherwise.
       </string>
       <!-- .NET Framework 2 -->
-      <string id="dotnet2">.NET Framework 2 Strong Crypto</string>
+      <string id="dotnet2">.NET Framework 2: enable strong cryptographic support</string>
       <string id="dotnet2_Help">Enables or disables the use of TLS 1.1 and TLS 1.2 in .NET Framework 2.
 
 If this setting is left unconfigured, TLS 1.1 and TLS 1.2 will be disabled by default.
+      </string>
+      <string id="dotnet_strongname">Disable the strong-name bypass feature</string>
+      <string id="dotnet_strongname_Help">Starting with the .NET Framework version 3.5 Service Pack 1 (SP1), strong-name signatures are not validated when an assembly is loaded into a full-trust xref:System.AppDomain object, such as the default xref:System.AppDomain for the MyComputer zone. This is referred to as the strong-name bypass feature. In a full-trust environment, demands for xref:System.Security.Permissions.StrongNameIdentityPermission always succeed for signed, full-trust assemblies regardless of their signature. 
+      
+The only restriction is that the assembly must be fully trusted because its zone is fully trusted. Because the strong name is not a determining factor under these conditions, there is no reason for it to be validated. Bypassing the validation of strong-name signatures provides significant performance improvements.
       </string>
     </stringTable>
     <presentationTable>

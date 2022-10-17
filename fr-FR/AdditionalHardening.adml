@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                           revision="1.0"
-                           schemaVersion="1.0"
-                           xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0"
+  xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
   <displayName>Paramètres de durcissement supplémentaires.</displayName>
   <description>Paramètres de durcissement supplémentaires.</description>
   <resources>
@@ -28,6 +26,10 @@
       <string id="DisableSMB1_Explain">Activer cette stratégie désactivera le support de SMB 1.0 (client et serveur)</string>
       <string id="LSA_RunAsPPL">Activer le durcissement additionnel du processus LSA</string>
       <string id="LSA_RunAsPPL_Explain">Activer cette stratégie pour permettre au processus LSA de se lancer en tant que PPL (Protected Process Light), interdisant son débuggage.</string>
+      <string id="LSA_SamDisableListenOnTCP">Désactiver l'écoute TCP du serveur SAM</string>
+      <string id="LSA_SamDisableListenOnTCP_Explain">Par défaut, le serveur SAM (lsass.exe) écoute en permanence sur un port TCP aléatoire, et sur toutes les interfaces réseau.
+
+Activer ce paramètre désactivera l'écoute TCP du serveur lsass.exe.</string>
       <string id="SafeBootUserAccess">Désactiver les utilisateurs standards en mode sans échec</string>
       <string id="SafeBootUserAccess_Explain">Activer cette stratégie désactivera le support des utilisateurs standards en mode sans échec, pour éviter les contournements des politiques de sécurité. Seuls les administrateurs pourront ouvrir une session dans ce mode.
 
@@ -518,41 +520,33 @@ Si ce paramètre n'est pas configuré ou est désactivé, TLS 1.1 et 1.2 seront 
 
 Si ce paramètre n'est pas configuré ou est désactivé, TLS 1.1 et 1.2 sont désactivés.
       </string>
+      <string id="dotnet_strongname">Désactiver la fonctionnalité de contournement de nom fort</string>
+      <string id="dotnet_strongname_Help">À partir du .NET Framework version 3.5 Service Pack 1 (SP1), les signatures de noms forts ne sont pas validées quand un assembly est chargé dans un objet AppDomain de confiance totale, tel que le AppDomain par défaut pour la zone MyComputer. Cette fonctionnalité permet d’ignorer les noms forts. Dans un environnement de confiance totale, les demandes de StrongNameIdentityPermission aboutissent toujours pour les assemblys de confiance totale signés, quelle que soit leur signature. 
+      
+La seule restriction est que l’assembly doit être entièrement fiable, car sa zone est entièrement fiable. Le nom fort n’étant pas un facteur déterminant dans ces conditions, il n’y a aucune raison pour qu’il soit validé. Ignorer la validation des signatures de noms forts fournit une amélioration significative des performances.
+      </string>
     </stringTable>
     <presentationTable>
       <presentation id="DiffieHelmannClientMinKeyBitLength_Presentation">
-        <dropdownList refId="DiffieHelmannClientMinKeyBitLength_DropdownList"
-                      noSort="true"
-                      defaultItem="0">Sélectionner une option :</dropdownList>
+        <dropdownList refId="DiffieHelmannClientMinKeyBitLength_DropdownList" noSort="true" defaultItem="0">Sélectionner une option :</dropdownList>
       </presentation>
       <presentation id="DiffieHelmannServerMinKeyBitLength_Presentation">
-        <dropdownList refId="DiffieHelmannServerMinKeyBitLength_DropdownList"
-                      noSort="true"
-                      defaultItem="0">Sélectionner une option :</dropdownList>
+        <dropdownList refId="DiffieHelmannServerMinKeyBitLength_DropdownList" noSort="true" defaultItem="0">Sélectionner une option :</dropdownList>
       </presentation>
       <presentation id="RSAClientMinKeyBitLength_Presentation">
-        <dropdownList refId="RSAClientMinKeyBitLength_DropdownList"
-                      noSort="true"
-                      defaultItem="1">Sélectionner une option :</dropdownList>
+        <dropdownList refId="RSAClientMinKeyBitLength_DropdownList" noSort="true" defaultItem="1">Sélectionner une option :</dropdownList>
       </presentation>
       <presentation id="MSCHAPv2_Iteration">
-        <decimalTextBox refId="MSCHAPv2_Iteration_count"
-                        defaultValue="1024">Nombre d'itérations MSCHAPv2 :</decimalTextBox>
+        <decimalTextBox refId="MSCHAPv2_Iteration_count" defaultValue="1024">Nombre d'itérations MSCHAPv2 :</decimalTextBox>
       </presentation>
       <presentation id="DisableIPSourceRouting">
-        <dropdownList refId="DisableIPSourceRouting"
-                      noSort="true"
-                      defaultItem="1">Sélectionner un niveau de routage :</dropdownList>
+        <dropdownList refId="DisableIPSourceRouting" noSort="true" defaultItem="1">Sélectionner un niveau de routage :</dropdownList>
       </presentation>
       <presentation id="DisableIPSourceRoutingIPv6">
-        <dropdownList refId="DisableIPSourceRoutingIPv6"
-                      noSort="true"
-                      defaultItem="1">Sélectionner un niveau de routage :</dropdownList>
+        <dropdownList refId="DisableIPSourceRoutingIPv6" noSort="true" defaultItem="1">Sélectionner un niveau de routage :</dropdownList>
       </presentation>
       <presentation id="MicroarchHardening_Presentation">
-        <dropdownList refId="MicroarchHardening_DropdownList"
-                      noSort="true"
-                      defaultItem="1">Sélectionner une option :</dropdownList>
+        <dropdownList refId="MicroarchHardening_DropdownList" noSort="true" defaultItem="1">Sélectionner une option :</dropdownList>
         <checkBox refId="HyperVMitigations">Activer le durcissement pour les machines virtuelles Hyper-V (version 8.0 et inférieur)</checkBox>
       </presentation>
       <presentation id="DHServer">
@@ -566,64 +560,44 @@ Si ce paramètre n'est pas configuré ou est désactivé, TLS 1.1 et 1.2 sont d�
       </presentation>
       <!-- PROTOCOLS -->
       <presentation id="MPUH">
-        <checkBox refId="MPUH_ClientCheckbox"
-                  defaultChecked="false">Activer le protocole Multi-Protocol Unified Hello côté client</checkBox>
-        <checkBox refId="MPUH_ServerCheckbox"
-                  defaultChecked="false">Activer le protocole Multi-Protocol Unified Hello côté serveur</checkBox>
+        <checkBox refId="MPUH_ClientCheckbox" defaultChecked="false">Activer le protocole Multi-Protocol Unified Hello côté client</checkBox>
+        <checkBox refId="MPUH_ServerCheckbox" defaultChecked="false">Activer le protocole Multi-Protocol Unified Hello côté serveur</checkBox>
       </presentation>
       <presentation id="PCTv1">
-        <checkBox refId="PCTv1_ClientCheckbox"
-                  defaultChecked="false">Activer le support de PCT 1.0 côté client</checkBox>
-        <checkBox refId="PCTv1_ServerCheckbox"
-                  defaultChecked="false">Activer le support de PCT 1.0 côté serveur</checkBox>
+        <checkBox refId="PCTv1_ClientCheckbox" defaultChecked="false">Activer le support de PCT 1.0 côté client</checkBox>
+        <checkBox refId="PCTv1_ServerCheckbox" defaultChecked="false">Activer le support de PCT 1.0 côté serveur</checkBox>
       </presentation>
       <presentation id="SSLv2">
-        <checkBox refId="SSLv2_ClientCheckbox"
-                  defaultChecked="false">Activer le support de SSL 2.0 côté client</checkBox>
-        <checkBox refId="SSLv2_ServerCheckbox"
-                  defaultChecked="false">Activer le support de SSL 2.0 côté serveur</checkBox>
+        <checkBox refId="SSLv2_ClientCheckbox" defaultChecked="false">Activer le support de SSL 2.0 côté client</checkBox>
+        <checkBox refId="SSLv2_ServerCheckbox" defaultChecked="false">Activer le support de SSL 2.0 côté serveur</checkBox>
       </presentation>
       <presentation id="SSLv3">
-        <checkBox refId="SSLv3_ClientCheckbox"
-                  defaultChecked="false">Activer le support de SSL 3.0 côté client</checkBox>
-        <checkBox refId="SSLv3_ServerCheckbox"
-                  defaultChecked="false">Activer le support de SSL 3.0 côté serveur</checkBox>
+        <checkBox refId="SSLv3_ClientCheckbox" defaultChecked="false">Activer le support de SSL 3.0 côté client</checkBox>
+        <checkBox refId="SSLv3_ServerCheckbox" defaultChecked="false">Activer le support de SSL 3.0 côté serveur</checkBox>
       </presentation>
       <presentation id="TLSv10">
-        <checkBox refId="TLSv10_ClientCheckbox"
-                  defaultChecked="true">Activer le support de TLS 1.0 côté client</checkBox>
-        <checkBox refId="TLSv10_ServerCheckbox"
-                  defaultChecked="true">Activer le support de TLS 1.0 côté serveur</checkBox>
+        <checkBox refId="TLSv10_ClientCheckbox" defaultChecked="true">Activer le support de TLS 1.0 côté client</checkBox>
+        <checkBox refId="TLSv10_ServerCheckbox" defaultChecked="true">Activer le support de TLS 1.0 côté serveur</checkBox>
       </presentation>
       <presentation id="TLSv11">
-        <checkBox refId="TLSv11_ClientCheckbox"
-                  defaultChecked="true">Activer le support de TLS 1.1 côté client</checkBox>
-        <checkBox refId="TLSv11_ServerCheckbox"
-                  defaultChecked="true">Activer le support de TLS 1.1 côté serveur</checkBox>
+        <checkBox refId="TLSv11_ClientCheckbox" defaultChecked="true">Activer le support de TLS 1.1 côté client</checkBox>
+        <checkBox refId="TLSv11_ServerCheckbox" defaultChecked="true">Activer le support de TLS 1.1 côté serveur</checkBox>
       </presentation>
       <presentation id="TLSv12">
-        <checkBox refId="TLSv12_ClientCheckbox"
-                  defaultChecked="true">Activer le support de TLS 1.2 côté client</checkBox>
-        <checkBox refId="TLSv12_ServerCheckbox"
-                  defaultChecked="true">Activer le support de TLS 1.2 côté serveur</checkBox>
+        <checkBox refId="TLSv12_ClientCheckbox" defaultChecked="true">Activer le support de TLS 1.2 côté client</checkBox>
+        <checkBox refId="TLSv12_ServerCheckbox" defaultChecked="true">Activer le support de TLS 1.2 côté serveur</checkBox>
       </presentation>
       <presentation id="TLSv13">
-        <checkBox refId="TLSv13_ClientCheckbox"
-                  defaultChecked="true">Activer le support de TLS 1.3 côté client</checkBox>
-        <checkBox refId="TLSv13_ServerCheckbox"
-                  defaultChecked="true">Activer le support de TLS 1.3 côté serveur</checkBox>
+        <checkBox refId="TLSv13_ClientCheckbox" defaultChecked="true">Activer le support de TLS 1.3 côté client</checkBox>
+        <checkBox refId="TLSv13_ServerCheckbox" defaultChecked="true">Activer le support de TLS 1.3 côté serveur</checkBox>
       </presentation>
       <presentation id="DTLSv10">
-        <checkBox refId="DTLSv10_ClientCheckbox"
-                  defaultChecked="true">Activer le support de DTLS 1.0 côté client</checkBox>
-        <checkBox refId="DTLSv10_ServerCheckbox"
-                  defaultChecked="true">Activer le support de DTLS 1.0 côté serveur</checkBox>
+        <checkBox refId="DTLSv10_ClientCheckbox" defaultChecked="true">Activer le support de DTLS 1.0 côté client</checkBox>
+        <checkBox refId="DTLSv10_ServerCheckbox" defaultChecked="true">Activer le support de DTLS 1.0 côté serveur</checkBox>
       </presentation>
       <presentation id="DTLSv12">
-        <checkBox refId="DTLSv12_ClientCheckbox"
-                  defaultChecked="true">Activer le support de DTLS 1.2 côté client</checkBox>
-        <checkBox refId="DTLSv12_ServerCheckbox"
-                  defaultChecked="true">Activer le support de DTLS 1.2 côté serveur</checkBox>
+        <checkBox refId="DTLSv12_ClientCheckbox" defaultChecked="true">Activer le support de DTLS 1.2 côté client</checkBox>
+        <checkBox refId="DTLSv12_ServerCheckbox" defaultChecked="true">Activer le support de DTLS 1.2 côté serveur</checkBox>
       </presentation>
     </presentationTable>
   </resources>

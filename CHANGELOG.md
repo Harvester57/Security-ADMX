@@ -3,6 +3,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v1.0.23] - 2022-10-17
+### Added
+- "Disable the strong-name bypass feature" policy for .NET Framework
+  - More infos in the .NET documentation: https://learn.microsoft.com/en-us/dotnet/standard/assembly/disable-strong-name-bypass-feature
+- "Disable the SAM server TCP listener"
+  - More details in this Twitter thread: https://twitter.com/agowa338/status/1581205232238796800
+  - Credits to @tyranid for the registry key
+
 ## [v1.0.22] - 2022-08-29
 ### Added
 - "Disable Time-Travel Debugging" policy (https://github.com/Harvester57/Security-ADMX/issues/11)

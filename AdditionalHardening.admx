@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--  
   Author: Florian Stosse <florian.stosse@safrangroup.com>
-  Version: 1.0.21
-  Date: 2022-08-12
+  Version: 1.0.23
+  Date: 2022-10-17
   -->
 <policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0"
@@ -130,6 +130,16 @@
     </policy>
     <!-- Run LSA process as a PPL -->
     <policy name="LSA_RunAsPPL" class="Machine" displayName="$(string.LSA_RunAsPPL)" explainText="$(string.LSA_RunAsPPL_Explain)" key="SYSTEM\CurrentControlSet\Control\Lsa" valueName="RunAsPPL">
+      <parentCategory ref="System" />
+      <supportedOn ref="windows:SUPPORTED_Windows_6_3" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="LSA_SamDisableListenOnTCP" class="Machine" displayName="$(string.LSA_SamDisableListenOnTCP)" explainText="$(string.LSA_SamDisableListenOnTCP_Explain)" key="SYSTEM\CurrentControlSet\Control\Lsa" valueName="SamDisableListenOnTCP">
       <parentCategory ref="System" />
       <supportedOn ref="windows:SUPPORTED_Windows_6_3" />
       <enabledValue>
@@ -1447,6 +1457,34 @@
       </disabledValue>
     </policy>
     <!-- .NET Framework subsection -->
+    <policy name="dotnet_strongname" class="Machine" displayName="$(string.dotnet_strongname)" explainText="$(string.dotnet_strongname_Help)" key="SOFTWARE\Microsoft\.NETFramework">
+      <parentCategory ref="NETFrame" />
+      <supportedOn ref="windows:SUPPORTED_Windows7" />
+      <enabledList>
+        <item key="SOFTWARE\Microsoft\.NETFramework" valueName="AllowStrongNameBypass">
+          <value>
+            <decimal value="0" />
+          </value>
+        </item>
+        <item key="SOFTWARE\Wow6432Node\Microsoft\.NETFramework" valueName="AllowStrongNameBypass">
+          <value>
+            <decimal value="0" />
+          </value>
+        </item>
+      </enabledList>
+      <disabledList>
+        <item key="SOFTWARE\Microsoft\.NETFramework" valueName="AllowStrongNameBypass">
+          <value>
+            <decimal value="1" />
+          </value>
+        </item>
+        <item key="SOFTWARE\Wow6432Node\Microsoft\.NETFramework" valueName="AllowStrongNameBypass">
+          <value>
+            <decimal value="1" />
+          </value>
+        </item>
+      </disabledList>
+    </policy>
     <!-- .NET Framework 4 -->
     <policy name="dotnet4" class="Machine" displayName="$(string.dotnet4)" explainText="$(string.dotnet4_Help)" key="SOFTWARE\Microsoft\.NETFramework\v4.0.30319">
       <parentCategory ref="NETFrame" />
