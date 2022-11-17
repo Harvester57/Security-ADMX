@@ -2,7 +2,7 @@
 <!--  
   Author: Florian Stosse <florian.stosse@safrangroup.com>
   Version: 1.0.24
-  Date: 2022-111-17
+  Date: 2022-11-17
 -->
 <policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0"

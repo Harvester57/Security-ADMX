@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v1.0.24] - 2022-11-17
+### Fixed
+- Apply "EnableCertPaddingCheck" as REG_SZ, not DWORD
+- Improve Schannel-related descriptions
+
 ## [v1.0.23] - 2022-10-17
 ### Added
 - "Disable the strong-name bypass feature" policy for .NET Framework
