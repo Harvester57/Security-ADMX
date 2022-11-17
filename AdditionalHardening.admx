@@ -95,12 +95,12 @@
       <enabledList defaultKey="Software\Microsoft\Cryptography\Wintrust\Config">
         <item valueName="EnableCertPaddingCheck">
           <value>
-            <decimal value="1" />
+            <string>1</string>
           </value>
         </item>
         <item key="Software\Wow6432Node\Microsoft\Cryptography\Wintrust\Config" valueName="EnableCertPaddingCheck">
           <value>
-            <decimal value="1" />
+            <string>1</string>
           </value>
         </item>
       </enabledList>
