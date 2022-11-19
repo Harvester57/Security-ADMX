@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v1.0.25] - 2022-11-19
+### Added
+- Configuration profiles for Schannel TLS cipher suites
+  - Loosely based on [Mozilla recommendations](https://wiki.mozilla.org/Security/Server_Side_TLS), [ANSSI recommendations](https://www.ssi.gouv.fr/guide/recommandations-de-securite-relatives-a-tls/) and best practices
+
 ## [v1.0.24] - 2022-11-17
 ### Fixed
 - Apply "EnableCertPaddingCheck" as REG_SZ, not DWORD
