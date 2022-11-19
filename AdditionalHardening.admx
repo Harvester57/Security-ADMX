@@ -484,6 +484,39 @@
 ██  ██ ██ ██         ██    ██ ███ ██ ██    ██ ██   ██ ██  ██               ██ ██      ██         ██    ██ ██    ██ ██  ██ ██ 
 ██   ████ ███████    ██     ███ ███   ██████  ██   ██ ██   ██         ███████ ███████  ██████    ██    ██  ██████  ██   ████ 
     -->
+    <policy name="TLS_Ciphersuites" class="Machine" displayName="$(string.TLS_Ciphersuites)" explainText="$(string.TLS_Ciphersuites_Help)" presentation="$(presentation.TLS_Ciphersuites)" key="SOFTWARE\Policies\Microsoft\Cryptography\Configuration\SSL\00010002">
+      <parentCategory ref="Schannel" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <elements>
+        <enum id="TLS_Ciphersuites_Selection" valueName="Functions" required="true">
+          <item displayName="$(string.TLS_Ciphersuites0)">
+            <value>
+              <string>TLS_AES_256_GCM_SHA384,TLS_AES_128_GCM_SHA256,TLS_CHACHA20_POLY1305_SHA256,TLS_AES_128_CCM_SHA256</string>
+            </value>
+          </item>
+          <item displayName="$(string.TLS_Ciphersuites1)">
+            <value>
+              <string>TLS_AES_256_GCM_SHA384,TLS_AES_128_GCM_SHA256,TLS_CHACHA20_POLY1305_SHA256,TLS_AES_128_CCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CCM,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256,TLS_DHE_RSA_WITH_AES_256_GCM_SHA384,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256</string>
+            </value>
+          </item>
+          <item displayName="$(string.TLS_Ciphersuites2)">
+            <value>
+              <string>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CCM,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256,TLS_DHE_RSA_WITH_AES_256_GCM_SHA384,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256</string>
+            </value>
+          </item>
+          <item displayName="$(string.TLS_Ciphersuites3)">
+            <value>
+              <string>TLS_AES_256_GCM_SHA384,TLS_AES_128_GCM_SHA256,TLS_CHACHA20_POLY1305_SHA256,TLS_AES_128_CCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CCM,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256,TLS_DHE_RSA_WITH_AES_256_GCM_SHA384,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256</string>
+            </value>
+          </item>
+          <item displayName="$(string.TLS_Ciphersuites4)">
+            <value>
+              <string>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CCM,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256,TLS_DHE_RSA_WITH_AES_256_GCM_SHA384,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256</string>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
     <policy name="Pol_MSS_DisableIPSourceRouting" class="Machine" displayName="$(string.DisableIPSourceRouting)" explainText="$(string.DisableIPSourceRouting_Help)" presentation="$(presentation.DisableIPSourceRouting)" key="System\CurrentControlSet\Services\Tcpip\Parameters">
       <parentCategory ref="Network" />
       <supportedOn ref="windows:SUPPORTED_WindowsVista" />

@@ -126,6 +126,90 @@ Par défaut, ces événements ne sont pas loggués. Activer cette option n'est r
       <string id="DisableIPSourceRouting2">Désactiver le routage par la source.</string>
       <string id="DisableIPSourceRoutingIPv6">Configurer le routage par la source sur IPv6</string>
       <string id="DisableIPSourceRoutingIPv6_Help">Permet de configurer le niveau de routage par la source sur IPv6.</string>
+      <string id="TLS_Ciphersuites">Configuration des suites de chiffrement TLS</string>
+      <string id="TLS_Ciphersuites_Help">Cette politique vous permet de sélectionner un profil pré-défini de suites de chiffrement utilisées par Schannel pour établir une connexion TLS.
+
+NOTE : pour activer un profil contenant les suites de chiffrement de TLS 1.3, veuillez vérifier au préalable que votre révision de Windows est compatible (Windows 10 v1903 et supérieur), et que vous avez activé le support de TLS 1.3 dans la section "Protocoles" des durcissement additionnels disponibles pour Schannel.
+
+Un redémarrage est nécessaire pour que la modification soit effective. Vous pourrez vérifier que la configuration désirée est appliquée correctement avec le cmdlet PowerShell Get-TlsCiphersuite.
+
+Liste des suites de chiffrement activées par profil, dans l'ordre de préférence :
+
+Moderne (TLS 1.3 seulement)
+TLS_AES_256_GCM_SHA384
+TLS_AES_128_GCM_SHA256
+TLS_CHACHA20_POLY1305_SHA256
+TLS_AES_128_CCM_SHA256
+
+Moderne (TLS 1.3 et 1.2)
+TLS_AES_256_GCM_SHA384
+TLS_AES_128_GCM_SHA256
+TLS_CHACHA20_POLY1305_SHA256
+TLS_AES_128_CCM_SHA256
+TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
+TLS_ECDHE_ECDSA_WITH_AES_128_CCM
+TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+
+Standard (TLS 1.2 seulement)
+TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
+TLS_ECDHE_ECDSA_WITH_AES_128_CCM
+TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+
+Mode de compatibilité (TLS 1.3, 1.2, 1.1 et 1.0)
+TLS_AES_256_GCM_SHA384
+TLS_AES_128_GCM_SHA256
+TLS_CHACHA20_POLY1305_SHA256
+TLS_AES_128_CCM_SHA256
+TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
+TLS_ECDHE_ECDSA_WITH_AES_128_CCM
+TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+
+Mode de compatibilité (TLS 1.2, 1.1 et 1.0)
+TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
+TLS_ECDHE_ECDSA_WITH_AES_128_CCM
+TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+</string>
+      <string id="TLS_Ciphersuites0">Moderne (TLS 1.3 seulement)</string>
+      <string id="TLS_Ciphersuites1">Moderne (TLS 1.3 et 1.2)</string>
+      <string id="TLS_Ciphersuites2">Standard (TLS 1.2 seulement)</string>
+      <string id="TLS_Ciphersuites3">Mode de compatibilité (TLS 1.3, 1.2, 1.1 et 1.0)</string>
+      <string id="TLS_Ciphersuites4">Mode de compatibilité (TLS 1.2, 1.1 et 1.0)</string>
       <string id="AdminShare_Wks">Désactiver les partages administratifs sur les stations de travail</string>
       <string id="AdminShare_Wks_Explain">Les partages administratifs sont des partages créés par défaut à l'installation du système. Ils permettent notamment aux administrateurs d'accéder à distance aux périphériques disque en mode bloc, aux périphériques IPC et aux imprimantes réseau. Ces partages dépendant du service Station de Travail, ils ne sont plus accessibles si celui-ci à été désactivé.</string>
       <string id="AdminShare_Srv">Désactiver les partages administratifs sur serveurs</string>
@@ -547,15 +631,6 @@ La seule restriction est que l’assembly doit être entièrement fiable, car sa
       </string>
     </stringTable>
     <presentationTable>
-      <presentation id="DiffieHelmannClientMinKeyBitLength_Presentation">
-        <dropdownList refId="DiffieHelmannClientMinKeyBitLength_DropdownList" noSort="true" defaultItem="0">Sélectionner une option :</dropdownList>
-      </presentation>
-      <presentation id="DiffieHelmannServerMinKeyBitLength_Presentation">
-        <dropdownList refId="DiffieHelmannServerMinKeyBitLength_DropdownList" noSort="true" defaultItem="0">Sélectionner une option :</dropdownList>
-      </presentation>
-      <presentation id="RSAClientMinKeyBitLength_Presentation">
-        <dropdownList refId="RSAClientMinKeyBitLength_DropdownList" noSort="true" defaultItem="1">Sélectionner une option :</dropdownList>
-      </presentation>
       <presentation id="MSCHAPv2_Iteration">
         <decimalTextBox refId="MSCHAPv2_Iteration_count" defaultValue="1024">Nombre d'itérations MSCHAPv2 :</decimalTextBox>
       </presentation>
@@ -570,13 +645,18 @@ La seule restriction est que l’assembly doit être entièrement fiable, car sa
         <checkBox refId="HyperVMitigations">Activer le durcissement pour les machines virtuelles Hyper-V (version 8.0 et inférieur)</checkBox>
       </presentation>
       <presentation id="DHServer">
-        <dropdownList refId="DHServer_MinLength">Taille minimale du module DH côté serveur</dropdownList>
+        <dropdownList refId="DHServer_MinLength">Taille minimale du module DH côté serveur :</dropdownList>
       </presentation>
       <presentation id="DHClient">
-        <dropdownList refId="DHClient_MinLength">Taille minimale du module DH côté client</dropdownList>
+        <dropdownList refId="DHClient_MinLength">Taille minimale du module DH côté client :</dropdownList>
       </presentation>
       <presentation id="PKCSClient">
-        <dropdownList refId="PKCSClient_MinLength">Taille minimale du module PKCS côté client</dropdownList>
+        <dropdownList refId="PKCSClient_MinLength">Taille minimale du module PKCS côté client :</dropdownList>
+      </presentation>
+      <presentation id="TLS_Ciphersuites">
+        <dropdownList refId="TLS_Ciphersuites_Selection"
+                      noSort="true"
+                      defaultItem="1">Sélectionnez un profil :</dropdownList>
       </presentation>
       <!-- PROTOCOLS -->
       <presentation id="MPUH">
