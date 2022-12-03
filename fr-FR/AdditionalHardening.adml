@@ -6,6 +6,8 @@
   <description>Paramètres de durcissement supplémentaires.</description>
   <resources>
     <stringTable>
+      <string id="SUPPORTED_3174644">Au moins Windows 10;
+Au moins Windows Server 2008 SP2 ou Windows Vista SP2 avec KB3174644</string>
       <!-- CATEGORIES -->
       <string id="Cat_AddHard">Paramètres de durcissement supplémentaires</string>
       <string id="System">Paramètres de durcissement système</string>
