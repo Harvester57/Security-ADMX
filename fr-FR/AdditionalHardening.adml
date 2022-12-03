@@ -111,7 +111,7 @@ Ce paramètre n'affecte que les versions 32 bits de Windows.</string>
 - L'authentification de l'utilisateur est exigée à la connexion.      Désactiver cette stratégie n'a pas d'effet(s).</string>
 			<string id="LMAuth">Durcissement du processus d'authentification par le réseau</string>
 			<string id="LMAuth_Explain">Activer cette option désactivera LM et NTLMv1 pour les authentifications de connexions réseau, et n'autorisera que NTLMv2.</string>
-			<string id="WDigest">Désactivation de WDigest</string>
+			<string id="WDigest">Désactiver WDigest</string>
 			<string id="WDigest_Explain">Activer cette stratégie désactivera le protocole d'authentification WDigest, considéré comme obsolète.
 
 Il est recommandé d'activer cette stratégie de sécurité.</string>
