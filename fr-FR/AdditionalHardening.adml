@@ -115,7 +115,7 @@ La valeur recommandée dépend de votre environnement et de la puissance CPU dis
       <string id="KerberosLogging">Activer la journalisation des événements Kerberos</string>
       <string id="KerberosLogging_Explain">Cette politique active la journalisation des événements liés à Kerberos. Si cette politique est activée, les événements liés à Kerberos sont loggués dans le journal d'événements Système.
 
-Si cette poliitique est désactivée, les événements liés à Kerberos ne sont pas loggués.
+Si cette politique est désactivée, les événements liés à Kerberos ne sont pas loggués.
 
 Par défaut, ces événements ne sont pas loggués. Activer cette option n'est recommandée que pour des questions d'aide au débug des problèmes liés à Kerberos.</string>
 
