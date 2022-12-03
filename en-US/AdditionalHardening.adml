@@ -11,10 +11,10 @@
       <string id="SUPPORTED_3174644">At least Windows 10; 
 At least Windows Server 2008 SP2 or Windows Vista SP2 with KB3174644</string>
       <!-- CATEGORIES -->
-      <string id="Cat_AddHard">Additional hardening parameters</string>
-      <string id="System">Additional system hardening parameters</string>
-      <string id="Network">Additional network hardening parameters</string>
-      <string id="Net">.NET Framework configuration hardening</string>
+      <string id="Cat_AddHard">Additional hardening settings</string>
+      <string id="System">Additional system hardening settings</string>
+      <string id="Network">Additional network hardening settings</string>
+      <string id="Net">.NET Framework configuration</string>
       <string id="Schannel">Schannel configuration</string>
       <string id="Protocols">Protocols</string>
       <string id="WeakProtocols">Weak Protocols</string>
@@ -24,8 +24,7 @@ At least Windows Server 2008 SP2 or Windows Vista SP2 with KB3174644</string>
       <string id="WeakHashes">Weak Hashes</string>
       <string id="KeyEx">Key Exchanges</string>
       <string id="WeakKeyEx">Weak Key Exchanges</string>
-      <string id="SMB">SMB hardening configuration</string>
-      <string id="Schannel_Category">Schannel</string>
+      <string id="SMB">SMB configuration</string>
       <!-- PARAMETERS -->
       <!-- SMB -->
       <string id="DisableSMB1">Disable SMB 1.0 support (client and server)</string>

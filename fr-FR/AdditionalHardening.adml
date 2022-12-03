@@ -13,7 +13,7 @@ Au moins Windows Server 2008 SP2 ou Windows Vista SP2 avec KB3174644</string>
 			<string id="Cat_AddHard">Paramètres de durcissement supplémentaires</string>
 			<string id="System">Paramètres de durcissement système</string>
 			<string id="Network">Paramètres de durcissement réseau</string>
-			<string id="Net">Durcissement de la configuration du .NET Framework</string>
+			<string id="Net">Configuration du .NET Framework</string>
 			<string id="Schannel">Configuration de Schannel</string>
 			<string id="Protocols">Protocoles</string>
 			<string id="WeakProtocols">Protocoles obsolètes</string>
@@ -23,7 +23,7 @@ Au moins Windows Server 2008 SP2 ou Windows Vista SP2 avec KB3174644</string>
 			<string id="WeakHashes">Algorithmes de hashage obsolètes</string>
 			<string id="KeyEx">Mécanismes d'échange de clefs</string>
 			<string id="WeakKeyEx">Mécanismes d'échange de clefs obsolètes</string>
-			<string id="SMB">Durcissement de la configuration de SMB</string>
+			<string id="SMB">Configuration de SMB</string>
 			<!-- PARAMETERS -->
 			<!-- SMB -->
 			<string id="DisableSMB1">Désactiver le support de SMB 1.0 (client et serveur)</string>
@@ -145,7 +145,6 @@ Désactiver cette stratégie positionne la valeur de registre à 0.</string>
 La valeur recommandée dépend de votre environnement et de la puissance CPU disponible, un grand nombre d'itérations pouvant engendrer un ralentissement important du processus de connexion au système.</string>
 			<string id="PSLockDownPolicy">Activer le mode Contraint du langage PowerShell</string>
 			<string id="PSLockDownPolicy_Explain">Le langage PowerShell, depuis la version 5, peut s'exécuter en plusieurs modes, configurables au moyen de la variable d'environnement __PSLockdownPolicy. Cette variable permet de contraindre le langage en limitant les actions faisables avec le langage, et notamment en restreignant les usages inconsidérés des API Win32.</string>
-			<string id="Schannel_Category">Schannel</string>
 			<string id="SchannelLogging">Activer la journalisation avancée de Schannel</string>
 			<string id="SchannelLogging_Explain">Cette politique active la journalisation avancée Schannel. Si cette politique est activée, le mode verbeux de Schannel est activé et les événements sont stockés dans le journal d'événements Système.</string>
 			<string id="KerberosLogging">Activer la journalisation des événements Kerberos</string>
