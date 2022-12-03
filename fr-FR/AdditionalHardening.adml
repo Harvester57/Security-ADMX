@@ -628,7 +628,11 @@ Si ce paramètre n'est pas configuré ou est désactivé, TLS 1.1 et 1.2 seront 
 
 Si ce paramètre n'est pas configuré ou est désactivé, TLS 1.1 et 1.2 sont désactivés.      </string>
 			<string id="dotnet_strongname">Désactiver la fonctionnalité de contournement de nom fort</string>
-			<string id="dotnet_strongname_Help">À partir du .NET Framework version 3.5 Service Pack 1 (SP1), les signatures de noms forts ne sont pas validées quand un assembly est chargé dans un objet AppDomain de confiance totale, tel que le AppDomain par défaut pour la zone MyComputer. Cette fonctionnalité permet d’ignorer les noms forts. Dans un environnement de confiance totale, les demandes de StrongNameIdentityPermission aboutissent toujours pour les assemblys de confiance totale signés, quelle que soit leur signature.       La seule restriction est que l’assembly doit être entièrement fiable, car sa zone est entièrement fiable. Le nom fort n’étant pas un facteur déterminant dans ces conditions, il n’y a aucune raison pour qu’il soit validé. Ignorer la validation des signatures de noms forts fournit une amélioration significative des performances.      </string>
+			<string id="dotnet_strongname_Help">À partir du .NET Framework version 3.5 Service Pack 1 (SP1), les signatures de noms forts ne sont pas validées quand un assembly est chargé dans un objet AppDomain de confiance totale, tel que le AppDomain par défaut pour la zone MyComputer. Cette fonctionnalité permet d’ignorer les noms forts.
+                  
+Dans un environnement de confiance totale, les demandes de StrongNameIdentityPermission aboutissent toujours pour les assemblys de confiance totale signés, quelle que soit leur signature.
+
+La seule restriction est que l’assembly doit être entièrement fiable, car sa zone est entièrement fiable. Le nom fort n’étant pas un facteur déterminant dans ces conditions, il n’y a aucune raison pour qu’il soit validé. Ignorer la validation des signatures de noms forts fournit une amélioration significative des performances.      </string>
 		</stringTable>
 		<presentationTable>
 			<presentation id="MaxSMB2Dialect">
