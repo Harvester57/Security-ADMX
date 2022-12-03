@@ -144,7 +144,9 @@ Désactiver cette stratégie positionne la valeur de registre à 0.</string>
 
 La valeur recommandée dépend de votre environnement et de la puissance CPU disponible, un grand nombre d'itérations pouvant engendrer un ralentissement important du processus de connexion au système.</string>
 			<string id="PSLockDownPolicy">Activer le mode Contraint du langage PowerShell</string>
-			<string id="PSLockDownPolicy_Explain">Le langage PowerShell, depuis la version 5, peut s'exécuter en plusieurs modes, configurables au moyen de la variable d'environnement __PSLockdownPolicy. Cette variable permet de contraindre le langage en limitant les actions faisables avec le langage, et notamment en restreignant les usages inconsidérés des API Win32.</string>
+			<string id="PSLockDownPolicy_Explain">Le langage PowerShell, depuis la version 5, peut s'exécuter en plusieurs modes, configurables au moyen de la variable d'environnement __PSLockdownPolicy. Cette variable permet de contraindre le langage en limitant les actions faisables avec le langage, et notamment en restreignant les usages inconsidérés des API Win32.
+                  
+NOTE : cette stratégie n'est pas une façon robuste d'activer le mode Contraint, une variable d'environnement peut facilement être ré-écrite par un attaquant. Le mode Contraint est activé de façon robuste lorsque AppLocker et/ou WDAC sont utilisés.</string>
 			<string id="SchannelLogging">Activer la journalisation avancée de Schannel</string>
 			<string id="SchannelLogging_Explain">Cette politique active la journalisation avancée Schannel. Si cette politique est activée, le mode verbeux de Schannel est activé et les événements sont stockés dans le journal d'événements Système.</string>
 			<string id="KerberosLogging">Activer la journalisation des événements Kerberos</string>
