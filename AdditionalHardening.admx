@@ -590,6 +590,82 @@
         </item>
       </enabledList>
     </policy>
+    <policy name="MinSMB2Dialect" class="Machine" displayName="$(string.MinSMB2Dialect)" explainText="$(string.MinSMB2Dialect_Explain)" presentation="$(presentation.MinSMB2Dialect)" key="SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters">
+      <parentCategory ref="SMB" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS3" />
+      <elements>
+        <enum id="MinSMB2Dialect_Enum" valueName="MinSMB2Dialect">
+          <item displayName="$(string.MinSMB2Dialect_202)">
+            <value>
+              <decimal value="514" />
+            </value>
+          </item>
+          <item displayName="$(string.MinSMB2Dialect_210)">
+            <value>
+              <decimal value="528" />
+            </value>
+          </item>
+          <item displayName="$(string.MinSMB2Dialect_300)">
+            <value>
+              <decimal value="768" />
+            </value>
+          </item>
+          <item displayName="$(string.MinSMB2Dialect_302)">
+            <value>
+              <decimal value="770" />
+            </value>
+          </item>
+          <item displayName="$(string.MinSMB2Dialect_311)">
+            <value>
+              <decimal value="785" />
+            </value>
+          </item>
+          <item displayName="$(string.MinSMB2Dialect_Remove)">
+            <value>
+              <delete />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="MaxSMB2Dialect" class="Machine" displayName="$(string.MaxSMB2Dialect)" explainText="$(string.MaxSMB2Dialect_Explain)" presentation="$(presentation.MaxSMB2Dialect)" key="SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters">
+      <parentCategory ref="SMB" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS3" />
+      <elements>
+        <enum id="MaxSMB2Dialect_Enum" valueName="MaxSMB2Dialect">
+          <item displayName="$(string.MaxSMB2Dialect_202)">
+            <value>
+              <decimal value="514" />
+            </value>
+          </item>
+          <item displayName="$(string.MaxSMB2Dialect_210)">
+            <value>
+              <decimal value="528" />
+            </value>
+          </item>
+          <item displayName="$(string.MaxSMB2Dialect_300)">
+            <value>
+              <decimal value="768" />
+            </value>
+          </item>
+          <item displayName="$(string.MaxSMB2Dialect_302)">
+            <value>
+              <decimal value="770" />
+            </value>
+          </item>
+          <item displayName="$(string.MaxSMB2Dialect_311)">
+            <value>
+              <decimal value="785" />
+            </value>
+          </item>
+          <item displayName="$(string.MaxSMB2Dialect_Remove)">
+            <value>
+              <delete />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
     <!-- Schannel subsection -->
     <policy name="Schannel_Logging" class="Machine" displayName="$(string.SchannelLogging)" explainText="$(string.SchannelLogging_Explain)" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL" valueName="EventLogging">
       <parentCategory ref="Schannel" />
