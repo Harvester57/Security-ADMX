@@ -3,6 +3,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v1.0.26] - 2022-12-03
+### Added
+- Added "Configure the maximum/minimum SMB2 client dialect supported" policies
+- Added a NOTE to the "Enable PowerShell Constrained Language Mode" policy
+
+### Changed
+- Updated the "Available Settings" pages
+
+### Fixed
+- Typos and wording, both for en-US and fr-FR templates
+
 ## [v1.0.25] - 2022-11-19
 ### Added
 - Configuration profiles for Schannel TLS cipher suites
