@@ -22,6 +22,9 @@
     <category name="System" displayName="$(string.System)">
       <parentCategory ref="Cat_AddHard" />
     </category>
+    <category name="System" displayName="$(string.DomainControllers)">
+      <parentCategory ref="Cat_AddHard" />
+    </category>
     <!-- Subsubcategories -->
     <category name="Schannel" displayName="$(string.Schannel)">
       <parentCategory ref="Network" />
@@ -1692,5 +1695,12 @@
         </item>
       </disabledList>
     </policy>
+    <!-- 
+
+
+      DOMAIN CONTROLLERS SETTINGS
+
+
+    -->
   </policies>
 </policyDefinitions>
