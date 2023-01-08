@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v1.0.27] - 2023-01-08
+### Added
+- Added "Prevent standard users to install root certificates" policy
+- Added a new category of policies, for Domain Controllers specific parameters
+  - This is empty for now, will soon be populated...
+
 ## [v1.0.26] - 2022-12-03
 ### Added
 - Added "Configure the maximum/minimum SMB2 client dialect supported" policies
