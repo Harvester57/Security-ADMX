@@ -13,6 +13,7 @@ Au moins Windows Server 2008 SP2 ou Windows Vista SP2 avec KB3174644</string>
 			<string id="Cat_AddHard">Paramètres de durcissement supplémentaires</string>
 			<string id="System">Paramètres de durcissement système</string>
 			<string id="Network">Paramètres de durcissement réseau</string>
+			<string id="DomainControllers">Paramètres de durcissement pour contrôleurs de domaine</string>
 			<string id="Net">Configuration du .NET Framework</string>
 			<string id="Schannel">Configuration de Schannel</string>
 			<string id="Protocols">Protocoles</string>
@@ -655,13 +656,13 @@ La seule restriction est que l’assembly doit être entièrement fiable, car sa
 				<checkBox refId="HyperVMitigations">Activer le durcissement pour les machines virtuelles Hyper-V (version 8.0 et inférieur)</checkBox>
 			</presentation>
 			<presentation id="DHServer">
-				<dropdownList refId="DHServer_MinLength">Taille minimale du module DH côté serveur :</dropdownList>
+				<dropdownList refId="DHServer_MinLength" noSort="true" defaultItem="2">Taille minimale du module DH côté serveur :</dropdownList>
 			</presentation>
 			<presentation id="DHClient">
-				<dropdownList refId="DHClient_MinLength">Taille minimale du module DH côté client :</dropdownList>
+				<dropdownList refId="DHClient_MinLength" noSort="true" defaultItem="2">Taille minimale du module DH côté client :</dropdownList>
 			</presentation>
 			<presentation id="PKCSClient">
-				<dropdownList refId="PKCSClient_MinLength">Taille minimale du module PKCS côté client :</dropdownList>
+				<dropdownList refId="PKCSClient_MinLength" noSort="true" defaultItem="2">Taille minimale du module PKCS côté client :</dropdownList>
 			</presentation>
 			<presentation id="TLS_Ciphersuites">
 				<dropdownList refId="TLS_Ciphersuites_Selection" noSort="true" defaultItem="1">Sélectionnez un profil :</dropdownList>
