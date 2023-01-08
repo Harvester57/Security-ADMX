@@ -267,6 +267,10 @@ If you enable this setting or do not configure it, the system will limit install
 If you disable this setting, the system will not limit installation of print drivers to this computer.
 
 Additional Information: https://support.microsoft.com/en-us/topic/kb5005010-restricting-installation-of-new-printer-drivers-after-applying-the-july-6-2021-updates-31b91c02-05bc-4ada-a7ea-183b129578a7 for additional information.</string>
+      <string id="ProtectedRoots">Prevent standard users to install root certificates</string>
+      <string id="ProtectedRoots_Help">This policy prevent standard (non-administrators) users to install root certificate authorities to their user-specific trust store.
+
+Enabling this policy can help prevent code signing certificate cloning attacks. It is recommended to enable this policy.</string>
       <string id="CoInstallers">Block drivers co-installers applications</string>
       <string id="CoInstallers_Help">A co-installer is a user-mode Win32 DLL that typically writes additional configuration information to the registry, or performs other installation tasks that require information that is not available when an INF is written.
 

@@ -69,6 +69,17 @@
 
 
     -->
+    <!-- Prevent root CAs tampering from standard users-->
+    <policy name="ProtectedRoots" class="Machine" displayName="$(string.ProtectedRoots)" explainText="$(string.ProtectedRoots_Help)" key="SOFTWARE\Policies\Microsoft\SystemCertificates\Root" valueName="ProtectedRoots">
+      <parentCategory ref="System" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
     <!-- Disable co-installer applications-->
     <policy name="CoInstallers" class="Machine" displayName="$(string.CoInstallers)" explainText="$(string.CoInstallers_Help)" key="SOFTWARE\Microsoft\Windows\CurrentVersion\Device Installer" valueName="DisableCoInstallers">
       <parentCategory ref="System" />

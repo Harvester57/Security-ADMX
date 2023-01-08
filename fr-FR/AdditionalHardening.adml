@@ -145,9 +145,7 @@ Désactiver cette stratégie positionne la valeur de registre à 0.</string>
 
 La valeur recommandée dépend de votre environnement et de la puissance CPU disponible, un grand nombre d'itérations pouvant engendrer un ralentissement important du processus de connexion au système.</string>
 			<string id="PSLockDownPolicy">Activer le mode Contraint du langage PowerShell</string>
-			<string id="PSLockDownPolicy_Explain">Le langage PowerShell, depuis la version 5, peut s'exécuter en plusieurs modes, configurables au moyen de la variable d'environnement __PSLockdownPolicy. Cette variable permet de contraindre le langage en limitant les actions faisables avec le langage, et notamment en restreignant les usages inconsidérés des API Win32.
-                  
-NOTE : cette stratégie n'est pas une façon robuste d'activer le mode Contraint, une variable d'environnement peut facilement être ré-écrite par un attaquant. Le mode Contraint est activé de façon robuste lorsque AppLocker et/ou WDAC sont utilisés.</string>
+			<string id="PSLockDownPolicy_Explain">Le langage PowerShell, depuis la version 5, peut s'exécuter en plusieurs modes, configurables au moyen de la variable d'environnement __PSLockdownPolicy. Cette variable permet de contraindre le langage en limitant les actions faisables avec le langage, et notamment en restreignant les usages inconsidérés des API Win32.                  NOTE : cette stratégie n'est pas une façon robuste d'activer le mode Contraint, une variable d'environnement peut facilement être ré-écrite par un attaquant. Le mode Contraint est activé de façon robuste lorsque AppLocker et/ou WDAC sont utilisés.</string>
 			<string id="SchannelLogging">Activer la journalisation avancée de Schannel</string>
 			<string id="SchannelLogging_Explain">Cette politique active la journalisation avancée Schannel. Si cette politique est activée, le mode verbeux de Schannel est activé et les événements sont stockés dans le journal d'événements Système.</string>
 			<string id="KerberosLogging">Activer la journalisation des événements Kerberos</string>
@@ -261,6 +259,10 @@ Si vous activez ce paramètre, ou ne le configurez pas, le système limitera l'i
 Si vous désactivez ce paramètre, les utilisateurs standards pourront installer des pilotes d'impression.
 
 Informations complémentaires : https://support.microsoft.com/fr-fr/topic/kb5005010-restricting-installation-of-new-printer-drivers-after-applying-the-july-6-2021-updates-31b91c02-05bc-4ada-a7ea-183b129578a7      </string>
+			<string id="ProtectedRoots">Limiter l'installation des certificats racine aux Administrateurs</string>
+			<string id="ProtectedRoots_Help">Cette politique permet d'interdire aux utilisateurs non privilégiés d'installer des certificats racine dans leur magasin personnel de certificats.
+
+Activer cette politique permet de limiter les attaques par clonage de certificats de signature de code. Il est recommandé d'activer cette politique.</string>
 			<string id="CoInstallers">Bloquer l'installation des co-installeurs des pilotes matériels</string>
 			<string id="CoInstallers_Help">Un co-installeur est une librairie Win32 en espace utilisateur qui complète l'installation d'un driver en effectuant des tâches de configuration annexes (écriture Registre, installation d'application additionnelle, etc) non disponibles dans un fichier INF standard.
 
@@ -629,9 +631,7 @@ Si ce paramètre n'est pas configuré ou est désactivé, TLS 1.1 et 1.2 seront 
 
 Si ce paramètre n'est pas configuré ou est désactivé, TLS 1.1 et 1.2 sont désactivés.      </string>
 			<string id="dotnet_strongname">Désactiver la fonctionnalité de contournement de nom fort</string>
-			<string id="dotnet_strongname_Help">À partir du .NET Framework version 3.5 Service Pack 1 (SP1), les signatures de noms forts ne sont pas validées quand un assembly est chargé dans un objet AppDomain de confiance totale, tel que le AppDomain par défaut pour la zone MyComputer. Cette fonctionnalité permet d’ignorer les noms forts.
-                  
-Dans un environnement de confiance totale, les demandes de StrongNameIdentityPermission aboutissent toujours pour les assemblys de confiance totale signés, quelle que soit leur signature.
+			<string id="dotnet_strongname_Help">À partir du .NET Framework version 3.5 Service Pack 1 (SP1), les signatures de noms forts ne sont pas validées quand un assembly est chargé dans un objet AppDomain de confiance totale, tel que le AppDomain par défaut pour la zone MyComputer. Cette fonctionnalité permet d’ignorer les noms forts.                  Dans un environnement de confiance totale, les demandes de StrongNameIdentityPermission aboutissent toujours pour les assemblys de confiance totale signés, quelle que soit leur signature.
 
 La seule restriction est que l’assembly doit être entièrement fiable, car sa zone est entièrement fiable. Le nom fort n’étant pas un facteur déterminant dans ces conditions, il n’y a aucune raison pour qu’il soit validé. Ignorer la validation des signatures de noms forts fournit une amélioration significative des performances.      </string>
 		</stringTable>
