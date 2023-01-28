@@ -151,7 +151,13 @@ This modification is necessary to fully fix an information disclosure vulnerabil
 - For a value inferior or equal to 10240, the setting acts as a 1024-mutiplier (for example, setting it to 20 will result in 20480 iterations).
 - For a value superior to 10240, the setting acts as a raw value (modulo 1024).
       
-The recommended value depends on the target environment, the CPU power available and the performance hit you are willing to tolerate (a high value can incur a net performance penalty for the logon process).</string>
+The recommended value depends on the target environment, the CPU power available and the performance hit you are willing to tolerate (a high value can incur a net performance penalty for the logon process).
+
+When the policy is enabled, the default value configured is 1954 (2 000 896 rounds). This is the recommended value (at the time of December 2022) for the PBKDF2-HMAC-SHA1 algorithm, considering the compute power of a RTX 4090 GPU.
+
+More informations:
+- https://tobtu.com/minimum-password-settings/
+- https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#pbkdf2</string>
       <string id="PSLockDownPolicy">Enable PowerShell Constrained Language Mode</string>
       <string id="PSLockDownPolicy_Explain">Enable the Constrained Language Mode for Powershell. This mode disallow several language elements that can be leveraged by attackers to perform sensitive APIs calls.
       
@@ -685,7 +691,7 @@ The only restriction is that the assembly must be fully trusted because its zone
       </presentation>
       <presentation id="MSCHAPv2_Iteration">
         <decimalTextBox refId="MSCHAPv2_Iteration_count"
-                        defaultValue="1024">Number of PBKDF2 rounds:</decimalTextBox>
+                        defaultValue="1954">Number of PBKDF2 rounds:</decimalTextBox>
       </presentation>
       <presentation id="DisableIPSourceRouting">
         <dropdownList refId="DisableIPSourceRouting"
