@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v1.0.28] - 2023-01-28
+### Changed
+- Updated the default value for PBKDF2-HMAC-SHA1 rounds and the associated policy description
+
 ## [v1.0.27] - 2023-01-08
 ### Added
 - Added "Prevent standard users to install root certificates" policy
