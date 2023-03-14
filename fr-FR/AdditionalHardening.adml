@@ -25,6 +25,7 @@ Au moins Windows Server 2008 SP2 ou Windows Vista SP2 avec KB3174644</string>
 			<string id="KeyEx">Mécanismes d'échange de clefs</string>
 			<string id="WeakKeyEx">Mécanismes d'échange de clefs obsolètes</string>
 			<string id="SMB">Configuration de SMB</string>
+			<string id="WinHTTP">Configuration de WinHTTP</string>
 			<!-- PARAMETERS -->
 			<!-- SMB -->
 			<string id="DisableSMB1">Désactiver le support de SMB 1.0 (client et serveur)</string>
@@ -158,6 +159,12 @@ Plus d'informations:
 NOTE : cette stratégie n'est pas une façon robuste d'activer le mode Contraint, une variable d'environnement peut facilement être ré-écrite par un attaquant. Le mode Contraint est activé de façon robuste lorsque AppLocker et/ou WDAC sont utilisés.</string>
 			<string id="SchannelLogging">Activer la journalisation avancée de Schannel</string>
 			<string id="SchannelLogging_Explain">Cette politique active la journalisation avancée Schannel. Si cette politique est activée, le mode verbeux de Schannel est activé et les événements sont stockés dans le journal d'événements Système.</string>
+			<string id="WinHTTP_TLS12">Activer le support strict de TLS 1.2</string>
+      		<string id="WinHTTP_TLS12_Explain">Activer cette politique forcera le support strict de TLS 1.2 pour les applications basées sur WinHTTP et spécifiant le drapeau WINHTTP_OPTION_SECURE_PROTOCOLS.
+
+Désactiver cette politique supprimera la valeur de Registre DefaultSecureProtocols et restaurera le comportement par défaut de WinHTTP.
+
+NOTE : pour les systèmes Windows 7, Windows Server 2008 R2, Windows Server 2012 et Windows 8 Embedded, vous devez au préalable appliquer la mise à jour KB3140245.</string>
 			<string id="KerberosLogging">Activer la journalisation des événements Kerberos</string>
 			<string id="KerberosLogging_Explain">Cette politique active la journalisation des événements liés à Kerberos. Si cette politique est activée, les événements liés à Kerberos sont loggués dans le journal d'événements Système.
 

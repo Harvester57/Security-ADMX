@@ -26,6 +26,7 @@ At least Windows Server 2008 SP2 or Windows Vista SP2 with KB3174644</string>
       <string id="KeyEx">Key Exchanges</string>
       <string id="WeakKeyEx">Weak Key Exchanges</string>
       <string id="SMB">SMB configuration</string>
+      <string id="WinHTTP">WinHTTP configuration</string>
       <!-- PARAMETERS -->
       <!-- SMB -->
       <string id="DisableSMB1">Disable SMB 1.0 support (client and server)</string>
@@ -165,6 +166,12 @@ NOTE: since this policy is only rewritting the __PSLockdownPolicy environment va
       <!-- Network policies -->
       <string id="SchannelLogging">Enable advanced logging for Schannel</string>
       <string id="SchannelLogging_Explain">Increase Schannel verbosity level in Event Logs.</string>
+      <string id="WinHTTP_TLS12">Enable support for TLS 1.2 only</string>
+      <string id="WinHTTP_TLS12_Explain">Enabling this policy will enable the support for TLS 1.2 only for applications based on WinHTTP and specifying the WINHTTP_OPTION_SECURE_PROTOCOLS flag.
+
+Disabling this policy will remove the DefaultSecureProtocols value, and restore the default behavior of WinHTTP.
+
+NOTE: for Windows 7, Windows Server 2008 R2, Windows Server 2012 and Windows 8 Embedded, you need to install the KB3140245 update before enabling this policy.</string>
       <string id="KerberosLogging">Enable Kerberos events logging</string>
       <string id="KerberosLogging_Explain">Enable logging of debug events related to Kerberos in the System Event log.
 

@@ -59,6 +59,9 @@
     <category name="WeakKeyEx" displayName="$(string.WeakKeyEx)">
       <parentCategory ref="KeyEx" />
     </category>
+    <category name="WinHTTP" displayName="$(string.WinHTTP)">
+      <parentCategory ref="Network" />
+    </category>
   </categories>
   <policies>
     <!-- Hardening section -->
@@ -680,6 +683,35 @@
         </enum>
       </elements>
     </policy>
+    <!-- WinHTTP subsection -->
+    <policy name="WinHTTP_TLS12" class="Machine" displayName="$(string.WinHTTP_TLS12)" explainText="$(string.WinHTTP_TLS12_Explain)" key="SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp" valueName="DefaultSecureProtocols">
+      <parentCategory ref="WinHTTP" />
+      <supportedOn ref="windows:SUPPORTED_Windows7" />
+      <enabledList>
+        <item key="SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp" valueName="DefaultSecureProtocols">
+          <value>
+            <decimal value="2048" />
+          </value>
+        </item>
+        <item key="SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp" valueName="DefaultSecureProtocols">
+          <value>
+            <decimal value="2048" />
+          </value>
+        </item>
+      </enabledList>
+      <disabledList>
+        <item key="SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp" valueName="DefaultSecureProtocols">
+          <value>
+            <delete />
+          </value>
+        </item>
+        <item key="SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp" valueName="DefaultSecureProtocols">
+          <value>
+            <delete />
+          </value>
+        </item>
+      </disabledList>
+    </policy>
     <!-- Schannel subsection -->
     <policy name="Schannel_Logging" class="Machine" displayName="$(string.SchannelLogging)" explainText="$(string.SchannelLogging_Explain)" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL" valueName="EventLogging">
       <parentCategory ref="Schannel" />
@@ -691,6 +723,7 @@
         <decimal value="1" />
       </disabledValue>
     </policy>
+    
     <!-- PROTOCOLS -->
     <!-- Multi-Protocol Unified Hello should always be disabled, and
              Schannel will apparently never use it. -->
