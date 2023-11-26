@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v1.0.30] - 2023-11-26
+### Fixed
+- Typo in the MsCacheV2 hardening policy description : MSCHAPv2 -> MsCacheV2
+- Improved the overall wording of the description
+
 ## [v1.0.29] - 2023-03-14
 ### Added
 - Added the new policy "Enable support for TLS 1.2 only" for WinHTTP (https://github.com/Harvester57/Security-ADMX/issues/16)

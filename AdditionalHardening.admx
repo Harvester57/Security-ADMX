@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--  
   Author: Florian Stosse <florian.stosse@safrangroup.com>
-  Version: 1.0.29
-  Date: 2023-03-14
+  Version: 1.0.30
+  Date: 2023-11-26
 -->
 <policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0"
@@ -187,11 +187,11 @@
         <decimal value="0" />
       </disabledValue>
     </policy>
-    <policy name="MSCHAPv2_Iteration" class="Machine" displayName="$(string.MSCHAPv2_Iteration)" explainText="$(string.MSCHAPv2_Iteration_Explain)" presentation="$(presentation.MSCHAPv2_Iteration)" key="SECURITY\Cache">
+    <policy name="MSCacheV2_Iteration" class="Machine" displayName="$(string.MSCacheV2_Iteration)" explainText="$(string.MSCacheV2_Iteration_Explain)" presentation="$(presentation.MSCacheV2_Iteration)" key="SECURITY\Cache">
       <parentCategory ref="System" />
       <supportedOn ref="windows:SUPPORTED_Windows7" />
       <elements>
-        <decimal id="MSCHAPv2_Iteration_count" valueName="NL$IterationCount" minValue="1" maxValue="200000000" />
+        <decimal id="MSCacheV2_Iteration_count" valueName="NL$IterationCount" minValue="1" maxValue="200000000" />
       </elements>
     </policy>
     <policy name="AdminShare_Wks" class="Machine" displayName="$(string.AdminShare_Wks)" explainText="$(string.AdminShare_Wks_Explain)" key="SYSTEM\CurrentControlSet\Services\LanManServer\Parameters" valueName="AutoShareWks">
