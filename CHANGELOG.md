@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v1.0.31] - 2023-11-26
+### Added
+- Support for DTLS 1.3 in Schannel section
+
 ## [v1.0.30] - 2023-11-26
 ### Fixed
 - Typo in the MsCacheV2 hardening policy description : MSCHAPv2 -> MsCacheV2
