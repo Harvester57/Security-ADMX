@@ -732,6 +732,10 @@ La seule restriction est que l'assembly doit être entièrement fiable, car sa z
 				<checkBox refId="DTLSv12_ClientCheckbox" defaultChecked="true">Activer le support de DTLS 1.2 côté client</checkBox>
 				<checkBox refId="DTLSv12_ServerCheckbox" defaultChecked="true">Activer le support de DTLS 1.2 côté serveur</checkBox>
 			</presentation>
+			<presentation id="DTLSv13">
+				<checkBox refId="DTLSv13_ClientCheckbox" defaultChecked="true">Activer le support de DTLS 1.3 côté client</checkBox>
+				<checkBox refId="DTLSv13_ServerCheckbox" defaultChecked="true">Activer le support de DTLS 1.3 côté serveur</checkBox>
+			</presentation>
 		</presentationTable>
 	</resources>
 </policyDefinitionResources>

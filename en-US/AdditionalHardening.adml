@@ -807,9 +807,9 @@ The only restriction is that the assembly must be fully trusted because its zone
       </presentation>
       <presentation id="DTLSv13">
         <checkBox refId="DTLSv13_ClientCheckbox"
-                  defaultChecked="true">Enable Client-side DTLS 1.2 (eg., Internet Explorer)</checkBox>
+                  defaultChecked="true">Enable Client-side DTLS 1.3 (eg., Internet Explorer)</checkBox>
         <checkBox refId="DTLSv13_ServerCheckbox"
-                  defaultChecked="true">Enable Server-side DTLS 1.2 (eg., IIS)</checkBox>
+                  defaultChecked="true">Enable Server-side DTLS 1.3 (eg., IIS)</checkBox>
       </presentation>
     </presentationTable>
   </resources>
