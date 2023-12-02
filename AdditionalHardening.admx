@@ -72,6 +72,17 @@
 
 
     -->
+        <!-- Apply the updated Secure Boot denylist and the Code Integrity Boot Policy against BlackLotus (CVE-2023-24932) -->
+    <policy name="BlackLotusMitigation" class="Machine" displayName="$(string.BlackLotusMitigation)" explainText="$(string.BlackLotusMitigation_Help)" key="SYSTEM\CurrentControlSet\Control\Secureboot" valueName="AvailableUpdates">
+      <parentCategory ref="System" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <enabledValue>
+        <decimal value="48" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
     <!-- Prevent root CAs tampering from standard users-->
     <policy name="ProtectedRoots" class="Machine" displayName="$(string.ProtectedRoots)" explainText="$(string.ProtectedRoots_Help)" key="SOFTWARE\Policies\Microsoft\SystemCertificates\Root\ProtectedRoots" valueName="Flags">
       <parentCategory ref="System" />
