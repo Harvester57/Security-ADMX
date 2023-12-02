@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [v1.0.32] - 2023-12-xx
 ### Added
 - Dropdown selection list for Schannel verbosity levels
-- Mitigation for the BlackLotus vulerability CVE-2023-24932
+- Mitigation for the BlackLotus vulnerability CVE-2023-24932
 
 ## [v1.0.31] - 2023-11-26
 ### Added
