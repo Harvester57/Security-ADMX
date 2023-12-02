@@ -713,17 +713,54 @@
       </disabledList>
     </policy>
     <!-- Schannel subsection -->
-    <policy name="Schannel_Logging" class="Machine" displayName="$(string.SchannelLogging)" explainText="$(string.SchannelLogging_Explain)" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL" valueName="EventLogging">
+    <policy name="SchannelLogging" class="Machine" displayName="$(string.SchannelLogging)" explainText="$(string.SchannelLogging_Explain)" presentation="$(presentation.SchannelLogging_Presentation)" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL" valueName="EventLogging">
       <parentCategory ref="Schannel" />
       <supportedOn ref="windows:SUPPORTED_Windows7" />
-      <enabledValue>
-        <decimal value="7" />
-      </enabledValue>
-      <disabledValue>
-        <decimal value="1" />
-      </disabledValue>
+      <elements>
+        <enum id="SchannelLogging_DropdownList" valueName="EventLogging" required="true">
+          <item displayName="$(string.SchannelLogging_Option1)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.SchannelLogging_Option2)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+          <item displayName="$(string.SchannelLogging_Option3)">
+            <value>
+              <decimal value="3" />
+            </value>
+          </item>
+          <item displayName="$(string.SchannelLogging_Option4)">
+            <value>
+              <decimal value="4" />
+            </value>
+          </item>
+          <item displayName="$(string.SchannelLogging_Option5)">
+            <value>
+              <decimal value="5" />
+            </value>
+          </item>
+          <item displayName="$(string.SchannelLogging_Option6)">
+            <value>
+              <decimal value="6" />
+            </value>
+          </item>
+          <item displayName="$(string.SchannelLogging_Option7)">
+            <value>
+              <decimal value="7" />
+            </value>
+          </item>
+          <item displayName="$(string.SchannelLogging_Option8)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+        </enum>
+      </elements>
     </policy>
-    
     <!-- PROTOCOLS -->
     <!-- Multi-Protocol Unified Hello should always be disabled, and
              Schannel will apparently never use it. -->
