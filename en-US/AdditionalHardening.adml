@@ -167,7 +167,17 @@ More informations:
 NOTE: since this policy is only rewritting the __PSLockdownPolicy environment variable, this is not a secure way to enable CLM, and this is intended for defense-in-depth only. CLM can only be securely enforced by AppLocker and/or WDAC.</string>
       <!-- Network policies -->
       <string id="SchannelLogging">Enable advanced logging for Schannel</string>
-      <string id="SchannelLogging_Explain">Increase Schannel verbosity level in Event Logs.</string>
+      <string id="SchannelLogging_Explain">Enabling this policy will enable detailed Schannel events generation. You can choose the desired level of verbosity.
+      
+Logged events are available in the System event log.</string>
+      <string id="SchannelLogging_Option1">Log error events only (Windows default)</string>
+      <string id="SchannelLogging_Option2">Log warnings only</string>
+      <string id="SchannelLogging_Option3">Log warnings and error events</string>
+      <string id="SchannelLogging_Option4">Log informational and success events</string>
+      <string id="SchannelLogging_Option5">Log informational, success events and error events</string>
+      <string id="SchannelLogging_Option6">Log informational, success events and warnings</string>
+      <string id="SchannelLogging_Option7">Log informational, success events, warnings, and error events (all log levels)</string>
+      <string id="SchannelLogging_Option8">Do not log</string>
       <string id="WinHTTP_TLS12">Enable support for TLS 1.2 only</string>
       <string id="WinHTTP_TLS12_Explain">Enabling this policy will enable the support for TLS 1.2 only for applications based on WinHTTP and specifying the WINHTTP_OPTION_SECURE_PROTOCOLS flag.
 
@@ -743,6 +753,11 @@ The only restriction is that the assembly must be fully trusted because its zone
         <dropdownList refId="TLS_Ciphersuites_Selection"
                       noSort="true"
                       defaultItem="1">Select a profile:</dropdownList>
+      </presentation>
+      <presentation id="SchannelLogging_Presentation">
+        <dropdownList refId="SchannelLogging_DropdownList"
+                      noSort="true"
+                      defaultItem="0">Select a logging level:</dropdownList>
       </presentation>
       <!-- PROTOCOLS -->
       <presentation id="MPUH">

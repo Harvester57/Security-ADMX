@@ -160,8 +160,18 @@ Plus d'informations:
 			
 NOTE : cette stratégie n'est pas une façon robuste d'activer le mode Contraint, une variable d'environnement peut facilement être ré-écrite par un attaquant. Le mode Contraint est activé de façon robuste lorsque AppLocker et/ou WDAC sont utilisés.</string>
 			<string id="SchannelLogging">Activer la journalisation avancée de Schannel</string>
-			<string id="SchannelLogging_Explain">Cette politique active la journalisation avancée Schannel. Si cette politique est activée, le mode verbeux de Schannel est activé et les événements sont stockés dans le journal d'événements Système.</string>
-			<string id="WinHTTP_TLS12">Activer le support strict de TLS 1.2</string>
+			<string id="SchannelLogging_Explain">Cette politique active la journalisation avancée Schannel. Si cette politique est activée, le mode verbeux de Schannel est activé et vous pouvez sélectionner le niveau de verbosité désiré.
+			
+Les événements consignés sont stockés dans le journal d'événements Système.</string>
+			<string id="SchannelLogging_Option1">Consigner les messages d'erreur (défaut)</string>
+			<string id="SchannelLogging_Option2">Consigner seulement les avertissements</string>
+			<string id="SchannelLogging_Option3">Consigner les avertissements et les erreurs</string>
+			<string id="SchannelLogging_Option4">Consigner les événements informatifs et les succès</string>
+			<string id="SchannelLogging_Option5">Consigner les événements informatifs, les succès et les erreurs</string>
+			<string id="SchannelLogging_Option6">Consigner les événements informatifs, les succès et les avertissements</string>
+			<string id="SchannelLogging_Option7">Consigner tous les événements</string>
+			<string id="SchannelLogging_Option8">Ne rien consigner</string>
+	  		<string id="WinHTTP_TLS12">Activer le support strict de TLS 1.2</string>
       		<string id="WinHTTP_TLS12_Explain">Activer cette politique forcera le support strict de TLS 1.2 pour les applications basées sur WinHTTP et spécifiant le drapeau WINHTTP_OPTION_SECURE_PROTOCOLS.
 
 Désactiver cette politique supprimera la valeur de Registre DefaultSecureProtocols et restaurera le comportement par défaut de WinHTTP.
@@ -690,6 +700,11 @@ La seule restriction est que l'assembly doit être entièrement fiable, car sa z
 			</presentation>
 			<presentation id="TLS_Ciphersuites">
 				<dropdownList refId="TLS_Ciphersuites_Selection" noSort="true" defaultItem="1">Sélectionnez un profil :</dropdownList>
+			</presentation>
+			<presentation id="SchannelLogging_Presentation">
+				<dropdownList refId="SchannelLogging_DropdownList"
+					noSort="true"
+					defaultItem="0">Sélectionnez le niveau de verbosité :</dropdownList>
 			</presentation>
 			<!-- PROTOCOLS -->
 			<presentation id="MPUH">
