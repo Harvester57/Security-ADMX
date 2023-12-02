@@ -296,6 +296,15 @@ Additional Information: https://support.microsoft.com/en-us/topic/kb5005010-rest
       <string id="ProtectedRoots_Help">This policy prevent standard (non-administrators) users to install root certificate authorities to their user-specific trust store.
 
 Enabling this policy can help prevent code signing certificate cloning attacks. It is recommended to enable this policy.</string>
+      <string id="BlackLotusMitigation">Enable Secure Boot/Code Integrity mitigations for BlackLotus (CVE-2023-24932)</string>
+      <string id="BlackLotusMitigation_Help">This policy sets the Registry key needed to apply the updated Secure Boot denylist and the Code Integrity Boot Policy, to prevent untrusted Windows boot managers from loading when Secure Boot is turned on.
+
+IMPORTANT: carefully read the Microsoft documentation associated with this protection, as it can render your device unable to boot if you do not follow the pre-required steps:
+
+- https://support.microsoft.com/en-us/topic/kb5025885-how-to-manage-the-windows-boot-manager-revocations-for-secure-boot-changes-associated-with-cve-2023-24932-41a975df-beb2-40c1-99a3-b3ff139f832d
+- https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-24932
+
+This policy should be fully turned on by Microsoft in the July 2024 Cumulative Update.</string>
       <string id="CoInstallers">Block drivers co-installers applications</string>
       <string id="CoInstallers_Help">A co-installer is a user-mode Win32 DLL that typically writes additional configuration information to the registry, or performs other installation tasks that require information that is not available when an INF is written.
 
