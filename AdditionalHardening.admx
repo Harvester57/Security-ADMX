@@ -1368,7 +1368,7 @@
     <!-- DTLSv1.3 -->
     <policy name="DTLSv13" class="Machine" displayName="$(string.DTLSv13)" explainText="$(string.DTLSv13_Help)" presentation="$(presentation.DTLSv13)" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\DTLS 1.3">
       <parentCategory ref="Protocols" />
-      <supportedOn ref="windows:SUPPORTED_Windows7" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS6_NOSERVER" />
       <elements>
         <boolean id="DTLSv13_ClientCheckbox" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\DTLS 1.3\Client" valueName="Enabled">
           <trueList defaultKey="SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\DTLS 1.3\Client">
