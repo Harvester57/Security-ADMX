@@ -129,7 +129,9 @@ Ces paramètres permettent de réduire la durée d'exposition à un vol d'identi
 
 NOTE : ces paramètres peuvent empêcher l'ouverture d'une session liée au domaine si aucun contrôleur de domaine n'est joignable, ou si le réseau est indisponible.</string>
 			<string id="ASLR">Forcer la randomisation de l'espace mémoire des images relocalisables (ASLR)</string>
-			<string id="ASLR_Explain">Activer cette stratégie force l'utilisation de la randomisation de l'espace mémoire des images relocalisables, même si elles n'exposent pas cette possibilité explicitement.      Désactiver cette stratégie désactivera également l'utilisation forcée de l'ASLR.</string>
+			<string id="ASLR_Explain">Activer cette stratégie force l'utilisation de la randomisation de l'espace mémoire des images relocalisables, même si elles n'exposent pas cette possibilité explicitement.
+			
+Désactiver cette stratégie désactivera également l'utilisation forcée de l'ASLR.</string>
 			<string id="User32_Exception">Correctif registre additionel pour CVE-2015-6161</string>
 			<string id="User32_Exception_Explain">Activer cette stratégie positionne la valeur de registre FEATURE_ALLOW_USER32_EXCEPTION_HANDLER_HARDENING à 1.
 
@@ -150,7 +152,7 @@ Par défaut, le nombre d'itérations de l'algorithme PBKDF2-SHA1 est fixé à 10
 - Pour une valeur inférieure ou égale à 10240, le nombre d'itérations est mutiplié par 1024 (par exemple, une valeur de 20 donne 20480 itérations).
 - Pour une valeur supérieure à 10240, il s'agit du nombre d'itérations (arrondi à 1024).
 
-La valeur recommandée dépend de votre environnement et de la puissance CPU disponible, un grand nombre d'itérations pouvant engendrer un ralentissement important du processus de connexion au système.
+La valeur recommandée dépend de votre environnement et de la puissance CPU disponible, un grand nombre d'itérations pouvant engendrer un ralentissement important du processus d'ouverture de session.
 
 Lorsque l'option est activée, la valeur est fixée à 1954 (2 000 896 itérations). C'est la valeur recommandée au 29 décembre 2022 pour l'algorithme PBKDF2-HMAC-SHA1, en prenant en compte une puissance GPU équivalente à une RTX 4090 dans un modèle d'attaque par force brute hors ligne.
 
