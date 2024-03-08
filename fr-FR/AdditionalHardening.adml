@@ -615,11 +615,11 @@ TLS_DHE_DSS_WITH_DES_CBC_SHA</string>
 			<string id="DHServer">Taille minimale de clef éphémère Diffie-Hellman (serveur)</string>
 			<string id="DHServer_Help">Défini la taille minimale de clef éphémère Diffie-Hellman utilisée par les serveurs lors de l'établissement d'une connexion TLS.
 
-Veuillez consulter le bulletin d'information de sécurité de Microsoft 3174644 pour plus d'informations sur les taille de clefs Diffie-Hellman. 2048 bits est la valeur minimale actuellement recommandée.</string>
+Veuillez consulter le bulletin d'information de sécurité de Microsoft 3174644 pour plus d'informations sur les taille de clefs Diffie-Hellman. 4096 bits est la valeur minimale actuellement recommandée.</string>
 			<string id="DHClient">Taille minimale de clef éphémère Diffie-Hellman (client)</string>
 			<string id="DHClient_Help">Défini la taille minimale de clef éphémère Diffie-Hellman utilisée par les clients lors de l'établissement d'une connexion TLS.
 
-Veuillez consulter le bulletin d'information de sécurité de Microsoft 3174644 pour plus d'informations sur les taille de clefs Diffie-Hellman. 2048 bits est la valeur minimale actuellement recommandée.</string>
+Veuillez consulter le bulletin d'information de sécurité de Microsoft 3174644 pour plus d'informations sur les taille de clefs Diffie-Hellman. 4096 bits est la valeur minimale actuellement recommandée.</string>
 			<string id="DH_Value2048">2048</string>
 			<string id="DH_Value3072">3072</string>
 			<string id="DH_Value4096">4096</string>
@@ -629,7 +629,7 @@ Veuillez consulter le bulletin d'information de sécurité de Microsoft 3174644 
 			<string id="PKCSClient">Taille minimale de clef PKCS (client)</string>
 			<string id="PKCSClient_Help">Défini la taille minimale de clef éphémère PKCS utilisée par les clients lors de l'établissement d'une connexion TLS.
 
-Veuillez consulter le bulletin d'information de sécurité de Microsoft 3174644 pour plus d'informations sur les taille de clefs PKCS. 2048 bits est la valeur minimale actuellement recommandée.</string>
+Veuillez consulter le bulletin d'information de sécurité de Microsoft 3174644 pour plus d'informations sur les taille de clefs PKCS. 4096 bits est la valeur minimale actuellement recommandée.</string>
 			<string id="PKCS_Value2048">2048</string>
 			<string id="PKCS_Value3072">3072</string>
 			<string id="PKCS_Value4096">4096</string>
@@ -705,13 +705,13 @@ La seule restriction est que l'assembly doit être entièrement fiable, car sa z
 				<checkBox refId="HyperVMitigations">Activer le durcissement pour les machines virtuelles Hyper-V (version 8.0 et inférieur)</checkBox>
 			</presentation>
 			<presentation id="DHServer">
-				<dropdownList refId="DHServer_MinLength" noSort="true" defaultItem="2">Taille minimale du module DH côté serveur :</dropdownList>
+				<dropdownList refId="DHServer_MinLength" noSort="true" defaultItem="3">Taille minimale du module DH côté serveur :</dropdownList>
 			</presentation>
 			<presentation id="DHClient">
-				<dropdownList refId="DHClient_MinLength" noSort="true" defaultItem="2">Taille minimale du module DH côté client :</dropdownList>
+				<dropdownList refId="DHClient_MinLength" noSort="true" defaultItem="3">Taille minimale du module DH côté client :</dropdownList>
 			</presentation>
 			<presentation id="PKCSClient">
-				<dropdownList refId="PKCSClient_MinLength" noSort="true" defaultItem="2">Taille minimale du module PKCS côté client :</dropdownList>
+				<dropdownList refId="PKCSClient_MinLength" noSort="true" defaultItem="3">Taille minimale du module PKCS côté client :</dropdownList>
 			</presentation>
 			<presentation id="TLS_Ciphersuites">
 				<dropdownList refId="TLS_Ciphersuites_Selection" noSort="true" defaultItem="1">Sélectionnez un profil :</dropdownList>

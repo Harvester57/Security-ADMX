@@ -634,12 +634,12 @@ TLS_DHE_DSS_WITH_DES_CBC_SHA
       <string id="DHServer">Diffie-Hellman Server-side Key Size</string>
       <string id="DHServer_Help">Sets the minimum Diffie-Hellman ephemeral key size for TLS server.
 
-Please see Microsoft Security Advisory 3174644 for more information on DH modulus length. 2048 is the currently recommended minimum value.
+Please see Microsoft Security Advisory 3174644 for more information on DH modulus length. 4096 is the currently recommended minimum value.
       </string>
       <string id="DHClient">Diffie-Hellman Client-side Key Size</string>
       <string id="DHClient_Help">Sets the minimum Diffie-Hellman ephemeral key size for TLS client.
 
-Please see Microsoft Security Advisory 3174644 for more information on DH modulus length. 2048 is the currently recommended minimum value.
+Please see Microsoft Security Advisory 3174644 for more information on DH modulus length. 4096 is the currently recommended minimum value.
       </string>
       <string id="DH_Value2048">2048</string>
       <string id="DH_Value3072">3072</string>
@@ -652,7 +652,7 @@ It is recommended to enable it.</string>
       <string id="PKCSClient">PKCS Client-side Key Size</string>
       <string id="PKCSClient_Help">Sets the minimum PKCS ephemeral key size for TLS client.
 
-Please see Microsoft Security Advisory 3174644 or https://support.microsoft.com/en-us/help/3174644/microsoft-security-advisory-updated-support-for-diffie-hellman-key-exc for more information on PKCS modulus length. 2048 is the currently recommended minimum value.
+Please see Microsoft Security Advisory 3174644 or https://support.microsoft.com/en-us/help/3174644/microsoft-security-advisory-updated-support-for-diffie-hellman-key-exc for more information on PKCS modulus length. 4096 is the currently recommended minimum value.
       </string>
       <string id="PKCS_Value2048">2048</string>
       <string id="PKCS_Value3072">3072</string>
@@ -746,17 +746,17 @@ The only restriction is that the assembly must be fully trusted because its zone
       <presentation id="DHServer">
         <dropdownList refId="DHServer_MinLength"
                       noSort="true"
-                      defaultItem="2">Server side DH modulus minimum length:</dropdownList>
+                      defaultItem="3">Server side DH modulus minimum length:</dropdownList>
       </presentation>
       <presentation id="DHClient">
         <dropdownList refId="DHClient_MinLength"
                       noSort="true"
-                      defaultItem="2">Client side DH modulus minimum length:</dropdownList>
+                      defaultItem="3">Client side DH modulus minimum length:</dropdownList>
       </presentation>
       <presentation id="PKCSClient">
         <dropdownList refId="PKCSClient_MinLength"
                       noSort="true"
-                      defaultItem="2">Client side PKCS modulus minimum length:</dropdownList>
+                      defaultItem="3">Client side PKCS modulus minimum length:</dropdownList>
       </presentation>
       <presentation id="TLS_Ciphersuites">
         <dropdownList refId="TLS_Ciphersuites_Selection"
