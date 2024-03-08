@@ -94,7 +94,7 @@ Désactiver cette politique autorisera les utilisateurs standards à ouvrir une 
 			<string id="KCET">Activer le support des piles fantômes au niveau noyau</string>
 			<string id="KCET_Explain">Ce paramètre active le support des piles fantômes au niveau du noyau, aussi appelées Intel CET (Control-flow Enforcement Technology) ou AMD Shadow Stack.
 
-Veuillez noter que cette fonctionnalité dépend d'un support matériel (architecture CPU AMD Zen 3 ou 11ème Génération d'Intel minimum) et d'un système d'exploitation (Windows 21H2 ou supérieur) récents.</string>
+Veuillez noter que cette fonctionnalité dépend d'un support matériel (architecture CPU AMD Zen 3 ou 11ème Génération d'Intel minimum) et d'un système d'exploitation (Windows 21H2 ou supérieur) récent.</string>
 			<string id="WPBT">Désactiver la fonctionnalité WPBT</string>
 			<string id="WPBT_Explain">Ce paramètre désactive la fonctionnalité WPBT (Windows Platform Binary Table), qui peut être utilisée comme mécanisme de persistance via l'UEFI.</string>
 			<string id="TTD">Désactiver la fonctionnalité TTD</string>
