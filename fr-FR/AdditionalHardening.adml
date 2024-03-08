@@ -110,7 +110,9 @@ Ce paramètre n'affecte que les versions 32 bits de Windows.</string>
 
 - TLS est obligatoire pour l'authentification du serveur et le chiffrement du lien de communication.
 - Un haut niveau de chiffrement (128 bits) est requis pour le lien de communication.
-- L'authentification de l'utilisateur est exigée à la connexion.      Désactiver cette stratégie n'a pas d'effet(s).</string>
+- L'authentification de l'utilisateur est exigée à la connexion.
+
+Désactiver cette stratégie n'a pas d'effet.</string>
 			<string id="LMAuth">Durcissement du processus d'authentification par le réseau</string>
 			<string id="LMAuth_Explain">Activer cette option désactivera LM et NTLMv1 pour les authentifications de connexions réseau, et n'autorisera que NTLMv2.</string>
 			<string id="WDigest">Désactiver WDigest</string>
