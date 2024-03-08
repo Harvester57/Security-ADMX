@@ -312,7 +312,7 @@ Cette politique devrait être activée par défaut à partir de la mise à jour 
 
 Si vous activez ce paramètre, l'exécution des co-installeurs sera bloquée. Pour certains périphériques spécifiques (claviers paramétrables, cartes graphiques, etc), il sera nécessaire d'installer manuellement le logiciel de contrôle à partir du site du fabricant.
 
-Si vous désactivez ce paramètre, l'exécution es co-installeurs sera autorisée, ce qui pose un risque de sécurité important (exécution de code non maîtrisé sur le système).      </string>
+Si vous désactivez ce paramètre, l'exécution es co-installeurs sera autorisée, ce qui pose un risque de sécurité important (exécution de code non maîtrisé sur le système).</string>
 			<!-- PROTOCOLS -->
 			<!-- Multi-Protocol Unified Hello -->
 			<string id="MPUH">Multi-Protocol Unified Hello</string>
