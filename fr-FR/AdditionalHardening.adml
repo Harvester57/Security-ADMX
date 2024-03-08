@@ -94,7 +94,7 @@ Désactiver cette politique autorisera les utilisateurs standards à ouvrir une 
 			<string id="KCET">Activer le support des piles fantômes au niveau noyau</string>
 			<string id="KCET_Explain">Ce paramètre active le support des piles fantômes au niveau du noyau, aussi appelées Intel CET (Control-flow Enforcement Technology) ou AMD Shadow Stack.
 
-Veuillez noter que cette fonctionnalité dépend d'un support matériel (architecture CPU AMD Zen 3 ou 11ème Génération d'Intel minimum) et d'un système d'exploitation (Windows 21H2 ou supérieur) récents.</string>
+Veuillez noter que cette fonctionnalité dépend d'un support matériel (architecture CPU AMD Zen 3 ou 11ème Génération d'Intel minimum) et d'un système d'exploitation (Windows 21H2 ou supérieur) récent.</string>
 			<string id="WPBT">Désactiver la fonctionnalité WPBT</string>
 			<string id="WPBT_Explain">Ce paramètre désactive la fonctionnalité WPBT (Windows Platform Binary Table), qui peut être utilisée comme mécanisme de persistance via l'UEFI.</string>
 			<string id="TTD">Désactiver la fonctionnalité TTD</string>
@@ -110,7 +110,9 @@ Ce paramètre n'affecte que les versions 32 bits de Windows.</string>
 
 - TLS est obligatoire pour l'authentification du serveur et le chiffrement du lien de communication.
 - Un haut niveau de chiffrement (128 bits) est requis pour le lien de communication.
-- L'authentification de l'utilisateur est exigée à la connexion.      Désactiver cette stratégie n'a pas d'effet(s).</string>
+- L'authentification de l'utilisateur est exigée à la connexion.
+
+Désactiver cette stratégie n'a pas d'effet.</string>
 			<string id="LMAuth">Durcissement du processus d'authentification par le réseau</string>
 			<string id="LMAuth_Explain">Activer cette option désactivera LM et NTLMv1 pour les authentifications de connexions réseau, et n'autorisera que NTLMv2.</string>
 			<string id="WDigest">Désactiver WDigest</string>
@@ -127,7 +129,9 @@ Ces paramètres permettent de réduire la durée d'exposition à un vol d'identi
 
 NOTE : ces paramètres peuvent empêcher l'ouverture d'une session liée au domaine si aucun contrôleur de domaine n'est joignable, ou si le réseau est indisponible.</string>
 			<string id="ASLR">Forcer la randomisation de l'espace mémoire des images relocalisables (ASLR)</string>
-			<string id="ASLR_Explain">Activer cette stratégie force l'utilisation de la randomisation de l'espace mémoire des images relocalisables, même si elles n'exposent pas cette possibilité explicitement.      Désactiver cette stratégie désactivera également l'utilisation forcée de l'ASLR.</string>
+			<string id="ASLR_Explain">Activer cette stratégie force l'utilisation de la randomisation de l'espace mémoire des images relocalisables, même si elles n'exposent pas cette possibilité explicitement.
+			
+Désactiver cette stratégie désactivera également l'utilisation forcée de l'ASLR.</string>
 			<string id="User32_Exception">Correctif registre additionel pour CVE-2015-6161</string>
 			<string id="User32_Exception_Explain">Activer cette stratégie positionne la valeur de registre FEATURE_ALLOW_USER32_EXCEPTION_HANDLER_HARDENING à 1.
 
@@ -148,7 +152,7 @@ Par défaut, le nombre d'itérations de l'algorithme PBKDF2-SHA1 est fixé à 10
 - Pour une valeur inférieure ou égale à 10240, le nombre d'itérations est mutiplié par 1024 (par exemple, une valeur de 20 donne 20480 itérations).
 - Pour une valeur supérieure à 10240, il s'agit du nombre d'itérations (arrondi à 1024).
 
-La valeur recommandée dépend de votre environnement et de la puissance CPU disponible, un grand nombre d'itérations pouvant engendrer un ralentissement important du processus de connexion au système.
+La valeur recommandée dépend de votre environnement et de la puissance CPU disponible, un grand nombre d'itérations pouvant engendrer un ralentissement important du processus d'ouverture de session.
 
 Lorsque l'option est activée, la valeur est fixée à 1954 (2 000 896 itérations). C'est la valeur recommandée au 29 décembre 2022 pour l'algorithme PBKDF2-HMAC-SHA1, en prenant en compte une puissance GPU équivalente à une RTX 4090 dans un modèle d'attaque par force brute hors ligne.
 
@@ -287,7 +291,7 @@ Si vous activez ce paramètre, ou ne le configurez pas, le système limitera l'i
 
 Si vous désactivez ce paramètre, les utilisateurs standards pourront installer des pilotes d'impression.
 
-Informations complémentaires : https://support.microsoft.com/fr-fr/topic/kb5005010-restricting-installation-of-new-printer-drivers-after-applying-the-july-6-2021-updates-31b91c02-05bc-4ada-a7ea-183b129578a7      </string>
+Informations complémentaires : https://support.microsoft.com/fr-fr/topic/kb5005010-restricting-installation-of-new-printer-drivers-after-applying-the-july-6-2021-updates-31b91c02-05bc-4ada-a7ea-183b129578a7</string>
 			<string id="ProtectedRoots">Limiter l'installation des certificats racine aux Administrateurs</string>
 			<string id="ProtectedRoots_Help">Cette politique permet d'interdire aux utilisateurs non privilégiés d'installer des certificats racine dans leur magasin personnel de certificats.
 
@@ -308,32 +312,32 @@ Cette politique devrait être activée par défaut à partir de la mise à jour 
 
 Si vous activez ce paramètre, l'exécution des co-installeurs sera bloquée. Pour certains périphériques spécifiques (claviers paramétrables, cartes graphiques, etc), il sera nécessaire d'installer manuellement le logiciel de contrôle à partir du site du fabricant.
 
-Si vous désactivez ce paramètre, l'exécution es co-installeurs sera autorisée, ce qui pose un risque de sécurité important (exécution de code non maîtrisé sur le système).      </string>
+Si vous désactivez ce paramètre, l'exécution es co-installeurs sera autorisée, ce qui pose un risque de sécurité important (exécution de code non maîtrisé sur le système).</string>
 			<!-- PROTOCOLS -->
 			<!-- Multi-Protocol Unified Hello -->
 			<string id="MPUH">Multi-Protocol Unified Hello</string>
 			<string id="MPUH_Help">Active ou désactive l'usage de Multi-Protocol Unified Hello. Ce protocole ne sera jamais utilisé par Schannel.
 
-Un redémarrage est nécessaire pour que la modification soit effective.      </string>
+Un redémarrage est nécessaire pour que la modification soit effective.</string>
 			<!-- PCT 1.0 -->
 			<string id="PCTv1">PCT 1.0</string>
 			<string id="PCTv1_Help">Active ou désactive l'usage de PCT 1.0. Ce protocole ne sera jamais utilisé par Schannel.
 
-Un redémarrage est nécessaire pour que la modification soit effective.      </string>
+Un redémarrage est nécessaire pour que la modification soit effective.</string>
 			<!-- SSLv2 -->
 			<string id="SSLv2">SSL 2.0</string>
 			<string id="SSLv2_Help">Active ou désactive l'usage de SSL 2.0.  Par défaut, SSL 2.0 est désactivé sur les clients Windows.
 
 Ce protocole est aujourd'hui considéré comme obsolète, et ne devrait plus être utilisé. TLS 1.2 ou supérieur est recommandé en remplacement.
 
-Un redémarrage est nécessaire pour que la modification soit effective.      </string>
+Un redémarrage est nécessaire pour que la modification soit effective.</string>
 			<!-- SSLv3 -->
 			<string id="SSLv3">SSL 3.0</string>
 			<string id="SSLv3_Help">Active ou désactive l'usage de SSL 3.0.
 
 Ce protocole est aujourd'hui considéré comme obsolète, et ne devrait plus être utilisé. TLS 1.2 ou supérieur est recommandé en remplacement.
 
-Un redémarrage est nécessaire pour que la modification soit effective.      </string>
+Un redémarrage est nécessaire pour que la modification soit effective.</string>
 			<!-- TLSv1.0 -->
 			<string id="TLSv10">TLS 1.0</string>
 			<string id="TLSv10_Help">Active ou désactive l'usage de TLS 1.0.
@@ -342,7 +346,7 @@ Bien que ne présentant pas de risques de sécurité connus, ce protocole est en
 
 Si possible, privilégiez l'usage de TLS 1.2 et TLS 1.3.
 
-Un redémarrage est nécessaire pour que la modification soit effective.      </string>
+Un redémarrage est nécessaire pour que la modification soit effective.</string>
 			<!-- TLSv1.1 -->
 			<string id="TLSv11">TLS 1.1</string>
 			<string id="TLSv11_Help">Active ou désactive l'usage de TLS 1.1.
@@ -351,34 +355,34 @@ Bien que ne présentant pas de risques de sécurité connus, ce protocole est en
 
 Si possible, privilégiez l'usage de TLS 1.2 et TLS 1.3.
 
-Un redémarrage est nécessaire pour que la modification soit effective.      </string>
+Un redémarrage est nécessaire pour que la modification soit effective.</string>
 			<!-- TLSv1.2 -->
 			<string id="TLSv12">TLS 1.2</string>
 			<string id="TLSv12_Help">Active ou désactive l'usage de TLS 1.2. TLS 1.2 ne présente pas de risques de sécurité connus, et il est recommandé d'activer ce paramètre.
 
-Un redémarrage est nécessaire pour que la modification soit effective.      </string>
+Un redémarrage est nécessaire pour que la modification soit effective.</string>
 			<!-- TLSv1.3 -->
 			<string id="TLSv13">TLS 1.3 [AVERTISSEMENT : LIRE LA DESCRIPTION]</string>
 			<string id="TLSv13_Help">Active ou désactive l'usage de TLS 1.3. TLS 1.3 ne présente pas de risques de sécurité connus, et il est recommandé d'activer ce paramètre.
 
 !! AVERTISSEMENT : ce paramètre est uniquement compatible avec les versions de Windows 10 supérieures ou égales à la version 1903. Activer ce paramètre sur des versions plus anciennes rendra inutilisable Schannel, et vous devrez supprimer manuellement la clef de Registre SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.3 pour restaurer son fonctionnement nominal.
 
-Un redémarrage est nécessaire pour que la modification soit effective.      </string>
+Un redémarrage est nécessaire pour que la modification soit effective.</string>
 			<!-- DTLSv1.0 -->
 			<string id="DTLSv10">DTLS 1.0</string>
 			<string id="DTLSv10_Help">Active ou désactive l'usage de DTLS 1.0. Compatible avec Windows 7, Windows Server 2008 R2 et supérieur.
 
-Un redémarrage est nécessaire pour que la modification soit effective.      </string>
+Un redémarrage est nécessaire pour que la modification soit effective.</string>
 			<!-- DTLSv1.2 -->
 			<string id="DTLSv12">DTLS 1.2</string>
 			<string id="DTLSv12_Help">Active ou désactive l'usage de DTLS 1.2. Compatible avec Windows 10 v1607 et supérieur.
 
-Un redémarrage est nécessaire pour que la modification soit effective.      </string>
+Un redémarrage est nécessaire pour que la modification soit effective.</string>
 			<!-- DTLSv1.2 -->
 			<string id="DTLSv13">DTLS 1.3</string>
 			<string id="DTLSv13_Help">Active ou désactive l'usage de DTLS 1.3. Compatible avec Windows 10 v1903 et supérieur.
 
-Un redémarrage est nécessaire pour que la modification soit effective.      </string>
+Un redémarrage est nécessaire pour que la modification soit effective.</string>
 			<!-- WEAK CIPHERS -->
 			<!-- NULL -->
 			<string id="NULL">NULL</string>
@@ -387,7 +391,7 @@ Un redémarrage est nécessaire pour que la modification soit effective.      </
 Changer ce paramètre activera ou désactivera la sélection des suites de chiffrement suivante :
 
 TLS_RSA_WITH_NULL_SHA
-TLS_RSA_WITH_NULL_SHA256      </string>
+TLS_RSA_WITH_NULL_SHA256</string>
 			<!-- DES 56/56 -->
 			<string id="DES_56">DES 56/56</string>
 			<string id="DES_56_Help">Active ou désactive l'usage de DES 56/56. Cette suite de chiffrement est considérée comme obsolète, et ne devrait pas être activée.
@@ -395,7 +399,7 @@ TLS_RSA_WITH_NULL_SHA256      </string>
 Changer ce paramètre activera ou désactivera la sélection des suites de chiffrement suivante :
 
 SSL_RSA_WITH_DES_CBC_SHA
-TLS_RSA_WITH_DES_CBC_SHA      </string>
+TLS_RSA_WITH_DES_CBC_SHA</string>
 			<!-- RC2 40/128 -->
 			<string id="RC2_40">RC2 40/128</string>
 			<string id="RC2_40_Help">Active ou désactive l'usage de RC2 40/128. Cette suite de chiffrement est considérée comme obsolète, et ne devrait pas être activée.
@@ -403,7 +407,7 @@ TLS_RSA_WITH_DES_CBC_SHA      </string>
 Changer ce paramètre activera ou désactivera la sélection des suites de chiffrement suivante :
 
 SSL_RSA_EXPORT_WITH_RC2_CBC_40_MD5
-TLS_RSA_EXPORT_WITH_RC2_CBC_40_MD5      </string>
+TLS_RSA_EXPORT_WITH_RC2_CBC_40_MD5</string>
 			<!-- RC2 56/128 -->
 			<string id="RC2_56">RC2 56/128</string>
 			<string id="RC2_56_Help">Active ou désactive l'usage de RC2 56/128. Cette suite de chiffrement est considérée comme obsolète, et ne devrait pas être activée.
@@ -411,7 +415,7 @@ TLS_RSA_EXPORT_WITH_RC2_CBC_40_MD5      </string>
 Changer ce paramètre activera ou désactivera la sélection des suites de chiffrement suivante :
 
 SSL_RSA_WITH_DES_CBC_SHA
-TLS_RSA_WITH_DES_CBC_SHA      </string>
+TLS_RSA_WITH_DES_CBC_SHA</string>
 			<!-- RC2 128/128 -->
 			<string id="RC2_128">RC2 128/128</string>
 			<string id="RC2_128_Help">Active ou désactive l'usage de RC2 128/128. Cette suite de chiffrement est considérée comme obsolète, et ne devrait pas être activée.</string>
@@ -422,14 +426,14 @@ TLS_RSA_WITH_DES_CBC_SHA      </string>
 Changer ce paramètre activera ou désactivera la sélection des suites de chiffrement suivante :
 
 SSL_RSA_EXPORT_WITH_RC4_40_MD5
-TLS_RSA_EXPORT_WITH_RC4_40_MD5      </string>
+TLS_RSA_EXPORT_WITH_RC4_40_MD5</string>
 			<!-- RC4 56/128 -->
 			<string id="RC4_56">RC4 56/128</string>
 			<string id="RC4_56_Help">Active ou désactive l'usage de RC4 56/128. Cette suite de chiffrement est considérée comme obsolète, et ne devrait pas être activée.
 
 Changer ce paramètre activera ou désactivera la sélection des suites de chiffrement suivante :
 
-TLS_RSA_EXPORT1024_WITH_RC4_56_SHA      </string>
+TLS_RSA_EXPORT1024_WITH_RC4_56_SHA</string>
 			<!-- RC4 64/128 -->
 			<string id="RC4_64">RC4 64/128</string>
 			<string id="RC4_64_Help">Active ou désactive l'usage de RC4 64/128. Cette suite de chiffrement est considérée comme obsolète, et ne devrait pas être activée.</string>
@@ -442,7 +446,7 @@ Changer ce paramètre activera ou désactivera la sélection des suites de chiff
 SSL_RSA_WITH_RC4_128_MD5
 SSL_RSA_WITH_RC4_128_SHA
 TLS_RSA_WITH_RC4_128_MD5
-TLS_RSA_WITH_RC4_128_SHA      </string>
+TLS_RSA_WITH_RC4_128_SHA</string>
 			<!-- STRONG CIPHERS -->
 			<!-- Triple DES 168 -->
 			<string id="3DES">Triple DES 168</string>
@@ -452,7 +456,7 @@ Changer ce paramètre activera ou désactivera la sélection des suites de chiff
 
 SSL_CK_DES_192_EDE_CBC_WITH_MD5
 TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
-TLS_RSA_WITH_3DES_EDE_CBC_SHA      </string>
+TLS_RSA_WITH_3DES_EDE_CBC_SHA</string>
 			<!-- AES 128/128 -->
 			<string id="AES128">AES 128/128</string>
 			<string id="AES128_Help">Active ou désactive l'usage de AES 128/128. Veuillez noter que le patch KB948963 est un pré-requis nécessaire sur les systèmes Windows Server 2003 pour supporter AES-128.
@@ -479,7 +483,7 @@ TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256
 TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P384
 TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P521
 TLS_RSA_WITH_AES_128_CBC_SHA
-TLS_RSA_WITH_AES_128_CBC_SHA256      </string>
+TLS_RSA_WITH_AES_128_CBC_SHA256</string>
 			<!-- AES 256/256 -->
 			<string id="AES256">AES 256/256</string>
 			<string id="AES256_Help">Active ou désactive l'usage de AES 256/256. Veuillez noter que le patch KB948963 est un pré-requis nécessaire sur les systèmes Windows Server 2003 pour supporter AES-128.
@@ -504,7 +508,7 @@ TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P256
 TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P384
 TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P521
 TLS_RSA_WITH_AES_256_CBC_SHA
-TLS_RSA_WITH_AES_256_CBC_SHA256      </string>
+TLS_RSA_WITH_AES_256_CBC_SHA256</string>
 			<!-- HASHING ALGORITHMS -->
 			<!-- MD5 -->
 			<string id="MD5">MD5</string>
@@ -518,7 +522,7 @@ SSL_CK_RC4_128_EXPORT40_MD5
 SSL_CK_RC4_128_WITH_MD5
 TLS_RSA_EXPORT_WITH_RC4_40_MD5
 TLS_RSA_WITH_NULL_MD5
-TLS_RSA_WITH_RC4_128_MD5      </string>
+TLS_RSA_WITH_RC4_128_MD5</string>
 			<!-- SHA -->
 			<string id="SHA">SHA</string>
 			<string id="SHA_Help">Active ou désactive l'usage de l'algorithme de hashage SHA-1. Cet algorithme de hashage est considéré comme obsolète, et ne devrait pas être activé.
@@ -549,7 +553,7 @@ TLS_RSA_WITH_AES_128_CBC_SHA
 TLS_RSA_WITH_AES_256_CBC_SHA
 TLS_RSA_WITH_DES_CBC_SHA
 TLS_RSA_WITH_NULL_SHA
-TLS_RSA_WITH_RC4_128_SHA      </string>
+TLS_RSA_WITH_RC4_128_SHA</string>
 			<!-- SHA-256 -->
 			<string id="SHA256">SHA-256</string>
 			<string id="SHA256_Help">Active ou désactive l'usage de l'algorithme de hashage SHA-256.
@@ -571,7 +575,7 @@ TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P384
 TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P521
 TLS_RSA_WITH_AES_128_CBC_SHA256
 TLS_RSA_WITH_AES_256_CBC_SHA256
-TLS_RSA_WITH_NULL_SHA256      </string>
+TLS_RSA_WITH_NULL_SHA256</string>
 			<!-- SHA-384 -->
 			<string id="SHA384">SHA-384</string>
 			<string id="SHA384_Help">Active ou désactive l'usage de l'algorithme de hashage SHA-384.
@@ -586,7 +590,7 @@ TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P384
 TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P521
 TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P256
 TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P384
-TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P521      </string>
+TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P521</string>
 			<!-- SHA-512 -->
 			<string id="SHA512">SHA-512</string>
 			<string id="SHA512_Help">Active ou désactive l'usage de l'algorithme de hashage SHA-512.
@@ -607,15 +611,15 @@ TLS_DHE_DSS_WITH_AES_128_CBC_SHA
 TLS_DHE_DSS_WITH_AES_128_CBC_SHA256
 TLS_DHE_DSS_WITH_AES_256_CBC_SHA
 TLS_DHE_DSS_WITH_AES_256_CBC_SHA256
-TLS_DHE_DSS_WITH_DES_CBC_SHA      </string>
+TLS_DHE_DSS_WITH_DES_CBC_SHA</string>
 			<string id="DHServer">Taille minimale de clef éphémère Diffie-Hellman (serveur)</string>
 			<string id="DHServer_Help">Défini la taille minimale de clef éphémère Diffie-Hellman utilisée par les serveurs lors de l'établissement d'une connexion TLS.
 
-Veuillez consulter le bulletin d'information de sécurité de Microsoft 3174644 pour plus d'informations sur les taille de clefs Diffie-Hellman. 2048 bits est la valeur minimale actuellement recommandée.      </string>
+Veuillez consulter le bulletin d'information de sécurité de Microsoft 3174644 pour plus d'informations sur les taille de clefs Diffie-Hellman. 4096 bits est la valeur minimale actuellement recommandée.</string>
 			<string id="DHClient">Taille minimale de clef éphémère Diffie-Hellman (client)</string>
 			<string id="DHClient_Help">Défini la taille minimale de clef éphémère Diffie-Hellman utilisée par les clients lors de l'établissement d'une connexion TLS.
 
-Veuillez consulter le bulletin d'information de sécurité de Microsoft 3174644 pour plus d'informations sur les taille de clefs Diffie-Hellman. 2048 bits est la valeur minimale actuellement recommandée.      </string>
+Veuillez consulter le bulletin d'information de sécurité de Microsoft 3174644 pour plus d'informations sur les taille de clefs Diffie-Hellman. 4096 bits est la valeur minimale actuellement recommandée.</string>
 			<string id="DH_Value2048">2048</string>
 			<string id="DH_Value3072">3072</string>
 			<string id="DH_Value4096">4096</string>
@@ -625,7 +629,7 @@ Veuillez consulter le bulletin d'information de sécurité de Microsoft 3174644 
 			<string id="PKCSClient">Taille minimale de clef PKCS (client)</string>
 			<string id="PKCSClient_Help">Défini la taille minimale de clef éphémère PKCS utilisée par les clients lors de l'établissement d'une connexion TLS.
 
-Veuillez consulter le bulletin d'information de sécurité de Microsoft 3174644 pour plus d'informations sur les taille de clefs PKCS. 2048 bits est la valeur minimale actuellement recommandée.      </string>
+Veuillez consulter le bulletin d'information de sécurité de Microsoft 3174644 pour plus d'informations sur les taille de clefs PKCS. 4096 bits est la valeur minimale actuellement recommandée.</string>
 			<string id="PKCS_Value2048">2048</string>
 			<string id="PKCS_Value3072">3072</string>
 			<string id="PKCS_Value4096">4096</string>
@@ -664,21 +668,21 @@ TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P384
 TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P521
 TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P256
 TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P384
-TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P521      </string>
+TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P521</string>
 			<!-- .NET Framework 4 -->
 			<string id="dotnet4">Activer la cryptographie robuste du .NET Framework 4</string>
 			<string id="dotnet4_Help">Active ou désactive l'utilisation de TLS 1.1 et 1.2 pour le .NET Framework 4.
 
-Si ce paramètre n'est pas configuré ou est désactivé, TLS 1.1 et 1.2 seront utilisés par défaut uniquement pour les applications visant l'API .NET Framework 4.6 ou supérieur, et désactivés dans le cas contraire.      </string>
+Si ce paramètre n'est pas configuré ou est désactivé, TLS 1.1 et 1.2 seront utilisés par défaut uniquement pour les applications visant l'API .NET Framework 4.6 ou supérieur, et désactivés dans le cas contraire.</string>
 			<!-- .NET Framework 2 -->
 			<string id="dotnet2">Activer la cryptographie robuste du .NET Framework 2</string>
 			<string id="dotnet2_Help">Active ou désactive l'utilisation de TLS 1.1 et 1.2 pour le .NET Framework 2.
 
-Si ce paramètre n'est pas configuré ou est désactivé, TLS 1.1 et 1.2 sont désactivés.      </string>
+Si ce paramètre n'est pas configuré ou est désactivé, TLS 1.1 et 1.2 sont désactivés.</string>
 			<string id="dotnet_strongname">Désactiver la fonctionnalité de contournement de nom fort</string>
 			<string id="dotnet_strongname_Help">À partir du .NET Framework version 3.5 Service Pack 1 (SP1), les signatures de noms forts ne sont pas validées quand un assembly est chargé dans un objet AppDomain de confiance totale, tel que le AppDomain par défaut pour la zone MyComputer. Cette fonctionnalité permet d'ignorer les noms forts.                  Dans un environnement de confiance totale, les demandes de StrongNameIdentityPermission aboutissent toujours pour les assemblys de confiance totale signés, quelle que soit leur signature.
 
-La seule restriction est que l'assembly doit être entièrement fiable, car sa zone est entièrement fiable. Le nom fort n'étant pas un facteur déterminant dans ces conditions, il n'y a aucune raison pour qu'il soit validé. Ignorer la validation des signatures de noms forts fournit une amélioration significative des performances.      </string>
+La seule restriction est que l'assembly doit être entièrement fiable, car sa zone est entièrement fiable. Le nom fort n'étant pas un facteur déterminant dans ces conditions, il n'y a aucune raison pour qu'il soit validé. Ignorer la validation des signatures de noms forts fournit une amélioration significative des performances.</string>
 		</stringTable>
 		<presentationTable>
 			<presentation id="MaxSMB2Dialect">
@@ -701,13 +705,13 @@ La seule restriction est que l'assembly doit être entièrement fiable, car sa z
 				<checkBox refId="HyperVMitigations">Activer le durcissement pour les machines virtuelles Hyper-V (version 8.0 et inférieur)</checkBox>
 			</presentation>
 			<presentation id="DHServer">
-				<dropdownList refId="DHServer_MinLength" noSort="true" defaultItem="2">Taille minimale du module DH côté serveur :</dropdownList>
+				<dropdownList refId="DHServer_MinLength" noSort="true" defaultItem="3">Taille minimale du module DH côté serveur :</dropdownList>
 			</presentation>
 			<presentation id="DHClient">
-				<dropdownList refId="DHClient_MinLength" noSort="true" defaultItem="2">Taille minimale du module DH côté client :</dropdownList>
+				<dropdownList refId="DHClient_MinLength" noSort="true" defaultItem="3">Taille minimale du module DH côté client :</dropdownList>
 			</presentation>
 			<presentation id="PKCSClient">
-				<dropdownList refId="PKCSClient_MinLength" noSort="true" defaultItem="2">Taille minimale du module PKCS côté client :</dropdownList>
+				<dropdownList refId="PKCSClient_MinLength" noSort="true" defaultItem="3">Taille minimale du module PKCS côté client :</dropdownList>
 			</presentation>
 			<presentation id="TLS_Ciphersuites">
 				<dropdownList refId="TLS_Ciphersuites_Selection" noSort="true" defaultItem="1">Sélectionnez un profil :</dropdownList>

@@ -22,10 +22,10 @@
     <category name="System" displayName="$(string.System)">
       <parentCategory ref="Cat_AddHard" />
     </category>
-    <category name="DomainController" displayName="$(string.DomainControllers)">
+    <category name="DomainControllers" displayName="$(string.DomainControllers)">
       <parentCategory ref="Cat_AddHard" />
     </category>
-    <!-- Subsubcategories -->
+    <!-- Network categories -->
     <category name="Schannel" displayName="$(string.Schannel)">
       <parentCategory ref="Network" />
     </category>
@@ -35,36 +35,38 @@
     <category name="NETFrame" displayName="$(string.Net)">
       <parentCategory ref="Network" />
     </category>
-    <category name="Protocols" displayName="$(string.Protocols)">
-      <parentCategory ref="Schannel" />
+    <category name="WinHTTP" displayName="$(string.WinHTTP)">
+      <parentCategory ref="Network" />
     </category>
-    <category name="WeakProtocols" displayName="$(string.WeakProtocols)">
-      <parentCategory ref="Protocols" />
-    </category>
+    <!-- Schannel categories -->
     <category name="Ciphers" displayName="$(string.Ciphers)">
       <parentCategory ref="Schannel" />
-    </category>
-    <category name="WeakCiphers" displayName="$(string.WeakCiphers)">
-      <parentCategory ref="Ciphers" />
     </category>
     <category name="Hashes" displayName="$(string.Hashes)">
       <parentCategory ref="Schannel" />
     </category>
-    <category name="WeakHashes" displayName="$(string.WeakHashes)">
-      <parentCategory ref="Hashes" />
-    </category>
     <category name="KeyEx" displayName="$(string.KeyEx)">
       <parentCategory ref="Schannel" />
+    </category>
+    <category name="Protocols" displayName="$(string.Protocols)">
+      <parentCategory ref="Schannel" />
+    </category>
+    <!-- Schannel subcategories -->
+    <category name="WeakProtocols" displayName="$(string.WeakProtocols)">
+      <parentCategory ref="Protocols" />
+    </category>
+    <category name="WeakCiphers" displayName="$(string.WeakCiphers)">
+      <parentCategory ref="Ciphers" />
+    </category>
+    <category name="WeakHashes" displayName="$(string.WeakHashes)">
+      <parentCategory ref="Hashes" />
     </category>
     <category name="WeakKeyEx" displayName="$(string.WeakKeyEx)">
       <parentCategory ref="KeyEx" />
     </category>
-    <category name="WinHTTP" displayName="$(string.WinHTTP)">
-      <parentCategory ref="Network" />
-    </category>
   </categories>
   <policies>
-    <!-- Hardening section -->
+    <!-- Hardening policies section -->
     <!-- 
 
 
