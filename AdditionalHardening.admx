@@ -22,7 +22,7 @@
     <category name="System" displayName="$(string.System)">
       <parentCategory ref="Cat_AddHard" />
     </category>
-    <category name="DomainController" displayName="$(string.DomainControllers)">
+    <category name="DomainControllers" displayName="$(string.DomainControllers)">
       <parentCategory ref="Cat_AddHard" />
     </category>
     <!-- Subsubcategories -->
