@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v1.0.34] - 2024-09-27
+### Added
+- Added all the steps required to update the bootloader against the BlackLotus vulnerability CVE-2023-24932
+  - Cf. Microsoft documentation at https://support.microsoft.com/en-us/topic/kb5025885-how-to-manage-the-windows-boot-manager-revocations-for-secure-boot-changes-associated-with-cve-2023-24932-41a975df-beb2-40c1-99a3-b3ff139f832d#bkmk_mitigation_guidelines
+
 ## [v1.0.33] - 2024-01-05
 ### Fixed
 - `supportedOn` value for the DTLS 1.3 policy
