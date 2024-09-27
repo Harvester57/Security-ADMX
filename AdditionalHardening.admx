@@ -75,15 +75,33 @@
 
     -->
         <!-- Apply the updated Secure Boot denylist and the Code Integrity Boot Policy against BlackLotus (CVE-2023-24932) -->
-    <policy name="BlackLotusMitigation" class="Machine" displayName="$(string.BlackLotusMitigation)" explainText="$(string.BlackLotusMitigation_Help)" key="SYSTEM\CurrentControlSet\Control\Secureboot" valueName="AvailableUpdates">
+    <policy name="BlackLotusMitigation" class="Machine" displayName="$(string.BlackLotusMitigation)" explainText="$(string.BlackLotusMitigation_Help)" presentation="$(presentation.BlackLotusMitigation_Presentation)" key="SYSTEM\CurrentControlSet\Control\Secureboot">
       <parentCategory ref="System" />
       <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
-      <enabledValue>
-        <decimal value="48" />
-      </enabledValue>
-      <disabledValue>
-        <decimal value="0" />
-      </disabledValue>
+      <elements>
+        <enum id="BlackLotusMitigation_DropdownList" valueName="AvailableUpdates" required="true">
+          <item displayName="$(string.BlackLotusMitigation_Option1)">
+            <value>
+              <decimal value="64" />
+            </value>
+          </item>
+          <item displayName="$(string.BlackLotusMitigation_Option2)">
+            <value>
+              <decimal value="256" />
+            </value>
+          </item>
+          <item displayName="$(string.BlackLotusMitigation_Option3)">
+            <value>
+              <decimal value="128" />
+            </value>
+          </item>
+          <item displayName="$(string.BlackLotusMitigation_Option4)">
+            <value>
+              <decimal value="512" />
+            </value>
+          </item>
+        </enum>
+      </elements>
     </policy>
     <!-- Prevent root CAs tampering from standard users-->
     <policy name="ProtectedRoots" class="Machine" displayName="$(string.ProtectedRoots)" explainText="$(string.ProtectedRoots_Help)" key="SOFTWARE\Policies\Microsoft\SystemCertificates\Root\ProtectedRoots" valueName="Flags">

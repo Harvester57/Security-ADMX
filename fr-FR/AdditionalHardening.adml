@@ -296,17 +296,23 @@ Informations complémentaires : https://support.microsoft.com/fr-fr/topic/kb5005
 			<string id="ProtectedRoots_Help">Cette politique permet d'interdire aux utilisateurs non privilégiés d'installer des certificats racine dans leur magasin personnel de certificats.
 
 Activer cette politique permet de limiter les attaques par clonage de certificats de signature de code. Il est recommandé d'activer cette politique.</string>
-			<string id="BlackLotusMitigation">Activer la protection additionnelle contre BlackLotus (CVE-2023-24932)</string>
-			<string id="BlackLotusMitigation_Help">Cette politique active la clef de Registre nécessaire à l'installation de la nouvelle liste noire de démarrage sécurisé (Secure Boot DBX) et la nouvelle stratégie de démarrage du mécanisme d'intégrité du code de Windows.
+			<string id="BlackLotusMitigation">Activer les protections additionnelles contre BlackLotus (CVE-2023-24932)</string>
+			<string id="BlackLotusMitigation_Help">Cette politique déploie les clefs de Registre nécessaires à l'installation de la nouvelle liste noire de démarrage sécurisé (Secure Boot DBX), l'installation du nouveau certificat de signature dans la liste blanche (DB), le mécanisme d'anti-retour arrière (SVN) et la nouvelle stratégie de démarrage du mécanisme d'intégrité du code de Windows.
 
-Ces stratégies permettent de se prémunir de la CVE-2023-24932, aussi connue sous le nom de BlackLotus.
+Ces stratégies permettent de se prémunir de la CVE-2023-24932, aussi connue sous le nom de BlackLotus, et plus généralement des vulnérabilités récentes liées au chargeur d'amorçage.
 
 IMPORTANT : veuillez lire attentivement la documentation de Microsoft au sujet de ces correctifs, ainsi que les étapes préliminaires et postliminaires à appliquer en plus de cette clef de Registre, autrement vous pourriez rendre votre système non-bootable :
 
-- https://support.microsoft.com/en-au/topic/kb5025885-how-to-manage-the-windows-boot-manager-revocations-for-secure-boot-changes-associated-with-cve-2023-24932-41a975df-beb2-40c1-99a3-b3ff139f832d
+- https://support.microsoft.com/fr-fr/topic/kb5025885-comment-g%C3%A9rer-les-r%C3%A9vocations-du-gestionnaire-de-d%C3%A9marrage-windows-pour-les-modifications-de-d%C3%A9marrage-s%C3%A9curis%C3%A9-associ%C3%A9es-%C3%A0-cve-2023-24932-41a975df-beb2-40c1-99a3-b3ff139f832d
 - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-24932
 
-Cette politique devrait être activée par défaut à partir de la mise à jour cumulative de Juillet 2024.</string>
+En particulier, vous devriez lire les étapes de déploiement associées à chaque étape présente dans la liste de cette politique, et les actions manuelles associées (redémarrages intermédiaires, vérifications additionnelles, ...). Ces informations sont présentes dans la documentation Microsoft :
+
+- https://support.microsoft.com/fr-fr/topic/kb5025885-comment-g%C3%A9rer-les-r%C3%A9vocations-du-gestionnaire-de-d%C3%A9marrage-windows-pour-les-modifications-de-d%C3%A9marrage-s%C3%A9curis%C3%A9-associ%C3%A9es-%C3%A0-cve-2023-24932-41a975df-beb2-40c1-99a3-b3ff139f832d#bkmk_mitigation_guidelines</string>
+			<string id="BlackLotusMitigation_Option1">Étape 1 : ajout du certificat "Windows UEFI CA 2023" à la liste blanche d'amorçage (DB)</string>
+			<string id="BlackLotusMitigation_Option2">Étape 2 : mise à jour du chargeur d'amorçage du système d'exploitation</string>
+			<string id="BlackLotusMitigation_Option3">Étape 3 : ajout du certificat "Windows Production CA 2011" à la liste noire d'amorçage (DBX)</string>
+			<string id="BlackLotusMitigation_Option4">Étape 4 : application du mécanisme d'anti-retour arrière (SVN)</string>
 			<string id="CoInstallers">Bloquer l'installation des co-installeurs des pilotes matériels</string>
 			<string id="CoInstallers_Help">Un co-installeur est une librairie Win32 en espace utilisateur qui complète l'installation d'un driver en effectuant des tâches de configuration annexes (écriture Registre, installation d'application additionnelle, etc) non disponibles dans un fichier INF standard.
 
@@ -721,6 +727,11 @@ La seule restriction est que l'assembly doit être entièrement fiable, car sa z
 					noSort="true"
 					defaultItem="0">Sélectionnez le niveau de verbosité :</dropdownList>
 			</presentation>
+			<presentation id="BlackLotusMitigation_Presentation">
+				<dropdownList refId="BlackLotusMitigation_DropdownList"
+					noSort="true"
+					defaultItem="0">Sélectionner une étape :</dropdownList>
+		  </presentation>
 			<!-- PROTOCOLS -->
 			<presentation id="MPUH">
 				<checkBox refId="MPUH_ClientCheckbox" defaultChecked="false">Activer le protocole Multi-Protocol Unified Hello côté client</checkBox>
