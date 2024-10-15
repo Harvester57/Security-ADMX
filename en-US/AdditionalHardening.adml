@@ -311,6 +311,19 @@ In particular, you should read all the steps descriptions present in the list an
       <string id="BlackLotusMitigation_Option2">Step 2: update the boot manager of the device</string>
       <string id="BlackLotusMitigation_Option3">Step 3: add the "Windows Production CA 2011" certificate to the revocation list (DBX)</string>
       <string id="BlackLotusMitigation_Option4">Step 4: apply the SVN update to the firmware</string>
+      <string id="SudoCommand">Configure the Windows Sudo command behavior</string>
+      <string id="SudoCommand_Help">This policy configures the behavior of the Sudo command introduced in Windows 11 24H2.
+      
+Possible choices are:
+
+- Force a new elevated window to open (default behavior)
+- Disable inputs to the elevated process
+- Run in the current window
+
+It is recommended to use the default behavior and let the Sudo command open a new elevated window.</string>
+      <string id="SudoCommand_Option1">Force a new elevated window</string>
+      <string id="SudoCommand_Option2">Disable inputs</string>
+      <string id="SudoCommand_Option3">Run in the current window</string>
       <string id="CoInstallers">Block drivers co-installers applications</string>
       <string id="CoInstallers_Help">A co-installer is a user-mode Win32 DLL that typically writes additional configuration information to the registry, or performs other installation tasks that require information that is not available when an INF is written.
 
@@ -778,6 +791,11 @@ The only restriction is that the assembly must be fully trusted because its zone
             <dropdownList refId="BlackLotusMitigation_DropdownList"
                           noSort="true"
                           defaultItem="0">Select a step:</dropdownList>
+      </presentation>
+      <presentation id="SudoCommand_Presentation">
+            <dropdownList refId="SudoCommand_DropdownList"
+                          noSort="true"
+                          defaultItem="0">Select an option:</dropdownList>
       </presentation>
       <!-- PROTOCOLS -->
       <presentation id="MPUH">

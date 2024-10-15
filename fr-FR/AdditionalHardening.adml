@@ -313,6 +313,19 @@ En particulier, vous devriez lire les étapes de déploiement associées à chaq
 			<string id="BlackLotusMitigation_Option2">Étape 2 : mise à jour du chargeur d'amorçage du système d'exploitation</string>
 			<string id="BlackLotusMitigation_Option3">Étape 3 : ajout du certificat "Windows Production CA 2011" à la liste noire d'amorçage (DBX)</string>
 			<string id="BlackLotusMitigation_Option4">Étape 4 : application du mécanisme d'anti-retour arrière (SVN)</string>
+			<string id="SudoCommand">Configurer le comportement de la commande Sudo</string>
+      		<string id="SudoCommand_Help">Cette politique configure le comportement de la commande Sudo, introduite dans la version 24H2 de Windows 11.
+      
+Les options possibles sont :
+
+- Forcer l'ouverture d'une nouvelle fenêtre avec droits élevés (comportement par défaut)
+- Désactiver les entrées/sorties du processus appelé
+- Executer dans la fenêtre courante
+
+Il est recommandé d'utiliser le comportement par défaut d'ouverture dans une nouvelle fenêtre.</string>
+			<string id="SudoCommand_Option1">Force a new elevated window</string>
+			<string id="SudoCommand_Option2">Disable inputs</string>
+			<string id="SudoCommand_Option3">Run in the current window</string>
 			<string id="CoInstallers">Bloquer l'installation des co-installeurs des pilotes matériels</string>
 			<string id="CoInstallers_Help">Un co-installeur est une librairie Win32 en espace utilisateur qui complète l'installation d'un driver en effectuant des tâches de configuration annexes (écriture Registre, installation d'application additionnelle, etc) non disponibles dans un fichier INF standard.
 
@@ -732,6 +745,11 @@ La seule restriction est que l'assembly doit être entièrement fiable, car sa z
 					noSort="true"
 					defaultItem="0">Sélectionner une étape :</dropdownList>
 		  </presentation>
+		  <presentation id="SudoCommand_Presentation">
+            <dropdownList refId="SudoCommand_DropdownList"
+                          noSort="true"
+                          defaultItem="0">Sélectionner une option :</dropdownList>
+      	</presentation>
 			<!-- PROTOCOLS -->
 			<presentation id="MPUH">
 				<checkBox refId="MPUH_ClientCheckbox" defaultChecked="false">Activer le protocole Multi-Protocol Unified Hello côté client</checkBox>

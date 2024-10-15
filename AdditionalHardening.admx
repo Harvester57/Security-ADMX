@@ -74,7 +74,34 @@
 
 
     -->
-        <!-- Apply the updated Secure Boot denylist and the Code Integrity Boot Policy against BlackLotus (CVE-2023-24932) -->
+    <!-- Configure the new Sudo command, available in Windows 11 24H2 -->
+    <policy name="SudoCommand" class="Machine" displayName="$(string.SudoCommand)" explainText="$(string.SudoCommand_Help)" presentation="$(presentation.SudoCommand_Presentation)" key="SOFTWARE\Policies\Microsoft\Windows\Sudo">
+      <parentCategory ref="System" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <elements>
+        <enum id="SudoCommand_DropdownList" valueName="Enabled" required="true">
+          <item displayName="$(string.SudoCommand_Option1)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.SudoCommand_Option2)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+          <item displayName="$(string.SudoCommand_Option3)">
+            <value>
+              <decimal value="3" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <!-- Apply the updated Secure Boot denylist and the Code Integrity Boot Policy against BlackLotus (CVE-2023-24932) -->
     <policy name="BlackLotusMitigation" class="Machine" displayName="$(string.BlackLotusMitigation)" explainText="$(string.BlackLotusMitigation_Help)" presentation="$(presentation.BlackLotusMitigation_Presentation)" key="SYSTEM\CurrentControlSet\Control\Secureboot">
       <parentCategory ref="System" />
       <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
