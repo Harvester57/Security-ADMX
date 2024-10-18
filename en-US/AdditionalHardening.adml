@@ -15,6 +15,7 @@ At least Windows Server 2008 SP2 or Windows Vista SP2 with KB3174644</string>
       <string id="System">Additional system hardening settings</string>
       <string id="Network">Additional network hardening settings</string>
       <string id="DomainControllers">Additional Domain Controllers hardening settings</string>
+      <string id="Adobe">Additional Adobe Acrobat settings</string>
       <string id="Net">.NET Framework configuration</string>
       <string id="Schannel">Schannel configuration</string>
       <string id="Protocols">Protocols</string>
@@ -296,6 +297,12 @@ Additional Information: https://support.microsoft.com/en-us/topic/kb5005010-rest
       <string id="ProtectedRoots_Help">This policy prevent standard (non-administrators) users to install root certificate authorities to their user-specific trust store.
 
 Enabling this policy can help prevent code signing certificate cloning attacks. It is recommended to enable this policy.</string>
+      <string id="AcrobatAI">Enable Generative AI features in Acrobat and Acrobat Reader</string>
+      <string id="AcrobatAI_Help">The generative AI features in Acrobat and Acrobat Reader are turned on by default. This policy controls the state of the feature.
+
+Enabling this policy will enable the Generative AI feature.
+
+Disabling this policy will disable the Generative AI feature. For privacy purposes, it is recommended to set this policy to Disabled.</string>
       <string id="BlackLotusMitigation">Enable Secure Boot/Code Integrity mitigations for BlackLotus (CVE-2023-24932)</string>
       <string id="BlackLotusMitigation_Help">This policy sets the Registry keys needed to apply the updated Secure Boot denylist (DBX), the new signing certificate in the allowlist (DB), the anti-rollback mecanisme (SVN) and the Code Integrity Boot Policy, to prevent untrusted/vulnerable Windows boot managers from loading when Secure Boot is turned on.
 

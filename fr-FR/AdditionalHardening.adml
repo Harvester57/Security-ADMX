@@ -14,6 +14,7 @@ Au moins Windows Server 2008 SP2 ou Windows Vista SP2 avec KB3174644</string>
 			<string id="System">Paramètres de durcissement système</string>
 			<string id="Network">Paramètres de durcissement réseau</string>
 			<string id="DomainControllers">Paramètres de durcissement pour contrôleurs de domaine</string>
+			<string id="Adobe">Paramètres de durcissement pour Adobe Acrobat</string>
 			<string id="Net">Configuration du .NET Framework</string>
 			<string id="Schannel">Configuration de Schannel</string>
 			<string id="Protocols">Protocoles</string>
@@ -296,6 +297,12 @@ Informations complémentaires : https://support.microsoft.com/fr-fr/topic/kb5005
 			<string id="ProtectedRoots_Help">Cette politique permet d'interdire aux utilisateurs non privilégiés d'installer des certificats racine dans leur magasin personnel de certificats.
 
 Activer cette politique permet de limiter les attaques par clonage de certificats de signature de code. Il est recommandé d'activer cette politique.</string>
+			<string id="AcrobatAI">Activer les fonctionnalités d'IA génératives dans Acrobat et Acrobat Reader</string>
+			<string id="AcrobatAI_Help">Les fonctionnalités d'IA génératives sont activées par défaut dans Acrobat et Acrobat Reader. Cette politique permet de contrôler le status de ces fonctionnalités.
+
+Activer cette politique activera les fonctionnalités d'IA génératives.
+
+Désactiver cette politique désactivera ces fonctionnalités. Il est recommandé de désactiver cette politique.</string>
 			<string id="BlackLotusMitigation">Activer les protections additionnelles contre BlackLotus (CVE-2023-24932)</string>
 			<string id="BlackLotusMitigation_Help">Cette politique déploie les clefs de Registre nécessaires à l'installation de la nouvelle liste noire de démarrage sécurisé (Secure Boot DBX), l'installation du nouveau certificat de signature dans la liste blanche (DB), le mécanisme d'anti-retour arrière (SVN) et la nouvelle stratégie de démarrage du mécanisme d'intégrité du code de Windows.
 
