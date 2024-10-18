@@ -25,6 +25,9 @@
     <category name="DomainControllers" displayName="$(string.DomainControllers)">
       <parentCategory ref="Cat_AddHard" />
     </category>
+    <category name="Adobe" displayName="$(string.Adobe)">
+      <parentCategory ref="Cat_AddHard" />
+    </category>
     <!-- Network categories -->
     <category name="Schannel" displayName="$(string.Schannel)">
       <parentCategory ref="Network" />
@@ -74,6 +77,16 @@
 
 
     -->
+    <policy name="AcrobatAI" class="Machine" displayName="$(string.AcrobatAI)" explainText="$(string.AcrobatAI_Help)" key="SOFTWARE\Policies\Adobe\Adobe Acrobat\DC\FeatureLockDown" valueName="bEnableGentech">
+      <parentCategory ref="Adobe" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
     <!-- Configure the new Sudo command, available in Windows 11 24H2 -->
     <policy name="SudoCommand" class="Machine" displayName="$(string.SudoCommand)" explainText="$(string.SudoCommand_Help)" presentation="$(presentation.SudoCommand_Presentation)" key="SOFTWARE\Policies\Microsoft\Windows\Sudo">
       <parentCategory ref="System" />

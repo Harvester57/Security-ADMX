@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 - New policy to configure the behavior of the Sudo command, introduced in Windows 11 24H2
   - Cf. @mobilejon blog post about the command: https://mobile-jon.com/2024/10/14/deep-dive-into-windows-sudo/
+- New policy to control the state of the generative AI features in Acrobat and Acrobat Reader products
 
 ## [v1.0.34] - 2024-09-27
 ### Added
