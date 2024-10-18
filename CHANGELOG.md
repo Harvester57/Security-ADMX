@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [UNRELEASED] - 2024-xx-xx
+## [v1.0.35] - 2024-10-18
 ### Added
 - New policy to configure the behavior of the Sudo command, introduced in Windows 11 24H2
   - Cf. @mobilejon blog post about the command: https://mobile-jon.com/2024/10/14/deep-dive-into-windows-sudo/
