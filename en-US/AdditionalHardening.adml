@@ -319,11 +319,13 @@ Possible choices are:
 - Force a new elevated window to open (default behavior)
 - Disable inputs to the elevated process
 - Run in the current window
+- Disable the functionnality
 
 It is recommended to use the default behavior and let the Sudo command open a new elevated window.</string>
       <string id="SudoCommand_Option1">Force a new elevated window</string>
       <string id="SudoCommand_Option2">Disable inputs</string>
       <string id="SudoCommand_Option3">Run in the current window</string>
+      <string id="SudoCommand_Option4">Disable the functionnality</string>
       <string id="CoInstallers">Block drivers co-installers applications</string>
       <string id="CoInstallers_Help">A co-installer is a user-mode Win32 DLL that typically writes additional configuration information to the registry, or performs other installation tasks that require information that is not available when an INF is written.
 

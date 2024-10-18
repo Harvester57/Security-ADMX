@@ -95,11 +95,13 @@
               <decimal value="3" />
             </value>
           </item>
+          <item displayName="$(string.SudoCommand_Option4)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
         </enum>
       </elements>
-      <disabledValue>
-        <decimal value="0" />
-      </disabledValue>
     </policy>
     <!-- Apply the updated Secure Boot denylist and the Code Integrity Boot Policy against BlackLotus (CVE-2023-24932) -->
     <policy name="BlackLotusMitigation" class="Machine" displayName="$(string.BlackLotusMitigation)" explainText="$(string.BlackLotusMitigation_Help)" presentation="$(presentation.BlackLotusMitigation_Presentation)" key="SYSTEM\CurrentControlSet\Control\Secureboot">

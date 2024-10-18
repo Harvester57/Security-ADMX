@@ -321,11 +321,13 @@ Les options possibles sont :
 - Forcer l'ouverture d'une nouvelle fenêtre avec droits élevés (comportement par défaut)
 - Désactiver les entrées/sorties du processus appelé
 - Executer dans la fenêtre courante
+- Désactiver la fonctionnalité
 
 Il est recommandé d'utiliser le comportement par défaut d'ouverture dans une nouvelle fenêtre.</string>
-			<string id="SudoCommand_Option1">Force a new elevated window</string>
-			<string id="SudoCommand_Option2">Disable inputs</string>
-			<string id="SudoCommand_Option3">Run in the current window</string>
+			<string id="SudoCommand_Option1">Forcer l'ouverture d'une nouvelle fenêtre</string>
+			<string id="SudoCommand_Option2">Désactiver les entrées/sorties du nouveau processus</string>
+			<string id="SudoCommand_Option3">Exécuter dans la fenêtre courante</string>
+			<string id="SudoCommand_Option4">Désactiver la fonctionnalité</string>
 			<string id="CoInstallers">Bloquer l'installation des co-installeurs des pilotes matériels</string>
 			<string id="CoInstallers_Help">Un co-installeur est une librairie Win32 en espace utilisateur qui complète l'installation d'un driver en effectuant des tâches de configuration annexes (écriture Registre, installation d'application additionnelle, etc) non disponibles dans un fichier INF standard.
 
