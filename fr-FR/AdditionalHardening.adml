@@ -335,6 +335,20 @@ Il est recommandé d'utiliser le comportement par défaut d'ouverture dans une n
 			<string id="SudoCommand_Option2">Désactiver les entrées/sorties du nouveau processus</string>
 			<string id="SudoCommand_Option3">Exécuter dans la fenêtre courante</string>
 			<string id="SudoCommand_Option4">Désactiver la fonctionnalité</string>
+			<string id="MandatoryVBS">Activer la sécurité basée sur la virtualisation en mode Obligatoire</string>
+      		<string id="MandatoryVBS_Explain">Cette politique contrôle l'activation du mode Obligatoire pour la sécurité basée sur la virtualisation (VBS).
+
+Le mode Obligatoire est une nouvelle fonctionnalité introduite pour prévenir les attaques par rétrogadation (Windows Downdate notamment) affectant les composants liés à la sécurité basée sur la virtualisation, comme le Secure Kernel et les composants de l'hyperviseur. Ce mode force la vérification en intégrité et en version lors du démarrage de ces composants, ce qui peut également conduire à un déni de service au démarrage du système si une violation est détectée.
+
+NOTE : si la sécurité basée sur la virtualisation est déjà activée avec un verrouillage par l'UEFI, cette politique est sans effet, car la politique de sécurité de la fonction VBS est inscrite dans une variable UEFI non modifiable par le système. Cette variable doit être effacée à l'aide de l'utilitaire bcedit.exe avant d'activer le mode Obligatoire et de re-activer le verrouillage par UEFI de la nouvelle politique. La procédure de désactivation est documentée par Microsoft :
+
+https://learn.microsoft.com/fr-fr/windows/security/identity-protection/credential-guard/configure?tabs=reg#disable-virtualization-based-security
+
+Activer cette politique activera le mode Obligatoire et forcera la vérification des composants liés à la VBS au démarrage.
+
+Activer cette politique si le verrouillage UEFI est actif est sans effet.
+
+Désactiver cette politique désactivera le mode Obligatoire, seulement si le verrouillage UEFI n'est pas activé. Autrement, désactiver cette politique est sans effet.</string>
 			<string id="CoInstallers">Bloquer l'installation des co-installeurs des pilotes matériels</string>
 			<string id="CoInstallers_Help">Un co-installeur est une librairie Win32 en espace utilisateur qui complète l'installation d'un driver en effectuant des tâches de configuration annexes (écriture Registre, installation d'application additionnelle, etc) non disponibles dans un fichier INF standard.
 

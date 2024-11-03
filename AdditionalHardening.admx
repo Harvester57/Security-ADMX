@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--  
   Author: Florian Stosse <florian.stosse@gmail.com>
-  Version: 1.0.35
-  Date: 2024-10-18
+  Version: 1.0.36
+  Date: 2024-11-03
 -->
 <policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0"
@@ -77,6 +77,17 @@
 
 
     -->
+    <!-- Launch VBS in Mandatory mode -->
+    <policy name="MandatoryVBS" class="Machine" displayName="$(string.MandatoryVBS)" explainText="$(string.MandatoryVBS_Explain)" key="CurrentControlSet\Control\DeviceGuard" valueName="Mandatory">
+      <parentCategory ref="System" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
     <policy name="AcrobatAI" class="Machine" displayName="$(string.AcrobatAI)" explainText="$(string.AcrobatAI_Help)" key="SOFTWARE\Policies\Adobe\Adobe Acrobat\DC\FeatureLockDown" valueName="bEnableGentech">
       <parentCategory ref="Adobe" />
       <supportedOn ref="windows:SUPPORTED_Windows_10_0" />

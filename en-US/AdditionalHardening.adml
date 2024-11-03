@@ -333,6 +333,20 @@ It is recommended to use the default behavior and let the Sudo command open a ne
       <string id="SudoCommand_Option2">Disable inputs</string>
       <string id="SudoCommand_Option3">Run in the current window</string>
       <string id="SudoCommand_Option4">Disable the functionnality</string>
+      <string id="MandatoryVBS">Enable Virtualization-Based Security in Mandatory mode</string>
+      <string id="MandatoryVBS_Explain">This policy will enable the Virtualization-Based Security (VBS) function in Mandatory mode.
+
+Mandatory mode is a new functionnality introduced to prevent the Windows Downdate attack (and other related dowgrading attacks) by forcing the verification of the components of the Secure Kernel and the hypervisor at boot time. Consequently, enabling this functionnality can lead to boot failure (and a denial of service) in case of a modification of a core component of Secure Kernel, hypervisor or a related dependant module.
+
+NOTE: if you already have Virtualization-Based Security enabled with UEFI Lock, this setting will not do anything, as the VBS configuration is already written and locked in a UEFI variable. This variable needs to be deleted using the bcdedit.exe tool before deploying the Mandatory flag and the UEFI Lock. Guidance and more informations about this procedure are available here:
+
+https://learn.microsoft.com/en-us/windows/security/identity-protection/credential-guard/configure?tabs=reg#disable-virtualization-based-security
+
+Enabling this policy will set the Mandatory flag and force the verification of the VBS components at boot time.
+
+Enabling this policy with UEFI Lock already enabled wil do nothing.
+
+Disabling this policy will disable the verification of the components, only if the UEFI Lock is not enabled. Otherwise, disabling this policy will do nothing.</string>
       <string id="CoInstallers">Block drivers co-installers applications</string>
       <string id="CoInstallers_Help">A co-installer is a user-mode Win32 DLL that typically writes additional configuration information to the registry, or performs other installation tasks that require information that is not available when an INF is written.
 
