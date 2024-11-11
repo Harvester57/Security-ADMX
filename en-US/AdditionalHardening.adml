@@ -348,6 +348,12 @@ Enabling this policy will set the Mandatory flag and force the verification of t
 Enabling this policy with UEFI Lock already enabled wil do nothing.
 
 Disabling this policy will disable the verification of the components, only if the UEFI Lock is not enabled. Otherwise, disabling this policy will do nothing.</string>
+      <string id="EnableKASAN">Enable Kernel Address Sanitizer</string>
+      <string id="EnableKASAN_Explain">The Kernel Address Sanitizer (KASAN) is a bug detection technology supported on Windows kernel drivers that enables you to detect several classes of illegal memory accesses, such as buffer overflows and use-after-free events.
+            
+It requires you to enable KASAN on your system, and recompile your kernel driver with a specific MSVC compiler flag.
+
+This policy controls the support of KASAN in the kernel. Enabling this polic will enable the support of KASAN. Disabling this policy will disable the support of KASAN.</string>
       <string id="CoInstallers">Block drivers co-installers applications</string>
       <string id="CoInstallers_Help">A co-installer is a user-mode Win32 DLL that typically writes additional configuration information to the registry, or performs other installation tasks that require information that is not available when an INF is written.
 

@@ -71,6 +71,23 @@
   </categories>
   <policies>
     <!-- Hardening policies section -->
+     <!-- 
+
+
+      DEBUG SETTINGS
+
+
+    -->
+    <policy name="EnableKASAN" class="Machine" displayName="$(string.EnableKASAN)" explainText="$(string.EnableKASAN_Explain)" key="SYSTEM\CurrentControlSet\Control\Session Manager\Kernel" valueName="KasanEnabled">
+      <parentCategory ref="Cat_Debug" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
     <!-- 
 
 
@@ -79,7 +96,7 @@
 
     -->
     <!-- Launch VBS in Mandatory mode -->
-    <policy name="MandatoryVBS" class="Machine" displayName="$(string.MandatoryVBS)" explainText="$(string.MandatoryVBS_Explain)" key="CurrentControlSet\Control\DeviceGuard" valueName="Mandatory">
+    <policy name="MandatoryVBS" class="Machine" displayName="$(string.MandatoryVBS)" explainText="$(string.MandatoryVBS_Explain)" key="SYSTEM\CurrentControlSet\Control\DeviceGuard" valueName="Mandatory">
       <parentCategory ref="System" />
       <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
       <enabledValue>
