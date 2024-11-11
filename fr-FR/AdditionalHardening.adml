@@ -11,6 +11,7 @@
 Au moins Windows Server 2008 SP2 ou Windows Vista SP2 avec KB3174644</string>
 			<!-- CATEGORIES -->
 			<string id="Cat_AddHard">Paramètres de durcissement supplémentaires</string>
+			<string id="Cat_Debug">Paramètres de débuggage supplémentaires</string>
 			<string id="System">Paramètres de durcissement système</string>
 			<string id="Network">Paramètres de durcissement réseau</string>
 			<string id="DomainControllers">Paramètres de durcissement pour contrôleurs de domaine</string>
@@ -349,6 +350,12 @@ Activer cette politique activera le mode Obligatoire et forcera la vérification
 Activer cette politique si le verrouillage UEFI est actif est sans effet.
 
 Désactiver cette politique désactivera le mode Obligatoire, seulement si le verrouillage UEFI n'est pas activé. Autrement, désactiver cette politique est sans effet.</string>
+			<string id="EnableKASAN">Activer l'assainisseur d'adresses du noyau (KASAN)</string>
+			<string id="EnableKASAN_Explain">L'assainisseur d'adresses du noyau (KASAN) est une technologie de détection de bogues prise en charge sur les pilotes de noyau Windows qui vous permet de détecter plusieurs classes d'accès à la mémoire illégale, telles que les dépassements de mémoire tampon et les événements sans utilisation.
+
+Il vous oblige à activer KASAN sur votre système et à recompiler votre pilote de noyau avec un paramètre de compilation MSVC spécifique.
+
+Cette politique contrôle le support de KASAN au niveau du noyau. Activer cette politique activera le support de KASAN. Désactiver cette politique désactivera le support de KASAN.</string>
 			<string id="CoInstallers">Bloquer l'installation des co-installeurs des pilotes matériels</string>
 			<string id="CoInstallers_Help">Un co-installeur est une librairie Win32 en espace utilisateur qui complète l'installation d'un driver en effectuant des tâches de configuration annexes (écriture Registre, installation d'application additionnelle, etc) non disponibles dans un fichier INF standard.
 

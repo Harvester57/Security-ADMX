@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--  
   Author: Florian Stosse <florian.stosse@gmail.com>
-  Version: 1.0.36
-  Date: 2024-11-03
+  Version: 1.0.37
+  Date: 2024-11-12
 -->
 <policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0"
@@ -13,8 +13,9 @@
   </policyNamespaces>
   <resources minRequiredRevision="1.0" />
   <categories>
-    <!-- Main category -->
+    <!-- Main categories -->
     <category name="Cat_AddHard" displayName="$(string.Cat_AddHard)" />
+    <category name="Cat_Debug" displayName="$(string.Cat_Debug)" />
     <!-- Subcategories -->
     <category name="Network" displayName="$(string.Network)">
       <parentCategory ref="Cat_AddHard" />
@@ -70,6 +71,23 @@
   </categories>
   <policies>
     <!-- Hardening policies section -->
+     <!-- 
+
+
+      DEBUG SETTINGS
+
+
+    -->
+    <policy name="EnableKASAN" class="Machine" displayName="$(string.EnableKASAN)" explainText="$(string.EnableKASAN_Explain)" key="SYSTEM\CurrentControlSet\Control\Session Manager\Kernel" valueName="KasanEnabled">
+      <parentCategory ref="Cat_Debug" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
     <!-- 
 
 
@@ -78,7 +96,7 @@
 
     -->
     <!-- Launch VBS in Mandatory mode -->
-    <policy name="MandatoryVBS" class="Machine" displayName="$(string.MandatoryVBS)" explainText="$(string.MandatoryVBS_Explain)" key="CurrentControlSet\Control\DeviceGuard" valueName="Mandatory">
+    <policy name="MandatoryVBS" class="Machine" displayName="$(string.MandatoryVBS)" explainText="$(string.MandatoryVBS_Explain)" key="SYSTEM\CurrentControlSet\Control\DeviceGuard" valueName="Mandatory">
       <parentCategory ref="System" />
       <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
       <enabledValue>

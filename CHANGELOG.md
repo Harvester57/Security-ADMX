@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v1.0.37] - 2024-11-12
+### Added
+- New policy to enable or disable the support for KASAN
+### Fixed
+- Fix the Registry path for the Mandatory VBS flag introduced in v1.0.36
+
 ## [v1.0.36] - 2024-11-03
 ### Added
 - New policy to configure the Mandatory mode for Virtualization-Based Security
