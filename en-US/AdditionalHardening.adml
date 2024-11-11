@@ -12,6 +12,7 @@
 At least Windows Server 2008 SP2 or Windows Vista SP2 with KB3174644</string>
       <!-- CATEGORIES -->
       <string id="Cat_AddHard">Additional hardening settings</string>
+      <string id="Cat_Debug">Additional debug-related settings</string>
       <string id="System">Additional system hardening settings</string>
       <string id="Network">Additional network hardening settings</string>
       <string id="DomainControllers">Additional Domain Controllers hardening settings</string>

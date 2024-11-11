@@ -13,8 +13,9 @@
   </policyNamespaces>
   <resources minRequiredRevision="1.0" />
   <categories>
-    <!-- Main category -->
+    <!-- Main categories -->
     <category name="Cat_AddHard" displayName="$(string.Cat_AddHard)" />
+    <category name="Cat_Debug" displayName="$(string.Cat_Debug)" />
     <!-- Subcategories -->
     <category name="Network" displayName="$(string.Network)">
       <parentCategory ref="Cat_AddHard" />

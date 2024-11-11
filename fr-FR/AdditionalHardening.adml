@@ -11,6 +11,7 @@
 Au moins Windows Server 2008 SP2 ou Windows Vista SP2 avec KB3174644</string>
 			<!-- CATEGORIES -->
 			<string id="Cat_AddHard">Paramètres de durcissement supplémentaires</string>
+			<string id="Cat_Debug">Paramètres de débuggage supplémentaires</string>
 			<string id="System">Paramètres de durcissement système</string>
 			<string id="Network">Paramètres de durcissement réseau</string>
 			<string id="DomainControllers">Paramètres de durcissement pour contrôleurs de domaine</string>
