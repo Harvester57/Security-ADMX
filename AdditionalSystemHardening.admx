@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+	<policyNamespaces>
+		<target prefix="AddSystemHard" namespace="AddSystemHard.Policies.AddSystemHard" />
+		<using prefix="windows" namespace="Microsoft.Policies.Windows" />
+		<using prefix="parent" namespace="AddHard.Policies.AddHard" />
+	</policyNamespaces>
+	<resources minRequiredRevision="1.0" />
+	<categories>
+		<!-- Subcategories -->
+		<category name="System" displayName="$(string.System)">
+			<parentCategory ref="parent:Cat_AddHard" />
+		</category>
+		<category name="Adobe" displayName="$(string.Adobe)">
+			<parentCategory ref="parent:Cat_AddHard" />
+		</category>
+	</categories>
+	<policies>
+		<!-- Hardening policies section -->
+		<!-- SYSTEM SETTINGS -->
+		<!-- Launch VBS in Mandatory mode -->
+		<policy name="MandatoryVBS" class="Machine" displayName="$(string.MandatoryVBS)" explainText="$(string.MandatoryVBS_Explain)" key="SYSTEM\CurrentControlSet\Control\DeviceGuard" valueName="Mandatory">
+			<parentCategory ref="System" />
+			<supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+			<enabledValue>
+				<decimal value="1" />
+			</enabledValue>
+			<disabledValue>
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+		<policy name="AcrobatAI" class="Machine" displayName="$(string.AcrobatAI)" explainText="$(string.AcrobatAI_Help)" key="SOFTWARE\Policies\Adobe\Adobe Acrobat\DC\FeatureLockDown" valueName="bEnableGentech">
+			<parentCategory ref="Adobe" />
+			<supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+			<enabledValue>
+				<decimal value="1" />
+			</enabledValue>
+			<disabledValue>
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+		<!-- Configure the new Sudo command, available in Windows 11 24H2 -->
+		<policy name="SudoCommand" class="Machine" displayName="$(string.SudoCommand)" explainText="$(string.SudoCommand_Help)" presentation="$(presentation.SudoCommand_Presentation)" key="SOFTWARE\Policies\Microsoft\Windows\Sudo">
+			<parentCategory ref="System" />
+			<supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+			<elements>
+				<enum id="SudoCommand_DropdownList" valueName="Enabled" required="true">
+					<item displayName="$(string.SudoCommand_Option1)">
+						<value>
+							<decimal value="1" />
+						</value>
+					</item>
+					<item displayName="$(string.SudoCommand_Option2)">
+						<value>
+							<decimal value="2" />
+						</value>
+					</item>
+					<item displayName="$(string.SudoCommand_Option3)">
+						<value>
+							<decimal value="3" />
+						</value>
+					</item>
+					<item displayName="$(string.SudoCommand_Option4)">
+						<value>
+							<decimal value="0" />
+						</value>
+					</item>
+				</enum>
+			</elements>
+		</policy>
+		<!-- Apply the updated Secure Boot denylist and the Code Integrity Boot Policy against BlackLotus (CVE-2023-24932) -->
+		<policy name="BlackLotusMitigation" class="Machine" displayName="$(string.BlackLotusMitigation)" explainText="$(string.BlackLotusMitigation_Help)" presentation="$(presentation.BlackLotusMitigation_Presentation)" key="SYSTEM\CurrentControlSet\Control\Secureboot">
+			<parentCategory ref="System" />
+			<supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+			<elements>
+				<enum id="BlackLotusMitigation_DropdownList" valueName="AvailableUpdates" required="true">
+					<item displayName="$(string.BlackLotusMitigation_Option1)">
+						<value>
+							<decimal value="64" />
+						</value>
+					</item>
+					<item displayName="$(string.BlackLotusMitigation_Option2)">
+						<value>
+							<decimal value="256" />
+						</value>
+					</item>
+					<item displayName="$(string.BlackLotusMitigation_Option3)">
+						<value>
+							<decimal value="128" />
+						</value>
+					</item>
+					<item displayName="$(string.BlackLotusMitigation_Option4)">
+						<value>
+							<decimal value="512" />
+						</value>
+					</item>
+				</enum>
+			</elements>
+		</policy>
+		<!-- Prevent root CAs tampering from standard users -->
+		<policy name="ProtectedRoots" class="Machine" displayName="$(string.ProtectedRoots)" explainText="$(string.ProtectedRoots_Help)" key="SOFTWARE\Policies\Microsoft\SystemCertificates\Root\ProtectedRoots" valueName="Flags">
+			<parentCategory ref="System" />
+			<supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+			<enabledValue>
+				<decimal value="1" />
+			</enabledValue>
+			<disabledValue>
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+		<!-- Disable co-installer applications -->
+		<policy name="CoInstallers" class="Machine" displayName="$(string.CoInstallers)" explainText="$(string.CoInstallers_Help)" key="SOFTWARE\Microsoft\Windows\CurrentVersion\Device Installer" valueName="DisableCoInstallers">
+			<parentCategory ref="System" />
+			<supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+			<enabledValue>
+				<decimal value="1" />
+			</enabledValue>
+			<disabledValue>
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+		<!-- Configure Print Driver Restriction -->
+		<policy name="Pol_SecGuide_0721_Print_Driver" class="Machine" displayName="$(string.Pol_SecGuide_PrintDriver)" explainText="$(string.Pol_SecGuide_PrintDriver_Help)" key="Software\Policies\Microsoft\Windows NT\Printers\PointAndPrint" valueName="RestrictDriverInstallationToAdministrators">
+			<parentCategory ref="System" />
+			<supportedOn ref="windows:SUPPORTED_Windows7" />
+			<enabledValue>
+				<decimal value="1" />
+			</enabledValue>
+			<disabledValue>
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+		<!-- Strict Authenticode signatures verification -->
+		<policy name="AuthenticodeCertVerification" class="Machine" displayName="$(string.AuthenticodeCertVerification)" explainText="$(string.AuthenticodeCertVerification_Explain)" key="Software\Microsoft\Cryptography\Wintrust\Config">
+			<parentCategory ref="System" />
+			<supportedOn ref="windows:SUPPORTED_Windows_6_3" />
+			<enabledList defaultKey="Software\Microsoft\Cryptography\Wintrust\Config">
+				<item valueName="EnableCertPaddingCheck">
+					<value>
+						<string>
+							1
+						</string>
+					</value>
+				</item>
+				<item key="Software\Wow6432Node\Microsoft\Cryptography\Wintrust\Config" valueName="EnableCertPaddingCheck">
+					<value>
+						<string>
+							1
+						</string>
+					</value>
+				</item>
+			</enabledList>
+			<disabledList defaultKey="Software\Microsoft\Cryptography\Wintrust\Config">
+				<item valueName="EnableCertPaddingCheck">
+					<value>
+						<delete />
+					</value>
+				</item>
+				<item key="Software\Wow6432Node\Microsoft\Cryptography\Wintrust\Config" valueName="EnableCertPaddingCheck">
+					<value>
+						<delete />
+					</value>
+				</item>
+			</disabledList>
+		</policy>
+		<!-- Disable standard user in safe-boot mode -->
+		<policy name="SafeBootUserAccess" class="Machine" displayName="$(string.SafeBootUserAccess)" explainText="$(string.SafeBootUserAccess_Explain)" key="SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" valueName="SafeModeBlockNonAdmins">
+			<parentCategory ref="System" />
+			<supportedOn ref="windows:SUPPORTED_Windows_6_3" />
+			<enabledValue>
+				<decimal value="1" />
+			</enabledValue>
+			<disabledValue>
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+		<!-- Run LSA process as a PPL -->
+		<policy name="LSA_RunAsPPL" class="Machine" displayName="$(string.LSA_RunAsPPL)" explainText="$(string.LSA_RunAsPPL_Explain)" key="SYSTEM\CurrentControlSet\Control\Lsa" valueName="RunAsPPL">
+			<parentCategory ref="System" />
+			<supportedOn ref="windows:SUPPORTED_Windows_6_3" />
+			<enabledValue>
+				<decimal value="1" />
+			</enabledValue>
+			<disabledValue>
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+		<policy name="LSA_SamDisableListenOnTCP" class="Machine" displayName="$(string.LSA_SamDisableListenOnTCP)" explainText="$(string.LSA_SamDisableListenOnTCP_Explain)" key="SYSTEM\CurrentControlSet\Control\Lsa" valueName="SamDisableListenOnTCP">
+			<parentCategory ref="System" />
+			<supportedOn ref="windows:SUPPORTED_Windows_6_3" />
+			<enabledValue>
+				<decimal value="1" />
+			</enabledValue>
+			<disabledValue>
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+		<!-- PowerShell Constrained Language Mode -->
+		<policy name="PSLockDownPolicy" class="Machine" displayName="$(string.PSLockDownPolicy)" explainText="$(string.PSLockDownPolicy_Explain)" key="SYSTEM\CurrentControlSet\Control\Session Manager\Environment" valueName="__PSLockdownPolicy">
+			<parentCategory ref="System" />
+			<supportedOn ref="windows:SUPPORTED_Windows_6_3" />
+			<enabledValue>
+				<string>
+					4
+				</string>
+			</enabledValue>
+			<disabledValue>
+				<string>
+					0
+				</string>
+			</disabledValue>
+		</policy>
+		<policy name="LoadAppInit_DLLs" class="Machine" displayName="$(string.LoadAppInit_DLLs)" explainText="$(string.LoadAppInit_DLLs_Explain)" key="Software\Microsoft\Windows NT\CurrentVersion\Windows" valueName="LoadAppInit_DLLs">
+			<parentCategory ref="System" />
+			<supportedOn ref="windows:SUPPORTED_Windows7" />
+			<enabledValue>
+				<decimal value="1" />
+			</enabledValue>
+			<disabledValue>
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+		<policy name="MSCacheV2_Iteration" class="Machine" displayName="$(string.MSCacheV2_Iteration)" explainText="$(string.MSCacheV2_Iteration_Explain)" presentation="$(presentation.MSCacheV2_Iteration)" key="SECURITY\Cache">
+			<parentCategory ref="System" />
+			<supportedOn ref="windows:SUPPORTED_Windows7" />
+			<elements>
+				<decimal id="MSCacheV2_Iteration_count" valueName="NL$IterationCount" minValue="1" maxValue="200000000" />
+			</elements>
+		</policy>
+		<policy name="AdminShare_Wks" class="Machine" displayName="$(string.AdminShare_Wks)" explainText="$(string.AdminShare_Wks_Explain)" key="SYSTEM\CurrentControlSet\Services\LanManServer\Parameters" valueName="AutoShareWks">
+			<parentCategory ref="System" />
+			<supportedOn ref="windows:SUPPORTED_Windows_6_3" />
+			<enabledValue>
+				<decimal value="0" />
+			</enabledValue>
+			<disabledValue>
+				<decimal value="1" />
+			</disabledValue>
+		</policy>
+		<policy name="AdminShare_Srv" class="Machine" displayName="$(string.AdminShare_Srv)" explainText="$(string.AdminShare_Srv_Explain)" key="SYSTEM\CurrentControlSet\Services\LanManServer\Parameters" valueName="AutoShareServer">
+			<parentCategory ref="System" />
+			<supportedOn ref="windows:SUPPORTED_Windows_6_3" />
+			<enabledValue>
+				<decimal value="0" />
+			</enabledValue>
+			<disabledValue>
+				<decimal value="1" />
+			</disabledValue>
+		</policy>
+		<policy name="MicroarchHardening" class="Machine" displayName="$(string.MicroarchHardening)" explainText="$(string.MicroarchHardening_Explain)" presentation="$(presentation.MicroarchHardening_Presentation)" key="SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management">
+			<parentCategory ref="System" />
+			<supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+			<elements>
+				<enum id="MicroarchHardening_DropdownList" valueName="FeatureSettingsOverride" required="true">
+					<item displayName="$(string.MicroarchHardening_Option1)">
+						<value>
+							<decimal value="72" />
+						</value>
+						<valueList defaultKey="SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management">
+							<item valueName="FeatureSettingsOverrideMask">
+								<value>
+									<decimal value="3" />
+								</value>
+							</item>
+						</valueList>
+					</item>
+					<item displayName="$(string.MicroarchHardening_Option2)">
+						<value>
+							<decimal value="8264" />
+						</value>
+						<valueList defaultKey="SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management">
+							<item valueName="FeatureSettingsOverrideMask">
+								<value>
+									<decimal value="3" />
+								</value>
+							</item>
+						</valueList>
+					</item>
+					<item displayName="$(string.MicroarchHardening_Option3)">
+						<value>
+							<decimal value="8" />
+						</value>
+						<valueList defaultKey="SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management">
+							<item valueName="FeatureSettingsOverrideMask">
+								<value>
+									<decimal value="3" />
+								</value>
+							</item>
+						</valueList>
+					</item>
+					<item displayName="$(string.MicroarchHardening_Option4)">
+						<value>
+							<decimal value="0" />
+						</value>
+						<valueList defaultKey="SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management">
+							<item valueName="FeatureSettingsOverrideMask">
+								<value>
+									<decimal value="3" />
+								</value>
+							</item>
+						</valueList>
+					</item>
+					<item displayName="$(string.MicroarchHardening_Option5)">
+						<value>
+							<decimal value="1" />
+						</value>
+						<valueList defaultKey="SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management">
+							<item valueName="FeatureSettingsOverrideMask">
+								<value>
+									<decimal value="3" />
+								</value>
+							</item>
+						</valueList>
+					</item>
+					<item displayName="$(string.MicroarchHardening_Option6)">
+						<value>
+							<decimal value="64" />
+						</value>
+						<valueList defaultKey="SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management">
+							<item valueName="FeatureSettingsOverrideMask">
+								<value>
+									<decimal value="3" />
+								</value>
+							</item>
+						</valueList>
+					</item>
+					<item displayName="$(string.MicroarchHardening_Option7)">
+						<value>
+							<decimal value="3" />
+						</value>
+						<valueList defaultKey="SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management">
+							<item valueName="FeatureSettingsOverrideMask">
+								<value>
+									<decimal value="3" />
+								</value>
+							</item>
+						</valueList>
+					</item>
+				</enum>
+				<boolean id="HyperVMitigations" key="SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization" valueName="MinVmVersionForCpuBasedMitigations">
+					<trueValue>
+						<string>
+							1.0
+						</string>
+					</trueValue>
+					<falseValue>
+						<delete />
+					</falseValue>
+				</boolean>
+			</elements>
+		</policy>
+		<policy name="SEHOP" class="Machine" displayName="$(string.SEHOP)" explainText="$(string.SEHOP_Explain)" key="SYSTEM\CurrentControlSet\Control\Session Manager\kernel" valueName="DisableExceptionChainValidation">
+			<parentCategory ref="System" />
+			<supportedOn ref="windows:SUPPORTED_WindowsVista" />
+			<enabledValue>
+				<decimal value="0" />
+			</enabledValue>
+			<disabledValue>
+				<decimal value="1" />
+			</disabledValue>
+		</policy>
+		<policy name="NLA" class="Machine" displayName="$(string.NLA)" explainText="$(string.NLA_Explain)" key="SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services">
+			<parentCategory ref="System" />
+			<supportedOn ref="windows:SUPPORTED_WindowsVista" />
+			<enabledList defaultKey="SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services">
+				<item valueName="SecurityLayer">
+					<value>
+						<decimal value="2" />
+					</value>
+				</item>
+				<item valueName="UserAuthentication">
+					<value>
+						<decimal value="1" />
+					</value>
+				</item>
+				<item valueName="MinEncryptionLevel">
+					<value>
+						<decimal value="3" />
+					</value>
+				</item>
+			</enabledList>
+		</policy>
+		<policy name="LMAuth" class="Machine" displayName="$(string.LMAuth)" explainText="$(string.LMAuth_Explain)" key="SYSTEM\CurrentControlSet\Control\Lsa" valueName="LmCompatibilityLevel">
+			<parentCategory ref="System" />
+			<supportedOn ref="windows:SUPPORTED_Windows_6_3" />
+			<enabledValue>
+				<decimal value="5" />
+			</enabledValue>
+			<disabledValue>
+				<decimal value="1" />
+			</disabledValue>
+		</policy>
+		<policy name="WDigest" class="Machine" displayName="$(string.WDigest)" explainText="$(string.WDigest_Explain)" key="SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest">
+			<parentCategory ref="System" />
+			<supportedOn ref="windows:SUPPORTED_WindowsVista" />
+			<enabledList defaultKey="SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest">
+				<item valueName="UseLogonCredential">
+					<value>
+						<decimal value="0" />
+					</value>
+				</item>
+				<item valueName="Negotiate">
+					<value>
+						<decimal value="0" />
+					</value>
+				</item>
+			</enabledList>
+		</policy>
+		<policy name="Logon" class="Machine" displayName="$(string.Logon)" explainText="$(string.Logon_Explain)" key="SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon">
+			<parentCategory ref="System" />
+			<supportedOn ref="windows:SUPPORTED_WindowsVista" />
+			<enabledList defaultKey="SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon">
+				<item valueName="CachedLogonsCount">
+					<value>
+						<string>
+							2
+						</string>
+					</value>
+				</item>
+				<item key="SYSTEM\CurrentControlSet\Control\Lsa" valueName="TokenLeakDetectDelaySecs">
+					<value>
+						<decimal value="30" />
+					</value>
+				</item>
+			</enabledList>
+		</policy>
+		<policy name="ASLR" class="Machine" displayName="$(string.ASLR)" explainText="$(string.ASLR_Explain)" key="SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" valueName="MoveImages">
+			<parentCategory ref="System" />
+			<supportedOn ref="windows:SUPPORTED_WindowsVista" />
+			<enabledValue>
+				<!-- 4294967295 = 0xFFFFFFFF -->
+				<decimal value="4294967295" />
+			</enabledValue>
+			<disabledValue>
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+		<policy name="User32_Exception" class="Machine" displayName="$(string.User32_Exception)" explainText="$(string.User32_Exception_Explain)" key="SOFTWARE\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_ALLOW_USER32_EXCEPTION_HANDLER_HARDENING">
+			<parentCategory ref="System" />
+			<supportedOn ref="windows:SUPPORTED_Windows7" />
+			<enabledList>
+				<item key="SOFTWARE\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_ALLOW_USER32_EXCEPTION_HANDLER_HARDENING" valueName="iexplore.exe">
+					<value>
+						<decimal value="1" />
+					</value>
+				</item>
+				<item key="SOFTWARE\Wow6432Node\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_ALLOW_USER32_EXCEPTION_HANDLER_HARDENING" valueName="iexplore.exe">
+					<value>
+						<decimal value="1" />
+					</value>
+				</item>
+			</enabledList>
+			<disabledList>
+				<item key="SOFTWARE\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_ALLOW_USER32_EXCEPTION_HANDLER_HARDENING" valueName="iexplore.exe">
+					<value>
+						<decimal value="0" />
+					</value>
+				</item>
+				<item key="SOFTWARE\Wow6432Node\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_ALLOW_USER32_EXCEPTION_HANDLER_HARDENING" valueName="iexplore.exe">
+					<value>
+						<decimal value="0" />
+					</value>
+				</item>
+			</disabledList>
+		</policy>
+		<policy name="Info_Disclosure" class="Machine" displayName="$(string.Info_Disclosure)" explainText="$(string.Info_Disclosure_Explain)" key="SOFTWARE\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_ENABLE_PRINT_INFO_DISCLOSURE_FIX">
+			<parentCategory ref="System" />
+			<supportedOn ref="windows:SUPPORTED_Windows7" />
+			<enabledList>
+				<item key="SOFTWARE\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_ENABLE_PRINT_INFO_DISCLOSURE_FIX" valueName="iexplore.exe">
+					<value>
+						<decimal value="1" />
+					</value>
+				</item>
+				<item key="SOFTWARE\Wow6432Node\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_ENABLE_PRINT_INFO_DISCLOSURE_FIX" valueName="iexplore.exe">
+					<value>
+						<decimal value="1" />
+					</value>
+				</item>
+			</enabledList>
+			<disabledList>
+				<item key="SOFTWARE\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_ENABLE_PRINT_INFO_DISCLOSURE_FIX" valueName="iexplore.exe">
+					<value>
+						<decimal value="0" />
+					</value>
+				</item>
+				<item key="SOFTWARE\Wow6432Node\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_ENABLE_PRINT_INFO_DISCLOSURE_FIX" valueName="iexplore.exe">
+					<value>
+						<decimal value="0" />
+					</value>
+				</item>
+			</disabledList>
+		</policy>
+		<policy name="KCET_Enable" class="Machine" displayName="$(string.KCET)" explainText="$(string.KCET_Explain)" key="SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\KernelShadowStacks" valueName="Enabled">
+			<parentCategory ref="System" />
+			<supportedOn ref="windows:SUPPORTED_Windows_10_0_21H2" />
+			<enabledValue>
+				<decimal value="1" />
+			</enabledValue>
+			<disabledValue>
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+		<policy name="WPBT_Disable" class="Machine" displayName="$(string.WPBT)" explainText="$(string.WPBT_Explain)" key="SYSTEM\CurrentControlSet\Control\Session Manager" valueName="DisableWpbtExecution">
+			<parentCategory ref="System" />
+			<supportedOn ref="windows:SUPPORTED_Windows_6_3" />
+			<enabledValue>
+				<decimal value="1" />
+			</enabledValue>
+			<disabledValue>
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+		<policy name="TTD_Disable" class="Machine" displayName="$(string.TTD)" explainText="$(string.TTD_Explain)" key="SOFTWARE\Microsoft\TTD" valueName="RecordingPolicy">
+			<parentCategory ref="System" />
+			<supportedOn ref="windows:SUPPORTED_Windows_6_3" />
+			<enabledValue>
+				<decimal value="2" />
+			</enabledValue>
+			<disabledValue>
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+		<policy name="CWDIllegalInDllSearch_Enable" class="Machine" displayName="$(string.CWDIllegalInDllSearch)" explainText="$(string.CWDIllegalInDllSearch_Explain)" key="SYSTEM\CurrentControlSet\Control\Session Manager" valueName="CWDIllegalInDllSearch">
+			<parentCategory ref="System" />
+			<supportedOn ref="windows:SUPPORTED_Windows_6_3" />
+			<enabledValue>
+				<decimal value="4294967295" />
+			</enabledValue>
+			<disabledValue>
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+	</policies>
+</policyDefinitions>
