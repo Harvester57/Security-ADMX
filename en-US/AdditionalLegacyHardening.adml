@@ -5,21 +5,10 @@
     <stringTable>
       <string id="MSS">MSS (Legacy)</string>
 
-      <string id="AdminShares">MSS: (AutoShareWks) Enable Administrative Shares</string>
-      <string id="AdminShares_Help">MSS: (AutoShareWks) Enable Administrative Shares</string>
-      <string id="AdminSharesServer">MSS: (AutoShareServer) Enable Administrative Shares</string>
-      <string id="AdminSharesServer_Help">MSS: (AutoShareServer) Enable Administrative Shares</string>
       <string id="AutoReboot">MSS: (AutoReboot) Allow Windows to automatically restart after a system crash</string>
       <string id="AutoReboot_Help">MSS: (AutoReboot) Allow Windows to automatically restart after a system crash</string>
       <string id="DisableAutoLogon">MSS: (AutoAdminLogon) Enable Automatic Logon</string>
       <string id="DisableAutoLogon_Help">MSS: (AutoAdminLogon) Enable Automatic Logon</string>
-      <string id="DisableIPSourceRouting">MSS: (DisableIPSourceRouting) IP source routing protection level</string>
-      <string id="DisableIPSourceRouting_Help">MSS: (DisableIPSourceRouting) IP source routing protection level</string>
-      <string id="DisableIPSourceRouting0">No additional protection, source routed packets are allowed</string>
-      <string id="DisableIPSourceRouting1">Medium, source routed packets ignored when IP forwarding is enabled</string>
-      <string id="DisableIPSourceRouting2">Highest protection, source routing is completely disabled</string>
-      <string id="DisableIPSourceRoutingIPv6">MSS: (DisableIPSourceRouting IPv6) IP source routing protection level</string>
-      <string id="DisableIPSourceRoutingIPv6_Help">MSS: (DisableIPSourceRouting IPv6) IP source routing protection level</string>
       <string id="DisableSavePassword">MSS: (DisableSavePassword) Prevent the dial-up passsword from being saved</string>
       <string id="DisableSavePassword_Help">MSS: (DisableSavePassword) Prevent the dial-up passsword from being saved</string>
       <string id="EnableDeadGWDetect">MSS: (EnableDeadGWDetect) Allow automatic detection of dead network gateways</string>
@@ -120,13 +109,6 @@
 ;========= Start of MSS Strings Values =========
 DisableAutoLogon = "MSS: (AutoAdminLogon) Enable Automatic Logon" 
 AutoReboot = "MSS: (AutoReboot) Allow Windows to automatically restart after a system crash"
-AdminShares = "MSS: (AutoShareWks) Enable Administrative Shares" 
-AdminSharesServer = "MSS: (AutoShareServer) Enable Administrative Shares" 
-DisableIPSourceRouting = "MSS: (DisableIPSourceRouting) IP source routing protection level"
-DisableIPSourceRoutingIPv6 = "MSS: (DisableIPSourceRouting IPv6) IP source routing protection level"
-DisableIPSourceRouting0 = "No additional protection, source routed packets are allowed"
-DisableIPSourceRouting1 = "Medium, source routed packets ignored when IP forwarding is enabled"
-DisableIPSourceRouting2 = "Highest protection, source routing is completely disabled"
 DisableSavePassword = "MSS: (DisableSavePassword) Prevent the dial-up passsword from being saved"
 EnableDeadGWDetect = "MSS: (EnableDeadGWDetect) Allow automatic detection of dead network gateways"
 EnableICMPRedirect = "MSS: (EnableICMPRedirect) Allow ICMP redirects to override OSPF generated routes"
