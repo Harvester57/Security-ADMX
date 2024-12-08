@@ -84,11 +84,11 @@ Disabling this policy will explicitly disable the ASLR mechanism.</string>
                   <string id="User32_Exception">Additional registry fix for CVE-2015-6161</string>
                   <string id="User32_Exception_Explain">Enable this policy to change the registry value FEATURE_ALLOW_USER32_EXCEPTION_HANDLER_HARDENING to 1.
 
-This modification is necessary to fully fix an ASLR bypass vulnerability (CVE-2015-6161). For more informations, refer to the MS15-124 security bulletin (https://docs.microsoft.com/en-us/security-updates/SecurityBulletins/2015/ms15-124).</string>
+This modification is necessary to fully fix an ASLR bypass vulnerability (CVE-2015-6161). For more information, refer to the MS15-124 security bulletin (https://docs.microsoft.com/en-us/security-updates/SecurityBulletins/2015/ms15-124).</string>
                   <string id="Info_Disclosure">Additional registry fix for CVE-2017-8529</string>
                   <string id="Info_Disclosure_Explain">Enable this policy to change the registry value FEATURE_ENABLE_PRINT_INFO_DISCLOSURE_FIX to 1.
 
-This modification is necessary to fully fix an information disclosure vulnerability in Microsoft browsers (CVE-2017-8529). For more informations, refer to the related security update guide (https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2017-8529).</string>
+This modification is necessary to fully fix an information disclosure vulnerability in Microsoft browsers (CVE-2017-8529). For more information, refer to the related security update guide (https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2017-8529).</string>
                   <string id="MSCacheV2_Iteration">Number of PBKDF2 iterations for cached logons credentials hashing</string>
                   <string id="MSCacheV2_Iteration_Explain">For domains logons, if credentials caching is enabled, credentials are stored as MSCacheV2 hashes, dervided using the PBKDF2-SHA1 hashing algorithm.
 
@@ -101,7 +101,7 @@ The recommended value depends on the target environment, the CPU power available
 
 When the policy is enabled, the default value configured is 1954 (2 000 896 rounds). This is the recommended value (at the time of December 2022) for the PBKDF2-HMAC-SHA1 algorithm, considering the compute power of a RTX 4090 GPU in a offline bruteforce attack model.
 
-More informations:
+More information:
 - https://tobtu.com/minimum-password-settings/
 - https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#pbkdf2</string>
                   <string id="PSLockDownPolicy">Enable PowerShell Constrained Language Mode</string>
@@ -167,7 +167,7 @@ It is recommended to use the default behavior and let the Sudo command open a ne
 
 Mandatory mode is a new functionnality introduced to prevent the Windows Downdate attack (and other related dowgrading attacks) by forcing the verification of the components of the Secure Kernel and the hypervisor at boot time. Consequently, enabling this functionnality can lead to boot failure (and a denial of service) in case of a modification of a core component of Secure Kernel, hypervisor or a related dependant module.
 
-NOTE: if you already have Virtualization-Based Security enabled with UEFI Lock, this setting will not do anything, as the VBS configuration is already written and locked in a UEFI variable. This variable needs to be deleted using the bcdedit.exe tool before deploying the Mandatory flag and the UEFI Lock. Guidance and more informations about this procedure are available here:
+NOTE: if you already have Virtualization-Based Security enabled with UEFI Lock, this setting will not do anything, as the VBS configuration is already written and locked in a UEFI variable. This variable needs to be deleted using the bcdedit.exe tool before deploying the Mandatory flag and the UEFI Lock. Guidance and more information about this procedure are available here:
 
 https://learn.microsoft.com/en-us/windows/security/identity-protection/credential-guard/configure?tabs=reg#disable-virtualization-based-security
 
@@ -182,6 +182,12 @@ Disabling this policy will disable the verification of the components, only if t
 If you enable this setting, co-installers execution will be prevented, and additional configuration software for specific devices (mouses, gaming keyboards, etc) must be downloaded and manually installed from the manufacturer website.
 
 If you disable this setting, co-installers execution will be permitted, which is a significant security risk (potentially dangerous code execution).</string>
+                  <string id="DefenderSandboxing">Enable Windows Defender sandbox</string>
+                  <string id="DefenderSandboxing_Explain">This policy enables the sandbox (content process) for the main process of Windows Defender.
+                  
+The new content processes, which run with low privileges, aggressively leverage all available mitigation policies to reduce the attack surface. They enable and prevent runtime changes for modern exploit mitigation techniques such as Data Execution Prevention (DEP), Address space layout randomization (ASLR), and Control Flow Guard (CFG). They also disable Win32K system calls and all extensibility points, as well as enforce that only signed and trusted code is loaded.
+
+More information: https://www.microsoft.com/en-us/security/blog/2018/10/26/windows-defender-antivirus-can-now-run-in-a-sandbox/</string>
             </stringTable>
             <presentationTable>
                   <presentation id="MSCacheV2_Iteration">
