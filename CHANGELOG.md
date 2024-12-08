@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [v1.1.1] - 2024-12-08
 ### Added
 - New policy to enable or disable the Windows Defender sandbox
+### Fixed
+- Indentation value for REG_SZ-based policies
 
 ## [v1.1] - 2024-12-08
 ### Changed
