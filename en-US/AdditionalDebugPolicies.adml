@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0"
+      xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+      <displayName>
+            Additional system debugging policies
+      </displayName>
+      <description>
+            Additional system debugging policies
+      </description>
+      <resources>
+            <stringTable>
+                  <string id="EnableKASAN">Enable Kernel Address Sanitizer</string>
+                  <string id="EnableKASAN_Explain">The Kernel Address Sanitizer (KASAN) is a bug detection technology supported on Windows kernel drivers that enables you to detect several classes of illegal memory accesses, such as buffer overflows and use-after-free events.
+            
+It requires you to enable KASAN on your system, and recompile your kernel driver with a specific MSVC compiler flag.
+
+This policy controls the support of KASAN in the kernel. Enabling this polic will enable the support of KASAN. Disabling this policy will disable the support of KASAN.</string>
+            </stringTable>
+      </resources>
+</policyDefinitionResources>

@@ -3,6 +3,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v1.1] - 2024-12-08
+### Changed
+- Major refactoring of the codebase
+  - Better consistency of indentation and formatting
+  - Split in several file for network, system and debugging categories
+### Added
+- Additional settings from the Microsoft Security Guide and the legacy MSS settings
+  - Not translated to fr-FR for now
+  - Settings were removed if already present in the main ADMX files
+
 ## [v1.0.37] - 2024-11-12
 ### Added
 - New policy to enable or disable the support for KASAN

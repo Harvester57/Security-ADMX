@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+	<policyNamespaces>
+		<target prefix="AddDebugPolicies" namespace="AddDebugPolicies.Policies.AddDebugPolicies" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+		<using prefix="parent" namespace="AddHard.Policies.AddHard" />
+	</policyNamespaces>
+	<resources minRequiredRevision="1.0" />
+	<policies>
+		<!-- Hardening policies section -->
+		<!-- DEBUG SETTINGS -->
+		<policy name="EnableKASAN" class="Machine" displayName="$(string.EnableKASAN)" explainText="$(string.EnableKASAN_Explain)" key="SYSTEM\CurrentControlSet\Control\Session Manager\Kernel" valueName="KasanEnabled">
+			<parentCategory ref="parent:Cat_Debug" />
+			<supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+			<enabledValue>
+				<decimal value="1" />
+			</enabledValue>
+			<disabledValue>
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
+	</policies>
+</policyDefinitions>
