@@ -137,16 +137,12 @@
             <enabledList defaultKey="Software\Microsoft\Cryptography\Wintrust\Config">
                 <item valueName="EnableCertPaddingCheck">
                     <value>
-                        <string>
-                            1
-                        </string>
+                        <string>1</string>
                     </value>
                 </item>
                 <item key="Software\Wow6432Node\Microsoft\Cryptography\Wintrust\Config" valueName="EnableCertPaddingCheck">
                     <value>
-                        <string>
-                            1
-                        </string>
+                        <string>1</string>
                     </value>
                 </item>
             </enabledList>
@@ -200,14 +196,10 @@
             <parentCategory ref="System" />
             <supportedOn ref="windows:SUPPORTED_Windows_6_3" />
             <enabledValue>
-                <string>
-                    4
-                </string>
+                <string>4</string>
             </enabledValue>
             <disabledValue>
-                <string>
-                    0
-                </string>
+                <string>0</string>
             </disabledValue>
         </policy>
         <policy name="LoadAppInit_DLLs" class="Machine" displayName="$(string.LoadAppInit_DLLs)" explainText="$(string.LoadAppInit_DLLs_Explain)" key="Software\Microsoft\Windows NT\CurrentVersion\Windows" valueName="LoadAppInit_DLLs">
@@ -339,9 +331,7 @@
                 </enum>
                 <boolean id="HyperVMitigations" key="SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization" valueName="MinVmVersionForCpuBasedMitigations">
                     <trueValue>
-                        <string>
-                            1.0
-                        </string>
+                        <string>1.0</string>
                     </trueValue>
                     <falseValue>
                         <delete />
@@ -412,9 +402,7 @@
             <enabledList defaultKey="SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon">
                 <item valueName="CachedLogonsCount">
                     <value>
-                        <string>
-                            2
-                        </string>
+                        <string>2</string>
                     </value>
                 </item>
                 <item key="SYSTEM\CurrentControlSet\Control\Lsa" valueName="TokenLeakDetectDelaySecs">
@@ -535,14 +523,10 @@
             <parentCategory ref="System" />
             <supportedOn ref="windows:SUPPORTED_Windows_6_3" />
             <enabledValue>
-                <string>
-                    1
-                </string>
+                <string>1</string>
             </enabledValue>
             <disabledValue>
-                <string>
-                    0
-                </string>
+                <string>0</string>
             </disabledValue>
         </policy>
     </policies>
