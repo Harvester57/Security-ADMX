@@ -13,6 +13,8 @@
                   <!-- CATEGORIES -->
                   <string id="Cat_AddHard">Additional hardening settings</string>
                   <string id="Cat_Debug">Additional debug-related settings</string>
+                  <string id="Cat_MSFT">Additional hardening settings from Microsoft Security Guide</string>
+                  <string id="Cat_Legacy">Additional legacy settings from MSS</string>
             </stringTable>
       </resources>
 </policyDefinitionResources>

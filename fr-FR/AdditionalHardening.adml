@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0"
+      xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+      <displayName>
+            Paramètres de durcissement supplémentaires
+      </displayName>
+      <description>
+            Paramètres de durcissement supplémentaires
+      </description>
+      <resources>
+            <stringTable>
+                  <!-- CATEGORIES -->
+                  <string id="Cat_AddHard">Paramètres de durcissement supplémentaires</string>
+                  <string id="Cat_Debug">Paramètres de débuggage supplémentaires</string>
+                  <string id="Cat_MSFT">Paramètres de durcissement du Microsoft Security Guide</string>
+                  <string id="Cat_Legacy">Paramètres de durcissement hérités MSS</string>
+            </stringTable>
+      </resources>
+</policyDefinitionResources>

@@ -13,5 +13,7 @@ Date: 2024-11-12
 		<!-- Main categories -->
 		<category name="Cat_AddHard" displayName="$(string.Cat_AddHard)" />
 		<category name="Cat_Debug" displayName="$(string.Cat_Debug)" />
+		<category name="Cat_MSFT" displayName="$(string.Cat_MSFT)" />
+		<category name="Cat_Legacy" displayName="$(string.Cat_Legacy)" />
 	</categories>
 </policyDefinitions>
