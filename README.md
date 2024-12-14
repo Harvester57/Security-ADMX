@@ -500,7 +500,7 @@ Disable this policy to restore LM and NTLMv1 capabilities, in addition to NTLMv2
 
 - **Registry path(s):** SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters
 - **Registry key(s):** MaxSMB2Dialect
-- **Values:** 
+- **Values:**
 - **Description:** This policy allows you to configure the maximum SMB2/3 version supported when acting as a client.
 
     It is recommended to not configure this policy and to let the system negociate the most suitable version.
@@ -594,4 +594,4 @@ Disable this policy to restore LM and NTLMv1 capabilities, in addition to NTLMv2
 
 - The Schannel configuration part is taken almost as-is from the [Crosse/SchannelGroupPolicy](https://github.com/Crosse/SchannelGroupPolicy) repository, a big kudo to him for his work :)
 - The legacy MSS and the settings from the Microsoft Security Guide arte imported from the Microsoft Security Compliance Toolkit as-is
-  - More information: https://www.microsoft.com/en-us/download/details.aspx?id=55319
+  - More information: <https://www.microsoft.com/en-us/download/details.aspx?id=55319>
