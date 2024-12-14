@@ -318,105 +318,218 @@ Disable this policy to restore LM and NTLMv1 capabilities, in addition to NTLMv2
 
 ### Network policies
 
-#### POLICY TITLE
+#### TLS cipher suites configuration
 
 - **Registry path(s):**
 - **Registry key(s):**
 - **Values:**
-- **Description:**
+- **Description:** This policy allows you to select between several TLS cipher suites configuration profiles.
 
-#### POLICY TITLE
+    NOTE: for profiles listed with TLS 1.3, please verify that your OS version support TLS 1.3 (Windows 10 v1903 and up) and that TLS 1.3 support is enabled in the Schannel "Protocols" section, otherwise you could break TLS support on your system.
 
-- **Registry path(s):**
-- **Registry key(s):**
-- **Values:**
-- **Description:**
+    Changing this setting will require a restart of the computer before the setting will take effect. You can check the applied configuration with the Get-TlsCiphersuite cmdlet in a PowerShell session.
 
-#### POLICY TITLE
+    Ciphers enabled for each profile, in order of preference:
 
-- **Registry path(s):**
-- **Registry key(s):**
-- **Values:**
-- **Description:**
+    **Modern (TLS 1.3 only)**
 
-#### POLICY TITLE
+    TLS_AES_256_GCM_SHA384
+    TLS_AES_128_GCM_SHA256
+    TLS_CHACHA20_POLY1305_SHA256
+    TLS_AES_128_CCM_SHA256
 
-- **Registry path(s):**
-- **Registry key(s):**
-- **Values:**
-- **Description:**
+    **Modern (TLS 1.3 and 1.2)**
+    
+    TLS_AES_256_GCM_SHA384
+    TLS_AES_128_GCM_SHA256
+    TLS_CHACHA20_POLY1305_SHA256
+    TLS_AES_128_CCM_SHA256
+    TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+    TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+    TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
+    TLS_ECDHE_ECDSA_WITH_AES_128_CCM
+    TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+    TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+    TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+    TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+    TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+    TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 
-#### POLICY TITLE
+    **Standard (TLS 1.2 only)**
 
-- **Registry path(s):**
-- **Registry key(s):**
-- **Values:**
-- **Description:**
+    TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+    TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+    TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
+    TLS_ECDHE_ECDSA_WITH_AES_128_CCM
+    TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+    TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+    TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+    TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+    TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+    TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256
 
-#### POLICY TITLE
+    **Backward compatible (TLS 1.3, 1.2, 1.1 and 1.0)**
+    TLS_AES_256_GCM_SHA384
+    TLS_AES_128_GCM_SHA256
+    TLS_CHACHA20_POLY1305_SHA256
+    TLS_AES_128_CCM_SHA256
+    TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+    TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+    TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
+    TLS_ECDHE_ECDSA_WITH_AES_128_CCM
+    TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+    TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+    TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+    TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+    TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+    TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+    TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+    TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+    TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
-- **Registry path(s):**
-- **Registry key(s):**
-- **Values:**
-- **Description:**
+    **Backward compatible (TLS 1.2, 1.1 and 1.0)**
 
-#### POLICY TITLE
+    TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+    TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+    TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
+    TLS_ECDHE_ECDSA_WITH_AES_128_CCM
+    TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+    TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+    TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+    TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+    TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+    TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+    TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+    TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+    TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
-- **Registry path(s):**
-- **Registry key(s):**
-- **Values:**
-- **Description:**
-
-#### POLICY TITLE
-
-- **Registry path(s):**
-- **Registry key(s):**
-- **Values:**
-- **Description:**
-
-#### POLICY TITLE
-
-- **Registry path(s):**
-- **Registry key(s):**
-- **Values:**
-- **Description:**
-
-#### POLICY TITLE
-
-- **Registry path(s):**
-- **Registry key(s):**
-- **Values:**
-- **Description:**
-
-#### POLICY TITLE
-
-- **Registry path(s):**
-- **Registry key(s):**
-- **Values:**
-- **Description:**
-
-#### POLICY TITLE
-
-- **Registry path(s):**
-- **Registry key(s):**
-- **Values:**
-- **Description:**
-
-#### POLICY TITLE
-
-- **Registry path(s):**
-- **Registry key(s):**
-- **Values:**
-- **Description:**
-
-#### POLICY TITLE
+#### Configure the IP source routing protection level
 
 - **Registry path(s):**
 - **Registry key(s):**
 - **Values:**
-- **Description:**
+- **Description:** Allows to choose a protection for source-routed packets.
+
+#### Configure the IP source routing protection level for IPv6
+
+- **Registry path(s):**
+- **Registry key(s):**
+- **Values:**
+- **Description:** Allows to choose a protection for source-routed packets.
+
+#### Enable Kerberos events logging
+
+- **Registry path(s):**
+- **Registry key(s):**
+- **Values:**
+- **Description:** Enable logging of debug events related to Kerberos in the System Event log.
+
+    If disabled, this policy disable Kerberos-related events logging (this is the default behavior). Enabling this option is only recommended for debugging purposes. Security auditing of events related to Kerberos events should be configured with Advanced Auditing policies.
+
+#### Disable SMB 1.0 support (client and server)
+
+- **Registry path(s):**
+- **Registry key(s):**
+- **Values:**
+- **Description:** Disable SMB 1.0 support (client and server)
+
+#### Configure the minimum SMB2/3 client dialect supported
+
+- **Registry path(s):**
+- **Registry key(s):**
+- **Values:**
+- **Description:**This policy allows you to configure the minimum SMB2/3 version supported when acting as a client.
+
+    It is recommended to select the minimal version supported by your environment.
+
+    NOTE: if you select a version above what the remote server can, handle, you will not be able to connect to the remote file share.
+
+    Supported versions:
+    - SMB 2.0.2
+    - SMB 2.1.0 (Windows 7)
+    - SMB 3.0.0 (Windows 8)
+    - SMB 3.0.2 (windows 8.1)
+    - SMB 3.1.1 (Windows 10, Windows Server 2016)
+
+#### Configure the maximum SMB2/3 client dialect supported
+
+- **Registry path(s):**
+- **Registry key(s):**
+- **Values:**
+- **Description:** This policy allows you to configure the maximum SMB2/3 version supported when acting as a client.
+
+    It is recommended to not configure this policy and to let the system negociate the most suitable version.
+
+    NOTE: do not configure this policy with a value below the one selected in the "Configure minimum SMB2 client dialect supported" policy, otherwise you could break SMB support on your system.
+
+    Supported versions:
+    - SMB 2.0.2
+    - SMB 2.1.0 (Windows 7)
+    - SMB 3.0.0 (Windows 8)
+    - SMB 3.0.2 (windows 8.1)
+    - SMB 3.1.1 (Windows 10, Windows Server 2016)
+
+#### Enable support for TLS 1.2 only in WinHTTP
+
+- **Registry path(s):**
+- **Registry key(s):**
+- **Values:**
+- **Description:** Enabling this policy will enable the support for TLS 1.2 only for applications based on WinHTTP and specifying the WINHTTP_OPTION_SECURE_PROTOCOLS flag.
+
+    Disabling this policy will remove the DefaultSecureProtocols value, and restore the default behavior of WinHTTP.
+
+    NOTE: for Windows 7, Windows Server 2008 R2, Windows Server 2012 and Windows 8 Embedded, you need to install the KB3140245 update before enabling this policy.
+
+#### Enable advanced logging for Schannel
+
+- **Registry path(s):**
+- **Registry key(s):**
+- **Values:**
+- **Description:** Enabling this policy will enable detailed Schannel events generation. You can choose the desired level of verbosity.
+
+    Logged events are available in the System event log.
+
+#### Disable the strong-name bypass feature
+
+- **Registry path(s):**
+- **Registry key(s):**
+- **Values:**
+- **Description:** Starting with the .NET Framework version 3.5 Service Pack 1 (SP1), strong-name signatures are not validated when an assembly is loaded into a full-trust xref:System.AppDomain object, such as the default xref:System.AppDomain for the MyComputer zone. This is referred to as the strong-name bypass feature. In a full-trust environment, demands for xref:System.Security.Permissions.StrongNameIdentityPermission always succeed for signed, full-trust assemblies regardless of their signature.
+
+    The only restriction is that the assembly must be fully trusted because its zone is fully trusted. Because the strong name is not a determining factor under these conditions, there is no reason for it to be validated. Bypassing the validation of strong-name signatures provides significant performance improvements.
+
+#### .NET Framework 4: enable strong cryptographic support
+
+- **Registry path(s):**
+- **Registry key(s):**
+- **Values:**
+- **Description:** Enabling or disabling this policy will respectively enable or disable support for TLS 1.1 and TLS 1.2 in .NET Framework 4.
+
+    If this setting is left unconfigured, TLS 1.1 and TLS 1.2 will be enabled by default for applications targeting .NET Framework 4.6 or higher and disabled otherwise.
+
+#### .NET Framework 2: enable strong cryptographic support
+
+- **Registry path(s):**
+- **Registry key(s):**
+- **Values:**
+- **Description:** Enabling or disabling this policy will respectively enable or disable support for TLS 1.1 and TLS 1.2 in .NET Framework 2.
+
+    If this setting is left unconfigured, TLS 1.1 and TLS 1.2 will be disabled by default.
 
 ### Debugging policies
+
+#### Enable Kernel Address Sanitizer
+
+- **Registry path(s):**
+- **Registry key(s):**
+- **Values:**
+- **Description:** The Kernel Address Sanitizer (KASAN) is a bug detection technology supported on Windows kernel drivers that enables you to detect several classes of illegal memory accesses, such as buffer overflows and use-after-free events.
+
+    It requires you to enable KASAN on your system, and recompile your kernel driver with a specific MSVC compiler flag.
+
+    This policy controls the support of KASAN in the kernel. Enabling this polic will enable the support of KASAN. Disabling this policy will disable the support of KASAN.
 
 ## Credits
 

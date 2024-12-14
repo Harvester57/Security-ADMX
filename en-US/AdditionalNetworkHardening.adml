@@ -30,7 +30,7 @@ At least Windows Server 2008 SP2 or Windows Vista SP2 with KB3174644 </string>
                   <!-- Network policies -->
                   <string id="SchannelLogging">Enable advanced logging for Schannel</string>
                   <string id="SchannelLogging_Explain">Enabling this policy will enable detailed Schannel events generation. You can choose the desired level of verbosity.
-      
+
 Logged events are available in the System event log.</string>
                   <string id="SchannelLogging_Option1">Log error events only (Windows default)</string>
                   <string id="SchannelLogging_Option2">Log warnings only</string>
@@ -143,11 +143,11 @@ TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256</string>
                   <!-- SMB -->
                   <string id="DisableSMB1">Disable SMB 1.0 support (client and server)</string>
                   <string id="DisableSMB1_Explain">Disable SMB 1.0 support (client and server)</string>
-                  <string id="MinSMB2Dialect">Configure the minimum SMB2 client dialect supported</string>
-                  <string id="MinSMB2Dialect_Explain">This policy allows you to configure the minimum SMB2 version supported when acting as a client.
+                  <string id="MinSMB2Dialect">Configure the minimum SMB2/3 client dialect supported</string>
+                  <string id="MinSMB2Dialect_Explain">This policy allows you to configure the minimum SMB2/3 version supported when acting as a client.
 
 It is recommended to select the minimal version supported by your environment.
-      
+
 NOTE: if you select a version above what the remote server can, handle, you will not be able to connect to the remote file share.
 
 Supported versions:
@@ -156,9 +156,9 @@ Supported versions:
 - SMB 3.0.0 (Windows 8)
 - SMB 3.0.2 (windows 8.1)
 - SMB 3.1.1 (Windows 10, Windows Server 2016)</string>
-                  <string id="MaxSMB2Dialect">Configure the maximum SMB2 client dialect supported</string>
-                  <string id="MaxSMB2Dialect_Explain">This policy allows you to configure the maximum SMB2 version supported when acting as a client.
-      
+                  <string id="MaxSMB2Dialect">Configure the maximum SMB2/3 client dialect supported</string>
+                  <string id="MaxSMB2Dialect_Explain">This policy allows you to configure the maximum SMB2/3 version supported when acting as a client.
+
 It is recommended to not configure this policy and to let the system negociate the most suitable version.
 
 NOTE: do not configure this policy with a value below the one selected in the "Configure minimum SMB2 client dialect supported" policy, otherwise you could break SMB support on your system.
@@ -546,8 +546,8 @@ If this setting is left unconfigured, TLS 1.1 and TLS 1.2 will be enabled by def
 
 If this setting is left unconfigured, TLS 1.1 and TLS 1.2 will be disabled by default.</string>
                   <string id="dotnet_strongname">Disable the strong-name bypass feature</string>
-                  <string id="dotnet_strongname_Help">Starting with the .NET Framework version 3.5 Service Pack 1 (SP1), strong-name signatures are not validated when an assembly is loaded into a full-trust xref:System.AppDomain object, such as the default xref:System.AppDomain for the MyComputer zone. This is referred to as the strong-name bypass feature. In a full-trust environment, demands for xref:System.Security.Permissions.StrongNameIdentityPermission always succeed for signed, full-trust assemblies regardless of their signature. 
-      
+                  <string id="dotnet_strongname_Help">Starting with the .NET Framework version 3.5 Service Pack 1 (SP1), strong-name signatures are not validated when an assembly is loaded into a full-trust xref:System.AppDomain object, such as the default xref:System.AppDomain for the MyComputer zone. This is referred to as the strong-name bypass feature. In a full-trust environment, demands for xref:System.Security.Permissions.StrongNameIdentityPermission always succeed for signed, full-trust assemblies regardless of their signature.
+
 The only restriction is that the assembly must be fully trusted because its zone is fully trusted. Because the strong name is not a determining factor under these conditions, there is no reason for it to be validated. Bypassing the validation of strong-name signatures provides significant performance improvements.</string>
             </stringTable>
             <presentationTable>
