@@ -2,6 +2,12 @@
 
 Custom ADMX template focused on hardening Windows 10 and Windows 11 systems.
 
+## Table of contents
+
+- [System policies](#system-policies)
+- [Network policies](#network-policies)
+- [Debugging policies](#debugging-policies)
+
 ## Available policies
 
 ### System policies
