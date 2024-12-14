@@ -40,7 +40,7 @@ Disabling this policy will allow standard users to open a session in Safe Mode.<
                   <string id="MicroarchHardening_Option7">Disable all mitigations</string>
                   <string id="KCET">Enable kernel-level shadow stacks</string>
                   <string id="KCET_Explain">The policy enable kernel-level shadow stacks, also known as Intel CET (Control-flow Enforcement Technology) or AMD Shadow Stack.
-      
+
 Please note that this security function require specific hardware support (AMD Zen 3 or Intel 11th Gen. processors) and OS support (Windows 21H2 or newer).</string>
                   <string id="WPBT">Disable the WPBT functionnality</string>
                   <string id="WPBT_Explain">This policy disable the Windows Platform Binary Table (WPBT) functionnality, that can be used for persistence through an UEFI implant.</string>
@@ -50,36 +50,36 @@ Please note that this security function require specific hardware support (AMD Z
                   <string id="CWDIllegalInDllSearch_Explain">The CWDIllegalInDllSearch registry entry is used to remove the current working directory (CWD) from the DLL search order.</string>
                   <string id="SEHOP">Enable Structured Exception Handling Overwrite Protection (SEHOP)</string>
                   <string id="SEHOP_Explain">SEHOP blocks exploits that use the Structured Exception Handling overwrite technique, a common buffer overflow attack.
-      
-This parameter is only effective on 32 bits systems.</string>
+
+This policy is only effective on 32 bits systems.</string>
                   <string id="NLA">Enable Network Level Authentication (NLA) for RDP connections</string>
-                  <string id="NLA_Explain">This option enable the Network Level Authentication for RDP connections, with the following parameters:
+                  <string id="NLA_Explain">This policy enable Network Level Authentication for RDP connections, with the following settings:
 
 - TLS is required for server authentication and link encryption.
 - High level of encryption (128 bits) for the data link.
 - User authentication is required at connection time.
-      
-Disabling this option does nothing.</string>
+
+Disabling this policy does nothing.</string>
                   <string id="LMAuth">Harden network logons and authentication security</string>
-                  <string id="LMAuth_Explain">Enable this option to disable LM and NTLM authentication modes, and enable use of NTLMv2 only.
-      
-Disable this option to restore LM and NTLMv1 capabilities, in addition to NTLMv2.</string>
+                  <string id="LMAuth_Explain">Enable this policy to disable LM and NTLM authentication modes, and enable use of NTLMv2 only.
+
+Disable this policy to restore LM and NTLMv1 capabilities, in addition to NTLMv2.</string>
                   <string id="WDigest">Disable WDigest protocol</string>
-                  <string id="WDigest_Explain">Enabling this policy will disable the WDigest protocol, now considered obsolete. 
+                  <string id="WDigest_Explain">Enabling this policy will disable the WDigest protocol, now considered obsolete.
 
 Keeping WDigest enabled could allow an attacker to retrieve plain-text passwords stored in the LSA service with a tool such as Mimikatz, and it is therefore recommended to enable this policy.</string>
                   <string id="Logon">Domain credentials caching hardening</string>
-                  <string id="Logon_Explain">Enabling this policy modifiy two parameters related to how the local system handles domain-related credentials :
+                  <string id="Logon_Explain">Enabling this policy modifiy two settings related to how the local system handles domain-related credentials:
 
 - Reduce the caching count (2 cached credentials) of domain-related credentials for offline authentication if no domain controller is available
 - The delay before the credentials are cleared from memory after a logoff is set to 30 seconds.
 
-Those parameters reduce the exposure time of credentials to attack tools such as Mimikatz.
+Those settings reduce the exposure time of credentials to attack tools such as Mimikatz.
 
-NOTE: these parameters can disallow a new session opening, if the network is not available, or if a domain controler is not reachable.</string>
+NOTE: those settings can prevent a new session opening, if the network is not available, or if a domain controler is not reachable.</string>
                   <string id="ASLR">Force the randomization of relocatable images (ASLR)</string>
                   <string id="ASLR_Explain">Enabling this policy will enable ASLR even for relocatable images that do not explicitly expose this capability.
-      
+
 Disabling this policy will explicitly disable the ASLR mechanism.</string>
                   <string id="User32_Exception">Additional registry fix for CVE-2015-6161</string>
                   <string id="User32_Exception_Explain">Enable this policy to change the registry value FEATURE_ALLOW_USER32_EXCEPTION_HANDLER_HARDENING to 1.
@@ -90,13 +90,13 @@ This modification is necessary to fully fix an ASLR bypass vulnerability (CVE-20
 
 This modification is necessary to fully fix an information disclosure vulnerability in Microsoft browsers (CVE-2017-8529). For more information, refer to the related security update guide (https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2017-8529).</string>
                   <string id="MSCacheV2_Iteration">Number of PBKDF2 iterations for cached logons credentials hashing</string>
-                  <string id="MSCacheV2_Iteration_Explain">For domains logons, if credentials caching is enabled, credentials are stored as MSCacheV2 hashes, dervided using the PBKDF2-SHA1 hashing algorithm.
+                  <string id="MSCacheV2_Iteration_Explain">For domains logons, if credentials caching is enabled, credentials are stored as MSCacheV2 hashes, derived using the PBKDF2-SHA1 hashing algorithm.
 
 The number of iterations for the PBKDF2-SHA1 algorithm used for hashing operations can be controlled with this policy, with the following logic:
 
 - For a value lower than or equal to 10240, the setting acts as a 1024-mutiplier (for example, setting it to 20 will result in 20480 iterations).
 - For a value greater than 10240, the setting acts as the chosen value (modulo 1024).
-      
+
 The recommended value depends on the target environment, the CPU power available and the performance hit you are willing to tolerate at logon (a high value can incur a net performance penalty for the logon process).
 
 When the policy is enabled, the default value configured is 1954 (2 000 896 rounds). This is the recommended value (at the time of December 2022) for the PBKDF2-HMAC-SHA1 algorithm, considering the compute power of a RTX 4090 GPU in a offline bruteforce attack model.
@@ -121,7 +121,7 @@ If you enable this setting or do not configure it, the system will limit install
 
 If you disable this setting, the system will not limit installation of print drivers to this computer.
 
-Additional Information: https://support.microsoft.com/en-us/topic/kb5005010-restricting-installation-of-new-printer-drivers-after-applying-the-july-6-2021-updates-31b91c02-05bc-4ada-a7ea-183b129578a7 for additional information.</string>
+Additional information: https://support.microsoft.com/en-us/topic/kb5005010-restricting-installation-of-new-printer-drivers-after-applying-the-july-6-2021-updates-31b91c02-05bc-4ada-a7ea-183b129578a7</string>
                   <string id="ProtectedRoots">Prevent standard users to install root certificates</string>
                   <string id="ProtectedRoots_Help">This policy prevent standard (non-administrators) users to install root certificate authorities to their user-specific trust store.
 
@@ -184,7 +184,7 @@ If you enable this setting, co-installers execution will be prevented, and addit
 If you disable this setting, co-installers execution will be permitted, which is a significant security risk (potentially dangerous code execution).</string>
                   <string id="DefenderSandboxing">Enable Windows Defender sandbox</string>
                   <string id="DefenderSandboxing_Explain">This policy enables the sandbox (content process) for the main process of Windows Defender.
-                  
+
 The new content processes, which run with low privileges, aggressively leverage all available mitigation policies to reduce the attack surface. They enable and prevent runtime changes for modern exploit mitigation techniques such as Data Execution Prevention (DEP), Address space layout randomization (ASLR), and Control Flow Guard (CFG). They also disable Win32K system calls and all extensibility points, as well as enforce that only signed and trusted code is loaded.
 
 More information: https://www.microsoft.com/en-us/security/blog/2018/10/26/windows-defender-antivirus-can-now-run-in-a-sandbox/</string>
