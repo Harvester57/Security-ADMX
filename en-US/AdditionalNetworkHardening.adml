@@ -11,7 +11,7 @@
       <resources>
             <stringTable>
                   <string id="SUPPORTED_3174644"> At least Windows 10;
-At least Windows Server 2008 SP2 or Windows Vista SP2 with KB3174644 </string>
+At least Windows Server 2008 SP2 or Windows Vista SP2 with KB3174644</string>
                   <!-- CATEGORIES -->
                   <string id="Network">Additional network hardening settings</string>
                   <string id="Net">.NET Framework configuration</string>
