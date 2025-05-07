@@ -30,7 +30,9 @@ Disabling this policy will allow standard users to open a session in Safe Mode.<
                   <string id="LoadAppInit_DLLs">Allow custom DLL loading list for application processes</string>
                   <string id="LoadAppInit_DLLs_Explain">The list is located in the registry key HKLM:\Software\Microsoft\Windows NT\CurrentVersion\WindowsAppInit_DLLs</string>
                   <string id="MicroarchHardening">Enable Spectre and Meltdown mitigations</string>
-                  <string id="MicroarchHardening_Explain">TODO</string>
+                  <string id="MicroarchHardening_Explain">The FeatureSettingsOverride registry key in Windows, typically found under SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management and often managed alongside FeatureSettingsOverrideMask, provides administrators with granular control over software-based mitigations for CPU speculative execution vulnerabilities like Spectre and Meltdown.
+
+These vulnerabilities can potentially allow unauthorized access to sensitive data. Windows implements various mitigations to counter these threats, but they can sometimes introduce performance overhead. The FeatureSettingsOverride key allows for a tailored approach, enabling administrators to selectively enable or disable specific mitigations—such as those for different variants of Spectre (like v2 or Speculative Store Bypass - SSB) and Meltdown—or even to disable all of them if the performance impact is deemed too high for a particular environment, or to apply specific configurations like disabling Hyper-Threading on Intel CPUs in conjunction with these mitigations.</string>
                   <string id="MicroarchHardening_Option1">Intel and AMD: enable all mitigations</string>
                   <string id="MicroarchHardening_Option2">Intel: enable all mitigations (with Hyper-Threading disabled)</string>
                   <string id="MicroarchHardening_Option3">Intel: enable mitigations for Spectre v2, Meltdown, and SSB</string>
