@@ -10,8 +10,8 @@
       </description>
       <resources>
             <stringTable>
-                  <string id="SUPPORTED_3174644"> At least Windows 10;
-At least Windows Server 2008 SP2 or Windows Vista SP2 with KB3174644</string>
+                  <string id="SUPPORTED_3174644">At least Windows 10.
+At least Windows Server 2008 SP2 or Windows Vista SP2 with KB3174644.</string>
                   <!-- CATEGORIES -->
                   <string id="Network">Additional network hardening settings</string>
                   <string id="Net">.NET Framework configuration</string>
@@ -28,8 +28,8 @@ At least Windows Server 2008 SP2 or Windows Vista SP2 with KB3174644</string>
                   <string id="WinHTTP">WinHTTP configuration</string>
                   <!-- POLICIES -->
                   <!-- Network policies -->
-                  <string id="SchannelLogging">Enable advanced logging for Schannel</string>
-                  <string id="SchannelLogging_Explain">Enabling this policy will enable detailed Schannel events generation. You can choose the desired level of verbosity.
+                  <string id="SchannelLogging">Enable advanced logging for Schannel</string> <!-- Note: Schannel is typically capitalized as SChannel or Schannel. Using Schannel for consistency within this file. -->
+                  <string id="SchannelLogging_Explain">Enabling this policy will enable detailed Schannel event generation. You can choose the desired level of verbosity.
 
 Logged events are available in the System event log.</string>
                   <string id="SchannelLogging_Option1">Log error events only (Windows default)</string>
@@ -41,26 +41,26 @@ Logged events are available in the System event log.</string>
                   <string id="SchannelLogging_Option7">Log informational, success events, warnings, and error events (all log levels)</string>
                   <string id="SchannelLogging_Option8">Do not log</string>
                   <string id="WinHTTP_TLS12">Enable support for TLS 1.2 only</string>
-                  <string id="WinHTTP_TLS12_Explain">Enabling this policy will enable the support for TLS 1.2 only for applications based on WinHTTP and specifying the WINHTTP_OPTION_SECURE_PROTOCOLS flag.
+                  <string id="WinHTTP_TLS12_Explain">Enabling this policy will configure WinHTTP to support only TLS 1.2 for applications based on WinHTTP that specify the WINHTTP_OPTION_SECURE_PROTOCOLS flag.
 
 Disabling this policy will remove the DefaultSecureProtocols value, and restore the default behavior of WinHTTP.
 
 NOTE: for Windows 7, Windows Server 2008 R2, Windows Server 2012 and Windows 8 Embedded, you need to install the KB3140245 update before enabling this policy.</string>
                   <string id="KerberosLogging">Enable Kerberos events logging</string>
-                  <string id="KerberosLogging_Explain">Enable logging of debug events related to Kerberos in the System Event log.
+                  <string id="KerberosLogging_Explain">Enables logging of debug events related to Kerberos in the System Event log.
 
-If disabled, this policy disable Kerberos-related events logging (this is the default behavior). Enabling this option is only recommended for debugging purposes. Security auditing of events related to Kerberos events should be configured with Advanced Auditing policies.</string>
+If disabled, this policy disables Kerberos-related event logging (this is the default behavior). Enabling this option is only recommended for debugging purposes. Security auditing of Kerberos-related events should be configured with Advanced Auditing policies.</string>
                   <string id="DisableIPSourceRouting">Configure the IP source routing protection level</string>
-                  <string id="DisableIPSourceRouting_Help">Allows to choose a protection for source-routed packets.</string>
-                  <string id="DisableIPSourceRouting0">Allow all packets</string>
-                  <string id="DisableIPSourceRouting1">Ignore routed packets when IP transfert mode is enabled</string>
-                  <string id="DisableIPSourceRouting2">Highest protection, source routing is completely disabled</string>
+                  <string id="DisableIPSourceRouting_Help">Configures the protection level for source-routed packets.</string>
+                  <string id="DisableIPSourceRouting0">Allow all packets.</string>
+                  <string id="DisableIPSourceRouting1">Ignore routed packets when IP transfer mode is enabled.</string>
+                  <string id="DisableIPSourceRouting2">Highest protection; source routing is completely disabled.</string>
                   <string id="DisableIPSourceRoutingIPv6">Configure the IP source routing protection level for IPv6</string>
-                  <string id="DisableIPSourceRoutingIPv6_Help">Allows to choose a protection for source-routed packets.</string>
+                  <string id="DisableIPSourceRoutingIPv6_Help">Configures the protection level for source-routed packets.</string>
                   <string id="TLS_Ciphersuites">TLS cipher suites configuration</string>
-                  <string id="TLS_Ciphersuites_Help">This policy allows you to select between several TLS cipher suites configuration profiles.
+                  <string id="TLS_Ciphersuites_Help">This policy allows you to select from several TLS cipher suite configuration profiles.
 
-NOTE: for profiles listed with TLS 1.3, please verify that your OS version support TLS 1.3 (Windows 10 v1903 and up) and that TLS 1.3 support is enabled in the Schannel "Protocols" section, otherwise you could break TLS support on your system.
+NOTE: For profiles listed with TLS 1.3, please verify that your OS version supports TLS 1.3 (Windows 10 v1903 and later) and that TLS 1.3 support is enabled in the Schannel "Protocols" section; otherwise, you could break TLS support on your system.
 
 Changing this setting will require a restart of the computer before the setting will take effect. You can check the applied configuration with the Get-TlsCiphersuite cmdlet in a PowerShell session.
 
@@ -142,24 +142,24 @@ TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256</string>
                   <string id="TLS_Ciphersuites4">Backward compatible (TLS 1.2, 1.1 and 1.0)</string>
                   <!-- SMB -->
                   <string id="DisableSMB1">Disable SMB 1.0 support (client and server)</string>
-                  <string id="DisableSMB1_Explain">Disable SMB 1.0 support (client and server)</string>
+                  <string id="DisableSMB1_Explain">This policy disables SMB 1.0 support (client and server).</string>
                   <string id="MinSMB2Dialect">Configure the minimum SMB2/3 client dialect supported</string>
                   <string id="MinSMB2Dialect_Explain">This policy allows you to configure the minimum SMB2/3 version supported when acting as a client.
 
-It is recommended to select the minimal version supported by your environment.
+It is recommended to select the minimum version supported by your environment.
 
-NOTE: if you select a version above what the remote server can, handle, you will not be able to connect to the remote file share.
+NOTE: If you select a version higher than what the remote server can handle, you will not be able to connect to the remote file share.
 
 Supported versions:
 - SMB 2.0.2
 - SMB 2.1.0 (Windows 7)
 - SMB 3.0.0 (Windows 8)
-- SMB 3.0.2 (windows 8.1)
+- SMB 3.0.2 (Windows 8.1)
 - SMB 3.1.1 (Windows 10, Windows Server 2016)</string>
                   <string id="MaxSMB2Dialect">Configure the maximum SMB2/3 client dialect supported</string>
                   <string id="MaxSMB2Dialect_Explain">This policy allows you to configure the maximum SMB2/3 version supported when acting as a client.
 
-It is recommended to not configure this policy and to let the system negociate the most suitable version.
+It is recommended not to configure this policy and to let the system negotiate the most suitable version.
 
 NOTE: do not configure this policy with a value below the one selected in the "Configure minimum SMB2 client dialect supported" policy, otherwise you could break SMB support on your system.
 
@@ -167,7 +167,7 @@ Supported versions:
 - SMB 2.0.2
 - SMB 2.1.0 (Windows 7)
 - SMB 3.0.0 (Windows 8)
-- SMB 3.0.2 (windows 8.1)
+- SMB 3.0.2 (Windows 8.1)
 - SMB 3.1.1 (Windows 10, Windows Server 2016)</string>
                   <string id="MaxSMB2Dialect_202">v2.0.2</string>
                   <string id="MaxSMB2Dialect_210">v2.1.0 (Windows 7)</string>
@@ -210,26 +210,26 @@ Changing this setting will require a restart of the computer before the setting 
                   <string id="TLSv10">TLS 1.0</string>
                   <string id="TLSv10_Help">Enabling or disabling this policy will respectively enable or disable support for TLS 1.0.
 
-TLS 1.0 is still considered secure, but is in process of deprecation from Microsoft, and should be disabled. However, it may be required for backwards compatibility reasons.
+TLS 1.0, while historically considered secure, is now being deprecated by Microsoft and should be disabled. However, it may be required for backward compatibility.
 
 Changing this setting will require a restart of the computer before the setting will take effect.</string>
                   <!-- TLSv1.1 -->
                   <string id="TLSv11">TLS 1.1</string>
                   <string id="TLSv11_Help">Enabling or disabling this policy will respectively enable or disable support for TLS 1.1.
 
-TLS 1.1 is still considered secure, but is in process of deprecation from Microsoft, and should be disabled. However, it may be required for backwards compatibility reasons.
+TLS 1.1, while historically considered secure, is now being deprecated by Microsoft and should be disabled. However, it may be required for backward compatibility.
 
 Changing this setting will require a restart of the computer before the setting will take effect.</string>
                   <!-- TLSv1.2 -->
                   <string id="TLSv12">TLS 1.2</string>
-                  <string id="TLSv12_Help">Enabling or disabling this policy will respectively enable or disable support for TLS 1.2. TLS 1.2 is without known security issues, and it is recommended to enable it.
+                  <string id="TLSv12_Help">Enabling or disabling this policy will respectively enable or disable support for TLS 1.2. TLS 1.2 has no known security issues, and it is recommended to enable it.
 
 Changing this setting will require a restart of the computer before the setting will take effect.</string>
                   <!-- TLSv1.3 -->
                   <string id="TLSv13">TLS 1.3 [WARNING: READ DESCRIPTION]</string>
-                  <string id="TLSv13_Help">Enabling or disabling this policy will respectively enable or disable support for TLS 1.3. TLS 1.3 is without known security issues, and it is recommended to enable it.
+                  <string id="TLSv13_Help">Enabling or disabling this policy will respectively enable or disable support for TLS 1.3. TLS 1.3 has no known security issues, and it is recommended to enable it.
 
-!! WARNING: This setting is only compatible with Windows 10 v1903 and above. Enabling this setting on older OS versions will break SChannel, and you will need to manually remove the SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.3 key in the Registry to fix it.
+!! WARNING: This setting is only compatible with Windows 10 v1903 and later. Enabling this setting on older OS versions will break Schannel, and you will need to manually remove the SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.3 key in the registry to fix it.
 
 Changing this setting will require a restart of the computer before the setting will take effect.</string>
                   <!-- DTLSv1.0 -->
@@ -250,7 +250,7 @@ Changing this setting will require a restart of the computer before the setting 
                   <!-- WEAK CIPHERS -->
                   <!-- NULL -->
                   <string id="NULL">NULL</string>
-                  <string id="NULL_Help">Enabling or disabling this policy will respectively enable or disable support for NULL encryption ciphers. This is a weak cipher and shoud not be enabled.
+                  <string id="NULL_Help">Enabling or disabling this policy will respectively enable or disable support for NULL encryption ciphers. This is a weak cipher and should not be enabled.
 
 Changing this setting will have an effect on whether the following ciphers can be selected for use:
 
@@ -258,7 +258,7 @@ TLS_RSA_WITH_NULL_SHA
 TLS_RSA_WITH_NULL_SHA256</string>
                   <!-- DES 56/56 -->
                   <string id="DES_56">DES 56/56</string>
-                  <string id="DES_56_Help">Enabling or disabling this policy will respectively enable or disable support for DES 56/56. This is a weak cipher and shoud not be enabled.
+                  <string id="DES_56_Help">Enabling or disabling this policy will respectively enable or disable support for DES 56/56. This is a weak cipher and should not be enabled.
 
 Changing this setting will have an effect on whether the following ciphers can be selected for use:
 
@@ -266,7 +266,7 @@ SSL_RSA_WITH_DES_CBC_SHA
 TLS_RSA_WITH_DES_CBC_SHA</string>
                   <!-- RC2 40/128 -->
                   <string id="RC2_40">RC2 40/128</string>
-                  <string id="RC2_40_Help">Enabling or disabling this policy will respectively enable or disable support for RC2 40/128. This is a weak cipher and shoud not be enabled.
+                  <string id="RC2_40_Help">Enabling or disabling this policy will respectively enable or disable support for RC2 40/128. This is a weak cipher and should not be enabled.
 
 Changing this setting will have an effect on whether the following ciphers can be selected for use:
 
@@ -274,7 +274,7 @@ SSL_RSA_EXPORT_WITH_RC2_CBC_40_MD5
 TLS_RSA_EXPORT_WITH_RC2_CBC_40_MD5</string>
                   <!-- RC2 56/128 -->
                   <string id="RC2_56">RC2 56/128</string>
-                  <string id="RC2_56_Help">Enabling or disabling this policy will respectively enable or disable support for RC2 56/128. This is a weak cipher and shoud not be enabled.
+                  <string id="RC2_56_Help">Enabling or disabling this policy will respectively enable or disable support for RC2 56/128. This is a weak cipher and should not be enabled.
 
 Changing this setting will have an effect on whether the following ciphers can be selected for use:
 
@@ -282,10 +282,10 @@ SSL_RSA_WITH_DES_CBC_SHA
 TLS_RSA_WITH_DES_CBC_SHA</string>
                   <!-- RC2 128/128 -->
                   <string id="RC2_128">RC2 128/128</string>
-                  <string id="RC2_128_Help">Enabling or disabling this policy will respectively enable or disable support for RC2 128/128. This is a weak cipher and shoud not be enabled.</string>
+                  <string id="RC2_128_Help">Enabling or disabling this policy will respectively enable or disable support for RC2 128/128. This is a weak cipher and should not be enabled.</string>
                   <!-- RC4 40/128 -->
                   <string id="RC4_40">RC4 40/128</string>
-                  <string id="RC4_40_Help">Enabling or disabling this policy will respectively enable or disable support for RC4 40/128. This is a weak cipher and shoud not be enabled.
+                  <string id="RC4_40_Help">Enabling or disabling this policy will respectively enable or disable support for RC4 40/128. This is a weak cipher and should not be enabled.
 
 Changing this setting will have an effect on whether the following ciphers can be selected for use:
 
@@ -293,17 +293,17 @@ SSL_RSA_EXPORT_WITH_RC4_40_MD5
 TLS_RSA_EXPORT_WITH_RC4_40_MD5</string>
                   <!-- RC4 56/128 -->
                   <string id="RC4_56">RC4 56/128</string>
-                  <string id="RC4_56_Help">Enabling or disabling this policy will respectively enable or disable support for RC4 56/128. This is a weak cipher and shoud not be enabled.
+                  <string id="RC4_56_Help">Enabling or disabling this policy will respectively enable or disable support for RC4 56/128. This is a weak cipher and should not be enabled.
 
 Changing this setting will have an effect on whether the following ciphers can be selected for use:
 
 TLS_RSA_EXPORT1024_WITH_RC4_56_SHA</string>
                   <!-- RC4 64/128 -->
                   <string id="RC4_64">RC4 64/128</string>
-                  <string id="RC4_64_Help">Enabling or disabling this policy will respectively enable or disable support for RC4 64/128. This is a weak cipher and shoud not be enabled.</string>
+                  <string id="RC4_64_Help">Enabling or disabling this policy will respectively enable or disable support for RC4 64/128. This is a weak cipher and should not be enabled.</string>
                   <!-- RC4 128/128 -->
                   <string id="RC4_128">RC4 128/128</string>
-                  <string id="RC4_128_Help">Enabling or disabling this policy will respectively enable or disable support for RC4 128/128. This is a weak cipher and shoud not be enabled.
+                  <string id="RC4_128_Help">Enabling or disabling this policy will respectively enable or disable support for RC4 128/128. This is a weak cipher and should not be enabled.
 
 Changing this setting will have an effect on whether the following ciphers can be selected for use:
 
@@ -314,7 +314,7 @@ TLS_RSA_WITH_RC4_128_SHA</string>
                   <!-- STRONG CIPHERS -->
                   <!-- Triple DES 168 -->
                   <string id="3DES">Triple DES 168</string>
-                  <string id="3DES_Help">Enabling or disabling this policy will respectively enable or disable support for Triple-DES 168. This is a weak cipher and shoud not be enabled.
+                  <string id="3DES_Help">Enabling or disabling this policy will respectively enable or disable support for Triple-DES 168. This is a weak cipher and should not be enabled.
 
 Changing this setting will have an effect on whether the following ciphers can be selected for use:
 
@@ -376,7 +376,7 @@ TLS_RSA_WITH_AES_256_CBC_SHA256</string>
                   <!-- HASHING ALGORITHMS -->
                   <!-- MD5 -->
                   <string id="MD5">MD5</string>
-                  <string id="MD5_Help">Enabling or disabling this policy will respectively enable or disable support for the MD5 hashing algorithm. This is a weak hash algorithm, and it shoud not be enabled.
+                  <string id="MD5_Help">Enabling or disabling this policy will respectively enable or disable support for the MD5 hashing algorithm. This is a weak hash algorithm, and it should not be enabled.
 
 Changing this setting will have an effect on whether the following ciphers can be selected for use:
 
@@ -389,7 +389,7 @@ TLS_RSA_WITH_NULL_MD5
 TLS_RSA_WITH_RC4_128_MD5</string>
                   <!-- SHA -->
                   <string id="SHA">SHA</string>
-                  <string id="SHA_Help">Enabling or disabling this policy will respectively enable or disable support for the SHA hashing algorithm. This is a weak hash algorithm, and it shoud not be enabled.
+                  <string id="SHA_Help">Enabling or disabling this policy will respectively enable or disable support for the SHA hashing algorithm. This is a weak hash algorithm, and it should not be enabled.
 
 Changing this setting will have an effect on whether the following ciphers can be selected for use:
 
@@ -570,45 +570,45 @@ The only restriction is that the assembly must be fully trusted because its zone
                         <dropdownList refId="DHClient_MinLength" noSort="true" defaultItem="3">Client side DH modulus minimum length:</dropdownList>
                   </presentation>
                   <presentation id="PKCSClient">
-                        <dropdownList refId="PKCSClient_MinLength" noSort="true" defaultItem="3">Client side PKCS modulus minimum length: </dropdownList>
+                        <dropdownList refId="PKCSClient_MinLength" noSort="true" defaultItem="3">Client side PKCS modulus minimum length:</dropdownList>
                   </presentation>
                   <presentation id="TLS_Ciphersuites">
-                        <dropdownList refId="TLS_Ciphersuites_Selection" noSort="true" defaultItem="1">Select a profile: </dropdownList>
+                        <dropdownList refId="TLS_Ciphersuites_Selection" noSort="true" defaultItem="1">Select a profile:</dropdownList>
                   </presentation>
                   <presentation id="SchannelLogging_Presentation">
-                        <dropdownList refId="SchannelLogging_DropdownList" noSort="true" defaultItem="0"> Select a logging level:</dropdownList>
+                        <dropdownList refId="SchannelLogging_DropdownList" noSort="true" defaultItem="0">Select a logging level:</dropdownList>
                   </presentation>
                   <presentation id="MPUH">
-                        <checkBox refId="MPUH_ClientCheckbox" defaultChecked="false">Enable Client-side Multi-Protocol Unified Hello (eg., Internet Explorer)</checkBox>
-                        <checkBox refId="MPUH_ServerCheckbox" defaultChecked="false">Enable Server-side Multi-Protocol Unified Hello (eg., IIS)</checkBox>
+                        <checkBox refId="MPUH_ClientCheckbox" defaultChecked="false">Enable Client-side Multi-Protocol Unified Hello (e.g., Internet Explorer)</checkBox>
+                        <checkBox refId="MPUH_ServerCheckbox" defaultChecked="false">Enable Server-side Multi-Protocol Unified Hello (e.g., IIS)</checkBox>
                   </presentation>
                   <presentation id="PCTv1">
-                        <checkBox refId="PCTv1_ClientCheckbox" defaultChecked="false">Enable Client-side PCT 1.0 (eg., Internet Explorer)</checkBox>
-                        <checkBox refId="PCTv1_ServerCheckbox" defaultChecked="false">Enable Server-side PCT 1.0 (eg., IIS)</checkBox>
+                        <checkBox refId="PCTv1_ClientCheckbox" defaultChecked="false">Enable Client-side PCT 1.0 (e.g., Internet Explorer)</checkBox>
+                        <checkBox refId="PCTv1_ServerCheckbox" defaultChecked="false">Enable Server-side PCT 1.0 (e.g., IIS)</checkBox>
                   </presentation>
                   <presentation id="SSLv2">
-                        <checkBox refId="SSLv2_ClientCheckbox" defaultChecked="false">Enable Client-side SSL 2.0 (eg., Internet Explorer)</checkBox>
-                        <checkBox refId="SSLv2_ServerCheckbox" defaultChecked="false">Enable Server-side SSL 2.0 (eg., IIS)</checkBox>
+                        <checkBox refId="SSLv2_ClientCheckbox" defaultChecked="false">Enable Client-side SSL 2.0 (e.g., Internet Explorer)</checkBox>
+                        <checkBox refId="SSLv2_ServerCheckbox" defaultChecked="false">Enable Server-side SSL 2.0 (e.g., IIS)</checkBox>
                   </presentation>
                   <presentation id="SSLv3">
-                        <checkBox refId="SSLv3_ClientCheckbox" defaultChecked="false">Enable Client-side SSL 3.0 (eg., Internet Explorer)</checkBox>
-                        <checkBox refId="SSLv3_ServerCheckbox" defaultChecked="false">Enable Server-side SSL 3.0 (eg., IIS)</checkBox>
+                        <checkBox refId="SSLv3_ClientCheckbox" defaultChecked="false">Enable Client-side SSL 3.0 (e.g., Internet Explorer)</checkBox>
+                        <checkBox refId="SSLv3_ServerCheckbox" defaultChecked="false">Enable Server-side SSL 3.0 (e.g., IIS)</checkBox>
                   </presentation>
                   <presentation id="TLSv10">
-                        <checkBox refId="TLSv10_ClientCheckbox" defaultChecked="true">Enable Client-side TLS 1.0 (eg., Internet Explorer)</checkBox>
-                        <checkBox refId="TLSv10_ServerCheckbox" defaultChecked="true">Enable Server-side TLS 1.0 (eg., IIS)</checkBox>
+                        <checkBox refId="TLSv10_ClientCheckbox" defaultChecked="true">Enable Client-side TLS 1.0 (e.g., Internet Explorer)</checkBox>
+                        <checkBox refId="TLSv10_ServerCheckbox" defaultChecked="true">Enable Server-side TLS 1.0 (e.g., IIS)</checkBox>
                   </presentation>
                   <presentation id="TLSv11">
-                        <checkBox refId="TLSv11_ClientCheckbox" defaultChecked="true">Enable Client-side TLS 1.1 (eg., Internet Explorer)</checkBox>
-                        <checkBox refId="TLSv11_ServerCheckbox" defaultChecked="true">Enable Server-side TLS 1.1 (eg., IIS)</checkBox>
+                        <checkBox refId="TLSv11_ClientCheckbox" defaultChecked="true">Enable Client-side TLS 1.1 (e.g., Internet Explorer)</checkBox>
+                        <checkBox refId="TLSv11_ServerCheckbox" defaultChecked="true">Enable Server-side TLS 1.1 (e.g., IIS)</checkBox>
                   </presentation>
                   <presentation id="TLSv12">
-                        <checkBox refId="TLSv12_ClientCheckbox" defaultChecked="true">Enable Client-side TLS 1.2 (eg., Internet Explorer)</checkBox>
-                        <checkBox refId="TLSv12_ServerCheckbox" defaultChecked="true">Enable Server-side TLS 1.2 (eg., IIS)</checkBox>
+                        <checkBox refId="TLSv12_ClientCheckbox" defaultChecked="true">Enable Client-side TLS 1.2 (e.g., Internet Explorer)</checkBox>
+                        <checkBox refId="TLSv12_ServerCheckbox" defaultChecked="true">Enable Server-side TLS 1.2 (e.g., IIS)</checkBox>
                   </presentation>
                   <presentation id="TLSv13">
-                        <checkBox refId="TLSv13_ClientCheckbox" defaultChecked="true">Enable Client-side TLS 1.3 (eg., Edge)</checkBox>
-                        <checkBox refId="TLSv13_ServerCheckbox" defaultChecked="true">Enable Server-side TLS 1.3 (eg., IIS)</checkBox>
+                        <checkBox refId="TLSv13_ClientCheckbox" defaultChecked="true">Enable Client-side TLS 1.3 (e.g., Edge)</checkBox>
+                        <checkBox refId="TLSv13_ServerCheckbox" defaultChecked="true">Enable Server-side TLS 1.3 (e.g., IIS)</checkBox>
                   </presentation>
                   <presentation id="DTLSv10">
                         <checkBox refId="DTLSv10_ClientCheckbox" defaultChecked="true">Enable Client-side DTLS 1.0 (eg., Internet Explorer)</checkBox>
