@@ -12,7 +12,7 @@
             <stringTable>
                   <!-- CATEGORIES -->
                   <string id="Cat_AddHard">Paramètres de durcissement supplémentaires</string>
-                  <string id="Cat_Debug">Paramètres de débuggage supplémentaires</string>
+                  <string id="Cat_Debug">Paramètres de débogage supplémentaires</string>
                   <string id="Cat_MSFT">Paramètres de durcissement du Microsoft Security Guide</string>
                   <string id="Cat_Legacy">Paramètres de durcissement hérités MSS</string>
             </stringTable>

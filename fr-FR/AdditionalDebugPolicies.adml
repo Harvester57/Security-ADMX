@@ -3,17 +3,17 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0"
       xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
       <displayName>
-            Paramètres de debugging supplémentaires
+            Paramètres de débogage supplémentaires
       </displayName>
       <description>
-            Paramètres de debugging supplémentaires
+            Paramètres de débogage supplémentaires
       </description>
       <resources>
             <stringTable>
                   <string id="EnableKASAN">Activer l'assainisseur d'adresses du noyau (KASAN)</string>
-                  <string id="EnableKASAN_Explain">L'assainisseur d'adresses du noyau (KASAN) est une technologie de détection de bogues prise en charge sur les pilotes de noyau Windows qui vous permet de détecter plusieurs classes d'accès à la mémoire illégale, telles que les dépassements de mémoire tampon et les événements sans utilisation.
+                  <string id="EnableKASAN_Explain">L'assainisseur d'adresses du noyau (KASAN) est une technologie de détection de bogues prise en charge pour les pilotes du noyau Windows qui vous permet de détecter plusieurs classes d'accès à la mémoire illégaux, telles que les dépassements de mémoire tampon et les utilisations après libération (use-after-free).
 
-Il vous oblige à activer KASAN sur votre système et à recompiler votre pilote de noyau avec un paramètre de compilation MSVC spécifique.
+Cela nécessite d'activer KASAN sur votre système et de recompiler votre pilote de noyau avec un paramètre de compilation MSVC spécifique.
 
 Cette politique contrôle le support de KASAN au niveau du noyau. Activer cette politique activera le support de KASAN. Désactiver cette politique désactivera le support de KASAN.</string>
             </stringTable>

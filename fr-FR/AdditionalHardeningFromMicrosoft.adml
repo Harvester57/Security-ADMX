@@ -2,155 +2,158 @@
 <!--  (c) 2014-2018 Microsoft Corporation  -->
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
       <displayName>
-            Microsoft Security Guide
+            Guide de sécurité Microsoft
       </displayName>
       <description>
-            Microsoft Security Guide mitigations
+            Mesures d'atténuation du Guide de sécurité Microsoft
       </description>
       <resources>
             <stringTable>
-                  <string id="SUPPORTED_WindowsServer2008AndNewer">Windows Server 2008 and newer</string>
-                  <string id="Pol_SecGuide_LATFP">Apply UAC restrictions to local accounts on network logons</string>
-                  <string id="Pol_SecGuide_LATFP_Help">This setting controls whether local accounts can be used for remote administration via network logon (e.g., NET USE, connecting to C$, etc.). Local accounts are at high risk for credential theft when the same account and password is configured on multiple systems.  Enabling this policy significantly reduces that risk.
+                  <string id="SUPPORTED_WindowsServer2008AndNewer">Windows Server 2008 et versions ultérieures</string>
+                  <string id="Pol_SecGuide_LATFP">Appliquer les restrictions UAC aux comptes locaux lors des ouvertures de session réseau</string>
+                  <string id="Pol_SecGuide_LATFP_Help">Ce paramètre contrôle si les comptes locaux peuvent être utilisés pour l'administration à distance via une ouverture de session réseau (par exemple, NET USE, connexion à C$, etc.). Les comptes locaux présentent un risque élevé de vol d'identifiants lorsque le même compte et le même mot de passe sont configurés sur plusieurs systèmes. L'activation de cette stratégie réduit considérablement ce risque.
 
-Enabled (recommended): Applies UAC token-filtering to local accounts on network logons. Membership in powerful group such as Administrators is disabled and powerful privileges are removed from the resulting access token. This configures the LocalAccountTokenFilterPolicy registry value to 0. This is the default behavior for Windows.
+Activé (recommandé) : Applique le filtrage des jetons UAC aux comptes locaux lors des ouvertures de session réseau. L'appartenance à des groupes privilégiés tels que les Administrateurs est désactivée et les privilèges élevés sont supprimés du jeton d'accès résultant. Cela configure la valeur de Registre LocalAccountTokenFilterPolicy à 0. C'est le comportement par défaut pour Windows.
 
-Disabled: Allows local accounts to have full administrative rights when authenticating via network logon, by configuring the LocalAccountTokenFilterPolicy registry value to 1.
+Désactivé : Permet aux comptes locaux d'avoir des droits administratifs complets lors de l'authentification via une ouverture de session réseau, en configurant la valeur de Registre LocalAccountTokenFilterPolicy à 1.
 
-For more information about local accounts and credential theft, see "Mitigating Pass-the-Hash (PtH) Attacks and Other Credential Theft Techniques": http://www.microsoft.com/en-us/download/details.aspx?id=36036.
+Pour plus d'informations sur les comptes locaux et le vol d'identifiants, consultez « Atténuation des attaques Pass-the-Hash (PtH) et autres techniques de vol d'identifiants » : http://www.microsoft.com/en-us/download/details.aspx?id=36036.
 
-For more information about LocalAccountTokenFilterPolicy, see http://support.microsoft.com/kb/951016.</string>
-                  <string id="Pol_SecGuide_WDigestAuthn">WDigest Authentication (disabling may require KB2871997)</string>
-                  <string id="Pol_SecGuide_WDigestAuthn_Help">When WDigest authentication is enabled, Lsass.exe retains a copy of the user's plaintext password in memory, where it can be at risk of theft. Microsoft recommends disabling WDigest authentication unless it is needed.
+Pour plus d'informations sur LocalAccountTokenFilterPolicy, consultez http://support.microsoft.com/kb/951016.</string>
+                  <string id="Pol_SecGuide_WDigestAuthn">Authentification WDigest (nécessite KB2871997)</string>
+                  <string id="Pol_SecGuide_WDigestAuthn_Help">Lorsque l'authentification WDigest est activée, Lsass.exe conserve une copie du mot de passe de l'utilisateur en texte clair en mémoire, où il peut être exposé au vol. Microsoft recommande de désactiver l'authentification WDigest sauf si elle est nécessaire.
 
-If this setting is not configured, WDigest authentication is disabled in Windows 8.1 and in Windows Server 2012 R2; it is enabled by default in earlier versions of Windows and Windows Server.
+Si ce paramètre n'est pas configuré, l'authentification WDigest est désactivée dans Windows 8.1 et Windows Server 2012 R2 ; elle est activée par défaut dans les versions antérieures de Windows et Windows Server.
 
-Update KB2871997 must first be installed to disable WDigest authentication using this setting in Windows 7, Windows 8, Windows Server 2008 R2 and Windows Server 2012.
+La mise à jour KB2871997 doit d'abord être installée pour désactiver l'authentification WDigest à l'aide de ce paramètre dans Windows 7, Windows 8, Windows Server 2008 R2 et Windows Server 2012.
 
-Enabled: Enables WDigest authentication.
+Activé : Active l'authentification WDigest.
 
-Disabled (recommended): Disables WDigest authentication. For this setting to work on Windows 7, Windows 8, Windows Server 2008 R2 or Windows Server 2012, KB2871997 must first be installed.
+Désactivé (recommandé) : Désactive l'authentification WDigest. Pour que ce paramètre fonctionne sur Windows 7, Windows 8, Windows Server 2008 R2 ou Windows Server 2012, KB2871997 doit d'abord être installé.
 
-For more information, see http://support.microsoft.com/kb/2871997 and http://blogs.technet.com/b/srd/archive/2014/06/05/an-overview-of-kb2871997.aspx .</string>
-                  <string id="Pol_SecGuide_LsassAudit">Lsass.exe audit mode</string>
-                  <string id="Pol_SecGuide_LsassAudit_Help">Enable auditing of Lsass.exe to evaluate feasibility of enabling LSA protection. For more information, see http://technet.microsoft.com/en-us/library/dn408187.aspx</string>
-                  <string id="Pol_SecGuide_LsassRunAsPPL">LSA Protection</string>
-                  <string id="Pol_SecGuide_LsassRunAsPPL_Help">For Windows 11, version 22H2 and beyond a new setting is used to configure this. IT can be located at 'System\Local Security Authority\Configures LSASS to run as a protected process' which provides additional configuration options.
+Pour plus d'informations, consultez http://support.microsoft.com/kb/2871997 et http://blogs.technet.com/b/srd/archive/2014/06/05/an-overview-of-kb2871997.aspx .</string>
+                  <string id="Pol_SecGuide_LsassAudit">Mode audit de Lsass.exe</string>
+                  <string id="Pol_SecGuide_LsassAudit_Help">Activer l'audit de Lsass.exe pour évaluer la faisabilité de l'activation de la protection LSA. Pour plus d'informations, consultez http://technet.microsoft.com/en-us/library/dn408187.aspx</string>
+                  <string id="Pol_SecGuide_LsassRunAsPPL">Protection LSA</string>
+                  <string id="Pol_SecGuide_LsassRunAsPPL_Help">Pour Windows 11, version 22H2 et ultérieures, un nouveau paramètre est utilisé pour configurer cela. Il se trouve sous 'Système\Autorité de sécurité locale\Configurer LSASS pour s'exécuter en tant que processus protégé', qui offre des options de configuration supplémentaires.
 	  
-Enable LSA protection.
+Activer la protection LSA.
 	  
-For more information, see http://technet.microsoft.com/en-us/library/dn408187.aspx</string>
-                  <string id="Pol_SecGuide_RemoveRunasdifferentuser">Remove "Run As Different User" from context menus</string>
-                  <string id="Pol_SecGuide_RemoveRunasdifferentuser_Help">This setting controls whether "Run As Different User" appears on the Shift+RightClick context menu for .bat, .cmd, .exe, and .msc files.
+Pour plus d'informations, consultez http://technet.microsoft.com/en-us/library/dn408187.aspx</string>
+                  <string id="Pol_SecGuide_RemoveRunasdifferentuser">Supprimer « Exécuter en tant qu'utilisateur différent » des menus contextuels</string>
+                  <string id="Pol_SecGuide_RemoveRunasdifferentuser_Help">Ce paramètre contrôle si « Exécuter en tant qu'utilisateur différent » apparaît dans le menu contextuel Maj+Clic droit pour les fichiers .bat, .cmd, .exe et .msc.
 
-Enabled (recommended): Keeps "Run As Different User" from appearing in the context menu when the user holds Shift while right-clicking on a .bat, .cmd, .exe, or .msc file in Explorer.
+Activé (recommandé) : Empêche « Exécuter en tant qu'utilisateur différent » d'apparaître dans le menu contextuel lorsque l'utilisateur maintient la touche Maj enfoncée tout en cliquant avec le bouton droit sur un fichier .bat, .cmd, .exe ou .msc dans l'Explorateur.
 
-Disabled: Restores the Windows default behavior for "Run As Different User."</string>
-                  <string id="Pol_SecGuide_SEHOP">Enable Structured Exception Handling Overwrite Protection (SEHOP)</string>
-                  <string id="Pol_SecGuide_SEHOP_Help">If this setting is enabled, SEHOP is enforced. For more information, see https://support.microsoft.com/en-us/help/956607/how-to-enable-structured-exception-handling-overwrite-protection-sehop-in-windows-operating-systems.
+Désactivé : Restaure le comportement par défaut de Windows pour « Exécuter en tant qu'utilisateur différent ».</string>
+                  <string id="Pol_SecGuide_SEHOP">Activer la protection contre le remplacement de la gestion structurée des exceptions (SEHOP)</string>
+                  <string id="Pol_SecGuide_SEHOP_Help">Si ce paramètre est activé, SEHOP est appliqué. Pour plus d'informations, consultez https://support.microsoft.com/en-us/help/956607/how-to-enable-structured-exception-handling-overwrite-protection-sehop-in-windows-operating-systems.
 
-If this setting is disabled or not configured, SEHOP is not enforced for 32-bit processes.</string>
-                  <string id="Pol_SecGuide_SMBv1Server">Configure SMB v1 server</string>
-                  <string id="Pol_SecGuide_SMBv1Server_Help">Disabling this setting disables server-side processing of the SMBv1 protocol. (Recommended.)
+Si ce paramètre est désactivé ou non configuré, SEHOP n'est pas appliqué pour les processus 32 bits.</string>
+                  <string id="Pol_SecGuide_SMBv1Server">Configurer le serveur SMB v1</string>
+                  <string id="Pol_SecGuide_SMBv1Server_Help">La désactivation de ce paramètre désactive le traitement côté serveur du protocole SMBv1. (Recommandé.)
 
-Enabling this setting enables server-side processing of the SMBv1 protocol. (Default.)
+L'activation de ce paramètre active le traitement côté serveur du protocole SMBv1. (Par défaut.)
 
-Changes to this setting require a reboot to take effect.
+Les modifications apportées à ce paramètre nécessitent un redémarrage pour prendre effet.
 
-For more information, see https://support.microsoft.com/kb/2696547</string>
-                  <string id="Pol_SecGuide_SMBv1ClientDriver">Configure SMB v1 client driver</string>
-                  <string id="Pol_SecGuide_SMBv1ClientDriver_Help">Configures the SMB v1 client driver's start type.
+Pour plus d'informations, consultez https://support.microsoft.com/kb/2696547</string>
+                  <string id="Pol_SecGuide_SMBv1ClientDriver">Configurer le client SMB v1</string>
+                  <string id="Pol_SecGuide_SMBv1ClientDriver_Help">Configure le type de démarrage du client SMB v1.
 
-To disable client-side processing of the SMBv1 protocol, select the "Enabled" radio button, then select "Disable driver" from the dropdown.
-WARNING: DO NOT SELECT THE "DISABLED" RADIO BUTTON UNDER ANY CIRCUMSTANCES!
+Pour désactiver le traitement côté client du protocole SMBv1, activez cette politique, puis sélectionnez « Désactiver le pilote » dans la liste déroulante.
 
-For Windows 7 and Servers 2008, 2008R2, and 2012, you must also configure the "Configure SMB v1 client (extra setting needed for pre-Win8.1/2012R2)" setting.
+AVERTISSEMENT : NE SÉLECTIONNEZ EN AUCUN CAS LE BOUTON RADIO « DÉSACTIVÉ » !
 
-To restore default SMBv1 client-side behavior, select "Enabled" and choose the correct default from the dropdown:
-* "Manual start" for Windows 7 and Windows Servers 2008, 2008R2, and 2012;
-* "Automatic start" for Windows 8.1 and Windows Server 2012R2 and newer.
+Pour Windows 7 et les versions Server 2008, 2008R2 et 2012, vous devez également configurer le paramètre « Configurer le client SMB v1 (paramètre supplémentaire requis pour les versions antérieures à Win8.1/2012R2) ».
 
-Changes to this setting require a reboot to take effect.
+Pour restaurer le comportement par défaut côté client de SMBv1, sélectionnez « Activé » et choisissez la valeur par défaut correcte dans la liste déroulante :
+* « Démarrage manuel » pour Windows 7 et Windows Server 2008, 2008R2 et 2012 ;
+* « Démarrage automatique » pour Windows 8.1 et Windows Server 2012R2 et versions ultérieures.
 
-For more information, see https://support.microsoft.com/kb/2696547 </string>
-                  <string id="SMB1DriverDisable">Disable driver (recommended)</string>
-                  <string id="SMB1DriverManualStart">Manual start (default for Win7/2008/2008R2/2012)</string>
-                  <string id="SMB1DriverAutomaticStart">Automatic start (default for Win8.1/2012R2/newer)</string>
+Les modifications apportées à ce paramètre nécessitent un redémarrage pour prendre effet.
+
+Pour plus d'informations, consultez https://support.microsoft.com/kb/2696547 </string>
+                  <string id="SMB1DriverDisable">Désactiver le service (recommandé)</string>
+                  <string id="SMB1DriverManualStart">Démarrage manuel (par défaut pour Win7/2008/2008R2/2012)</string>
+                  <string id="SMB1DriverAutomaticStart">Démarrage automatique (par défaut pour Win8.1/2012R2/ultérieur)</string>
                   <!-- NetBT NodeTYpe -->
-                  <string id="Pol_SecGuide_NetbtNodeTypeCfg">NetBT NodeType configuration</string>
-                  <string id="Pol_SecGuide_NetbtNodeTypeCfg_Help">The NetBT NodeType setting determines what methods NetBT uses to register and resolve names:
-* A B-node computer uses broadcasts.
-* A P-node computer uses only point-to-point name queries to a name server (WINS).
-* An M-node computer broadcasts first, and then queries the name server.
-* An H-node computer queries the name server first, and then broadcasts.
-Resolution through LMHOSTS or DNS follows these methods. If the NodeType value is present, it overrides any DhcpNodeType value.
-If neither NodeType nor DhcpNodeType is present, the computer uses B-node if there are no WINS servers configured for the network, or H-node if there is at least one WINS server configured.</string>
-                  <string id="NetBtNodeTypeB">B-node</string>
-                  <string id="NetBtNodeTypeP">P-node (recommended)</string>
-                  <string id="NetBtNodeTypeM">M-node</string>
-                  <string id="NetBtNodeTypeH">H-node</string>
-                  <string id="Pol_SecGuide_Block_Flash">Block Flash activation in Office documents</string>
-                  <string id="Pol_SecGuide_Block_Flash_Help">This policy setting controls whether the Adobe Flash control can be activated by Office documents. Note that activation blocking applies only within Office processes.
+                  <string id="Pol_SecGuide_NetbtNodeTypeCfg">Configuration du NodeType NetBT</string>
+                  <string id="Pol_SecGuide_NetbtNodeTypeCfg_Help">Le paramètre NodeType NetBT détermine les méthodes utilisées par NetBT pour enregistrer et résoudre les noms :
 
-If you enable this policy setting, you can choose from three options to control whether and how Flash is blocked from activation:
+* Un ordinateur de type B utilise les diffusions.
+* Un ordinateur de type P utilise uniquement des requêtes de nom point à point vers un serveur de noms (WINS).
+* Un ordinateur de type M diffuse d'abord, puis interroge le serveur de noms.
+* Un ordinateur de type H interroge d'abord le serveur de noms, puis diffuse.
 
-1. "Block all activation" prevents the Flash control from being loaded, whether directly referenced by the document or indirectly by another embedded object.
+La résolution via LMHOSTS ou DNS suit ces méthodes. Si la valeur NodeType est présente, elle remplace toute valeur DhcpNodeType.
+Si ni NodeType ni DhcpNodeType ne sont présents, l'ordinateur utilise le type B s'il n'y a pas de serveurs WINS configurés pour le réseau, ou le type H s'il y a au moins un serveur WINS configuré.</string>
+                  <string id="NetBtNodeTypeB">Type B</string>
+                  <string id="NetBtNodeTypeP">Type P (recommandé)</string>
+                  <string id="NetBtNodeTypeM">Type M</string>
+                  <string id="NetBtNodeTypeH">Type H</string>
+                  <string id="Pol_SecGuide_Block_Flash">Bloquer l'activation de Flash dans les documents Office</string>
+                  <string id="Pol_SecGuide_Block_Flash_Help">Ce paramètre de stratégie contrôle si le contrôle Adobe Flash peut être activé dans les documents Office. Notez que le blocage de l'activation s'applique uniquement au sein des processus Office.
 
-2. "Block embedding/linking, allow other activation" prevents the Flash control from being loaded when directly referenced by the document, but does not prevent activation through another object.
+Si vous activez ce paramètre de stratégie, vous pouvez choisir parmi trois options pour contrôler si et comment Flash est bloqué à l'activation :
 
-3. "Allow all activation" restores Office's default behavior, allowing the Flash control to be activated.
+1. « Bloquer toute activation » empêche le chargement du contrôle Flash, qu'il soit directement référencé par le document ou indirectement par un autre objet incorporé.
 
-Because this setting is not a true Group Policy setting and "tattoos" the registry, enabling the "Allow all activation" option is the only way to restore default behavior after either of the "Block" options has been applied. We do not recommend configuring this setting to "Disabled," nor to "Not Configured" after it has been enabled.</string>
-                  <string id="BlockFlash_BlockActivation">Block all activation</string>
-                  <string id="BlockFlash_BlockEmbedded">Block embedding/linking, allow other activation</string>
-                  <string id="BlockFlash_AllowAll">Allow all activation</string>
-                  <string id="Pol_SecGuide_Legacy_JScript">Restrict legacy JScript execution for Office</string>
-                  <string id="Pol_SecGuide_Legacy_JScript_Help">This policy setting controls JScript execution per Security Zone within Internet Explorer and WebBrowser Control (WebOC) for Office applications.
+2. « Bloquer l'incorporation/liaison, autoriser autre activation » empêche le chargement du contrôle Flash lorsqu'il est directement référencé par le document, mais n'empêche pas l'activation via un autre objet.
 
-It's important to determine whether legacy JScript is being used to provide business-critical functionality before you enable this setting.
+3. « Autoriser toute activation » restaure le comportement par défaut d'Office, permettant l'activation du contrôle Flash.
 
-If Enabled, Office applications will not execute legacy JScript for the Internet or Restricted Sites zones and users aren't notified by the application that legacy JScript execution is restricted. Modern JScript9 will continue to function for all zones.
+Comme ce paramètre n'est pas un véritable paramètre de stratégie de groupe et qu'il « tatoue » le Registre, l'activation de l'option « Autoriser toute activation » est le seul moyen de restaurer le comportement par défaut après l'application de l'une des options « Bloquer ». Nous ne recommandons pas de configurer ce paramètre sur « Désactivé », ni sur « Non configuré » après son activation.</string>
+                  <string id="BlockFlash_BlockActivation">Bloquer toute activation</string>
+                  <string id="BlockFlash_BlockEmbedded">Bloquer l'incorporation/liaison, autoriser autre activation</string>
+                  <string id="BlockFlash_AllowAll">Autoriser toute activation</string>
+                  <string id="Pol_SecGuide_Legacy_JScript">Restreindre l'exécution de JScript hérité pour Office</string>
+                  <string id="Pol_SecGuide_Legacy_JScript_Help">Ce paramètre de stratégie contrôle l'exécution de JScript par zone de sécurité dans Internet Explorer et le contrôle WebBrowser (WebOC) pour les applications Office.
 
-If Disabled or Not Configured JScript will function without any restrictions.
+Il est important de déterminer si JScript hérité est utilisé pour fournir des fonctionnalités critiques pour l'entreprise avant d'activer ce paramètre.
 
-The values are set in hexadecimal and should be converted prior to changing the setting value. To learn more about Internet Explorer Feature Control Key and the Restrict JScript process-level policy for Windows, please refer to: https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/general-info/ee330734(v=vs.85)#restrict-jscript-at-a-process-level </string>
-                  <string id="Pol_SecGuide_RpcIncomingAuthenticationLevelPolicy">Configure RPC packet level privacy setting for incoming connections</string>
-                  <string id="Pol_SecGuide_RpcIncomingAuthenticationLevelPolicy_Help">This policy setting controls whether packet level privacy is enabled for RPC for incoming connections.
+Si activé, les applications Office n'exécuteront pas JScript hérité pour les zones Internet ou Sites sensibles et les utilisateurs ne sont pas informés par l'application que l'exécution de JScript hérité est restreinte. JScript9 moderne continuera de fonctionner pour toutes les zones.
 
-By default packet level privacy is enabled for RPC for incoming connections.
+Si désactivé ou non configuré, JScript fonctionnera sans aucune restriction.
 
-If you enable or do not configure this policy setting, packet level privacy is enabled for RPC for incoming connections.</string>
+Les valeurs sont définies en hexadécimal et doivent être converties avant de modifier la valeur du paramètre. Pour en savoir plus sur la clé de contrôle des fonctionnalités d'Internet Explorer et la stratégie de restriction de JScript au niveau du processus pour Windows, veuillez consulter : https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/general-info/ee330734(v=vs.85)#restrict-jscript-at-a-process-level </string>
+                  <string id="Pol_SecGuide_RpcIncomingAuthenticationLevelPolicy">Configurer le paramètre de confidentialité au niveau des paquets RPC pour les connexions entrantes</string>
+                  <string id="Pol_SecGuide_RpcIncomingAuthenticationLevelPolicy_Help">Ce paramètre de stratégie contrôle si la confidentialité au niveau des paquets est activée pour RPC pour les connexions entrantes.
+
+Par défaut, la confidentialité au niveau des paquets est activée pour RPC pour les connexions entrantes.
+
+Si vous activez ou ne configurez pas ce paramètre de stratégie, la confidentialité au niveau des paquets est activée pour RPC pour les connexions entrantes.</string>
             </stringTable>
             <presentationTable>
                   <presentation id="Pol_SecGuide_SMBv1ClientDriver">
-                        <dropdownList refId="Pol_SecGuide_SMB1ClientDriver" noSort="true" defaultItem="0">Configure MrxSmb10 driver</dropdownList>
+                        <dropdownList refId="Pol_SecGuide_SMB1ClientDriver" noSort="true" defaultItem="0">Configurer le pilote MrxSmb10</dropdownList>
                   </presentation>
                   <presentation id="Pol_SecGuide_SMBv1ClientWin7">
-                        <multiTextBox refId="Pol_SecGuide_SMB1Win7LMSDepends">Configure LanmanWorkstation dependencies</multiTextBox>
+                        <multiTextBox refId="Pol_SecGuide_SMB1Win7LMSDepends">Configurer les dépendances de LanmanWorkstation</multiTextBox>
                   </presentation>
                   <presentation id="Pol_SecGuide_NetbtNodeTypeCfg">
-                        <dropdownList refId="Pol_SecGuide_SecGuide_NetbtNodeTypeCfg" noSort="true" defaultItem="0">Configure NetBT NodeType</dropdownList>
+                        <dropdownList refId="Pol_SecGuide_SecGuide_NetbtNodeTypeCfg" noSort="true" defaultItem="0">Configurer le NodeType NetBT</dropdownList>
                   </presentation>
                   <presentation id="Pol_SecGuide_LdapEnforceChannelBinding">
-                        <dropdownList refId="Pol_SecGuide_LdapEnforceChannelBinding" noSort="true" defaultItem="0">Configure LdapEnforceChannelBinding</dropdownList>
+                        <dropdownList refId="Pol_SecGuide_LdapEnforceChannelBinding" noSort="true" defaultItem="0">Configurer LdapEnforceChannelBinding</dropdownList>
                   </presentation>
                   <presentation id="Pol_SecGuide_Block_Flash">
-                        <dropdownList refId="Pol_SecGuide_Block_Flash" noSort="true" defaultItem="0">Block Flash player in Office</dropdownList>
+                        <dropdownList refId="Pol_SecGuide_Block_Flash" noSort="true" defaultItem="0">Bloquer le lecteur Flash dans Office</dropdownList>
                   </presentation>
                   <presentation id="Pol_SecGuide_Legacy_JScript">
-                        <decimalTextBox refId="POL_SG_excel" defaultValue="69632"> Excel: </decimalTextBox>
-                        <decimalTextBox refId="POL_SG_mspub" defaultValue="69632"> Publisher: </decimalTextBox>
-                        <decimalTextBox refId="POL_SG_powerpnt" defaultValue="69632"> PowerPoint: </decimalTextBox>
-                        <decimalTextBox refId="POL_SG_onenote" defaultValue="69632"> OneNote: </decimalTextBox>
-                        <decimalTextBox refId="POL_SG_visio" defaultValue="69632"> Visio: </decimalTextBox>
-                        <decimalTextBox refId="POL_SG_winproj" defaultValue="69632"> Project: </decimalTextBox>
-                        <decimalTextBox refId="POL_SG_winword" defaultValue="69632"> Word: </decimalTextBox>
-                        <decimalTextBox refId="POL_SG_outlook" defaultValue="69632"> Outlook: </decimalTextBox>
-                        <decimalTextBox refId="POL_SG_msaccess" defaultValue="69632"> Access: </decimalTextBox>
+                        <decimalTextBox refId="POL_SG_excel" defaultValue="69632"> Excel : </decimalTextBox>
+                        <decimalTextBox refId="POL_SG_mspub" defaultValue="69632"> Publisher : </decimalTextBox>
+                        <decimalTextBox refId="POL_SG_powerpnt" defaultValue="69632"> PowerPoint : </decimalTextBox>
+                        <decimalTextBox refId="POL_SG_onenote" defaultValue="69632"> OneNote : </decimalTextBox>
+                        <decimalTextBox refId="POL_SG_visio" defaultValue="69632"> Visio : </decimalTextBox>
+                        <decimalTextBox refId="POL_SG_winproj" defaultValue="69632"> Project : </decimalTextBox>
+                        <decimalTextBox refId="POL_SG_winword" defaultValue="69632"> Word : </decimalTextBox>
+                        <decimalTextBox refId="POL_SG_outlook" defaultValue="69632"> Outlook : </decimalTextBox>
+                        <decimalTextBox refId="POL_SG_msaccess" defaultValue="69632"> Access : </decimalTextBox>
                   </presentation>
                   <presentation id="CopyFilesPolicy">
-                        <text>Select the method by which Queue-specific files will be processed.</text>
-                        <dropdownList defaultItem="1" noSort="true" refId="CopyFilesPolicy_Enum">Manage processing of Queue-Specific files:</dropdownList>
+                        <text>Sélectionnez la méthode par laquelle les fichiers spécifiques à la file d'attente seront traités.</text>
+                        <dropdownList defaultItem="1" noSort="true" refId="CopyFilesPolicy_Enum">Gérer le traitement des fichiers spécifiques à la file d'attente :</dropdownList>
                   </presentation>
             </presentationTable>
       </resources>

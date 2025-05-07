@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
       <displayName>
-            Paramètres de durcissement système additionels
+            Paramètres de durcissement système additionnels
       </displayName>
       <description>
-            Paramètres de durcissement système additionels
+            Paramètres de durcissement système additionnels
       </description>
       <resources>
             <stringTable>
@@ -14,7 +14,7 @@
                   <!-- POLICIES -->
                   <!-- System policies -->
                   <string id="LSA_RunAsPPL">Activer le durcissement additionnel du processus LSA</string>
-                  <string id="LSA_RunAsPPL_Explain">Activer cette stratégie pour permettre au processus LSA de se lancer en tant que PPL (Protected Process Light), interdisant son débuggage.</string>
+                  <string id="LSA_RunAsPPL_Explain">Activer cette stratégie pour permettre au processus LSA de se lancer en tant que PPL (Protected Process Light), interdisant son débogage.</string>
                   <string id="LSA_SamDisableListenOnTCP">Désactiver l'écoute TCP du serveur SAM</string>
                   <string id="LSA_SamDisableListenOnTCP_Explain">Par défaut, le serveur SAM (lsass.exe) écoute en permanence sur un port TCP aléatoire, et sur toutes les interfaces réseau.
 
@@ -55,7 +55,7 @@ Ce paramètre n'affecte que les versions 32 bits de Windows.</string>
 
 - TLS est obligatoire pour l'authentification du serveur et le chiffrement du lien de communication.
 - Un haut niveau de chiffrement (128 bits) est requis pour le lien de communication.
-- L'authentification de l'utilisateur est exigée à la connexion.
+- L'authentification de l'utilisateur est exigée lors de la connexion.
 
 Désactiver cette stratégie n'a pas d'effet.</string>
                   <string id="LMAuth">Durcissement du processus d'authentification par le réseau</string>
@@ -77,13 +77,13 @@ NOTE : ces paramètres peuvent empêcher l'ouverture d'une session liée au doma
                   <string id="ASLR_Explain">Activer cette stratégie force l'utilisation de la randomisation de l'espace mémoire des images relocalisables, même si elles n'exposent pas cette possibilité explicitement.
             
 Désactiver cette stratégie désactivera également l'utilisation forcée de l'ASLR.</string>
-                  <string id="User32_Exception">Correctif registre additionel pour CVE-2015-6161</string>
+                  <string id="User32_Exception">Correctif registre additionnel pour CVE-2015-6161</string>
                   <string id="User32_Exception_Explain">Activer cette stratégie positionne la valeur de registre FEATURE_ALLOW_USER32_EXCEPTION_HANDLER_HARDENING à 1.
 
 Cela permet de corriger complètement la vulnérabilité CVE-2015-6161 de contournement de l'ASLR dans Internet Explorer. Pour plus d'informations, se référer au bulletin de sécurité MS15-124 (https://docs.microsoft.com/fr-fr/security-updates/SecurityBulletins/2015/ms15-124).
 
 Désactiver cette stratégie positionne la valeur de registre à 0.</string>
-                  <string id="Info_Disclosure">Correctif registre additionel pour CVE-2017-8529</string>
+                  <string id="Info_Disclosure">Correctif registre additionnel pour CVE-2017-8529</string>
                   <string id="Info_Disclosure_Explain">Activer cette stratégie positionne la valeur de registre FEATURE_ENABLE_PRINT_INFO_DISCLOSURE_FIX à 1.
 
 Cela permet de corriger complètement la vulnérabilité CVE-2017-8529 de divulgation d'information dans les navigateurs Microsoft. Pour plus d'informations, se référer au guide des mises à jour de sécurité associé à la CVE (https://portal.msrc.microsoft.com/fr-fr/security-guidance/advisory/CVE-2017-8529).
@@ -94,24 +94,24 @@ Désactiver cette stratégie positionne la valeur de registre à 0.</string>
             
 Par défaut, le nombre d'itérations de l'algorithme PBKDF2-SHA1 est fixé à 10240. Activer ce paramètre permet de modifier ce nombre d'itérations, en suivant la logique suivante :
             
-- Pour une valeur inférieure ou égale à 10240, le nombre d'itérations est mutiplié par 1024 (par exemple, une valeur de 20 donne 20480 itérations).
+- Pour une valeur inférieure ou égale à 10240, le nombre d'itérations est multiplié par 1024 (par exemple, une valeur de 20 donne 20480 itérations).
 - Pour une valeur supérieure à 10240, il s'agit du nombre d'itérations (arrondi à 1024).
 
 La valeur recommandée dépend de votre environnement et de la puissance CPU disponible, un grand nombre d'itérations pouvant engendrer un ralentissement important du processus d'ouverture de session.
 
 Lorsque l'option est activée, la valeur est fixée à 1954 (2 000 896 itérations). C'est la valeur recommandée au 29 décembre 2022 pour l'algorithme PBKDF2-HMAC-SHA1, en prenant en compte une puissance GPU équivalente à une RTX 4090 dans un modèle d'attaque par force brute hors ligne.
 
-Plus d'informations:
+Plus d'informations :
 - https://tobtu.com/minimum-password-settings/
 - https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#pbkdf2</string>
                   <string id="PSLockDownPolicy">Activer le mode Contraint du langage PowerShell</string>
                   <string id="PSLockDownPolicy_Explain">Le langage PowerShell, depuis la version 5, peut s'exécuter en plusieurs modes, configurables au moyen de la variable d'environnement __PSLockdownPolicy. Cette variable permet de contraindre le langage en limitant les actions faisables avec le langage, et notamment en restreignant les usages inconsidérés des API Win32.
             
-NOTE : cette stratégie n'est pas une façon robuste d'activer le mode Contraint, une variable d'environnement peut facilement être ré-écrite par un attaquant. Le mode Contraint est activé de façon robuste lorsque AppLocker et/ou WDAC sont utilisés.</string>
+NOTE : cette stratégie n'est pas une façon robuste d'activer le mode Contraint, une variable d'environnement peut facilement être réécrite par un attaquant. Le mode Contraint est activé de façon robuste lorsque AppLocker et/ou WDAC sont utilisés.</string>
                   <string id="AdminShare_Wks">Désactiver les partages administratifs sur les stations de travail</string>
-                  <string id="AdminShare_Wks_Explain">Les partages administratifs sont des partages créés par défaut à l'installation du système. Ils permettent notamment aux administrateurs d'accéder à distance aux périphériques disque en mode bloc, aux périphériques IPC et aux imprimantes réseau. Ces partages dépendant du service Station de Travail, ils ne sont plus accessibles si celui-ci à été désactivé.</string>
+                  <string id="AdminShare_Wks_Explain">Les partages administratifs sont des partages créés par défaut à l'installation du système. Ils permettent notamment aux administrateurs d'accéder à distance aux périphériques disque en mode bloc, aux périphériques IPC et aux imprimantes réseau. Ces partages dépendant du service Station de Travail, ils ne sont plus accessibles si celui-ci a été désactivé.</string>
                   <string id="AdminShare_Srv">Désactiver les partages administratifs sur serveurs</string>
-                  <string id="AdminShare_Srv_Explain">Les partages administratifs sont des partages créés par défaut à l'installation du système. Ils permettent notamment aux administrateurs d'accéder à distance aux périphériques disque en mode bloc, aux périphériques IPC et aux imprimantes réseau. Ces partages dépendant du service Serveur, ils ne sont plus accessibles si celui-ci à été désactivé.</string>
+                  <string id="AdminShare_Srv_Explain">Les partages administratifs sont des partages créés par défaut à l'installation du système. Ils permettent notamment aux administrateurs d'accéder à distance aux périphériques disque en mode bloc, aux périphériques IPC et aux imprimantes réseau. Ces partages dépendant du service Serveur, ils ne sont plus accessibles si celui-ci a été désactivé.</string>
                   <string id="Pol_SecGuide_PrintDriver">Limiter l'installation des pilotes d'impression aux Administrateurs</string>
                   <string id="Pol_SecGuide_PrintDriver_Help">Détermine si les utilisateurs non privilégiés peuvent installer des pilotes d'impression.
 
@@ -127,7 +127,7 @@ Informations complémentaires : https://support.microsoft.com/fr-fr/topic/kb5005
 
 Activer cette politique permet de limiter les attaques par clonage de certificats de signature de code. Il est recommandé d'activer cette politique.</string>
                   <string id="AcrobatAI">Activer les fonctionnalités d'IA génératives dans Acrobat et Acrobat Reader</string>
-                  <string id="AcrobatAI_Help">Les fonctionnalités d'IA génératives sont activées par défaut dans Acrobat et Acrobat Reader. Cette politique permet de contrôler le status de ces fonctionnalités.
+                  <string id="AcrobatAI_Help">Les fonctionnalités d'IA génératives sont activées par défaut dans Acrobat et Acrobat Reader. Cette politique permet de contrôler le statut de ces fonctionnalités.
 
 Activer cette politique activera les fonctionnalités d'IA génératives.
 
@@ -137,7 +137,7 @@ Désactiver cette politique désactivera ces fonctionnalités. Il est recommand�
 
 Ces stratégies permettent de se prémunir de la CVE-2023-24932, aussi connue sous le nom de BlackLotus, et plus généralement des vulnérabilités récentes liées au chargeur d'amorçage.
 
-IMPORTANT : veuillez lire attentivement la documentation de Microsoft au sujet de ces correctifs, ainsi que les étapes préliminaires et postliminaires à appliquer en plus de cette clef de Registre, autrement vous pourriez rendre votre système non-bootable :
+IMPORTANT : veuillez lire attentivement la documentation de Microsoft au sujet de ces correctifs, ainsi que les étapes préliminaires et postliminaires à appliquer en plus de cette clef de Registre, autrement vous pourriez rendre votre système non-démarrable :
 
 - https://support.microsoft.com/fr-fr/topic/kb5025885-comment-g%C3%A9rer-les-r%C3%A9vocations-du-gestionnaire-de-d%C3%A9marrage-windows-pour-les-modifications-de-d%C3%A9marrage-s%C3%A9curis%C3%A9-associ%C3%A9es-%C3%A0-cve-2023-24932-41a975df-beb2-40c1-99a3-b3ff139f832d
 - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-24932
@@ -156,7 +156,7 @@ Les options possibles sont :
 
 - Forcer l'ouverture d'une nouvelle fenêtre avec droits élevés (comportement par défaut)
 - Désactiver les entrées/sorties du processus appelé
-- Executer dans la fenêtre courante
+- Exécuter dans la fenêtre courante
 - Désactiver la fonctionnalité
 
 Il est recommandé d'utiliser le comportement par défaut d'ouverture dans une nouvelle fenêtre.</string>
@@ -167,7 +167,7 @@ Il est recommandé d'utiliser le comportement par défaut d'ouverture dans une n
                   <string id="MandatoryVBS">Activer la sécurité basée sur la virtualisation en mode Obligatoire</string>
                   <string id="MandatoryVBS_Explain">Cette politique contrôle l'activation du mode Obligatoire pour la sécurité basée sur la virtualisation (VBS).
 
-Le mode Obligatoire est une nouvelle fonctionnalité introduite pour prévenir les attaques par rétrogadation (Windows Downdate notamment) affectant les composants liés à la sécurité basée sur la virtualisation, comme le Secure Kernel et les composants de l'hyperviseur. Ce mode force la vérification en intégrité et en version lors du démarrage de ces composants, ce qui peut également conduire à un déni de service au démarrage du système si une violation est détectée.
+Le mode Obligatoire est une nouvelle fonctionnalité introduite pour prévenir les attaques par rétrogradation (Windows Downdate notamment) affectant les composants liés à la sécurité basée sur la virtualisation, comme le Secure Kernel et les composants de l'hyperviseur. Ce mode force la vérification en intégrité et en version lors du démarrage de ces composants, ce qui peut également conduire à un déni de service au démarrage du système si une violation est détectée.
 
 NOTE : si la sécurité basée sur la virtualisation est déjà activée avec un verrouillage par l'UEFI, cette politique est sans effet, car la politique de sécurité de la fonction VBS est inscrite dans une variable UEFI non modifiable par le système. Cette variable doit être effacée à l'aide de l'utilitaire bcedit.exe avant d'activer le mode Obligatoire et de re-activer le verrouillage par UEFI de la nouvelle politique. La procédure de désactivation est documentée par Microsoft :
 
@@ -179,11 +179,11 @@ Activer cette politique si le verrouillage UEFI est actif est sans effet.
 
 Désactiver cette politique désactivera le mode Obligatoire, seulement si le verrouillage UEFI n'est pas activé. Autrement, désactiver cette politique est sans effet.</string>
                   <string id="CoInstallers">Bloquer l'installation des co-installeurs des pilotes matériels</string>
-                  <string id="CoInstallers_Help">Un co-installeur est une librairie Win32 en espace utilisateur qui complète l'installation d'un driver en effectuant des tâches de configuration annexes (écriture Registre, installation d'application additionnelle, etc) non disponibles dans un fichier INF standard.
+                  <string id="CoInstallers_Help">Un co-installeur est une bibliothèque Win32 en espace utilisateur qui complète l'installation d'un driver en effectuant des tâches de configuration annexes (écriture Registre, installation d'application additionnelle, etc) non disponibles dans un fichier INF standard.
 
 Si vous activez ce paramètre, l'exécution des co-installeurs sera bloquée. Pour certains périphériques spécifiques (claviers paramétrables, cartes graphiques, etc), il sera nécessaire d'installer manuellement le logiciel de contrôle à partir du site du fabricant.
 
-Si vous désactivez ce paramètre, l'exécution es co-installeurs sera autorisée, ce qui pose un risque de sécurité important (exécution de code non maîtrisé sur le système).</string>
+Si vous désactivez ce paramètre, l'exécution des co-installeurs sera autorisée, ce qui pose un risque de sécurité important (exécution de code non maîtrisé sur le système).</string>
                   <string id="DefenderSandboxing">Activer le bac à sable de Windows Defender</string>
                   <string id="DefenderSandboxing_Explain">Cette politique permet d'activer le bac à sable pour le processus principal de Windows Defender, permettant à celui-ci d'appliquer des durcissements modernes au processus (ALSR, CFG, DEP, signature du code chargé, ...)
 
@@ -195,7 +195,7 @@ Plus d'informations : https://www.microsoft.com/en-us/security/blog/2018/10/26/w
                   </presentation>
                   <presentation id="MicroarchHardening_Presentation">
                         <dropdownList refId="MicroarchHardening_DropdownList" noSort="true" defaultItem="1">Sélectionner une option :</dropdownList>
-                        <checkBox refId="HyperVMitigations">Activer le durcissement pour les machines virtuelles Hyper-V (version 8.0 et inférieur)</checkBox>
+                        <checkBox refId="HyperVMitigations">Activer le durcissement pour les machines virtuelles Hyper-V (version 8.0 et versions inférieures)</checkBox>
                   </presentation>
                   <presentation id="BlackLotusMitigation_Presentation">
                         <dropdownList refId="BlackLotusMitigation_DropdownList" noSort="true" defaultItem="0">Sélectionner une étape :</dropdownList>
