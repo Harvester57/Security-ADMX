@@ -129,7 +129,6 @@
         </policy>
         <!-- Disable same-desktop credential exposure -->
         <policy name="Pol_SecGuide_0301_RemoveRunasdifferentuser" class="Machine" displayName="$(string.Pol_SecGuide_RemoveRunasdifferentuser)" explainText="$(string.Pol_SecGuide_RemoveRunasdifferentuser_Help)" key="SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer">
-            >
             <parentCategory ref="parent:Cat_MSFT" />
             <supportedOn ref="windows:SUPPORTED_WindowsVista" />
             <enabledList>
