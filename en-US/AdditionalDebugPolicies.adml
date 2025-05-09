@@ -16,6 +16,11 @@
 It requires you to enable KASAN on your system and recompile your kernel driver with a specific MSVC compiler flag.
 
 This policy controls KASAN support in the kernel. Enabling this policy enables KASAN support. Disabling this policy disables KASAN support.</string>
+                  <string id="EnableDetailedBSOD">Enable detailed Blue Screens of Death (BSOD)</string>
+                  <string id="EnableDetailedBSOD_Explain">This policy controls whether detailed information is displayed during a Blue Screen of Death (BSOD):
+
+- If this policy is disabled, Windows will not display detailed stop error information on the blue screen (default).
+- If this policy is enabled, Windows will display detailed information, similar to older versions of Windows, which can be useful for troubleshooting the cause of the BSOD.</string>
             </stringTable>
       </resources>
 </policyDefinitionResources>

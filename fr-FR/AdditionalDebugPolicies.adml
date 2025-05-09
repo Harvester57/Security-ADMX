@@ -16,6 +16,11 @@
 Cela nécessite d'activer KASAN sur votre système et de recompiler votre pilote de noyau avec un paramètre de compilation MSVC spécifique.
 
 Cette politique contrôle le support de KASAN au niveau du noyau. Activer cette politique activera le support de KASAN. Désactiver cette politique désactivera le support de KASAN.</string>
+                  <string id="EnableDetailedBSOD">Activer les écrans bleus de la mort (BSOD) détaillés</string>
+                  <string id="EnableDetailedBSOD_Explain">Cette politique contrôle si des informations détaillées sont affichées lors d'un écran bleu de la mort (BSOD) :
+
+- Si cette politique est désactivée, Windows n'affichera pas d'informations d'erreur d'arrêt détaillées sur l'écran bleu (par défaut).
+- Si cette politique est activée, Windows affichera des informations détaillées, similaires aux anciennes versions de Windows, ce qui peut être utile pour dépanner la cause du BSOD.</string>
             </stringTable>
       </resources>
 </policyDefinitionResources>

@@ -19,5 +19,15 @@
 				<decimal value="0" />
 			</disabledValue>
 		</policy>
+		<policy name="EnableDetailedBSOD" class="Machine" displayName="$(string.EnableDetailedBSOD)" explainText="$(string.EnableDetailedBSOD_Explain)" key="SYSTEM\CurrentControlSet\Control\CrashControl" valueName="DisplayParameters">
+			<parentCategory ref="parent:Cat_Debug" />
+			<supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+			<enabledValue>
+				<decimal value="1" />
+			</enabledValue>
+			<disabledValue>
+				<decimal value="0" />
+			</disabledValue>
+		</policy>
 	</policies>
 </policyDefinitions>
