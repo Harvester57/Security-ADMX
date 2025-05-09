@@ -186,10 +186,6 @@ Désactiver cette politique désactivera le mode Obligatoire, seulement si le ve
 Si vous activez ce paramètre, l'exécution des co-installeurs sera bloquée. Pour certains périphériques spécifiques (claviers paramétrables, cartes graphiques, etc), il sera nécessaire d'installer manuellement le logiciel de contrôle à partir du site du fabricant.
 
 Si vous désactivez ce paramètre, l'exécution des co-installeurs sera autorisée, ce qui pose un risque de sécurité important (exécution de code non maîtrisé sur le système).</string>
-                  <string id="DefenderSandboxing">Activer le bac à sable de Windows Defender</string>
-                  <string id="DefenderSandboxing_Explain">Cette politique permet d'activer le bac à sable pour le processus principal de Windows Defender, permettant à celui-ci d'appliquer des durcissements modernes au processus (ALSR, CFG, DEP, signature du code chargé, ...)
-
-Plus d'informations : https://www.microsoft.com/en-us/security/blog/2018/10/26/windows-defender-antivirus-can-now-run-in-a-sandbox/</string>
             </stringTable>
             <presentationTable>
                   <presentation id="MSCacheV2_Iteration">

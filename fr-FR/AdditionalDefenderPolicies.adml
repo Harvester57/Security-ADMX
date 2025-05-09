@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0"
+      xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+      <displayName>
+            Paramètres de durcissement supplémentaires pour Defender
+      </displayName>
+      <description>
+            Paramètres de durcissement supplémentaires pour Defender
+      </description>
+      <resources>
+            <stringTable>
+                  <!-- CATEGORIES -->
+                  <string id="Defender">Paramètres de durcissement pour Windows Defender</string>
+                  <string id="ASR">Règles de réduction de la surface d'attaque (ASR)</string>
+                  <!-- POLICIES -->
+                  <string id="DefenderSandboxing">Activer le bac à sable de Windows Defender</string>
+                  <string id="DefenderSandboxing_Explain">Cette politique permet d'activer le bac à sable pour le processus principal de Windows Defender, permettant à celui-ci d'appliquer des durcissements modernes au processus (ALSR, CFG, DEP, signature du code chargé, ...)
+
+Plus d'informations : https://www.microsoft.com/en-us/security/blog/2018/10/26/windows-defender-antivirus-can-now-run-in-a-sandbox/</string>
+                  <string id="ExploitGuard_ASR_Rules_Lsass">Bloquer le vol d'informations d'identification du sous-système de l'autorité de sécurité locale Windows (lsass.exe)</string>
+                  <string id="ExploitGuard_ASR_Rules_Lsass_Explain">Cette règle aide à prévenir le vol d'informations d'identification en bloquant les tentatives d'injection de code ciblant lsass.exe.
+
+L'activation de cette règle ne fournit pas de protection supplémentaire si la protection LSA est activée, car la règle ASR et la protection LSA fonctionnent de manière similaire. Cependant, lorsque la protection LSA ne peut pas être activée, cette règle peut être configurée pour fournir une protection équivalente contre les logiciels malveillants qui ciblent lsass.exe.</string>
+                  <string id="ExploitGuard_ASR_Rules_Drivers">Bloquer l'abus de pilotes signés vulnérables exploités</string>
+                  <string id="ExploitGuard_ASR_Rules_Drivers_Explain">Cette règle empêche une application d'écrire un pilote signé vulnérable sur le disque.</string>
+                  <string id="ExploitGuard_ASR_Rules_AdobeReader">Empêcher Adobe Reader de créer des processus enfants</string>
+                  <string id="ExploitGuard_ASR_Rules_AdobeReader_Explain">Cette règle prévient les attaques en empêchant Adobe Reader de créer des processus.</string>
+                  <string id="ExploitGuard_ASR_Rules_Office_CreateProcess">Empêcher toutes les applications Office de créer des processus enfants</string>
+                  <string id="ExploitGuard_ASR_Rules_Office_CreateProcess_Explain">Cette règle empêche les applications Office de créer des processus enfants. Les applications Office incluent Word, Excel, PowerPoint, OneNote et Access.</string>
+                  <string id="ExploitGuard_ASR_Rules_Email">Bloquer le contenu exécutable du client de messagerie et du webmail</string>
+                  <string id="ExploitGuard_ASR_Rules_Email_Explain">Cette règle empêche les e-mails ouverts dans l'application Microsoft Outlook, ou Outlook.com et d'autres fournisseurs de webmail populaires, de propager les types de fichiers suivants :
+
+- Fichiers exécutables (fichiers avec l'extension .exe, .dll, ou .scr)
+- Fichiers de script (fichiers PowerShell .ps1, Visual Basic .vbs, ou JavaScript .js)</string>
+                  <string id="ExploitGuard_ASR_Rules_SmartScreen">Bloquer l'exécution des fichiers exécutables sauf s'ils répondent à un critère de prévalence, d'âge ou de liste de confiance</string>
+                  <string id="ExploitGuard_ASR_Rules_SmartScreen_Explain">Cette règle empêche le lancement de fichiers exécutables, tels que .exe, .dll ou .scr. Ainsi, le lancement de fichiers exécutables non approuvés ou inconnus peut être risqué, car il n'est pas toujours clair au départ si les fichiers sont malveillants.
+
+Vous devez activer la protection fournie par le cloud pour utiliser cette règle.</string>
+                  <string id="ExploitGuard_ASR_Rules_Obfuscated">Bloquer l'exécution de scripts potentiellement obfusqués</string>
+                  <string id="ExploitGuard_ASR_Rules_Obfuscated_Explain">Cette règle bloque les scripts qui semblent être obfusqués pour masquer un contenu malveillant.
+
+Vous devez activer la protection fournie par le cloud pour utiliser cette règle.</string>
+                  <string id="ExploitGuard_ASR_Rules_Script_Staging">Empêcher JavaScript ou VBScript de lancer du contenu exécutable téléchargé</string>
+                  <string id="ExploitGuard_ASR_Rules_Script_Staging_Explain">Cette règle empêche les scripts de lancer du contenu téléchargé potentiellement malveillant. Les logiciels malveillants écrits en JavaScript ou VBScript agissent souvent comme des téléchargeurs pour récupérer et lancer d'autres logiciels malveillants depuis Internet. Bien que peu courant, les applications métier utilisent parfois des scripts pour télécharger et lancer des programmes d'installation.</string>
+                  <string id="ExploitGuard_ASR_Rules_Office_CreateExecutable">Empêcher les applications Office de créer du contenu exécutable</string>
+                  <string id="ExploitGuard_ASR_Rules_Office_CreateExecutable_Explain">Cette règle empêche les applications Office, y compris Word, Excel et PowerPoint, de créer du contenu exécutable potentiellement malveillant, en bloquant l'écriture de code malveillant sur le disque.</string>
+                  <string id="ExploitGuard_ASR_Rules_Office_Injection">Empêcher les applications Office d'injecter du code dans d'autres processus</string>
+                  <string id="ExploitGuard_ASR_Rules_Office_Injection_Explain">Cette règle bloque les tentatives d'injection de code des applications Office dans d'autres processus. Cette règle s'applique à Word, Excel, OneNote et PowerPoint.</string>
+                  <string id="ExploitGuard_ASR_Rules_OfficeComm_CreateProcess">Empêcher l'application de communication Office de créer des processus enfants</string>
+                  <string id="ExploitGuard_ASR_Rules_OfficeComm_CreateProcess_Explain">Cette règle empêche Outlook de créer des processus enfants, tout en autorisant les fonctions légitimes d'Outlook. Cette règle s'applique uniquement à Outlook et Outlook.com.</string>
+                  <string id="ExploitGuard_ASR_Rules_WMIPersistence">Bloquer la persistance via l'abonnement aux événements WMI</string>
+                  <string id="ExploitGuard_ASR_Rules_WMIPersistence_Explain">Cette règle empêche les logiciels malveillants d'abuser de WMI pour atteindre la persistance sur un appareil.</string>
+                  <string id="ExploitGuard_ASR_Rules_PSExec">Bloquer les créations de processus issues des commandes PSExec et WMI</string>
+                  <string id="ExploitGuard_ASR_Rules_PSExec_Explain">Cette règle bloque l'exécution des processus créés via PsExec et WMI.</string>
+                  <string id="ExploitGuard_ASR_Rules_SafeMode">Bloquer le redémarrage de l'ordinateur en Mode sans échec (aperçu)</string>
+                  <string id="ExploitGuard_ASR_Rules_SafeMode_Explain">Cette règle empêche l'exécution de commandes pour redémarrer les ordinateurs en Mode sans échec.</string>
+                  <string id="ExploitGuard_ASR_Rules_USB">Bloquer les processus non approuvés et non signés exécutés depuis une clé USB</string>
+                  <string id="ExploitGuard_ASR_Rules_USB_Explain">Avec cette règle, les administrateurs peuvent empêcher les fichiers exécutables non signés ou non approuvés de s'exécuter à partir de lecteurs amovibles USB, y compris les cartes SD. Les types de fichiers bloqués incluent les fichiers exécutables (tels que .exe, .dll ou .scr).</string>
+                  <string id="ExploitGuard_ASR_Rules_ToolCopy">Bloquer l'utilisation d'outils système copiés ou usurpés (aperçu)</string>
+                  <string id="ExploitGuard_ASR_Rules_ToolCopy_Explain">Cette règle bloque l'utilisation de fichiers exécutables identifiés comme des copies d'outils système Windows. Ces fichiers sont soit des doublons, soit des imposteurs des outils système d'origine.</string>
+                  <string id="ExploitGuard_ASR_Rules_Webshell">Bloquer la création de Webshell pour les serveurs</string>
+                  <string id="ExploitGuard_ASR_Rules_Webshell_Explain">Cette règle bloque la création de scripts web shell sur Microsoft Server, rôle Exchange.</string>
+                  <string id="ExploitGuard_ASR_Rules_Office_MacroWin32API">Bloquer les appels d'API Win32 à partir des macros Office</string>
+                  <string id="ExploitGuard_ASR_Rules_Office_MacroWin32API_Explain">Cette règle empêche les macros VBA d'appeler les API Win32. La plupart des organisations ne comptent pas sur la capacité d'appeler les API Win32 dans leur fonctionnement quotidien, même si elles utilisent des macros d'autres manières.</string>
+                  <string id="ExploitGuard_ASR_Rules_Ransomware">Utiliser la protection avancée contre les rançongiciels</string>
+                  <string id="ExploitGuard_ASR_Rules_Ransomware_Explain">Cette règle fournit une couche supplémentaire de protection contre les rançongiciels. Elle utilise des heuristiques client et cloud pour déterminer si un fichier ressemble à un rançongiciel. Cette règle ne bloque pas les fichiers qui présentent une ou plusieurs des caractéristiques suivantes :
+
+- Le fichier a déjà été jugé comme sûr par le cloud Microsoft.
+- Le fichier est un fichier signé valide.
+- Le fichier est assez répandu pour ne pas être considéré comme un rançongiciel.
+
+Vous devez activer la protection fournie par le cloud pour utiliser cette règle.</string>
+                  <string id="AuditMode">Mode audit</string>
+                  <string id="WarnMode">Mode avertissement</string>
+                  <string id="BlockMode">Mode blocage</string>
+                  <string id="DisabledMode">Désactivé</string>
+            </stringTable>
+            <presentationTable>
+                  <presentation id="ExploitGuard_ASR_Rules_Lsass">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_Lsass_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>Modes des règles ASR :
+
+Non configuré ou Désactivé : État dans lequel la règle ASR n'est pas activée.
+Mode blocage : État dans lequel la règle ASR est activée.
+Mode audit : État dans lequel la règle ASR est évaluée pour l'effet qu'elle aurait sur l'organisation ou l'environnement si elle était activée (définie sur Mode blocage ou Mode avertissement).
+
+Remarque : La règle ASR « Bloquer le vol d'informations d'identification du sous-système de l'autorité de sécurité locale Windows (lsass.exe) » ne prend pas en charge le mode AVERTISSEMENT.</text>
+                  </presentation>
+                  <presentation id="ExploitGuard_ASR_Rules_Drivers">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_Drivers_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>Modes des règles ASR :
+
+Non configuré ou Désactivé : État dans lequel la règle ASR n'est pas activée.
+Mode blocage : État dans lequel la règle ASR est activée.
+Mode audit : État dans lequel la règle ASR est évaluée pour l'effet qu'elle aurait sur l'organisation ou l'environnement si elle était activée (définie sur Mode blocage ou Mode avertissement).
+Mode avertissement : État dans lequel la règle ASR est activée et présente une notification à l'utilisateur final, mais permet à l'utilisateur final de contourner le blocage.</text>
+                  </presentation>
+                  <presentation id="ExploitGuard_ASR_Rules_AdobeReader">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_AdobeReader_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>Modes des règles ASR :
+
+Non configuré ou Désactivé : État dans lequel la règle ASR n'est pas activée.
+Mode blocage : État dans lequel la règle ASR est activée.
+Mode audit : État dans lequel la règle ASR est évaluée pour l'effet qu'elle aurait sur l'organisation ou l'environnement si elle était activée (définie sur Mode blocage ou Mode avertissement).
+Mode avertissement : État dans lequel la règle ASR est activée et présente une notification à l'utilisateur final, mais permet à l'utilisateur final de contourner le blocage.</text>
+                  </presentation>
+                  <presentation id="ExploitGuard_ASR_Rules_Office_CreateProcess">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_Office_CreateProcess_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>Modes des règles ASR :
+
+Non configuré ou Désactivé : État dans lequel la règle ASR n'est pas activée.
+Mode blocage : État dans lequel la règle ASR est activée.
+Mode audit : État dans lequel la règle ASR est évaluée pour l'effet qu'elle aurait sur l'organisation ou l'environnement si elle était activée (définie sur Mode blocage ou Mode avertissement).
+Mode avertissement : État dans lequel la règle ASR est activée et présente une notification à l'utilisateur final, mais permet à l'utilisateur final de contourner le blocage.</text>
+                  </presentation>
+                  <presentation id="ExploitGuard_ASR_Rules_Email">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_Email_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>Modes des règles ASR :
+
+Non configuré ou Désactivé : État dans lequel la règle ASR n'est pas activée.
+Mode blocage : État dans lequel la règle ASR est activée.
+Mode audit : État dans lequel la règle ASR est évaluée pour l'effet qu'elle aurait sur l'organisation ou l'environnement si elle était activée (définie sur Mode blocage ou Mode avertissement).
+Mode avertissement : État dans lequel la règle ASR est activée et présente une notification à l'utilisateur final, mais permet à l'utilisateur final de contourner le blocage.</text>
+                  </presentation>
+                  <presentation id="ExploitGuard_ASR_Rules_SmartScreen">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_SmartScreen_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>Modes des règles ASR :
+
+Non configuré ou Désactivé : État dans lequel la règle ASR n'est pas activée.
+Mode blocage : État dans lequel la règle ASR est activée.
+Mode audit : État dans lequel la règle ASR est évaluée pour l'effet qu'elle aurait sur l'organisation ou l'environnement si elle était activée (définie sur Mode blocage ou Mode avertissement).
+Mode avertissement : État dans lequel la règle ASR est activée et présente une notification à l'utilisateur final, mais permet à l'utilisateur final de contourner le blocage.</text>
+                  </presentation>
+                  <presentation id="ExploitGuard_ASR_Rules_Obfuscated">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_Obfuscated_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>Modes des règles ASR :
+
+Non configuré ou Désactivé : État dans lequel la règle ASR n'est pas activée.
+Mode blocage : État dans lequel la règle ASR est activée.
+Mode audit : État dans lequel la règle ASR est évaluée pour l'effet qu'elle aurait sur l'organisation ou l'environnement si elle était activée (définie sur Mode blocage ou Mode avertissement).
+Mode avertissement : État dans lequel la règle ASR est activée et présente une notification à l'utilisateur final, mais permet à l'utilisateur final de contourner le blocage.</text>
+                  </presentation>
+                  <presentation id="ExploitGuard_ASR_Rules_Script_Staging">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_Script_Staging_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>Modes des règles ASR :
+
+Non configuré ou Désactivé : État dans lequel la règle ASR n'est pas activée.
+Mode blocage : État dans lequel la règle ASR est activée.
+Mode audit : État dans lequel la règle ASR est évaluée pour l'effet qu'elle aurait sur l'organisation ou l'environnement si elle était activée (définie sur Mode blocage ou Mode avertissement).
+Mode avertissement : État dans lequel la règle ASR est activée et présente une notification à l'utilisateur final, mais permet à l'utilisateur final de contourner le blocage.</text>
+                  </presentation>
+                  <presentation id="ExploitGuard_ASR_Rules_Office_CreateExecutable">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_Office_CreateExecutable_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>Modes des règles ASR :
+
+Non configuré ou Désactivé : État dans lequel la règle ASR n'est pas activée.
+Mode blocage : État dans lequel la règle ASR est activée.
+Mode audit : État dans lequel la règle ASR est évaluée pour l'effet qu'elle aurait sur l'organisation ou l'environnement si elle était activée (définie sur Mode blocage ou Mode avertissement).
+Mode avertissement : État dans lequel la règle ASR est activée et présente une notification à l'utilisateur final, mais permet à l'utilisateur final de contourner le blocage.</text>
+                  </presentation>
+                  <presentation id="ExploitGuard_ASR_Rules_Office_Injection">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_Office_Injection_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>Modes des règles ASR :
+
+Non configuré ou Désactivé : État dans lequel la règle ASR n'est pas activée.
+Mode blocage : État dans lequel la règle ASR est activée.
+Mode audit : État dans lequel la règle ASR est évaluée pour l'effet qu'elle aurait sur l'organisation ou l'environnement si elle était activée (définie sur Mode blocage ou Mode avertissement).
+
+Remarque : La règle ASR « Empêcher les applications Office d'injecter du code dans d'autres processus » ne prend pas en charge le mode AVERTISSEMENT.</text>
+                  </presentation>
+                  <presentation id="ExploitGuard_ASR_Rules_OfficeComm_CreateProcess">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_OfficeComm_CreateProcess_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>Modes des règles ASR :
+
+Non configuré ou Désactivé : État dans lequel la règle ASR n'est pas activée.
+Mode blocage : État dans lequel la règle ASR est activée.
+Mode audit : État dans lequel la règle ASR est évaluée pour l'effet qu'elle aurait sur l'organisation ou l'environnement si elle était activée (définie sur Mode blocage ou Mode avertissement).
+Mode avertissement : État dans lequel la règle ASR est activée et présente une notification à l'utilisateur final, mais permet à l'utilisateur final de contourner le blocage.</text>
+                  </presentation>
+                  <presentation id="ExploitGuard_ASR_Rules_WMIPersistence">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_WMIPersistence_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>Modes des règles ASR :
+
+Non configuré ou Désactivé : État dans lequel la règle ASR n'est pas activée.
+Mode blocage : État dans lequel la règle ASR est activée.
+Mode audit : État dans lequel la règle ASR est évaluée pour l'effet qu'elle aurait sur l'organisation ou l'environnement si elle était activée (définie sur Mode blocage ou Mode avertissement).
+Mode avertissement : État dans lequel la règle ASR est activée et présente une notification à l'utilisateur final, mais permet à l'utilisateur final de contourner le blocage.</text>
+                  </presentation>
+                  <presentation id="ExploitGuard_ASR_Rules_PSExec">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_PSExec_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>Modes des règles ASR :
+
+Non configuré ou Désactivé : État dans lequel la règle ASR n'est pas activée.
+Mode blocage : État dans lequel la règle ASR est activée.
+Mode audit : État dans lequel la règle ASR est évaluée pour l'effet qu'elle aurait sur l'organisation ou l'environnement si elle était activée (définie sur Mode blocage ou Mode avertissement).
+Mode avertissement : État dans lequel la règle ASR est activée et présente une notification à l'utilisateur final, mais permet à l'utilisateur final de contourner le blocage.</text>
+                  </presentation>
+                  <presentation id="ExploitGuard_ASR_Rules_SafeMode">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_SafeMode_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>Modes des règles ASR :
+
+Non configuré ou Désactivé : État dans lequel la règle ASR n'est pas activée.
+Mode blocage : État dans lequel la règle ASR est activée.
+Mode audit : État dans lequel la règle ASR est évaluée pour l'effet qu'elle aurait sur l'organisation ou l'environnement si elle était activée (définie sur Mode blocage ou Mode avertissement).
+Mode avertissement : État dans lequel la règle ASR est activée et présente une notification à l'utilisateur final, mais permet à l'utilisateur final de contourner le blocage.</text>
+                  </presentation>
+                  <presentation id="ExploitGuard_ASR_Rules_USB">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_USB_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>Modes des règles ASR :
+
+Non configuré ou Désactivé : État dans lequel la règle ASR n'est pas activée.
+Mode blocage : État dans lequel la règle ASR est activée.
+Mode audit : État dans lequel la règle ASR est évaluée pour l'effet qu'elle aurait sur l'organisation ou l'environnement si elle était activée (définie sur Mode blocage ou Mode avertissement).
+Mode avertissement : État dans lequel la règle ASR est activée et présente une notification à l'utilisateur final, mais permet à l'utilisateur final de contourner le blocage.</text>
+                  </presentation>
+                  <presentation id="ExploitGuard_ASR_Rules_ToolCopy">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_ToolCopy_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>Modes des règles ASR :
+
+Non configuré ou Désactivé : État dans lequel la règle ASR n'est pas activée.
+Mode blocage : État dans lequel la règle ASR est activée.
+Mode audit : État dans lequel la règle ASR est évaluée pour l'effet qu'elle aurait sur l'organisation ou l'environnement si elle était activée (définie sur Mode blocage ou Mode avertissement).
+Mode avertissement : État dans lequel la règle ASR est activée et présente une notification à l'utilisateur final, mais permet à l'utilisateur final de contourner le blocage.</text>
+                  </presentation>
+                  <presentation id="ExploitGuard_ASR_Rules_Webshell">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_Webshell_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>Modes des règles ASR :
+
+Non configuré ou Désactivé : État dans lequel la règle ASR n'est pas activée.
+Mode blocage : État dans lequel la règle ASR est activée.
+Mode audit : État dans lequel la règle ASR est évaluée pour l'effet qu'elle aurait sur l'organisation ou l'environnement si elle était activée (définie sur Mode blocage ou Mode avertissement).
+Mode avertissement : État dans lequel la règle ASR est activée et présente une notification à l'utilisateur final, mais permet à l'utilisateur final de contourner le blocage.</text>
+                  </presentation>
+                  <presentation id="ExploitGuard_ASR_Rules_Office_MacroWin32API">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_Office_MacroWin32API_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>Modes des règles ASR :
+
+Non configuré ou Désactivé : État dans lequel la règle ASR n'est pas activée.
+Mode blocage : État dans lequel la règle ASR est activée.
+Mode audit : État dans lequel la règle ASR est évaluée pour l'effet qu'elle aurait sur l'organisation ou l'environnement si elle était activée (définie sur Mode blocage ou Mode avertissement).
+Mode avertissement : État dans lequel la règle ASR est activée et présente une notification à l'utilisateur final, mais permet à l'utilisateur final de contourner le blocage.</text>
+                  </presentation>
+                  <presentation id="ExploitGuard_ASR_Rules_Ransomware">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_Ransomware_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>Modes des règles ASR :
+
+Non configuré ou Désactivé : État dans lequel la règle ASR n'est pas activée.
+Mode blocage : État dans lequel la règle ASR est activée.
+Mode audit : État dans lequel la règle ASR est évaluée pour l'effet qu'elle aurait sur l'organisation ou l'environnement si elle était activée (définie sur Mode blocage ou Mode avertissement).
+Mode avertissement : État dans lequel la règle ASR est activée et présente une notification à l'utilisateur final, mais permet à l'utilisateur final de contourner le blocage.</text>
+                  </presentation>
+            </presentationTable>
+      </resources>
+</policyDefinitionResources>

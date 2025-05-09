@@ -1,0 +1,575 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+	<policyNamespaces>
+		<target prefix="AddDefenderPolicies" namespace="AddDefenderPolicies.Policies.AddDefenderPolicies" />
+		<using prefix="windows" namespace="Microsoft.Policies.Windows" />
+		<using prefix="parent" namespace="AddHard.Policies.AddHard" />
+	</policyNamespaces>
+	<resources minRequiredRevision="1.0" />
+	<categories>
+		<!-- Subcategories -->
+		<category name="Defender" displayName="$(string.Defender)">
+			<parentCategory ref="parent:Cat_AddHard" />
+		</category>
+		<category name="ASR" displayName="$(string.ASR)">
+			<parentCategory ref="Defender" />
+		</category>
+	</categories>
+	<policies>
+		<!-- Hardening policies section -->
+		<!-- DEFENDER SETTINGS -->
+		<policy name="DefenderSandboxing" class="Machine" displayName="$(string.DefenderSandboxing)" explainText="$(string.DefenderSandboxing_Explain)" key="SYSTEM\CurrentControlSet\Control\Session Manager\Environment" valueName="MP_FORCE_USE_SANDBOX">
+			<parentCategory ref="Defender" />
+			<supportedOn ref="windows:SUPPORTED_Windows_6_3" />
+			<enabledValue>
+				<string>1</string>
+			</enabledValue>
+			<disabledValue>
+				<string>0</string>
+			</disabledValue>
+		</policy>
+		<!-- Block abuse of exploited vulnerable signed drivers -->
+		<policy name="ExploitGuard_ASR_Rules_Drivers" class="Machine" displayName="$(string.ExploitGuard_ASR_Rules_Drivers)" explainText="$(string.ExploitGuard_ASR_Rules_Drivers_Explain)" presentation="$(presentation.ExploitGuard_ASR_Rules_Drivers)" key="Software\Policies\Microsoft\Windows Defender\Windows Defender Exploit Guard\ASR\Rules">
+			<parentCategory ref="ASR" />
+			<supportedOn ref="windows:SUPPORTED_Windows_10_0_RS3" />
+			<elements>
+				<enum id="ExploitGuard_ASR_Rules_Drivers_Options" valueName="56a863a9-875e-4185-98a7-b882c64b5ce5" required="true">
+					<item displayName="$(string.DisabledMode)">
+						<value>
+							<string>0</string>
+						</value>
+					</item>
+					<item displayName="$(string.AuditMode)">
+						<value>
+							<string>2</string>
+						</value>
+					</item>
+					<item displayName="$(string.WarnMode)">
+						<value>
+							<string>6</string>
+						</value>
+					</item>
+					<item displayName="$(string.BlockMode)">
+						<value>
+							<string>1</string>
+						</value>
+					</item>
+				</enum>
+			</elements>
+		</policy>
+		<!-- Block Adobe Reader from creating child processes -->
+		<policy name="ExploitGuard_ASR_Rules_AdobeReader" class="Machine" displayName="$(string.ExploitGuard_ASR_Rules_AdobeReader)" explainText="$(string.ExploitGuard_ASR_Rules_AdobeReader_Explain)" presentation="$(presentation.ExploitGuard_ASR_Rules_AdobeReader)" key="Software\Policies\Microsoft\Windows Defender\Windows Defender Exploit Guard\ASR\Rules">
+			<parentCategory ref="ASR" />
+			<supportedOn ref="windows:SUPPORTED_Windows_10_0_RS5" />
+			<elements>
+				<enum id="ExploitGuard_ASR_Rules_AdobeReader_Options" valueName="7674ba52-37eb-4a4f-a9a1-f0f9a1619a2c" required="true">
+					<item displayName="$(string.DisabledMode)">
+						<value>
+							<string>0</string>
+						</value>
+					</item>
+					<item displayName="$(string.AuditMode)">
+						<value>
+							<string>2</string>
+						</value>
+					</item>
+					<item displayName="$(string.WarnMode)">
+						<value>
+							<string>6</string>
+						</value>
+					</item>
+					<item displayName="$(string.BlockMode)">
+						<value>
+							<string>1</string>
+						</value>
+					</item>
+				</enum>
+			</elements>
+		</policy>
+		<!-- Block all Office applications from creating child processes -->
+		<policy name="ExploitGuard_ASR_Rules_Office_CreateProcess" class="Machine" displayName="$(string.ExploitGuard_ASR_Rules_Office_CreateProcess)" explainText="$(string.ExploitGuard_ASR_Rules_Office_CreateProcess_Explain)" presentation="$(presentation.ExploitGuard_ASR_Rules_Office_CreateProcess)" key="Software\Policies\Microsoft\Windows Defender\Windows Defender Exploit Guard\ASR\Rules">
+			<parentCategory ref="ASR" />
+			<supportedOn ref="windows:SUPPORTED_Windows_10_0_RS3" />
+			<elements>
+				<enum id="ExploitGuard_ASR_Rules_Office_CreateProcess_Options" valueName="d4f940ab-401b-4efc-aadc-ad5f3c50688a" required="true">
+					<item displayName="$(string.DisabledMode)">
+						<value>
+							<string>0</string>
+						</value>
+					</item>
+					<item displayName="$(string.AuditMode)">
+						<value>
+							<string>2</string>
+						</value>
+					</item>
+					<item displayName="$(string.WarnMode)">
+						<value>
+							<string>6</string>
+						</value>
+					</item>
+					<item displayName="$(string.BlockMode)">
+						<value>
+							<string>1</string>
+						</value>
+					</item>
+				</enum>
+			</elements>
+		</policy>
+		<!-- Block credential stealing from the Windows local security authority subsystem (lsass.exe) -->
+		<policy name="ExploitGuard_ASR_Rules_Lsass" class="Machine" displayName="$(string.ExploitGuard_ASR_Rules_Lsass)" explainText="$(string.ExploitGuard_ASR_Rules_Lsass_Explain)" presentation="$(presentation.ExploitGuard_ASR_Rules_Lsass)" key="Software\Policies\Microsoft\Windows Defender\Windows Defender Exploit Guard\ASR\Rules">
+			<parentCategory ref="ASR" />
+			<supportedOn ref="windows:SUPPORTED_Windows_10_0_RS4" />
+			<elements>
+				<enum id="ExploitGuard_ASR_Rules_Lsass_Options" valueName="9e6c4e1f-7d60-472f-ba1a-a39ef669e4b2" required="true">
+					<item displayName="$(string.DisabledMode)">
+						<value>
+							<string>0</string>
+						</value>
+					</item>
+					<item displayName="$(string.AuditMode)">
+						<value>
+							<string>2</string>
+						</value>
+					</item>
+					<!--The Block credential stealing from the Windows local security authority subsystem ASR rule doesn't support WARN mode. -->
+					<item displayName="$(string.BlockMode)">
+						<value>
+							<string>1</string>
+						</value>
+					</item>
+				</enum>
+			</elements>
+		</policy>
+		<!-- Block executable content from email client and webmail -->
+		<policy name="ExploitGuard_ASR_Rules_Email" class="Machine" displayName="$(string.ExploitGuard_ASR_Rules_Email)" explainText="$(string.ExploitGuard_ASR_Rules_Email_Explain)" presentation="$(presentation.ExploitGuard_ASR_Rules_Email)" key="Software\Policies\Microsoft\Windows Defender\Windows Defender Exploit Guard\ASR\Rules">
+			<parentCategory ref="ASR" />
+			<supportedOn ref="windows:SUPPORTED_Windows_10_0_RS3" />
+			<elements>
+				<enum id="ExploitGuard_ASR_Rules_Email_Options" valueName="be9ba2d9-53ea-4cdc-84e5-9b1eeee46550" required="true">
+					<item displayName="$(string.DisabledMode)">
+						<value>
+							<string>0</string>
+						</value>
+					</item>
+					<item displayName="$(string.AuditMode)">
+						<value>
+							<string>2</string>
+						</value>
+					</item>
+					<item displayName="$(string.WarnMode)">
+						<value>
+							<string>6</string>
+						</value>
+					</item>
+					<item displayName="$(string.BlockMode)">
+						<value>
+							<string>1</string>
+						</value>
+					</item>
+				</enum>
+			</elements>
+		</policy>
+		<!-- Block executable files from running unless they meet a prevalence, age, or trusted list criterion -->
+		<policy name="ExploitGuard_ASR_Rules_SmartScreen" class="Machine" displayName="$(string.ExploitGuard_ASR_Rules_SmartScreen)" explainText="$(string.ExploitGuard_ASR_Rules_SmartScreen_Explain)" presentation="$(presentation.ExploitGuard_ASR_Rules_SmartScreen)" key="Software\Policies\Microsoft\Windows Defender\Windows Defender Exploit Guard\ASR\Rules">
+			<parentCategory ref="ASR" />
+			<supportedOn ref="windows:SUPPORTED_Windows_10_0_RS4" />
+			<elements>
+				<enum id="ExploitGuard_ASR_Rules_SmartScreen_Options" valueName="01443614-cd74-433a-b99e-2ecdc07bfc25" required="true">
+					<item displayName="$(string.DisabledMode)">
+						<value>
+							<string>0</string>
+						</value>
+					</item>
+					<item displayName="$(string.AuditMode)">
+						<value>
+							<string>2</string>
+						</value>
+					</item>
+					<item displayName="$(string.WarnMode)">
+						<value>
+							<string>6</string>
+						</value>
+					</item>
+					<item displayName="$(string.BlockMode)">
+						<value>
+							<string>1</string>
+						</value>
+					</item>
+				</enum>
+			</elements>
+		</policy>
+		<!-- Block execution of potentially obfuscated scripts -->
+		<policy name="ExploitGuard_ASR_Rules_Obfuscated" class="Machine" displayName="$(string.ExploitGuard_ASR_Rules_Obfuscated)" explainText="$(string.ExploitGuard_ASR_Rules_Obfuscated_Explain)" presentation="$(presentation.ExploitGuard_ASR_Rules_Obfuscated)" key="Software\Policies\Microsoft\Windows Defender\Windows Defender Exploit Guard\ASR\Rules">
+			<parentCategory ref="ASR" />
+			<supportedOn ref="windows:SUPPORTED_Windows_10_0_RS3" />
+			<elements>
+				<enum id="ExploitGuard_ASR_Rules_Obfuscated_Options" valueName="5beb7efe-fd9a-4556-801d-275e5ffc04cc" required="true">
+					<item displayName="$(string.DisabledMode)">
+						<value>
+							<string>0</string>
+						</value>
+					</item>
+					<item displayName="$(string.AuditMode)">
+						<value>
+							<string>2</string>
+						</value>
+					</item>
+					<item displayName="$(string.WarnMode)">
+						<value>
+							<string>6</string>
+						</value>
+					</item>
+					<item displayName="$(string.BlockMode)">
+						<value>
+							<string>1</string>
+						</value>
+					</item>
+				</enum>
+			</elements>
+		</policy>
+		<!-- Block JavaScript or VBScript from launching downloaded executable content -->
+		<policy name="ExploitGuard_ASR_Rules_Script_Staging" class="Machine" displayName="$(string.ExploitGuard_ASR_Rules_Script_Staging)" explainText="$(string.ExploitGuard_ASR_Rules_Script_Staging_Explain)" presentation="$(presentation.ExploitGuard_ASR_Rules_Script_Staging)" key="Software\Policies\Microsoft\Windows Defender\Windows Defender Exploit Guard\ASR\Rules">
+			<parentCategory ref="ASR" />
+			<supportedOn ref="windows:SUPPORTED_Windows_10_0_RS3" />
+			<elements>
+				<enum id="ExploitGuard_ASR_Rules_Script_Staging_Options" valueName="d3e037e1-3eb8-44c8-a917-57927947596d" required="true">
+					<item displayName="$(string.DisabledMode)">
+						<value>
+							<string>0</string>
+						</value>
+					</item>
+					<item displayName="$(string.AuditMode)">
+						<value>
+							<string>2</string>
+						</value>
+					</item>
+					<item displayName="$(string.WarnMode)">
+						<value>
+							<string>6</string>
+						</value>
+					</item>
+					<item displayName="$(string.BlockMode)">
+						<value>
+							<string>1</string>
+						</value>
+					</item>
+				</enum>
+			</elements>
+		</policy>
+		<!-- Block Office applications from creating executable content -->
+		<policy name="ExploitGuard_ASR_Rules_Office_CreateExecutable" class="Machine" displayName="$(string.ExploitGuard_ASR_Rules_Office_CreateExecutable)" explainText="$(string.ExploitGuard_ASR_Rules_Office_CreateExecutable_Explain)" presentation="$(presentation.ExploitGuard_ASR_Rules_Office_CreateExecutable)" key="Software\Policies\Microsoft\Windows Defender\Windows Defender Exploit Guard\ASR\Rules">
+			<parentCategory ref="ASR" />
+			<supportedOn ref="windows:SUPPORTED_Windows_10_0_RS3" />
+			<elements>
+				<enum id="ExploitGuard_ASR_Rules_Office_CreateExecutable_Options" valueName="3b576869-a4ec-4529-8536-b80a7769e899" required="true">
+					<item displayName="$(string.DisabledMode)">
+						<value>
+							<string>0</string>
+						</value>
+					</item>
+					<item displayName="$(string.AuditMode)">
+						<value>
+							<string>2</string>
+						</value>
+					</item>
+					<item displayName="$(string.WarnMode)">
+						<value>
+							<string>6</string>
+						</value>
+					</item>
+					<item displayName="$(string.BlockMode)">
+						<value>
+							<string>1</string>
+						</value>
+					</item>
+				</enum>
+			</elements>
+		</policy>
+		<!-- Block Office applications from injecting code into other processes -->
+		<policy name="ExploitGuard_ASR_Rules_Office_Injection" class="Machine" displayName="$(string.ExploitGuard_ASR_Rules_Office_Injection)" explainText="$(string.ExploitGuard_ASR_Rules_Office_Injection_Explain)" presentation="$(presentation.ExploitGuard_ASR_Rules_Office_Injection)" key="Software\Policies\Microsoft\Windows Defender\Windows Defender Exploit Guard\ASR\Rules">
+			<parentCategory ref="ASR" />
+			<supportedOn ref="windows:SUPPORTED_Windows_10_0_RS3" />
+			<elements>
+				<enum id="ExploitGuard_ASR_Rules_Office_Injection_Options" valueName="75668c1f-73b5-4cf0-bb93-3ecf5cb7cc84" required="true">
+					<item displayName="$(string.DisabledMode)">
+						<value>
+							<string>0</string>
+						</value>
+					</item>
+					<item displayName="$(string.AuditMode)">
+						<value>
+							<string>2</string>
+						</value>
+					</item>
+					<!-- The Block applications from injecting code into other processes ASR rule doesn't support WARN mode. -->
+					<item displayName="$(string.BlockMode)">
+						<value>
+							<string>1</string>
+						</value>
+					</item>
+				</enum>
+			</elements>
+		</policy>
+		<!-- Block Office communication application from creating child processes -->
+		<policy name="ExploitGuard_ASR_Rules_OfficeComm_CreateProcess" class="Machine" displayName="$(string.ExploitGuard_ASR_Rules_OfficeComm_CreateProcess)" explainText="$(string.ExploitGuard_ASR_Rules_OfficeComm_CreateProcess_Explain)" presentation="$(presentation.ExploitGuard_ASR_Rules_OfficeComm_CreateProcess)" key="Software\Policies\Microsoft\Windows Defender\Windows Defender Exploit Guard\ASR\Rules">
+			<parentCategory ref="ASR" />
+			<supportedOn ref="windows:SUPPORTED_Windows_10_0_RS3" />
+			<elements>
+				<enum id="ExploitGuard_ASR_Rules_OfficeComm_CreateProcess_Options" valueName="26190899-1602-49e8-8b27-eb1d0a1ce869" required="true">
+					<item displayName="$(string.DisabledMode)">
+						<value>
+							<string>0</string>
+						</value>
+					</item>
+					<item displayName="$(string.AuditMode)">
+						<value>
+							<string>2</string>
+						</value>
+					</item>
+					<item displayName="$(string.WarnMode)">
+						<value>
+							<string>6</string>
+						</value>
+					</item>
+					<item displayName="$(string.BlockMode)">
+						<value>
+							<string>1</string>
+						</value>
+					</item>
+				</enum>
+			</elements>
+		</policy>
+		<!-- Block persistence through WMI event subscription -->
+		<policy name="ExploitGuard_ASR_Rules_WMIPersistence" class="Machine" displayName="$(string.ExploitGuard_ASR_Rules_WMIPersistence)" explainText="$(string.ExploitGuard_ASR_Rules_WMIPersistence_Explain)" presentation="$(presentation.ExploitGuard_ASR_Rules_WMIPersistence)" key="Software\Policies\Microsoft\Windows Defender\Windows Defender Exploit Guard\ASR\Rules">
+			<parentCategory ref="ASR" />
+			<supportedOn ref="windows:SUPPORTED_Windows_10_0_RS6" />
+			<elements>
+				<enum id="ExploitGuard_ASR_Rules_WMIPersistence_Options" valueName="e6db77e5-3df2-4cf1-b95a-636979351e5b" required="true">
+					<item displayName="$(string.DisabledMode)">
+						<value>
+							<string>0</string>
+						</value>
+					</item>
+					<item displayName="$(string.AuditMode)">
+						<value>
+							<string>2</string>
+						</value>
+					</item>
+					<item displayName="$(string.WarnMode)">
+						<value>
+							<string>6</string>
+						</value>
+					</item>
+					<item displayName="$(string.BlockMode)">
+						<value>
+							<string>1</string>
+						</value>
+					</item>
+				</enum>
+			</elements>
+		</policy>
+		<!-- Block process creations originating from PSExec and WMI commands -->
+		<policy name="ExploitGuard_ASR_Rules_PSExec" class="Machine" displayName="$(string.ExploitGuard_ASR_Rules_PSExec)" explainText="$(string.ExploitGuard_ASR_Rules_PSExec_Explain)" presentation="$(presentation.ExploitGuard_ASR_Rules_PSExec)" key="Software\Policies\Microsoft\Windows Defender\Windows Defender Exploit Guard\ASR\Rules">
+			<parentCategory ref="ASR" />
+			<supportedOn ref="windows:SUPPORTED_Windows_10_0_RS4" />
+			<elements>
+				<enum id="ExploitGuard_ASR_Rules_PSExec_Options" valueName="d1e49aac-8f56-4280-b9ba-993a6d77406c" required="true">
+					<item displayName="$(string.DisabledMode)">
+						<value>
+							<string>0</string>
+						</value>
+					</item>
+					<item displayName="$(string.AuditMode)">
+						<value>
+							<string>2</string>
+						</value>
+					</item>
+					<item displayName="$(string.WarnMode)">
+						<value>
+							<string>6</string>
+						</value>
+					</item>
+					<item displayName="$(string.BlockMode)">
+						<value>
+							<string>1</string>
+						</value>
+					</item>
+				</enum>
+			</elements>
+		</policy>
+		<!-- Block rebooting machine in Safe Mode (preview) -->
+		<policy name="ExploitGuard_ASR_Rules_SafeMode" class="Machine" displayName="$(string.ExploitGuard_ASR_Rules_SafeMode)" explainText="$(string.ExploitGuard_ASR_Rules_SafeMode_Explain)" presentation="$(presentation.ExploitGuard_ASR_Rules_SafeMode)" key="Software\Policies\Microsoft\Windows Defender\Windows Defender Exploit Guard\ASR\Rules">
+			<parentCategory ref="ASR" />
+			<supportedOn ref="windows:SUPPORTED_Windows_10_0_RS3" />
+			<elements>
+				<enum id="ExploitGuard_ASR_Rules_SafeMode_Options" valueName="33ddedf1-c6e0-47cb-833e-de6133960387" required="true">
+					<item displayName="$(string.DisabledMode)">
+						<value>
+							<string>0</string>
+						</value>
+					</item>
+					<item displayName="$(string.AuditMode)">
+						<value>
+							<string>2</string>
+						</value>
+					</item>
+					<item displayName="$(string.WarnMode)">
+						<value>
+							<string>6</string>
+						</value>
+					</item>
+					<item displayName="$(string.BlockMode)">
+						<value>
+							<string>1</string>
+						</value>
+					</item>
+				</enum>
+			</elements>
+		</policy>
+		<!-- Block untrusted and unsigned processes that run from USB -->
+		<policy name="ExploitGuard_ASR_Rules_USB" class="Machine" displayName="$(string.ExploitGuard_ASR_Rules_USB)" explainText="$(string.ExploitGuard_ASR_Rules_USB_Explain)" presentation="$(presentation.ExploitGuard_ASR_Rules_USB)" key="Software\Policies\Microsoft\Windows Defender\Windows Defender Exploit Guard\ASR\Rules">
+			<parentCategory ref="ASR" />
+			<supportedOn ref="windows:SUPPORTED_Windows_10_0_RS3" />
+			<elements>
+				<enum id="ExploitGuard_ASR_Rules_USB_Options" valueName="b2b3f03d-6a65-4f7b-a9c7-1c7ef74a9ba4" required="true">
+					<item displayName="$(string.DisabledMode)">
+						<value>
+							<string>0</string>
+						</value>
+					</item>
+					<item displayName="$(string.AuditMode)">
+						<value>
+							<string>2</string>
+						</value>
+					</item>
+					<item displayName="$(string.WarnMode)">
+						<value>
+							<string>6</string>
+						</value>
+					</item>
+					<item displayName="$(string.BlockMode)">
+						<value>
+							<string>1</string>
+						</value>
+					</item>
+				</enum>
+			</elements>
+		</policy>
+		<!-- Block use of copied or impersonated system tools (preview) -->
+		<policy name="ExploitGuard_ASR_Rules_ToolCopy" class="Machine" displayName="$(string.ExploitGuard_ASR_Rules_ToolCopy)" explainText="$(string.ExploitGuard_ASR_Rules_ToolCopy_Explain)" presentation="$(presentation.ExploitGuard_ASR_Rules_ToolCopy)" key="Software\Policies\Microsoft\Windows Defender\Windows Defender Exploit Guard\ASR\Rules">
+			<parentCategory ref="ASR" />
+			<supportedOn ref="windows:SUPPORTED_Windows_10_0_RS3" />
+			<elements>
+				<enum id="ExploitGuard_ASR_Rules_ToolCopy_Options" valueName="c0033c00-d16d-4114-a5a0-dc9b3a7d2ceb" required="true">
+					<item displayName="$(string.DisabledMode)">
+						<value>
+							<string>0</string>
+						</value>
+					</item>
+					<item displayName="$(string.AuditMode)">
+						<value>
+							<string>2</string>
+						</value>
+					</item>
+					<item displayName="$(string.WarnMode)">
+						<value>
+							<string>6</string>
+						</value>
+					</item>
+					<item displayName="$(string.BlockMode)">
+						<value>
+							<string>1</string>
+						</value>
+					</item>
+				</enum>
+			</elements>
+		</policy>
+		<!-- Block Webshell creation for Servers -->
+		<policy name="ExploitGuard_ASR_Rules_Webshell" class="Machine" displayName="$(string.ExploitGuard_ASR_Rules_Webshell)" explainText="$(string.ExploitGuard_ASR_Rules_Webshell_Explain)" presentation="$(presentation.ExploitGuard_ASR_Rules_Webshell)" key="Software\Policies\Microsoft\Windows Defender\Windows Defender Exploit Guard\ASR\Rules">
+			<parentCategory ref="ASR" />
+			<supportedOn ref="windows:SUPPORTED_Windows_10_0_RS3" />
+			<elements>
+				<enum id="ExploitGuard_ASR_Rules_Webshell_Options" valueName="a8f5898e-1dc8-49a9-9878-85004b8a61e6" required="true">
+					<item displayName="$(string.DisabledMode)">
+						<value>
+							<string>0</string>
+						</value>
+					</item>
+					<item displayName="$(string.AuditMode)">
+						<value>
+							<string>2</string>
+						</value>
+					</item>
+					<item displayName="$(string.WarnMode)">
+						<value>
+							<string>6</string>
+						</value>
+					</item>
+					<item displayName="$(string.BlockMode)">
+						<value>
+							<string>1</string>
+						</value>
+					</item>
+				</enum>
+			</elements>
+		</policy>
+		<!-- Block Win32 API calls from Office macros -->
+		<policy name="ExploitGuard_ASR_Rules_Office_MacroWin32API" class="Machine" displayName="$(string.ExploitGuard_ASR_Rules_Office_MacroWin32API)" explainText="$(string.ExploitGuard_ASR_Rules_Office_MacroWin32API_Explain)" presentation="$(presentation.ExploitGuard_ASR_Rules_Office_MacroWin32API)" key="Software\Policies\Microsoft\Windows Defender\Windows Defender Exploit Guard\ASR\Rules">
+			<parentCategory ref="ASR" />
+			<supportedOn ref="windows:SUPPORTED_Windows_10_0_RS3" />
+			<elements>
+				<enum id="ExploitGuard_ASR_Rules_Office_MacroWin32API_Options" valueName="92e97fa1-2edf-4476-bdd6-9dd0b4dddc7b" required="true">
+					<item displayName="$(string.DisabledMode)">
+						<value>
+							<string>0</string>
+						</value>
+					</item>
+					<item displayName="$(string.AuditMode)">
+						<value>
+							<string>2</string>
+						</value>
+					</item>
+					<item displayName="$(string.WarnMode)">
+						<value>
+							<string>6</string>
+						</value>
+					</item>
+					<item displayName="$(string.BlockMode)">
+						<value>
+							<string>1</string>
+						</value>
+					</item>
+				</enum>
+			</elements>
+		</policy>
+		<!-- Use advanced protection against ransomware -->
+		<policy name="ExploitGuard_ASR_Rules_Ransomware" class="Machine" displayName="$(string.ExploitGuard_ASR_Rules_Ransomware)" explainText="$(string.ExploitGuard_ASR_Rules_Ransomware_Explain)" presentation="$(presentation.ExploitGuard_ASR_Rules_Ransomware)" key="Software\Policies\Microsoft\Windows Defender\Windows Defender Exploit Guard\ASR\Rules">
+			<parentCategory ref="ASR" />
+			<supportedOn ref="windows:SUPPORTED_Windows_10_0_RS4" />
+			<elements>
+				<enum id="ExploitGuard_ASR_Rules_Ransomware_Options" valueName="c1db55ab-c21a-4637-bb3f-a12568109d35" required="true">
+					<item displayName="$(string.DisabledMode)">
+						<value>
+							<string>0</string>
+						</value>
+					</item>
+					<item displayName="$(string.AuditMode)">
+						<value>
+							<string>2</string>
+						</value>
+					</item>
+					<item displayName="$(string.WarnMode)">
+						<value>
+							<string>6</string>
+						</value>
+					</item>
+					<item displayName="$(string.BlockMode)">
+						<value>
+							<string>1</string>
+						</value>
+					</item>
+				</enum>
+			</elements>
+		</policy>
+	</policies>
+</policyDefinitions>

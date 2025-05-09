@@ -184,12 +184,6 @@ Disabling this policy will disable the verification of the components, only if t
 If you enable this setting, co-installer execution will be prevented, and additional configuration software for specific devices (mouse devices, gaming keyboards, etc.) must be downloaded and manually installed from the manufacturer's website.
 
 If you disable this setting, co-installer execution will be permitted, which is a significant security risk (potentially dangerous code execution).</string>
-                  <string id="DefenderSandboxing">Enable Windows Defender sandbox</string>
-                  <string id="DefenderSandboxing_Explain">This policy enables the sandbox (content process) for the main process of Windows Defender.
-
-The new content processes, which run with low privileges, aggressively leverage all available mitigation policies to reduce the attack surface. They enable and prevent runtime changes for modern exploit mitigation techniques such as Data Execution Prevention (DEP), Address space layout randomization (ASLR), and Control Flow Guard (CFG). They also disable Win32K system calls and all extensibility points, as well as enforce that only signed and trusted code is loaded.
-
-More information: https://www.microsoft.com/en-us/security/blog/2018/10/26/windows-defender-antivirus-can-now-run-in-a-sandbox/</string>
             </stringTable>
             <presentationTable>
                   <presentation id="MSCacheV2_Iteration">

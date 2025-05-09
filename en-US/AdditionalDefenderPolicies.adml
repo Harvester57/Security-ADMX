@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0"
+      xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+      <displayName>
+            Additional hardening policies for Defender
+      </displayName>
+      <description>
+            Additional hardening policies for Defender
+      </description>
+      <resources>
+            <stringTable>
+                  <!-- CATEGORIES -->
+                  <string id="Defender">Additional Windows Defender hardening settings</string>
+                  <string id="ASR">ASR rules configuration</string>
+                  <!-- POLICIES -->
+                  <string id="DefenderSandboxing">Enable Windows Defender sandbox</string>
+                  <string id="DefenderSandboxing_Explain">This policy enables the sandbox (content process) for the main process of Windows Defender.
+
+The new content processes, which run with low privileges, aggressively leverage all available mitigation policies to reduce the attack surface. They enable and prevent runtime changes for modern exploit mitigation techniques such as Data Execution Prevention (DEP), Address space layout randomization (ASLR), and Control Flow Guard (CFG). They also disable Win32K system calls and all extensibility points, as well as enforce that only signed and trusted code is loaded.
+
+More information: https://www.microsoft.com/en-us/security/blog/2018/10/26/windows-defender-antivirus-can-now-run-in-a-sandbox/</string>
+                  <string id="ExploitGuard_ASR_Rules_Lsass">Block credential stealing from the Windows local security authority subsystem (lsass.exe)</string>
+                  <string id="ExploitGuard_ASR_Rules_Lsass_Explain">This rule helps prevent credential stealing by blocking code injection attempts targeting lsass.exe.
+Enabling this rule doesn't provide additional protection if you have LSA protection enabled since the ASR rule and LSA protection work similarly. However, when LSA protection cannot be enabled, this rule can be configured to provide equivalent protection against malware that target lsass.exe.</string>
+                  <string id="ExploitGuard_ASR_Rules_Drivers">Block abuse of exploited vulnerable signed drivers</string>
+                  <string id="ExploitGuard_ASR_Rules_Drivers_Explain">This rule prevents an application from writing a vulnerable signed driver to disk.</string>
+                  <string id="ExploitGuard_ASR_Rules_AdobeReader">Block Adobe Reader from creating child processes</string>
+                  <string id="ExploitGuard_ASR_Rules_AdobeReader_Explain">This rule prevents attacks by blocking Adobe Reader from creating processes.</string>
+                  <string id="ExploitGuard_ASR_Rules_Office_CreateProcess">Block all Office applications from creating child processes</string>
+                  <string id="ExploitGuard_ASR_Rules_Office_CreateProcess_Explain">This rule blocks Office apps from creating child processes. Office apps include Word, Excel, PowerPoint, OneNote, and Access.</string>
+                  <string id="ExploitGuard_ASR_Rules_Email">Block executable content from email client and webmail</string>
+                  <string id="ExploitGuard_ASR_Rules_Email_Explain">This rule blocks email opened within the Microsoft Outlook application, or Outlook.com and other popular webmail providers from propagating the following file types:
+- Executable files (such as .exe, .dll, or .scr)
+- Script files (such as a PowerShell .ps1, Visual Basic .vbs, or JavaScript .js file)</string>
+                  <string id="ExploitGuard_ASR_Rules_SmartScreen">Block executable files from running unless they meet a prevalence, age, or trusted list criterion</string>
+                  <string id="ExploitGuard_ASR_Rules_SmartScreen_Explain">This rule blocks executable files, such as .exe, .dll, or .scr, from launching. Thus, launching untrusted or unknown executable files can be risky, as it might not be initially clear if the files are malicious.
+
+You must enable cloud-delivered protection to use this rule.</string>
+                  <string id="ExploitGuard_ASR_Rules_Obfuscated">Block execution of potentially obfuscated scripts</string>
+                  <string id="ExploitGuard_ASR_Rules_Obfuscated_Explain">This rule blocks scripts that appear to be obfuscated to hide malicious content.
+
+You must enable cloud-delivered protection to use this rule.</string>
+                  <string id="ExploitGuard_ASR_Rules_Script_Staging">Block JavaScript or VBScript from launching downloaded executable content</string>
+                  <string id="ExploitGuard_ASR_Rules_Script_Staging_Explain">This rule prevents scripts from launching potentially malicious downloaded content. Malware written in JavaScript or VBScript often acts as a downloader to fetch and launch other malware from the Internet. Although not common, line-of-business applications sometimes use scripts to download and launch installers.</string>
+                  <string id="ExploitGuard_ASR_Rules_Office_CreateExecutable">Block Office applications from creating executable content</string>
+                  <string id="ExploitGuard_ASR_Rules_Office_CreateExecutable_Explain">This rule prevents Office apps, including Word, Excel, and PowerPoint, from creating potentially malicious executable content, by blocking malicious code from being written to disk.</string>
+                  <string id="ExploitGuard_ASR_Rules_Office_Injection">Block Office applications from injecting code into other processes</string>
+                  <string id="ExploitGuard_ASR_Rules_Office_Injection_Explain">This rule blocks code injection attempts from Office apps into other processes. This rule applies to Word, Excel, OneNote, and PowerPoint.</string>
+                  <string id="ExploitGuard_ASR_Rules_OfficeComm_CreateProcess">Block Office communication application from creating child processes</string>
+                  <string id="ExploitGuard_ASR_Rules_OfficeComm_CreateProcess_Explain">This rule prevents Outlook from creating child processes, while still allowing legitimate Outlook functions. This rule applies to Outlook and Outlook.com only.</string>
+                  <string id="ExploitGuard_ASR_Rules_WMIPersistence">Block persistence through WMI event subscription</string>
+                  <string id="ExploitGuard_ASR_Rules_WMIPersistence_Explain">This rule prevents malware from abusing WMI to attain persistence on a device.</string>
+                  <string id="ExploitGuard_ASR_Rules_PSExec">Block process creations originating from PSExec and WMI commands</string>
+                  <string id="ExploitGuard_ASR_Rules_PSExec_Explain">This rule blocks processes created through PsExec and WMI from running.</string>
+                  <string id="ExploitGuard_ASR_Rules_SafeMode">Block rebooting machine in Safe Mode (preview)</string>
+                  <string id="ExploitGuard_ASR_Rules_SafeMode_Explain">his rule prevents the execution of commands to restart machines in Safe Mode.</string>
+                  <string id="ExploitGuard_ASR_Rules_USB">Block untrusted and unsigned processes that run from USB</string>
+                  <string id="ExploitGuard_ASR_Rules_USB_Explain">With this rule, admins can prevent unsigned or untrusted executable files from running from USB removable drives, including SD cards. Blocked file types include executable files (such as .exe, .dll, or .scr).</string>
+                  <string id="ExploitGuard_ASR_Rules_ToolCopy">Block use of copied or impersonated system tools (preview)</string>
+                  <string id="ExploitGuard_ASR_Rules_ToolCopy_Explain">This rule blocks the use of executable files that are identified as copies of Windows system tools. These files are either duplicates or impostors of the original system tools.</string>
+                  <string id="ExploitGuard_ASR_Rules_Webshell">Block Webshell creation for Servers</string>
+                  <string id="ExploitGuard_ASR_Rules_Webshell_Explain">This rule blocks web shell script creation on Microsoft Server, Exchange Role.</string>
+                  <string id="ExploitGuard_ASR_Rules_Office_MacroWin32API">Block Win32 API calls from Office macros</string>
+                  <string id="ExploitGuard_ASR_Rules_Office_MacroWin32API_Explain">This rule prevents VBA macros from calling Win32 APIs. Most organizations don't rely on the ability to call Win32 APIs in their day-to-day functioning, even if they use macros in other ways.</string>
+                  <string id="ExploitGuard_ASR_Rules_Ransomware">Use advanced protection against ransomware</string>
+                  <string id="ExploitGuard_ASR_Rules_Ransomware_Explain">This rule provides an extra layer of protection against ransomware. It uses both client and cloud heuristics to determine whether a file resembles ransomware. This rule doesn't block files that have one or more of the following characteristics:
+- The file has already been found to be unharmful in the Microsoft cloud.
+- The file is a valid signed file.
+- The file is prevalent enough to not be considered as ransomware.
+
+You must enable cloud-delivered protection to use this rule.</string>
+                  <string id="AuditMode">Audit</string>
+                  <string id="WarnMode">Warn</string>
+                  <string id="BlockMode">Block</string>
+                  <string id="DisabledMode">Disabled</string>
+            </stringTable>
+            <presentationTable>
+                  <presentation id="ExploitGuard_ASR_Rules_Lsass">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_Lsass_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>ASR rule modes:
+Not configured or Disable: The state in which the ASR rule isn't enabled.
+Block: The state in which the ASR rule is enabled.
+Audit: The state in which the ASR rule is evaluated for the effect it would have on the organization or environment if enabled (set to block or warn).
+            
+Note: The Block credential stealing from the Windows local security authority subsystem ASR rule doesn't support WARN mode.</text>
+                  </presentation>
+                  <presentation id="ExploitGuard_ASR_Rules_Drivers">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_Drivers_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>ASR rule modes:
+Not configured or Disable: The state in which the ASR rule isn't enabled.
+Block: The state in which the ASR rule is enabled.
+Audit: The state in which the ASR rule is evaluated for the effect it would have on the organization or environment if enabled (set to block or warn).
+Warn: The state in which the ASR rule is enabled and presents a notification to the end-user, but permits the end-user to bypass the block.</text>
+                  </presentation>
+                  <presentation id="ExploitGuard_ASR_Rules_AdobeReader">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_AdobeReader_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>ASR rule modes:
+Not configured or Disable: The state in which the ASR rule isn't enabled.
+Block: The state in which the ASR rule is enabled.
+Audit: The state in which the ASR rule is evaluated for the effect it would have on the organization or environment if enabled (set to block or warn).
+Warn: The state in which the ASR rule is enabled and presents a notification to the end-user, but permits the end-user to bypass the block.</text>
+                  </presentation>
+                  <presentation id="ExploitGuard_ASR_Rules_Office_CreateProcess">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_Office_CreateProcess_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>ASR rule modes:
+Not configured or Disable: The state in which the ASR rule isn't enabled.
+Block: The state in which the ASR rule is enabled.
+Audit: The state in which the ASR rule is evaluated for the effect it would have on the organization or environment if enabled (set to block or warn).
+Warn: The state in which the ASR rule is enabled and presents a notification to the end-user, but permits the end-user to bypass the block.</text>
+                  </presentation>
+                  <presentation id="ExploitGuard_ASR_Rules_Email">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_Email_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>ASR rule modes:
+Not configured or Disable: The state in which the ASR rule isn't enabled.
+Block: The state in which the ASR rule is enabled.
+Audit: The state in which the ASR rule is evaluated for the effect it would have on the organization or environment if enabled (set to block or warn).
+Warn: The state in which the ASR rule is enabled and presents a notification to the end-user, but permits the end-user to bypass the block.</text>
+                  </presentation>
+                  <presentation id="ExploitGuard_ASR_Rules_SmartScreen">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_SmartScreen_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>ASR rule modes:
+Not configured or Disable: The state in which the ASR rule isn't enabled.
+Block: The state in which the ASR rule is enabled.
+Audit: The state in which the ASR rule is evaluated for the effect it would have on the organization or environment if enabled (set to block or warn).
+Warn: The state in which the ASR rule is enabled and presents a notification to the end-user, but permits the end-user to bypass the block.</text>
+                  </presentation>
+                  <presentation id="ExploitGuard_ASR_Rules_Obfuscated">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_Obfuscated_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>ASR rule modes:
+Not configured or Disable: The state in which the ASR rule isn't enabled.
+Block: The state in which the ASR rule is enabled.
+Audit: The state in which the ASR rule is evaluated for the effect it would have on the organization or environment if enabled (set to block or warn).
+Warn: The state in which the ASR rule is enabled and presents a notification to the end-user, but permits the end-user to bypass the block.</text>
+                  </presentation>
+                  <presentation id="ExploitGuard_ASR_Rules_Script_Staging">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_Script_Staging_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>ASR rule modes:
+Not configured or Disable: The state in which the ASR rule isn't enabled.
+Block: The state in which the ASR rule is enabled.
+Audit: The state in which the ASR rule is evaluated for the effect it would have on the organization or environment if enabled (set to block or warn).
+Warn: The state in which the ASR rule is enabled and presents a notification to the end-user, but permits the end-user to bypass the block.</text>
+                  </presentation>
+                  <presentation id="ExploitGuard_ASR_Rules_Office_CreateExecutable">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_Office_CreateExecutable_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>ASR rule modes:
+Not configured or Disable: The state in which the ASR rule isn't enabled.
+Block: The state in which the ASR rule is enabled.
+Audit: The state in which the ASR rule is evaluated for the effect it would have on the organization or environment if enabled (set to block or warn).
+Warn: The state in which the ASR rule is enabled and presents a notification to the end-user, but permits the end-user to bypass the block.</text>
+                  </presentation>
+                  <presentation id="ExploitGuard_ASR_Rules_Office_Injection">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_Office_Injection_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>ASR rule modes:
+Not configured or Disable: The state in which the ASR rule isn't enabled.
+Block: The state in which the ASR rule is enabled.
+Audit: The state in which the ASR rule is evaluated for the effect it would have on the organization or environment if enabled (set to block or warn).
+            
+Note: The Block applications from injecting code into other processes ASR rule doesn't support WARN mode.</text>
+                  </presentation>
+                  <presentation id="ExploitGuard_ASR_Rules_OfficeComm_CreateProcess">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_OfficeComm_CreateProcess_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>ASR rule modes:
+Not configured or Disable: The state in which the ASR rule isn't enabled.
+Block: The state in which the ASR rule is enabled.
+Audit: The state in which the ASR rule is evaluated for the effect it would have on the organization or environment if enabled (set to block or warn).
+Warn: The state in which the ASR rule is enabled and presents a notification to the end-user, but permits the end-user to bypass the block.</text>
+                  </presentation>
+                  <presentation id="ExploitGuard_ASR_Rules_WMIPersistence">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_WMIPersistence_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>ASR rule modes:
+Not configured or Disable: The state in which the ASR rule isn't enabled.
+Block: The state in which the ASR rule is enabled.
+Audit: The state in which the ASR rule is evaluated for the effect it would have on the organization or environment if enabled (set to block or warn).
+Warn: The state in which the ASR rule is enabled and presents a notification to the end-user, but permits the end-user to bypass the block.</text>
+                  </presentation>
+                  <presentation id="ExploitGuard_ASR_Rules_PSExec">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_PSExec_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>ASR rule modes:
+Not configured or Disable: The state in which the ASR rule isn't enabled.
+Block: The state in which the ASR rule is enabled.
+Audit: The state in which the ASR rule is evaluated for the effect it would have on the organization or environment if enabled (set to block or warn).
+Warn: The state in which the ASR rule is enabled and presents a notification to the end-user, but permits the end-user to bypass the block.</text>
+                  </presentation>
+                  <presentation id="ExploitGuard_ASR_Rules_SafeMode">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_SafeMode_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>ASR rule modes:
+Not configured or Disable: The state in which the ASR rule isn't enabled.
+Block: The state in which the ASR rule is enabled.
+Audit: The state in which the ASR rule is evaluated for the effect it would have on the organization or environment if enabled (set to block or warn).
+Warn: The state in which the ASR rule is enabled and presents a notification to the end-user, but permits the end-user to bypass the block.</text>
+                  </presentation>
+                  <presentation id="ExploitGuard_ASR_Rules_USB">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_USB_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>ASR rule modes:
+Not configured or Disable: The state in which the ASR rule isn't enabled.
+Block: The state in which the ASR rule is enabled.
+Audit: The state in which the ASR rule is evaluated for the effect it would have on the organization or environment if enabled (set to block or warn).
+Warn: The state in which the ASR rule is enabled and presents a notification to the end-user, but permits the end-user to bypass the block.</text>
+                  </presentation>
+                  <presentation id="ExploitGuard_ASR_Rules_ToolCopy">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_ToolCopy_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>ASR rule modes:
+Not configured or Disable: The state in which the ASR rule isn't enabled.
+Block: The state in which the ASR rule is enabled.
+Audit: The state in which the ASR rule is evaluated for the effect it would have on the organization or environment if enabled (set to block or warn).
+Warn: The state in which the ASR rule is enabled and presents a notification to the end-user, but permits the end-user to bypass the block.</text>
+                  </presentation>
+                  <presentation id="ExploitGuard_ASR_Rules_Webshell">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_Webshell_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>ASR rule modes:
+Not configured or Disable: The state in which the ASR rule isn't enabled.
+Block: The state in which the ASR rule is enabled.
+Audit: The state in which the ASR rule is evaluated for the effect it would have on the organization or environment if enabled (set to block or warn).
+Warn: The state in which the ASR rule is enabled and presents a notification to the end-user, but permits the end-user to bypass the block.</text>
+                  </presentation>
+                  <presentation id="ExploitGuard_ASR_Rules_Office_MacroWin32API">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_Office_MacroWin32API_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>ASR rule modes:
+Not configured or Disable: The state in which the ASR rule isn't enabled.
+Block: The state in which the ASR rule is enabled.
+Audit: The state in which the ASR rule is evaluated for the effect it would have on the organization or environment if enabled (set to block or warn).
+Warn: The state in which the ASR rule is enabled and presents a notification to the end-user, but permits the end-user to bypass the block.</text>
+                  </presentation>
+                  <presentation id="ExploitGuard_ASR_Rules_Ransomware">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_Ransomware_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>ASR rule modes:
+Not configured or Disable: The state in which the ASR rule isn't enabled.
+Block: The state in which the ASR rule is enabled.
+Audit: The state in which the ASR rule is evaluated for the effect it would have on the organization or environment if enabled (set to block or warn).
+Warn: The state in which the ASR rule is enabled and presents a notification to the end-user, but permits the end-user to bypass the block.</text>
+                  </presentation>
+            </presentationTable>
+      </resources>
+</policyDefinitionResources>

@@ -519,15 +519,5 @@
                 <decimal value="0" />
             </disabledValue>
         </policy>
-        <policy name="DefenderSandboxing" class="Machine" displayName="$(string.DefenderSandboxing)" explainText="$(string.DefenderSandboxing_Explain)" key="SYSTEM\CurrentControlSet\Control\Session Manager\Environment" valueName="MP_FORCE_USE_SANDBOX">
-            <parentCategory ref="System" />
-            <supportedOn ref="windows:SUPPORTED_Windows_6_3" />
-            <enabledValue>
-                <string>1</string>
-            </enabledValue>
-            <disabledValue>
-                <string>0</string>
-            </disabledValue>
-        </policy>
     </policies>
 </policyDefinitions>
