@@ -18,6 +18,17 @@
     <policies>
         <!-- Hardening policies section -->
         <!-- SYSTEM SETTINGS -->
+        <!-- Block remote DCOM connections -->
+        <policy name="RemoteDCOM" class="Machine" displayName="$(string.RemoteDCOM)" explainText="$(string.RemoteDCOM_Explain)" key="SOFTWARE\Microsoft\Ole" valueName="EnableDCOM">
+            <parentCategory ref="System" />
+            <supportedOn ref="windows:SUPPORTED_Windows_6_3" />
+            <enabledValue>
+                <string>N</string>
+            </enabledValue>
+            <disabledValue>
+                <string>Y</string>
+            </disabledValue>
+        </policy>
         <!-- Launch VBS in Mandatory mode -->
         <policy name="MandatoryVBS" class="Machine" displayName="$(string.MandatoryVBS)" explainText="$(string.MandatoryVBS_Explain)" key="SYSTEM\CurrentControlSet\Control\DeviceGuard" valueName="Mandatory">
             <parentCategory ref="System" />

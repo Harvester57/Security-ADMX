@@ -13,6 +13,10 @@
                   <string id="Adobe">Paramètres de durcissement pour Adobe Acrobat</string>
                   <!-- POLICIES -->
                   <!-- System policies -->
+                  <string id="RemoteDCOM">Bloquer les connexions DCOM distantes</string>
+                  <string id="RemoteDCOM_Explain">Si vous activez cette stratégie, aucun client distant ne peut lancer de serveurs ou se connecter à des objets sur cet ordinateur. Les clients locaux ne peuvent pas accéder aux serveurs DCOM distants; tout le trafic DCOM est bloqué.
+
+Si vous désactivez cette stratégie, le lancement de serveurs et la connexion à des objets par des clients distants sont autorisés par classe en fonction de la valeur et des autorisations d'accès de la valeur de Registre LaunchPermission et de la valeur de Registre globale DefaultLaunchPermission.</string>
                   <string id="LSA_RunAsPPL">Activer le durcissement additionnel du processus LSA</string>
                   <string id="LSA_RunAsPPL_Explain">Activer cette stratégie pour permettre au processus LSA de se lancer en tant que PPL (Protected Process Light), interdisant son débogage.</string>
                   <string id="LSA_SamDisableListenOnTCP">Désactiver l'écoute TCP du serveur SAM</string>

@@ -13,6 +13,10 @@
                   <string id="Adobe">Additional Adobe Acrobat settings</string>
                   <!-- POLICIES -->
                   <!-- System policies -->
+                  <string id="RemoteDCOM">Block remote DCOM connections</string>
+                  <string id="RemoteDCOM_Explain">If you enable this policy, no remote clients may launch servers or connect to objects on this computer. Local clients cannot access remote DCOM servers; all DCOM traffic is blocked.
+
+If you disable this policy, launching of servers and connecting to objects by remote clients is allowed on a per-class basis according to the value and access permissions of the class's LaunchPermission registry value and the global DefaultLaunchPermission registry value.</string>
                   <string id="LSA_RunAsPPL">Enable additional LSA process hardening</string>
                   <string id="LSA_RunAsPPL_Explain">Enable this option to allow the LSA process to run as a PPL (Protected Process Light), in order to disallow its debugging.</string>
                   <string id="LSA_SamDisableListenOnTCP">Disable the SAM server TCP listener</string>

@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Policy to enable or disable detailed BSODs
 - Policies to control Attack Surface Reduction rules in Windows Defender
   - Credits to @MichaelGrafnetter and his project: https://github.com/MichaelGrafnetter/defender-asr-admx
+- Policy to enable or disable remote DCOM traffic
 ### Changed
 - Updated translations, wording and descriptions for consistency in en-US and fr-FR
 - Fixed a typo in Microsoft's SecGuide template
