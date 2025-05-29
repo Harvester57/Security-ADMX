@@ -7,7 +7,6 @@ Custom ADMX template focused on hardening Windows 10 and Windows 11 systems.
 [![Linting](https://github.com/Harvester57/Security-ADMX/actions/workflows/linting.yml/badge.svg)](https://github.com/Harvester57/Security-ADMX/actions/workflows/linting.yml)
 [![Latest release](https://img.shields.io/github/v/release/Harvester57/Security-ADMX)](https://github.com/Harvester57/Security-ADMX/releases)
 
-
 ## Table of contents
 
 - [System policies](#system-policies)
@@ -57,10 +56,10 @@ Custom ADMX template focused on hardening Windows 10 and Windows 11 systems.
 
     Possible choices are:
 
-    - Force a new elevated window to open (default behavior)
-    - Disable inputs to the elevated process
-    - Run in the current window
-    - Disable the functionnality
+  - Force a new elevated window to open (default behavior)
+  - Disable inputs to the elevated process
+  - Run in the current window
+  - Disable the functionnality
 
     It is recommended to use the default behavior and let the Sudo command open a new elevated window.
 
@@ -73,12 +72,12 @@ Custom ADMX template focused on hardening Windows 10 and Windows 11 systems.
 
     IMPORTANT: carefully read the Microsoft documentation associated with this protection, as it can render your device unable to boot if you do not follow the pre-required steps:
 
-    - <https://support.microsoft.com/en-us/topic/kb5025885-how-to-manage-the-windows-boot-manager-revocations-for-secure-boot-changes-associated-with-cve-2023-24932-41a975df-beb2-40c1-99a3-b3ff139f832d>
-    - <https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-24932>
+  - <https://support.microsoft.com/en-us/topic/kb5025885-how-to-manage-the-windows-boot-manager-revocations-for-secure-boot-changes-associated-with-cve-2023-24932-41a975df-beb2-40c1-99a3-b3ff139f832d>
+  - <https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-24932>
 
     In particular, you should read all the steps descriptions present in the list and the associated manual operations you need to perform (reboots, additional checks, ...) for each of them in the section of the documentation:
 
-    - <https://support.microsoft.com/en-us/topic/kb5025885-how-to-manage-the-windows-boot-manager-revocations-for-secure-boot-changes-associated-with-cve-2023-24932-41a975df-beb2-40c1-99a3-b3ff139f832d#bkmk_mitigation_guidelines>
+  - <https://support.microsoft.com/en-us/topic/kb5025885-how-to-manage-the-windows-boot-manager-revocations-for-secure-boot-changes-associated-with-cve-2023-24932-41a975df-beb2-40c1-99a3-b3ff139f832d#bkmk_mitigation_guidelines>
 
 #### Prevent standard users to install root certificates
 
@@ -176,16 +175,16 @@ Custom ADMX template focused on hardening Windows 10 and Windows 11 systems.
 
     The number of iterations for the PBKDF2-SHA1 algorithm used for hashing operations can be controlled with this policy, with the following logic:
 
-    - For a value lower than or equal to 10240, the setting acts as a 1024-mutiplier (for example, setting it to 20 will result in 20480 iterations).
-    - For a value greater than 10240, the setting acts as the chosen value (modulo 1024).
+  - For a value lower than or equal to 10240, the setting acts as a 1024-mutiplier (for example, setting it to 20 will result in 20480 iterations).
+  - For a value greater than 10240, the setting acts as the chosen value (modulo 1024).
 
     The recommended value depends on the target environment, the CPU power available and the performance hit you are willing to tolerate at logon (a high value can incur a net performance penalty for the logon process).
 
     When the policy is enabled, the default value configured is 1954 (2 000 896 rounds). This is the recommended value (at the time of December 2022) for the PBKDF2-HMAC-SHA1 algorithm, considering the compute power of a RTX 4090 GPU in a offline bruteforce attack model.
 
     More information:
-    - <https://tobtu.com/minimum-password-settings/>
-    - <https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#pbkdf2>
+  - <https://tobtu.com/minimum-password-settings/>
+  - <https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#pbkdf2>
 
 #### Disable administrative shares for workstations
 
@@ -496,11 +495,11 @@ Disable this policy to restore LM and NTLMv1 capabilities, in addition to NTLMv2
     NOTE: if you select a version above what the remote server can, handle, you will not be able to connect to the remote file share.
 
     Supported versions:
-    - SMB 2.0.2
-    - SMB 2.1.0 (Windows 7)
-    - SMB 3.0.0 (Windows 8)
-    - SMB 3.0.2 (windows 8.1)
-    - SMB 3.1.1 (Windows 10, Windows Server 2016)
+  - SMB 2.0.2
+  - SMB 2.1.0 (Windows 7)
+  - SMB 3.0.0 (Windows 8)
+  - SMB 3.0.2 (windows 8.1)
+  - SMB 3.1.1 (Windows 10, Windows Server 2016)
 
 #### Configure the maximum SMB2/3 client dialect supported
 
@@ -514,11 +513,11 @@ Disable this policy to restore LM and NTLMv1 capabilities, in addition to NTLMv2
     NOTE: do not configure this policy with a value below the one selected in the "Configure minimum SMB2 client dialect supported" policy, otherwise you could break SMB support on your system.
 
     Supported versions:
-    - SMB 2.0.2
-    - SMB 2.1.0 (Windows 7)
-    - SMB 3.0.0 (Windows 8)
-    - SMB 3.0.2 (windows 8.1)
-    - SMB 3.1.1 (Windows 10, Windows Server 2016)
+  - SMB 2.0.2
+  - SMB 2.1.0 (Windows 7)
+  - SMB 3.0.0 (Windows 8)
+  - SMB 3.0.2 (windows 8.1)
+  - SMB 3.1.1 (Windows 10, Windows Server 2016)
 
 #### Enable support for TLS 1.2 only in WinHTTP
 
@@ -601,4 +600,4 @@ Disable this policy to restore LM and NTLMv1 capabilities, in addition to NTLMv2
 - The Schannel configuration part is taken almost as-is from the [Crosse/SchannelGroupPolicy](https://github.com/Crosse/SchannelGroupPolicy) repository, a big kudo to him for his work :)
 - The legacy MSS and the settings from the Microsoft Security Guide arte imported from the Microsoft Security Compliance Toolkit as-is
   - More information: <https://www.microsoft.com/en-us/download/details.aspx?id=55319>
-- The Windows Defender Attack Surface Reduction section is ported from @MichaelGrafnetter [project](https://github.com/MichaelGrafnetter/defender-asr-admx)
+- The Windows Defender Attack Surface Reduction section is ported from @MichaelGrafnetter [project](<https://github.com/MichaelGrafnetter/defender-asr-admx>
