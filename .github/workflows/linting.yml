@@ -3,72 +3,80 @@ on:
   push:
     branches: [ main ]
 jobs:
-    checkout:
+    linting-main:
         runs-on: ubuntu-latest
+        container:
+            image: fstossesds/admx-lint
         steps:
             - 
                 name: Checkout
                 uses: actions/checkout@v4.2.2
-    linting-main:
-        needs: checkout
-        runs-on: ubuntu-latest
-        container:
-            image: fstossesds/admx-lint
-        steps:
             - 
                 name: Lint ADMX files
                 run: admx-lint --input_file AdditionalHardening.admx
     linting-debug:
-        needs: checkout
         runs-on: ubuntu-latest
         container:
             image: fstossesds/admx-lint
         steps:
+            - 
+                name: Checkout
+                uses: actions/checkout@v4.2.2
             - 
                 name: Lint ADMX files
                 run: admx-lint --input_file AdditionalDebugPolicies.admx
     linting-defender:
-        needs: checkout
         runs-on: ubuntu-latest
         container:
             image: fstossesds/admx-lint
         steps:
+            - 
+                name: Checkout
+                uses: actions/checkout@v4.2.2
             - 
                 name: Lint ADMX files
                 run: admx-lint --input_file AdditionalDefenderPolicies.admx
     linting-MSFT:
-        needs: checkout
         runs-on: ubuntu-latest
         container:
             image: fstossesds/admx-lint
         steps:
+            - 
+                name: Checkout
+                uses: actions/checkout@v4.2.2
             - 
                 name: Lint ADMX files
                 run: admx-lint --input_file AdditionalHardeningFromMicrosoft.admx
     linting-legacy:
-        needs: checkout
         runs-on: ubuntu-latest
         container:
             image: fstossesds/admx-lint
         steps:
+            - 
+                name: Checkout
+                uses: actions/checkout@v4.2.2
             - 
                 name: Lint ADMX files
                 run: admx-lint --input_file AdditionalLegacyHardening.admx
     linting-network:
-        needs: checkout
         runs-on: ubuntu-latest
         container:
             image: fstossesds/admx-lint
         steps:
             - 
+                name: Checkout
+                uses: actions/checkout@v4.2.2
+            - 
                 name: Lint ADMX files
                 run: admx-lint --input_file AdditionalNetworkHardening.admx
     linting-system:
-        needs: checkout
         runs-on: ubuntu-latest
         container:
             image: fstossesds/admx-lint
         steps:
+            - 
+                name: Checkout
+                uses: actions/checkout@v4.2.2
             - 
                 name: Lint ADMX files
                 run: admx-lint --input_file AdditionalSystemHardening.admx
