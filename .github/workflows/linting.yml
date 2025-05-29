@@ -80,4 +80,16 @@ jobs:
             - 
                 name: Lint ADMX files
                 run: admx-lint --input_file AdditionalSystemHardening.admx
+    linting-script:
+        runs-on: ubuntu-latest
+        steps:
+            - 
+                name: Checkout code
+                uses: actions/checkout@v4.2.2
+
+            - 
+                name: Invoke PSScriptAnalyzer
+                uses: PSModule/Invoke-ScriptAnalyzer@v3.0.0
+                with:
+                    Settings: SourceCode
     
