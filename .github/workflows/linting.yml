@@ -1,0 +1,12 @@
+name: Linting
+on:
+  push:
+    branches: [ main ]
+jobs:
+  linting-job:
+    runs-on: ubuntu-latest
+    container:
+      image: fstossesds/admx-lint
+    steps:
+      - name: Lint ADMX files
+        run: admx-lint --input_file *.admx
