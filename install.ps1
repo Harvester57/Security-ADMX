@@ -27,6 +27,7 @@ try {
         '*.md',    # Markdown files
         '*.ps1',   # PowerShell script files (including this one)
         '.vscode'  # VS Code workspace settings
+        '.github'
     )
 
     Write-Host "Copying ADMX and ADML files from '$SourceDirectory' to '$DestinationDirectory'..." 
