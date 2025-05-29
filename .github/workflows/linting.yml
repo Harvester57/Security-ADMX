@@ -9,4 +9,11 @@ jobs:
       image: fstossesds/admx-lint
     steps:
       - name: Lint ADMX files
-        run: admx-lint --input_file *.admx
+        run: | 
+            admx-lint --input_file AdditionalHardening.admx
+            admx-lint --input_file AdditionalDebugPolicies.admx
+            admx-lint --input_file AdditionalDefenderPolicies.admx
+            admx-lint --input_file AdditionalHardeningFromMicrosoft.admx
+            admx-lint --input_file AdditionalLegacyHardening.admx
+            admx-lint --input_file AdditionalNetworkHardening.admx
+            admx-lint --input_file AdditionalSystemHardening.admx
