@@ -26,7 +26,6 @@ try {
         '.git', # Git repository folder
         '*.md', # Markdown files
         '*.ps1', # PowerShell script files (including this one)
-        '*.psd1', # PowerShell data files
         '.vscode', # VS Code workspace settings
         '.github' # GitHub workflow files and configuration
     )

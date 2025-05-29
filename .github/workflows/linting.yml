@@ -92,7 +92,6 @@ jobs:
                 uses: PSModule/Invoke-ScriptAnalyzer@v3.0.0
                 with:
                     Settings: Custom
-                    SettingsFilePath: linting.psd1
                     Output_CIFormat: GithubActions
                     CodeCoverage_Enabled: false
     
