@@ -23,11 +23,11 @@ try {
 
     # Files and folders to exclude from the copy operation
     $Exclusions = @(
-        '.git',    # Git repository folder
-        '*.md',    # Markdown files
-        '*.ps1',   # PowerShell script files (including this one)
-        '.vscode',  # VS Code workspace settings
-        '.github'
+        '.git', # Git repository folder
+        '*.md', # Markdown files
+        '*.ps1', # PowerShell script files (including this one)
+        '.vscode', # VS Code workspace settings
+        '.github' # GitHub workflow files and configuration
     )
 
     Write-Output "Copying ADMX and ADML files from '$SourceDirectory' to '$DestinationDirectory'..."
