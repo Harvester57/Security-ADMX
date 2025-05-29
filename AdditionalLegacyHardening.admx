@@ -1,4 +1,7 @@
-<policyDefinitions revision="1.0" schemaVersion="1.0">
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0"
+  xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
   <policyNamespaces>
     <target prefix="AddLegacyHard" namespace="AddSystemHard.Policies.AddLegacyHard" />
 		<using prefix="windows" namespace="Microsoft.Policies.Windows" />
@@ -7,7 +10,6 @@
   <resources minRequiredRevision="1.0" />
 
   <policies>
-
     <policy name="Pol_MSS_AutoAdminLogon" class="Machine" displayName="$(string.DisableAutoLogon)" explainText="$(string.DisableAutoLogon_Help)" key="Software\Microsoft\Windows NT\CurrentVersion\Winlogon" valueName="AutoAdminLogon">
       <parentCategory ref="parent:Cat_Legacy" />
       <supportedOn ref="windows:SUPPORTED_WindowsVista" />
@@ -214,26 +216,3 @@
 
   </policies>
 </policyDefinitions>
-
-<!--
-;========= Start of MSS Registry Values =========
-MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\AutoAdminLogon,1,%DisableAutoLogon%,0
-MACHINE\SYSTEM\CurrentControlSet\Control\CrashControl\AutoReboot,4,%AutoReboot%,0
-MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\Parameters\DisableSavePassword,4,%DisableSavePassword%,0
-MACHINE\System\CurrentControlSet\Services\Tcpip\Parameters\EnableDeadGWDetect,4,%EnableDeadGWDetect%,0
-MACHINE\System\CurrentControlSet\Services\Tcpip\Parameters\EnableICMPRedirect,4,%EnableICMPRedirect%,0
-MACHINE\System\CurrentControlSet\Services\Lanmanserver\Parameters\Hidden,4,%HideFromBrowseList%,0
-MACHINE\System\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveTime,4,%KeepAliveTime%,3,150000|%KeepAliveTime0%,300000|%KeepAliveTime1%,600000|%KeepAliveTime2%,1200000|%KeepAliveTime3%,2400000|%KeepAliveTime4%,3600000|%KeepAliveTime5%,7200000|%KeepAliveTime6%
-MACHINE\System\CurrentControlSet\Services\IPSEC\NoDefaultExempt,4,%NoDefaultExempt%,3,0|%NoDefaultExempt0%,1|%NoDefaultExempt1%,2|%NoDefaultExempt2%,3|%NoDefaultExempt3% 
-MACHINE\System\CurrentControlSet\Services\Netbt\Parameters\NoNameReleaseOnDemand,4,%NoNameReleaseOnDemand%,0
-MACHINE\System\CurrentControlSet\Control\FileSystem\NtfsDisable8dot3NameCreation,4,%NtfsDisable8dot3NameCreation%,3,0|%NtfsDisable8dot3NameCreation0%,1|%NtfsDisable8dot3NameCreation1%,2|%NtfsDisable8dot3NameCreation2%,3|%NtfsDisable8dot3NameCreation3%
-MACHINE\System\CurrentControlSet\Services\Tcpip\Parameters\PerformRouterDiscovery,4,%PerformRouterDiscovery%,0
-MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\SafeDllSearchMode,4,%SafeDllSearchMode%,0
-MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\ScreenSaverGracePeriod,1,%ScreenSaverGracePeriod%,1
-MACHINE\System\CurrentControlSet\Services\Tcpip\Parameters\SynAttackProtect,4,%SynAttackProtect%,3,0|%SynAttackProtect0%,1|%SynAttackProtect1%
-MACHINE\System\CurrentControlSet\Services\Tcpip\Parameters\TcpMaxConnectResponseRetransmissions,4,%TcpMaxConnectResponseRetransmissions%,3,0|%TcpMaxConnectResponseRetransmissions0%,1|%TcpMaxConnectResponseRetransmissions1%,2|%TcpMaxConnectResponseRetransmissions2%,3|%TcpMaxConnectResponseRetransmissions3%
-MACHINE\System\CurrentControlSet\Services\Tcpip\Parameters\TcpMaxDataRetransmissions,4,%TcpMaxDataRetransmissions%,1
-MACHINE\SYSTEM\CurrentControlSet\Services\Eventlog\Security\WarningLevel,4,%WarningLevel%,3,50|%WarningLevel0%,60|%WarningLevel1%,70|%WarningLevel2%,80|%WarningLevel3%,90|%WarningLevel4%
-MACHINE\System\CurrentControlSet\Services\Tcpip6\Parameters\TcpMaxDataRetransmissions ,4,%TcpMaxDataRetransmissionsIPv6%,1
-;========= End of MSS Registry Values =========
--->
