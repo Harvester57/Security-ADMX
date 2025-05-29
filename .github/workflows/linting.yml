@@ -8,8 +8,13 @@ jobs:
     container:
       image: fstossesds/admx-lint
     steps:
-      - name: Lint ADMX files
-        run: | 
+    - 
+        name: Checkout
+        uses: actions/checkout@v4.2.2
+
+    - 
+        name: Lint ADMX files
+        run: |
             admx-lint --input_file AdditionalHardening.admx
             admx-lint --input_file AdditionalDebugPolicies.admx
             admx-lint --input_file AdditionalDefenderPolicies.admx
