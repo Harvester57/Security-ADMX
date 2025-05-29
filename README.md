@@ -2,6 +2,12 @@
 
 Custom ADMX template focused on hardening Windows 10 and Windows 11 systems.
 
+## Release status
+
+[![Linting](https://github.com/Harvester57/Security-ADMX/actions/workflows/linting.yml/badge.svg)](https://github.com/Harvester57/Security-ADMX/actions/workflows/linting.yml)
+![Latest release](https://img.shields.io/github/v/release/Harvester57/Security-ADMX)
+
+
 ## Table of contents
 
 - [System policies](#system-policies)
