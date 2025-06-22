@@ -41,7 +41,7 @@ jobs:
                 name: Invoke PSScriptAnalyzer
                 uses: PSModule/Invoke-ScriptAnalyzer@v3.0.0
                 with:
-                    Settings: SourceCode
+                    Settings: Custom
                     Output_CIFormat: GithubActions
                     CodeCoverage_Enabled: false
     
