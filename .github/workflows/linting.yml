@@ -11,13 +11,15 @@ jobs:
         runs-on: ubuntu-latest
         strategy:
             matrix:
-                files: ["AdditionalHardening.admx", 
+                files: [
+                    "AdditionalHardening.admx", 
                     "AdditionalDebugPolicies.admx", 
                     "AdditionalDefenderPolicies.admx", 
                     "AdditionalHardeningFromMicrosoft.admx", 
                     "AdditionalLegacyHardening.admx", 
                     "AdditionalNetworkHardening.admx", 
-                    "AdditionalSystemHardening.admx"]
+                    "AdditionalSystemHardening.admx"
+                    ]
         container:
             image: fstossesds/admx-lint
         steps:
