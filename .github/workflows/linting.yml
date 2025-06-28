@@ -21,7 +21,7 @@ jobs:
                     "AdditionalSystemHardening.admx"
                     ]
         container:
-            image: ghcr.io/harvester57/docker-admxlint:sha256-a7d997b6b89a21014cd96163c396d6ee302d9bb71315cc81a64bc2e61e5b433d
+            image: ghcr.io/harvester57/docker-admxlint
         steps:
             - 
                 name: Checkout
