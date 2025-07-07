@@ -70,6 +70,8 @@ You must enable cloud-delivered protection to use this rule.</string>
 - The file is prevalent enough to not be considered as ransomware.
 
 You must enable cloud-delivered protection to use this rule.</string>
+                  <string id="ExploitGuard_ASR_Rules_RMM">Block execution of files related to Remote Monitoring and Management tools</string>
+                  <string id="ExploitGuard_ASR_Rules_RMM_Explain">This rule blocks the execution of well-known Remote Monitoring and Management (RMM) tools (e.g. AnyDesk, Teamviewer, ...).</string>
                   <string id="AuditMode">Audit</string>
                   <string id="WarnMode">Warn</string>
                   <string id="BlockMode">Block</string>
@@ -82,7 +84,7 @@ You must enable cloud-delivered protection to use this rule.</string>
 Not configured or Disable: The state in which the ASR rule isn't enabled.
 Block: The state in which the ASR rule is enabled.
 Audit: The state in which the ASR rule is evaluated for the effect it would have on the organization or environment if enabled (set to block or warn).
-            
+
 Note: The Block credential stealing from the Windows local security authority subsystem ASR rule doesn't support WARN mode.</text>
                   </presentation>
                   <presentation id="ExploitGuard_ASR_Rules_Drivers">
@@ -155,7 +157,7 @@ Warn: The state in which the ASR rule is enabled and presents a notification to 
 Not configured or Disable: The state in which the ASR rule isn't enabled.
 Block: The state in which the ASR rule is enabled.
 Audit: The state in which the ASR rule is evaluated for the effect it would have on the organization or environment if enabled (set to block or warn).
-            
+
 Note: The Block applications from injecting code into other processes ASR rule doesn't support WARN mode.</text>
                   </presentation>
                   <presentation id="ExploitGuard_ASR_Rules_OfficeComm_CreateProcess">
@@ -224,6 +226,14 @@ Warn: The state in which the ASR rule is enabled and presents a notification to 
                   </presentation>
                   <presentation id="ExploitGuard_ASR_Rules_Ransomware">
                         <dropdownList refId="ExploitGuard_ASR_Rules_Ransomware_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>ASR rule modes:
+Not configured or Disable: The state in which the ASR rule isn't enabled.
+Block: The state in which the ASR rule is enabled.
+Audit: The state in which the ASR rule is evaluated for the effect it would have on the organization or environment if enabled (set to block or warn).
+Warn: The state in which the ASR rule is enabled and presents a notification to the end-user, but permits the end-user to bypass the block.</text>
+                  </presentation>
+                  <presentation id="ExploitGuard_ASR_Rules_RMM">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_RMM_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
                         <text>ASR rule modes:
 Not configured or Disable: The state in which the ASR rule isn't enabled.
 Block: The state in which the ASR rule is enabled.

@@ -571,5 +571,33 @@
 				</enum>
 			</elements>
 		</policy>
+		<policy name="ExploitGuard_ASR_Rules_RMM" class="Machine" displayName="$(string.ExploitGuard_ASR_Rules_RMM)" explainText="$(string.ExploitGuard_ASR_Rules_RMM_Explain)" presentation="$(presentation.ExploitGuard_ASR_Rules_RMM)" key="Software\Policies\Microsoft\Windows Defender\Windows Defender Exploit Guard\ASR\Rules">
+			<parentCategory ref="ASR" />
+			<supportedOn ref="windows:SUPPORTED_Windows_10_0_RS4" />
+			<elements>
+				<enum id="ExploitGuard_ASR_Rules_RMM_Options" valueName="1081f0b6-3e1e-4f44-acce-816d65112d99" required="true">
+					<item displayName="$(string.DisabledMode)">
+						<value>
+							<string>0</string>
+						</value>
+					</item>
+					<item displayName="$(string.AuditMode)">
+						<value>
+							<string>2</string>
+						</value>
+					</item>
+					<item displayName="$(string.WarnMode)">
+						<value>
+							<string>6</string>
+						</value>
+					</item>
+					<item displayName="$(string.BlockMode)">
+						<value>
+							<string>1</string>
+						</value>
+					</item>
+				</enum>
+			</elements>
+		</policy>
 	</policies>
 </policyDefinitions>

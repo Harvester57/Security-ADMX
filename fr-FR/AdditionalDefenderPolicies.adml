@@ -18,16 +18,16 @@
                   <string id="DefenderSandboxing_Explain">Cette politique permet d'activer le bac à sable pour le processus principal de Windows Defender, permettant à celui-ci d'appliquer des durcissements modernes au processus (ALSR, CFG, DEP, signature du code chargé, ...)
 
 Plus d'informations : https://www.microsoft.com/en-us/security/blog/2018/10/26/windows-defender-antivirus-can-now-run-in-a-sandbox/</string>
-                  <string id="ExploitGuard_ASR_Rules_Lsass">Bloquer le vol d'informations d'identification du sous-système de l'autorité de sécurité locale Windows (lsass.exe)</string>
-                  <string id="ExploitGuard_ASR_Rules_Lsass_Explain">Cette règle aide à prévenir le vol d'informations d'identification en bloquant les tentatives d'injection de code ciblant lsass.exe.
-
-L'activation de cette règle ne fournit pas de protection supplémentaire si la protection LSA est activée, car la règle ASR et la protection LSA fonctionnent de manière similaire. Cependant, lorsque la protection LSA ne peut pas être activée, cette règle peut être configurée pour fournir une protection équivalente contre les logiciels malveillants qui ciblent lsass.exe.</string>
                   <string id="ExploitGuard_ASR_Rules_Drivers">Bloquer l'abus de pilotes signés vulnérables exploités</string>
                   <string id="ExploitGuard_ASR_Rules_Drivers_Explain">Cette règle empêche une application d'écrire un pilote signé vulnérable sur le disque.</string>
                   <string id="ExploitGuard_ASR_Rules_AdobeReader">Empêcher Adobe Reader de créer des processus enfants</string>
                   <string id="ExploitGuard_ASR_Rules_AdobeReader_Explain">Cette règle prévient les attaques en empêchant Adobe Reader de créer des processus.</string>
                   <string id="ExploitGuard_ASR_Rules_Office_CreateProcess">Empêcher toutes les applications Office de créer des processus enfants</string>
                   <string id="ExploitGuard_ASR_Rules_Office_CreateProcess_Explain">Cette règle empêche les applications Office de créer des processus enfants. Les applications Office incluent Word, Excel, PowerPoint, OneNote et Access.</string>
+                  <string id="ExploitGuard_ASR_Rules_Lsass">Bloquer le vol d'informations d'identification du sous-système de l'autorité de sécurité locale Windows (lsass.exe)</string>
+                  <string id="ExploitGuard_ASR_Rules_Lsass_Explain">Cette règle aide à prévenir le vol d'informations d'identification en bloquant les tentatives d'injection de code ciblant lsass.exe.
+
+L'activation de cette règle ne fournit pas de protection supplémentaire si la protection LSA est activée, car la règle ASR et la protection LSA fonctionnent de manière similaire. Cependant, lorsque la protection LSA ne peut pas être activée, cette règle peut être configurée pour fournir une protection équivalente contre les logiciels malveillants qui ciblent lsass.exe.</string>
                   <string id="ExploitGuard_ASR_Rules_Email">Bloquer le contenu exécutable du client de messagerie et du webmail</string>
                   <string id="ExploitGuard_ASR_Rules_Email_Explain">Cette règle empêche les e-mails ouverts dans l'application Microsoft Outlook, ou Outlook.com et d'autres fournisseurs de webmail populaires, de propager les types de fichiers suivants :
 
@@ -71,6 +71,8 @@ Vous devez activer la protection fournie par le cloud pour utiliser cette règle
 - Le fichier est assez répandu pour ne pas être considéré comme un rançongiciel.
 
 Vous devez activer la protection fournie par le cloud pour utiliser cette règle.</string>
+                  <string id="ExploitGuard_ASR_Rules_RMM">Bloquer l'exécution de fichiers liés aux outils de surveillance et gestion à distance (RMM)</string>
+                  <string id="ExploitGuard_ASR_Rules_RMM_Explain">Cette règle bloque l'exécution d'outils de surveillance et de gestion à distance (RMM) courants (par exemple AnyDesk, Teamviewer, ...).</string>
                   <string id="AuditMode">Mode audit</string>
                   <string id="WarnMode">Mode avertissement</string>
                   <string id="BlockMode">Mode blocage</string>
@@ -243,6 +245,15 @@ Mode avertissement : État dans lequel la règle ASR est activée et présente u
                   </presentation>
                   <presentation id="ExploitGuard_ASR_Rules_Ransomware">
                         <dropdownList refId="ExploitGuard_ASR_Rules_Ransomware_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
+                        <text>Modes des règles ASR :
+
+Non configuré ou Désactivé : État dans lequel la règle ASR n'est pas activée.
+Mode blocage : État dans lequel la règle ASR est activée.
+Mode audit : État dans lequel la règle ASR est évaluée pour l'effet qu'elle aurait sur l'organisation ou l'environnement si elle était activée (définie sur Mode blocage ou Mode avertissement).
+Mode avertissement : État dans lequel la règle ASR est activée et présente une notification à l'utilisateur final, mais permet à l'utilisateur final de contourner le blocage.</text>
+                  </presentation>
+                  <presentation id="ExploitGuard_ASR_Rules_RMM">
+                        <dropdownList refId="ExploitGuard_ASR_Rules_RMM_Options" defaultItem="1" noSort="true">Mode:</dropdownList>
                         <text>Modes des règles ASR :
 
 Non configuré ou Désactivé : État dans lequel la règle ASR n'est pas activée.
