@@ -24,7 +24,7 @@ jobs:
                     "AdditionalSystemHardening.admx"
                     ]
         container:
-            image: ghcr.io/harvester57/docker-admxlint:latest@sha256:75764d09f9681fd1ceaeccd1c6a528a37512e2b236a8692b2b8a03be8cf2fa5d
+            image: ghcr.io/harvester57/docker-admxlint:nightly@sha256:8d075aec7df7708d64806d1e3166d2cfe094917c65efc3106104828083bead25
         steps:
             - name: Harden the runner (Audit all outbound calls)
               uses: step-security/harden-runner@6c439dc8bdf85cadbbce9ed30d1c7b959517bc49 # v2.12.2
