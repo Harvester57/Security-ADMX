@@ -568,13 +568,13 @@ La seule restriction est que l'assembly doit être entièrement fiable, car sa z
                         <dropdownList refId="DisableIPSourceRoutingIPv6" noSort="true" defaultItem="1">Sélectionner un niveau de routage :</dropdownList>
                   </presentation>
                   <presentation id="DHServer">
-                  <dropdownList refId="DHServer_MinLength" noSort="true" defaultItem="3">Taille minimale du module DH côté serveur :</dropdownList>
+                  <dropdownList refId="DHServer_MinLength" noSort="true" defaultItem="0">Taille minimale du module DH côté serveur :</dropdownList>
                   </presentation>
                   <presentation id="DHClient">
-                        <dropdownList refId="DHClient_MinLength" noSort="true" defaultItem="3">Taille minimale du module DH côté client :</dropdownList>
+                        <dropdownList refId="DHClient_MinLength" noSort="true" defaultItem="0">Taille minimale du module DH côté client :</dropdownList>
                   </presentation>
                   <presentation id="PKCSClient">
-                        <dropdownList refId="PKCSClient_MinLength" noSort="true" defaultItem="3">Taille minimale du module PKCS côté client :</dropdownList>
+                        <dropdownList refId="PKCSClient_MinLength" noSort="true" defaultItem="0">Taille minimale du module PKCS côté client :</dropdownList>
                   </presentation>
                   <presentation id="TLS_Ciphersuites">
                         <dropdownList refId="TLS_Ciphersuites_Selection" noSort="true" defaultItem="1">Sélectionnez un profil :</dropdownList>

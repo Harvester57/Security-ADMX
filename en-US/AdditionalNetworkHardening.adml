@@ -564,13 +564,13 @@ The only restriction is that the assembly must be fully trusted because its zone
                         <dropdownList refId="DisableIPSourceRoutingIPv6" noSort="true" defaultItem="1">Routing level:</dropdownList>
                   </presentation>
                   <presentation id="DHServer">
-                        <dropdownList refId="DHServer_MinLength" noSort="true" defaultItem="3">Server side DH modulus minimum length:</dropdownList>
+                        <dropdownList refId="DHServer_MinLength" noSort="true" defaultItem="0">Server side DH modulus minimum length:</dropdownList>
                   </presentation>
                   <presentation id="DHClient">
-                        <dropdownList refId="DHClient_MinLength" noSort="true" defaultItem="3">Client side DH modulus minimum length:</dropdownList>
+                        <dropdownList refId="DHClient_MinLength" noSort="true" defaultItem="0">Client side DH modulus minimum length:</dropdownList>
                   </presentation>
                   <presentation id="PKCSClient">
-                        <dropdownList refId="PKCSClient_MinLength" noSort="true" defaultItem="3">Client side PKCS modulus minimum length:</dropdownList>
+                        <dropdownList refId="PKCSClient_MinLength" noSort="true" defaultItem="0">Client side PKCS modulus minimum length:</dropdownList>
                   </presentation>
                   <presentation id="TLS_Ciphersuites">
                         <dropdownList refId="TLS_Ciphersuites_Selection" noSort="true" defaultItem="1">Select a profile:</dropdownList>
