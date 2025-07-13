@@ -28,7 +28,8 @@ try {
         '*.ps1', # PowerShell script files (including this one)
         '.vscode', # VS Code workspace settings
         '.github', # GitHub workflow files and configuration
-        'LICENSE'
+        'LICENSE',
+        '.pre-commit-config.yaml'
     )
 
     Write-Output "Copying ADMX and ADML files from '$SourceDirectory' to '$DestinationDirectory'..."
