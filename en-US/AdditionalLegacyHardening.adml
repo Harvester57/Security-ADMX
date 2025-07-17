@@ -1,72 +1,108 @@
 <policyDefinitionResources revision="1.0" schemaVersion="1.0">
   <displayName>MSS (Legacy)</displayName>
-  <description>The legacy "MSS" settings that had been exposed in Secpol, Security Options, using LocalGPO.wsf /ConfigSCE.</description>
+  <description>Hardening settings for legacy security options, originally configured via the Security Configuration Editor (SCE).</description>
   <resources>
     <stringTable>
       <string id="MSS">MSS (Legacy)</string>
 
-      <string id="AutoReboot">MSS: (AutoReboot) Allow Windows to automatically restart after a system crash</string>
-      <string id="AutoReboot_Help">MSS: (AutoReboot) Allow Windows to automatically restart after a system crash</string>
-      <string id="DisableAutoLogon">MSS: (AutoAdminLogon) Enable Automatic Logon</string>
-      <string id="DisableAutoLogon_Help">MSS: (AutoAdminLogon) Enable Automatic Logon</string>
+      <string id="AutoReboot">MSS: (AutoReboot) Configure automatic system restart after a crash</string>
+      <string id="AutoReboot_Help">Specifies whether Windows automatically restarts after a system crash (Blue Screen of Death).
+
+Disabling this setting can be useful for debugging as it prevents the system from immediately rebooting, allowing the crash information to be viewed on screen. For most production systems, automatic restart is recommended.</string>
+      <string id="DisableAutoLogon">MSS: (AutoAdminLogon) Configure Automatic Logon</string>
+      <string id="DisableAutoLogon_Help">This policy controls the automatic logon feature, which allows a user to log on without entering a password.
+
+Enabling automatic logon is a significant security risk as it bypasses authentication and should only be used in highly controlled, physically secure environments. This policy disables the feature by default for security.</string>
       <string id="DisableSavePassword">MSS: (DisableSavePassword) Prevent the dial-up password from being saved</string>
-      <string id="DisableSavePassword_Help">MSS: (DisableSavePassword) Prevent the dial-up password from being saved</string>
-      <string id="EnableDeadGWDetect">MSS: (EnableDeadGWDetect) Allow automatic detection of dead network gateways</string>
-      <string id="EnableDeadGWDetect_Help">MSS: (EnableDeadGWDetect) Allow automatic detection of dead network gateways</string>
-      <string id="EnableICMPRedirect">MSS: (EnableICMPRedirect) Allow ICMP redirects to override OSPF generated routes</string>
-      <string id="EnableICMPRedirect_Help">MSS: (EnableICMPRedirect) Allow ICMP redirects to override OSPF generated routes</string>
-      <string id="HideFromBrowseList">MSS: (Hidden) Hide Computer From the Browse List</string>
-      <string id="HideFromBrowseList_Help">MSS: (Hidden) Hide Computer From the Browse List</string>
-      <string id="KeepAliveTime">MSS: (KeepAliveTime) How often keep-alive packets are sent (in milliseconds)</string>
-      <string id="KeepAliveTime_Help">MSS: (KeepAliveTime) How often keep-alive packets are sent (in milliseconds)</string>
-      <string id="KeepAliveTime0">150000 or 2.5 minutes</string>
-      <string id="KeepAliveTime1">300000 or 5 minutes (recommended)</string>
-      <string id="KeepAliveTime2">600000 or 10 minutes</string>
-      <string id="KeepAliveTime3">1200000 or 20 minutes</string>
-      <string id="KeepAliveTime4">2400000 or 40 minutes</string>
-      <string id="KeepAliveTime5">3600000 or 1 hour</string>
-      <string id="KeepAliveTime6">7200000 or 2 hours (default value)</string>
-      <string id="NoDefaultExempt">MSS: (NoDefaultExempt) Configure IPSec exemptions for various types of network traffic.</string>
-      <string id="NoDefaultExempt_Help">MSS: (NoDefaultExempt) Configure IPSec exemptions for various types of network traffic.</string>
-      <string id="NoDefaultExempt0">Allow all exemptions (least secure).</string>
-      <string id="NoDefaultExempt1">Multicast, broadcast, and ISAKMP exempt.</string>
-      <string id="NoDefaultExempt2">RSVP, Kerberos, and ISAKMP are exempt.</string>
-      <string id="NoDefaultExempt3">Only ISAKMP is exempt.</string>
-      <string id="NoNameReleaseOnDemand">MSS: (NoNameReleaseOnDemand) Allow the computer to ignore NetBIOS name release requests except from WINS servers</string>
-      <string id="NoNameReleaseOnDemand_Help">MSS: (NoNameReleaseOnDemand) Allow the computer to ignore NetBIOS name release requests except from WINS servers</string>
-      <string id="NtfsDisable8dot3NameCreation">MSS: (NtfsDisable8dot3NameCreation) Enable the computer to stop generating 8.3 style filenames</string>
-      <string id="NtfsDisable8dot3NameCreation_Help">MSS: (NtfsDisable8dot3NameCreation) Enable the computer to stop generating 8.3 style filenames</string>
-      <string id="NtfsDisable8dot3NameCreation0">Enable 8dot3 creation on all volumes.</string>
-      <string id="NtfsDisable8dot3NameCreation1">Disable 8dot3 creation on all volumes.</string>
-      <string id="NtfsDisable8dot3NameCreation2">Set 8dot3 name creation per volume using FSUTIL.</string>
-      <string id="NtfsDisable8dot3NameCreation3">Disable 8dot3 creation on all volumes except the system volume.</string>
-      <string id="PerformRouterDiscovery">MSS: (PerformRouterDiscovery) Allow IRDP to detect and configure Default Gateway addresses</string>
-      <string id="PerformRouterDiscovery_Help">MSS: (PerformRouterDiscovery) Allow IRDP to detect and configure Default Gateway addresses</string>
-      <string id="SafeDllSearchMode">MSS: (SafeDllSearchMode) Enable Safe DLL search mode</string>
-      <string id="SafeDllSearchMode_Help">MSS: (SafeDllSearchMode) Enable Safe DLL search mode</string>
-      <string id="ScreenSaverGracePeriod">MSS: (ScreenSaverGracePeriod) The time in seconds before the screen saver grace period expires</string>
-      <string id="ScreenSaverGracePeriod_Help">MSS: (ScreenSaverGracePeriod) The time in seconds before the screen saver grace period expires</string>
-      <string id="SynAttackProtect">MSS: (SynAttackProtect) SYN attack protection level</string>
-      <string id="SynAttackProtect_Help">MSS: (SynAttackProtect) SYN attack protection level</string>
-      <string id="SynAttackProtect0">No additional protection; use default settings.</string>
-      <string id="SynAttackProtect1">Connections time out sooner if a SYN attack is detected.</string>
-      <string id="TcpMaxConnectResponseRetransmissions">MSS: (TcpMaxConnectResponseRetransmissions) SYN-ACK retransmissions when a connection request is not acknowledged</string>
-      <string id="TcpMaxConnectResponseRetransmissions_Help">MSS: (TcpMaxConnectResponseRetransmissions) SYN-ACK retransmissions when a connection request is not acknowledged</string>
-      <string id="TcpMaxConnectResponseRetransmissions0">No retransmission; half-open connections dropped after 3 seconds.</string>
-      <string id="TcpMaxConnectResponseRetransmissions1">3 seconds; half-open connections dropped after 9 seconds.</string>
-      <string id="TcpMaxConnectResponseRetransmissions2">3 and 6 seconds; half-open connections dropped after 21 seconds.</string>
-      <string id="TcpMaxConnectResponseRetransmissions3">3, 6, and 9 seconds; half-open connections dropped after 45 seconds.</string>
-      <string id="TcpMaxDataRetransmissions">MSS: (TcpMaxDataRetransmissions) How many times unacknowledged data is retransmitted</string>
-      <string id="TcpMaxDataRetransmissions_Help">MSS: (TcpMaxDataRetransmissions) How many times unacknowledged data is retransmitted</string>
-      <string id="TcpMaxDataRetransmissionsIPv6">MSS: (TcpMaxDataRetransmissions IPv6) How many times unacknowledged data is retransmitted</string>
-      <string id="TcpMaxDataRetransmissionsIPv6_Help">MSS: (TcpMaxDataRetransmissions IPv6) How many times unacknowledged data is retransmitted</string>
-      <string id="WarningLevel">MSS: (WarningLevel) Percentage threshold for the security event log at which the system will generate a warning</string>
-      <string id="WarningLevel_Help">MSS: (WarningLevel) Percentage threshold for the security event log at which the system will generate a warning</string>
+      <string id="DisableSavePassword_Help">Prevents Windows from saving passwords for dial-up and VPN connections.
+
+This is a recommended security measure to avoid storing credentials on the system.</string>
+      <string id="EnableDeadGWDetect">MSS: (EnableDeadGWDetect) Configure dead gateway detection</string>
+      <string id="EnableDeadGWDetect_Help">This policy determines if TCP will try to detect "dead" gateways.
+
+When enabled, TCP may ask IP to change to a backup gateway if it retransmits a segment several times without receiving a response. Disabling this can prevent failover to a backup gateway but can also prevent network disruption if the primary gateway is falsely detected as down.</string>
+      <string id="EnableICMPRedirect">MSS: (EnableICMPRedirect) Allow ICMP redirects</string>
+      <string id="EnableICMPRedirect_Help">Determines whether the system will modify its routing table in response to ICMP redirect packets.
+
+Allowing ICMP redirects creates a security vulnerability, as an attacker could use them to redirect traffic to a malicious host. Disabling this feature is recommended for enhanced security.</string>
+      <string id="HideFromBrowseList">MSS: (Hidden) Hide computer from network browse lists</string>
+      <string id="HideFromBrowseList_Help">Prevents this computer from appearing in the network browse list of other computers (e.g., in File Explorer's Network view).
+
+This can help to obscure the computer on the network but does not prevent direct connections if the name or IP address is known.</string>
+      <string id="KeepAliveTime">MSS: (KeepAliveTime) Configure TCP keep-alive interval</string>
+      <string id="KeepAliveTime_Help">Determines how often TCP sends keep-alive packets to verify that an idle connection is still active.
+
+Shorter intervals detect disconnections faster but increase network traffic. The Windows default value is 2 hours (7,200,000 ms). A value of 5 minutes (300,000 ms) is a common recommendation for a balance between responsiveness and traffic.</string>
+      <string id="KeepAliveTime0">150,000 ms (2.5 minutes)</string>
+      <string id="KeepAliveTime1">300,000 ms (5 minutes) - Recommended</string>
+      <string id="KeepAliveTime2">600,000 ms (10 minutes)</string>
+      <string id="KeepAliveTime3">1,200,000 ms (20 minutes)</string>
+      <string id="KeepAliveTime4">2,400,000 ms (40 minutes)</string>
+      <string id="KeepAliveTime5">3,600,000 ms (1 hour)</string>
+      <string id="KeepAliveTime6">7,200,000 ms (2 hours) - Windows Default</string>
+      <string id="NoDefaultExempt">MSS: (NoDefaultExempt) Configure IPSec traffic exemptions</string>
+      <string id="NoDefaultExempt_Help">This policy defines which types of network traffic are exempt from IPSec protection, even when an IPSec policy is active.
+
+For maximum security, exemptions should be minimized. This setting controls the behavior for IKE and IPsec DoS Protection.</string>
+      <string id="NoDefaultExempt0">No IPSec protection (least secure): Exempts all traffic.</string>
+      <string id="NoDefaultExempt1">Exempt multicast, broadcast, and ISAKMP traffic.</string>
+      <string id="NoDefaultExempt2">Exempt RSVP, Kerberos, and ISAKMP traffic.</string>
+      <string id="NoDefaultExempt3">Exempt ISAKMP traffic only (most secure).</string>
+      <string id="NoNameReleaseOnDemand">MSS: (NoNameReleaseOnDemand) Ignore NetBIOS name release requests</string>
+      <string id="NoNameReleaseOnDemand_Help">This setting prevents the computer from releasing its NetBIOS name when it receives a name-release request from another computer on the network, except from a WINS server.
+
+This can help prevent a denial-of-service attack where a malicious actor attempts to take over a system's name.</string>
+      <string id="NtfsDisable8dot3NameCreation">MSS: (NtfsDisable8dot3NameCreation) Configure 8.3 short name creation for NTFS</string>
+      <string id="NtfsDisable8dot3NameCreation_Help">Controls whether NTFS generates short file names in the 8.3 format (e.g., "PROGRA~1") for compatibility with older 16-bit applications.
+
+Disabling 8.3 name creation can improve directory enumeration performance and is recommended unless legacy application compatibility is required.</string>
+      <string id="NtfsDisable8dot3NameCreation0">Enable on all volumes (System default).</string>
+      <string id="NtfsDisable8dot3NameCreation1">Disable on all volumes (Recommended for performance).</string>
+      <string id="NtfsDisable8dot3NameCreation2">Configure per volume (Requires manual 'fsutil.exe' configuration).</string>
+      <string id="NtfsDisable8dot3NameCreation3">Disable on non-system volumes only.</string>
+      <string id="PerformRouterDiscovery">MSS: (PerformRouterDiscovery) Configure ICMP Router Discovery (IRDP)</string>
+      <string id="PerformRouterDiscovery_Help">Determines if the system uses ICMP Router Discovery Protocol (IRDP) to find and configure default gateway addresses.
+
+This is typically not needed in environments with static gateways or DHCP. Disabling it can reduce vulnerability to network-based attacks that might advertise a malicious router.</string>
+      <string id="SafeDllSearchMode">MSS: (SafeDllSearchMode) Configure Safe DLL search mode</string>
+      <string id="SafeDllSearchMode_Help">This policy enables a more secure DLL search order for applications.
+
+When enabled, the search path is restricted, prioritizing system directories over the current working directory. This helps mitigate DLL preloading or hijacking attacks. This setting is enabled by default on modern Windows versions and should remain enabled.</string>
+      <string id="ScreenSaverGracePeriod">MSS: (ScreenSaverGracePeriod) Configure screen saver grace period</string>
+      <string id="ScreenSaverGracePeriod_Help">Specifies the time, in seconds, that can elapse after a screen saver becomes active before the workstation is locked. A grace period allows a user to dismiss the screen saver (by moving the mouse, for example) without re-entering their password.
+
+For security, this should be set to 5 seconds or less.</string>
+      <string id="SynAttackProtect">MSS: (SynAttackProtect) Configure TCP SYN attack protection</string>
+      <string id="SynAttackProtect_Help">Configures how the TCP/IP stack responds to SYN flood attacks. A SYN attack can exhaust system resources by sending a high volume of TCP SYN packets (connection requests) and not completing the handshake.
+
+Enabling this protection makes the system more resilient to such attacks.</string>
+      <string id="SynAttackProtect0">Disabled: Standard SYN-ACK retransmissions.</string>
+      <string id="SynAttackProtect1">Enabled: Retransmissions are reduced and connection timeouts are faster when an attack is detected.</string>
+      <string id="TcpMaxConnectResponseRetransmissions">MSS: (TcpMaxConnectResponseRetransmissions) Configure number of SYN-ACK retransmissions</string>
+      <string id="TcpMaxConnectResponseRetransmissions_Help">Defines how many times the system will retransmit a SYN-ACK packet when it does not receive an acknowledgement for a new connection request.
+
+Lowering this value can help mitigate certain denial-of-service attacks by more quickly dropping half-open connections. The system default is 2 retransmissions.</string>
+      <string id="TcpMaxConnectResponseRetransmissions0">0 retransmissions (half-open connections drop after 3 seconds).</string>
+      <string id="TcpMaxConnectResponseRetransmissions1">1 retransmission (half-open connections drop after 9 seconds).</string>
+      <string id="TcpMaxConnectResponseRetransmissions2">2 retransmissions (half-open connections drop after 21 seconds) - Windows Default.</string>
+      <string id="TcpMaxConnectResponseRetransmissions3">3 retransmissions (half-open connections drop after 45 seconds).</string>
+      <string id="TcpMaxDataRetransmissions">MSS: (TcpMaxDataRetransmissions) Configure max TCP data retransmissions (IPv4)</string>
+      <string id="TcpMaxDataRetransmissions_Help">Specifies the maximum number of times TCP will retransmit an unacknowledged data segment on an existing IPv4 connection. After this many retransmissions, the connection is aborted.
+
+The default value is 5.</string>
+      <string id="TcpMaxDataRetransmissionsIPv6">MSS: (TcpMaxDataRetransmissions IPv6) Configure max TCP data retransmissions (IPv6)</string>
+      <string id="TcpMaxDataRetransmissionsIPv6_Help">Specifies the maximum number of times TCP will retransmit an unacknowledged data segment on an existing IPv6 connection. After this many retransmissions, the connection is aborted.
+
+The default value is 5.</string>
+      <string id="WarningLevel">MSS: (WarningLevel) Configure security event log full warning level</string>
+      <string id="WarningLevel_Help">Specifies the percentage of the security event log's maximum size that must be filled to trigger a warning event (Event ID 1104).
+
+The system default is 90%. Setting this is crucial for ensuring log data is not lost due to the log overwriting itself when it reaches full capacity.</string>
       <string id="WarningLevel0">50%</string>
       <string id="WarningLevel1">60%</string>
       <string id="WarningLevel2">70%</string>
       <string id="WarningLevel3">80%</string>
-      <string id="WarningLevel4">90%</string>
+      <string id="WarningLevel4">90% (System Default)</string>
 
     </stringTable>
 
