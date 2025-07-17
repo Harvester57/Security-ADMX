@@ -37,7 +37,7 @@ Disabling this policy will allow standard users to open a session in Safe Mode.<
                   <string id="MicroarchHardening_Explain">The FeatureSettingsOverride registry key in Windows, typically found under SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management and often managed alongside FeatureSettingsOverrideMask, provides administrators with granular control over software-based mitigations for CPU speculative execution vulnerabilities like Spectre and Meltdown.
 
 These vulnerabilities can potentially allow unauthorized access to sensitive data. Windows implements various mitigations to counter these threats, but they can sometimes introduce performance overhead. The FeatureSettingsOverride key allows for a tailored approach, enabling administrators to selectively enable or disable specific mitigations—such as those for different variants of Spectre (like v2 or Speculative Store Bypass - SSB) and Meltdown—or even to disable all of them if the performance impact is deemed too high for a particular environment, or to apply specific configurations like disabling Hyper-Threading on Intel CPUs in conjunction with these mitigations.</string>
-                  <string id="MicroarchHardening_Option1">Intel and AMD: enable all mitigations</string>
+                  <string id="MicroarchHardening_Option1">Intel and AMD: enable all available mitigations</string>
                   <string id="MicroarchHardening_Option2">Intel: enable all mitigations (with Hyper-Threading disabled)</string>
                   <string id="MicroarchHardening_Option3">Intel: enable mitigations for Spectre v2, Meltdown, and SSB</string>
                   <string id="MicroarchHardening_Option4">Intel: enable mitigations for Spectre v2 and Meltdown</string>
@@ -78,7 +78,7 @@ Keeping WDigest enabled could allow an attacker to retrieve plain-text passwords
                   <string id="Logon_Explain">Enabling this policy modifies two settings related to how the local system handles domain-related credentials:
 
 - Reduce the caching count (2 cached credentials) of domain-related credentials for offline authentication if no domain controller is available
-- The delay before the credentials are cleared from memory after a logoff is set to 30 seconds.
+- The delay before the credentials are cleared from memory after a logoff is reduced to 30 seconds.
 
 These settings reduce the exposure time of credentials to attack tools such as Mimikatz.
 
@@ -179,7 +179,7 @@ https://learn.microsoft.com/en-us/windows/security/identity-protection/credentia
 
 Enabling this policy will set the Mandatory flag and force the verification of the VBS components at boot time.
 
-Enabling this policy with UEFI Lock already enabled will do nothing.
+Enabling this policy with UEFI Lock already enabled will have no effect.
 
 Disabling this policy will disable the verification of the components, only if the UEFI Lock is not enabled. Otherwise, disabling this policy will do nothing.</string>
                   <string id="CoInstallers">Block driver co-installers</string>
@@ -199,7 +199,7 @@ If you disable this setting, co-installer execution will be permitted, which is 
                   </presentation>
                   <presentation id="BlackLotusMitigation_Presentation">
                         <dropdownList refId="BlackLotusMitigation_DropdownList" noSort="true" defaultItem="0">Select a step:</dropdownList>
-                  </presentation>
+</presentation>
                   <presentation id="SudoCommand_Presentation">
                         <dropdownList refId="SudoCommand_DropdownList" noSort="true" defaultItem="0">Select an option:</dropdownList>
                   </presentation>
