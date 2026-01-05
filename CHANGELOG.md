@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v1.2.1] - 2026-01-05
+
+### Added
+
+- Policy to enable AMSI Authenticode signature verification
+- Defender ASR policy: "Block execution of files related to Remote Monitoring and Management tools"
+
+### Fixed
+
+- String format for the TLS ciphersuites (extra blank spaces were removed)
+- Typos in descriptions
+
+### Changed
+
+- Cleanup of the Microsoft legacy ADMX and ADML files (improved descriptions and XML formatting)
+
 ## [v1.2.0] - 2025-05-13
 
 ### Added
