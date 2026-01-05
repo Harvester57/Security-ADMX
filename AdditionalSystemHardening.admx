@@ -530,5 +530,15 @@
                 <decimal value="0" />
             </disabledValue>
         </policy>
+        <policy name="AMSI_FeatureBits" class="Machine" displayName="$(string.AMSI_FeatureBits)" explainText="$(string.AMSI_FeatureBits_Explain)" key="SOFTWARE\Microsoft\AMSI" valueName="FeatureBits">
+            <parentCategory ref="System" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+            <enabledValue>
+                <decimal value="2" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="1" />
+            </disabledValue>
+        </policy>
     </policies>
 </policyDefinitions>

@@ -166,6 +166,17 @@ Custom ADMX template focused on hardening Windows 10 and Windows 11 systems.
 - **Values:** 1/`<delete>`
 - **Description:** The strict Authenticode signature verification mechanism disallow to add extraneous information in the WIN_CERTIFICATE structure.
 
+#### Enable AMSI Authenticode signature verification
+
+- **Registry path(s):** SOFTWARE\Microsoft\AMSI
+- **Registry key(s):** FeatureBits
+- **Values:** 2/1
+- **Description:** This policy enables the verification of the Authenticode signature of the AMSI provider.
+
+    If you enable this policy, the AMSI provider must be signed by a trusted certificate.
+
+    If you disable or do not configure this policy, the signature verification is disabled (default behavior).
+
 #### Disable standard users in Safe-Boot mode
 
 - **Registry path(s):** SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
