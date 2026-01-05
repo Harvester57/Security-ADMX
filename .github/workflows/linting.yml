@@ -1,7 +1,5 @@
 name: Linting
 on:
-  schedule:
-    - cron: '23 1 * * *'
   push:
     branches: [ main ]
   pull_request:
