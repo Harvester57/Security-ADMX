@@ -340,14 +340,31 @@ Custom ADMX template focused on hardening Windows 10 and Windows 11 systems.
 
 #### Enable Spectre and Meltdown mitigations
 
-- **Registry path(s):** SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management
+- **Registry path(s):**
+  - SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management
+  - SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization
 - **Registry key(s):**
   - FeatureSettingsOverride
   - FeatureSettingsOverrideMask
+  - MinVmVersionForCpuBasedMitigations
 - **Values:**
   - 72/8264/8/0/1/64/3
-  - 3/3/3/3/3/3/3
-- **Description:** TODO
+  - 3
+  - 1.0
+- **Description:** The FeatureSettingsOverride registry key in Windows, typically found under SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management and often managed alongside FeatureSettingsOverrideMask, provides administrators with granular control over software-based mitigations for CPU speculative execution vulnerabilities like Spectre and Meltdown.
+
+    These vulnerabilities can potentially allow unauthorized access to sensitive data. Windows implements various mitigations to counter these threats, but they can sometimes introduce performance overhead. The FeatureSettingsOverride key allows for a tailored approach, enabling administrators to selectively enable or disable specific mitigations—such as those for different variants of Spectre (like v2 or Speculative Store Bypass - SSB) and Meltdown—or even to disable all of them if the performance impact is deemed too high for a particular environment, or to apply specific configurations like disabling Hyper-Threading on Intel CPUs in conjunction with these mitigations.
+
+    This policy also allows to enable Hyper-V mitigations for virtual machines below version 8.0 (MinVmVersionForCpuBasedMitigations).
+
+    Available options:
+  - Intel and AMD: enable all available mitigations
+  - Intel: enable all mitigations (with Hyper-Threading disabled)
+  - Intel: enable mitigations for Spectre v2, Meltdown, and SSB
+  - Intel: enable mitigations for Spectre v2 and Meltdown
+  - Intel: enable mitigations for Meltdown only
+  - AMD and ARM: enable mitigations for Spectre v2
+  - Disable all mitigations
 
 #### Enable Structured Exception Handling Overwrite Protection (SEHOP)
 
@@ -719,6 +736,532 @@ Disable this policy to restore LM and NTLMv1 capabilities, in addition to NTLMv2
 - **Description:** Enabling or disabling this policy will respectively enable or disable support for TLS 1.1 and TLS 1.2 in .NET Framework 2.
 
   If this setting is left unconfigured, TLS 1.1 and TLS 1.2 will be disabled by default.
+
+#### Multi-Protocol Unified Hello
+
+- **Registry path(s):**
+  - SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\Multi-Protocol Unified Hello\Client
+  - SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\Multi-Protocol Unified Hello\Server
+- **Registry key(s):**
+  - Enabled
+  - DisabledByDefault
+- **Values:** 0/1
+- **Description:** Enabling or disabling this policy will respectively enable or disable support for Multi-Protocol Unified Hello. This protocol will never be used by Schannel SSP.
+
+    Changing this setting will require a restart of the computer before the setting will take effect.
+
+#### PCT 1.0
+
+- **Registry path(s):**
+  - SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\PCT 1.0\Client
+  - SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\PCT 1.0\Server
+- **Registry key(s):**
+  - Enabled
+  - DisabledByDefault
+- **Values:** 0/1
+- **Description:** Enabling or disabling this policy will respectively enable or disable support for PCT 1.0. This protocol will never be used by Schannel SSP.
+
+    Changing this setting will require a restart of the computer before the setting will take effect.
+
+#### SSL 2.0
+
+- **Registry path(s):**
+  - SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 2.0\Client
+  - SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 2.0\Server
+- **Registry key(s):**
+  - Enabled
+  - DisabledByDefault
+- **Values:** 0/1
+- **Description:** Enabling or disabling this policy will respectively enable or disable support for SSL 2.0. By default for Windows clients, SSL 2.0 is disabled.
+
+    Note that SSL 2.0 is insecure and should not be enabled.
+
+    Changing this setting will require a restart of the computer before the setting will take effect.
+
+#### SSL 3.0
+
+- **Registry path(s):**
+  - SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 3.0\Client
+  - SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 3.0\Server
+- **Registry key(s):**
+  - Enabled
+  - DisabledByDefault
+- **Values:** 0/1
+- **Description:** Enabling or disabling this policy will respectively enable or disable support for SSL 3.0.
+
+    SSL 3.0 is insecure and considered obsolete, and therefore should not be used. TLS 1.2 or better should be used instead, if possible.
+
+    Changing this setting will require a restart of the computer before the setting will take effect.
+
+#### TLS 1.0
+
+- **Registry path(s):**
+  - SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Client
+  - SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.0\Server
+- **Registry key(s):**
+  - Enabled
+  - DisabledByDefault
+- **Values:** 0/1
+- **Description:** Enabling or disabling this policy will respectively enable or disable support for TLS 1.0.
+
+    TLS 1.0, while historically considered secure, is now being deprecated by Microsoft and should be disabled. However, it may be required for backward compatibility.
+
+    Changing this setting will require a restart of the computer before the setting will take effect.
+
+#### TLS 1.1
+
+- **Registry path(s):**
+  - SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Client
+  - SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Server
+- **Registry key(s):**
+  - Enabled
+  - DisabledByDefault
+- **Values:** 0/1
+- **Description:** Enabling or disabling this policy will respectively enable or disable support for TLS 1.1.
+
+    TLS 1.1, while historically considered secure, is now being deprecated by Microsoft and should be disabled. However, it may be required for backward compatibility.
+
+    Changing this setting will require a restart of the computer before the setting will take effect.
+
+#### TLS 1.2
+
+- **Registry path(s):**
+  - SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client
+  - SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server
+- **Registry key(s):**
+  - Enabled
+  - DisabledByDefault
+- **Values:** 0/1
+- **Description:** Enabling or disabling this policy will respectively enable or disable support for TLS 1.2. TLS 1.2 has no known security issues, and it is recommended to enable it.
+
+    Changing this setting will require a restart of the computer before the setting will take effect.
+
+#### TLS 1.3
+
+- **Registry path(s):**
+  - SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.3\Client
+  - SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.3\Server
+- **Registry key(s):**
+  - Enabled
+  - DisabledByDefault
+- **Values:** 0/1
+- **Description:** Enabling or disabling this policy will respectively enable or disable support for TLS 1.3. TLS 1.3 has no known security issues, and it is recommended to enable it.
+
+    !! WARNING: This setting is only compatible with Windows 10 v1903 and later. Enabling this setting on older OS versions will break Schannel, and you will need to manually remove the SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.3 key in the registry to fix it.
+
+    Changing this setting will require a restart of the computer before the setting will take effect.
+
+#### DTLS 1.0
+
+- **Registry path(s):**
+  - SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\DTLS 1.0\Client
+  - SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\DTLS 1.0\Server
+- **Registry key(s):**
+  - Enabled
+  - DisabledByDefault
+- **Values:** 0/1
+- **Description:** Enabling or disabling this policy will respectively enable or disable support for DTLS 1.0. Supported by Windows 7, Windows Server 2008 R2 and above.
+
+    Changing this setting will require a restart of the computer before the setting will take effect.
+
+#### DTLS 1.2
+
+- **Registry path(s):**
+  - SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\DTLS 1.2\Client
+  - SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\DTLS 1.2\Server
+- **Registry key(s):**
+  - Enabled
+  - DisabledByDefault
+- **Values:** 0/1
+- **Description:** Enabling or disabling this policy will respectively enable or disable support for DTLS 1.2. Supported by Windows 10 v1607 and above.
+
+    Changing this setting will require a restart of the computer before the setting will take effect.
+
+#### DTLS 1.3
+
+- **Registry path(s):**
+  - SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\DTLS 1.3\Client
+  - SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\DTLS 1.3\Server
+- **Registry key(s):**
+  - Enabled
+  - DisabledByDefault
+- **Values:** 0/1
+- **Description:** Enabling or disabling this policy will respectively enable or disable support for DTLS 1.3. Supported by Windows 10 v1903 and above.
+
+    Changing this setting will require a restart of the computer before the setting will take effect.
+
+#### NULL
+
+- **Registry path(s):** SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\NULL
+- **Registry key(s):** Enabled
+- **Values:** 4294967295 (0xFFFFFFFF)/0
+- **Description:** Enabling or disabling this policy will respectively enable or disable support for NULL encryption ciphers. This is a weak cipher and should not be enabled.
+
+    Changing this setting will have an effect on whether the following ciphers can be selected for use:
+
+    TLS_RSA_WITH_NULL_SHA
+    TLS_RSA_WITH_NULL_SHA256
+
+#### DES 56/56
+
+- **Registry path(s):** SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\DES 56/56
+- **Registry key(s):** Enabled
+- **Values:** 4294967295 (0xFFFFFFFF)/0
+- **Description:** Enabling or disabling this policy will respectively enable or disable support for DES 56/56. This is a weak cipher and should not be enabled.
+
+    Changing this setting will have an effect on whether the following ciphers can be selected for use:
+
+    SSL_RSA_WITH_DES_CBC_SHA
+    TLS_RSA_WITH_DES_CBC_SHA
+
+#### RC2 40/128
+
+- **Registry path(s):** SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC2 40/128
+- **Registry key(s):** Enabled
+- **Values:** 4294967295 (0xFFFFFFFF)/0
+- **Description:** Enabling or disabling this policy will respectively enable or disable support for RC2 40/128. This is a weak cipher and should not be enabled.
+
+    Changing this setting will have an effect on whether the following ciphers can be selected for use:
+
+    SSL_RSA_EXPORT_WITH_RC2_CBC_40_MD5
+    TLS_RSA_EXPORT_WITH_RC2_CBC_40_MD5
+
+#### RC2 56/128
+
+- **Registry path(s):** SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC2 56/128
+- **Registry key(s):** Enabled
+- **Values:** 4294967295 (0xFFFFFFFF)/0
+- **Description:** Enabling or disabling this policy will respectively enable or disable support for RC2 56/128. This is a weak cipher and should not be enabled.
+
+    Changing this setting will have an effect on whether the following ciphers can be selected for use:
+
+    SSL_RSA_WITH_DES_CBC_SHA
+    TLS_RSA_WITH_DES_CBC_SHA
+
+#### RC2 128/128
+
+- **Registry path(s):** SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC2 128/128
+- **Registry key(s):** Enabled
+- **Values:** 4294967295 (0xFFFFFFFF)/0
+- **Description:** Enabling or disabling this policy will respectively enable or disable support for RC2 128/128. This is a weak cipher and should not be enabled.
+
+#### RC4 40/128
+
+- **Registry path(s):** SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC4 40/128
+- **Registry key(s):** Enabled
+- **Values:** 4294967295 (0xFFFFFFFF)/0
+- **Description:** Enabling or disabling this policy will respectively enable or disable support for RC4 40/128. This is a weak cipher and should not be enabled.
+
+    Changing this setting will have an effect on whether the following ciphers can be selected for use:
+
+    SSL_RSA_EXPORT_WITH_RC4_40_MD5
+    TLS_RSA_EXPORT_WITH_RC4_40_MD5
+
+#### RC4 56/128
+
+- **Registry path(s):** SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC4 56/128
+- **Registry key(s):** Enabled
+- **Values:** 4294967295 (0xFFFFFFFF)/0
+- **Description:** Enabling or disabling this policy will respectively enable or disable support for RC4 56/128. This is a weak cipher and should not be enabled.
+
+    Changing this setting will have an effect on whether the following ciphers can be selected for use:
+
+    TLS_RSA_EXPORT1024_WITH_RC4_56_SHA
+
+#### RC4 64/128
+
+- **Registry path(s):** SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC4 64/128
+- **Registry key(s):** Enabled
+- **Values:** 4294967295 (0xFFFFFFFF)/0
+- **Description:** Enabling or disabling this policy will respectively enable or disable support for RC4 64/128. This is a weak cipher and should not be enabled.
+
+#### RC4 128/128
+
+- **Registry path(s):** SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC4 128/128
+- **Registry key(s):** Enabled
+- **Values:** 4294967295 (0xFFFFFFFF)/0
+- **Description:** Enabling or disabling this policy will respectively enable or disable support for RC4 128/128. This is a weak cipher and should not be enabled.
+
+    Changing this setting will have an effect on whether the following ciphers can be selected for use:
+
+    SSL_RSA_WITH_RC4_128_MD5
+    SSL_RSA_WITH_RC4_128_SHA
+    TLS_RSA_WITH_RC4_128_MD5
+    TLS_RSA_WITH_RC4_128_SHA
+
+#### Triple DES 168
+
+- **Registry path(s):** SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\Triple DES 168
+- **Registry key(s):** Enabled
+- **Values:** 4294967295 (0xFFFFFFFF)/0
+- **Description:** Enabling or disabling this policy will respectively enable or disable support for Triple-DES 168. This is a weak cipher and should not be enabled.
+
+    Changing this setting will have an effect on whether the following ciphers can be selected for use:
+
+    SSL_CK_DES_192_EDE_CBC_WITH_MD5
+    TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
+    TLS_RSA_WITH_3DES_EDE_CBC_SHA
+
+#### AES 128/128
+
+- **Registry path(s):** SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\AES 128/128
+- **Registry key(s):** Enabled
+- **Values:** 4294967295 (0xFFFFFFFF)/0
+- **Description:** Enabling or disabling this policy will respectively enable or disable support for AES 128/128. Note that in order for Windows 2003 to support AES-128, hotfix KB948963 must be installed.
+
+    It is recommended to enable it.
+
+    Changing this setting will have an effect on whether the following ciphers can be selected for use:
+
+    TLS_DHE_DSS_WITH_AES_128_CBC_SHA
+    TLS_DHE_DSS_WITH_AES_128_CBC_SHA256
+    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA_P256
+    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA_P384
+    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA_P521
+    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256_P256
+    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256_P384
+    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256_P521
+    TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P256
+    TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P384
+    TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P521
+    TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256
+    TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P384
+    TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P521
+    TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256
+    TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P384
+    TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P521
+    TLS_RSA_WITH_AES_128_CBC_SHA
+    TLS_RSA_WITH_AES_128_CBC_SHA256
+
+#### AES 256/256
+
+- **Registry path(s):** SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\AES 256/256
+- **Registry key(s):** Enabled
+- **Values:** 4294967295 (0xFFFFFFFF)/0
+- **Description:** Enabling or disabling this policy will respectively enable or disable support for AES 256/256.  Note that in order for Windows 2003 to support AES-256, hotfix KB948963 must be installed.
+
+    It is recommended to enable it.
+
+    Changing this setting will have an effect on whether the following ciphers can be selected for use:
+
+    TLS_DHE_DSS_WITH_AES_256_CBC_SHA
+    TLS_DHE_DSS_WITH_AES_256_CBC_SHA256
+    TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA_P256
+    TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA_P384
+    TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA_P521
+    TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384_P384
+    TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384_P521
+    TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P384
+    TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P521
+    TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256
+    TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P384
+    TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P521
+    TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P256
+    TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P384
+    TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P521
+    TLS_RSA_WITH_AES_256_CBC_SHA
+    TLS_RSA_WITH_AES_256_CBC_SHA256
+
+#### MD5
+
+- **Registry path(s):** SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Hashes\MD5
+- **Registry key(s):** Enabled
+- **Values:** 4294967295 (0xFFFFFFFF)/0
+- **Description:** Enabling or disabling this policy will respectively enable or disable support for the MD5 hashing algorithm. This is a weak hash algorithm, and it should not be enabled.
+
+    Changing this setting will have an effect on whether the following ciphers can be selected for use:
+
+    SSL_CK_DES_192_EDE3_CBC_WITH_MD5
+    SSL_CK_DES_64_CBC_WITH_MD5
+    SSL_CK_RC4_128_EXPORT40_MD5
+    SSL_CK_RC4_128_WITH_MD5
+    TLS_RSA_EXPORT_WITH_RC4_40_MD5
+    TLS_RSA_WITH_NULL_MD5
+    TLS_RSA_WITH_RC4_128_MD5
+
+#### SHA
+
+- **Registry path(s):** SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Hashes\SHA
+- **Registry key(s):** Enabled
+- **Values:** 4294967295 (0xFFFFFFFF)/0
+- **Description:** Enabling or disabling this policy will respectively enable or disable support for the SHA hashing algorithm. This is a weak hash algorithm, and it should not be enabled.
+
+    Changing this setting will have an effect on whether the following ciphers can be selected for use:
+
+    TLS_DHE_DSS_EXPORT1024_WITH_DES_CBC_SHA
+    TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
+    TLS_DHE_DSS_WITH_AES_128_CBC_SHA
+    TLS_DHE_DSS_WITH_AES_256_CBC_SHA
+    TLS_DHE_DSS_WITH_DES_CBC_SHA
+    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA_P256
+    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA_P384
+    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA_P521
+    TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA_P256
+    TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA_P384
+    TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA_P521
+    TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256
+    TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P384
+    TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P521
+    TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256
+    TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P384
+    TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P521
+    TLS_RSA_EXPORT1024_WITH_DES_CBC_SHA
+    TLS_RSA_EXPORT1024_WITH_RC4_56_SHA
+    TLS_RSA_WITH_3DES_EDE_CBC_SHA
+    TLS_RSA_WITH_AES_128_CBC_SHA
+    TLS_RSA_WITH_AES_256_CBC_SHA
+    TLS_RSA_WITH_DES_CBC_SHA
+    TLS_RSA_WITH_NULL_SHA
+    TLS_RSA_WITH_RC4_128_SHA
+
+#### SHA-256
+
+- **Registry path(s):** SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Hashes\SHA256
+- **Registry key(s):** Enabled
+- **Values:** 4294967295 (0xFFFFFFFF)/0
+- **Description:** Enabling or disabling this policy will respectively enable or disable support for the SHA-256 hashing algorithm.
+
+    It is recommended to enable it.
+
+    Changing this setting will have an effect on whether the following ciphers can be selected for use:
+
+    TLS_DHE_DSS_WITH_AES_128_CBC_SHA256
+    TLS_DHE_DSS_WITH_AES_256_CBC_SHA256
+    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256_P256
+    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256_P384
+    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256_P521
+    TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P256
+    TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P384
+    TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P521
+    TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256
+    TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P384
+    TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P521
+    TLS_RSA_WITH_AES_128_CBC_SHA256
+    TLS_RSA_WITH_AES_256_CBC_SHA256
+    TLS_RSA_WITH_NULL_SHA256
+
+#### SHA-384
+
+- **Registry path(s):** SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Hashes\SHA384
+- **Registry key(s):** Enabled
+- **Values:** 4294967295 (0xFFFFFFFF)/0
+- **Description:** Enabling or disabling this policy will respectively enable or disable support for the SHA-384 hashing algorithm.
+
+    It is recommended to enable it.
+
+    Changing this setting will have an effect on whether the following ciphers can be selected for use:
+
+    TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384_P384
+    TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384_P521
+    TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P384
+    TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P521
+    TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P256
+    TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P384
+    TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P521
+
+#### SHA-512
+
+- **Registry path(s):** SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Hashes\SHA512
+- **Registry key(s):** Enabled
+- **Values:** 4294967295 (0xFFFFFFFF)/0
+- **Description:** Enabling or disabling this policy will respectively enable or disable support for the SHA-512 hashing algorithm.
+
+    It is recommended to enable it.
+
+#### Diffie-Hellman
+
+- **Registry path(s):** SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\KeyExchangeAlgorithms\Diffie-Hellman
+- **Registry key(s):** Enabled
+- **Values:** 4294967295 (0xFFFFFFFF)/0
+- **Description:** Enabling or disabling this policy will respectively enable or disable support for the Diffie-Hellman key exchange algorithm.
+
+    It is recommended to enable it.
+
+    Changing this setting will have an effect on whether the following ciphers can be selected for use:
+
+    TLS_DHE_DSS_EXPORT1024_WITH_DES_CBC_SHA
+    TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
+    TLS_DHE_DSS_WITH_AES_128_CBC_SHA
+    TLS_DHE_DSS_WITH_AES_128_CBC_SHA256
+    TLS_DHE_DSS_WITH_AES_256_CBC_SHA
+    TLS_DHE_DSS_WITH_AES_256_CBC_SHA256
+    TLS_DHE_DSS_WITH_DES_CBC_SHA
+
+#### Diffie-Hellman Server-side Key Size
+
+- **Registry path(s):** SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\KeyExchangeAlgorithms\Diffie-Hellman
+- **Registry key(s):** ServerMinKeyBitLength
+- **Values:** 2048/3072/4096
+- **Description:** Sets the minimum Diffie-Hellman ephemeral key size for TLS server.
+
+    Please see Microsoft Security Advisory 3174644 for more information on DH modulus length. 4096 is the currently recommended minimum value.
+
+#### Diffie-Hellman Client-side Key Size
+
+- **Registry path(s):** SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\KeyExchangeAlgorithms\Diffie-Hellman
+- **Registry key(s):** ClientMinKeyBitLength
+- **Values:** 2048/3072/4096
+- **Description:** Sets the minimum Diffie-Hellman ephemeral key size for TLS client.
+
+    Please see Microsoft Security Advisory 3174644 for more information on DH modulus length. 4096 is the currently recommended minimum value.
+
+#### PKCS
+
+- **Registry path(s):** SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\KeyExchangeAlgorithms\PKCS
+- **Registry key(s):** Enabled
+- **Values:** 4294967295 (0xFFFFFFFF)/0
+- **Description:** Enabling or disabling this policy will respectively enable or disable support for the PKCS key exchange algorithm.
+
+    It is recommended to enable it.
+
+#### PKCS Client-side Key Size
+
+- **Registry path(s):** SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\KeyExchangeAlgorithms\PKCS
+- **Registry key(s):** ClientMinKeyBitLength
+- **Values:** 2048/3072/4096
+- **Description:** Sets the minimum PKCS ephemeral key size for TLS client.
+
+    Please see Microsoft Security Advisory 3174644 or https://support.microsoft.com/en-us/help/3174644/microsoft-security-advisory-updated-support-for-diffie-hellman-key-exc for more information on PKCS modulus length. 4096 is the currently recommended minimum value.
+
+#### ECDH
+
+- **Registry path(s):** SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\KeyExchangeAlgorithms\ECDH
+- **Registry key(s):** Enabled
+- **Values:** 4294967295 (0xFFFFFFFF)/0
+- **Description:** Enabling or disabling this policy will respectively enable or disable support for the Elliptic-Curve Diffie-Hellman key exchange algorithm.
+
+    It is recommended to enable it.
+
+    Changing this setting will have an effect on whether the following ciphers can be selected for use:
+
+    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA_P256
+    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA_P384
+    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA_P521
+    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256_P256
+    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256_P384
+    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256_P521
+    TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P256
+    TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P384
+    TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P521
+    TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA_P256
+    TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA_P384
+    TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA_P521
+    TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384_P384
+    TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384_P521
+    TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P384
+    TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P521
+    TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256
+    TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P384
+    TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P521
+    TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256
+    TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P384
+    TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P521
+    TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256
+    TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P384
+    TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P521
+    TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P256
+    TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P384
+    TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P521
 
 ### Debugging policies
 
