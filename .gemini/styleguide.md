@@ -67,7 +67,6 @@ Adhere strictly to the defined simple types in the schema.
 
 ## 5. Code Style and Formatting
 
-* **Indentation:** Use 2 spaces for XML indentation.
 * **Attributes:** Quote all attribute values.
 * **Comments:** Use `` for annotations.
 * **Prohibited Characters:** Do not use em dashes (—); use colons (:), semicolons (;), or hyphens (-).
