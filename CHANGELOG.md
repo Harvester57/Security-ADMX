@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - Policy to configure NTLMv1 blocking behavior (Audit/Enforce)
 - Added `DisableRPCOverTCP` and `DisableRemoteScmEndpoints` policies to `AdditionalSystemHardening.admx`, to disable remote access to the Service Control Manager.
+- Option to enable ECDHE-only ciphersuites in the TLS ciphersuite selection policy dropdown menu.
 
 ## [v1.2.1] - 2026-01-05
 
