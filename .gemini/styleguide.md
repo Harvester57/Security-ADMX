@@ -6,7 +6,8 @@
 * **Naming:** The `fileName` attribute must match the physical filename without the extension.
 * **Directory Layout:**
     * `PolicyDefinitions\` -> Contains `.admx` files.
-    * `PolicyDefinitions\en-US\` -> Contains `.adml` files (replace `en-US` with specific culture).
+    * `PolicyDefinitions\en-US\` -> Contains `.adml` files for English language.
+    * `PolicyDefinitions\fr-FR\` -> Contains `.adml` files for French language.
 
 ## 2. XML Prolog and Root Definitions
 
