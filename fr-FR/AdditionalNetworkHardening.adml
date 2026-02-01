@@ -74,6 +74,19 @@ TLS_AES_128_GCM_SHA256
 TLS_CHACHA20_POLY1305_SHA256
 TLS_AES_128_CCM_SHA256
 
+Moderne (TLS 1.3 et 1.2, ECDHE seulement)
+TLS_AES_256_GCM_SHA384
+TLS_AES_128_GCM_SHA256
+TLS_CHACHA20_POLY1305_SHA256
+TLS_AES_128_CCM_SHA256
+TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
+TLS_ECDHE_ECDSA_WITH_AES_128_CCM
+TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+
 Moderne (TLS 1.3 et 1.2)
 TLS_AES_256_GCM_SHA384
 TLS_AES_128_GCM_SHA256
@@ -138,10 +151,11 @@ TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
 TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256</string>
                   <string id="TLS_Ciphersuites0">Moderne (TLS 1.3 seulement)</string>
-                  <string id="TLS_Ciphersuites1">Moderne (TLS 1.3 et 1.2)</string>
-                  <string id="TLS_Ciphersuites2">Standard (TLS 1.2 seulement)</string>
-                  <string id="TLS_Ciphersuites3">Mode de compatibilité (TLS 1.3, 1.2, 1.1 et 1.0)</string>
-                  <string id="TLS_Ciphersuites4">Mode de compatibilité (TLS 1.2, 1.1 et 1.0)</string>
+                  <string id="TLS_Ciphersuites2">Moderne (TLS 1.3 et 1.2)</string>
+                  <string id="TLS_Ciphersuites3">Standard (TLS 1.2 seulement)</string>
+                  <string id="TLS_Ciphersuites4">Mode de compatibilité (TLS 1.3, 1.2, 1.1 et 1.0)</string>
+                  <string id="TLS_Ciphersuites5">Mode de compatibilité (TLS 1.2, 1.1 et 1.0)</string>
+                  <string id="TLS_Ciphersuites1">Moderne (TLS 1.3 et 1.2, ECDHE seulement)</string>
                   <!-- SMB -->
                   <string id="DisableSMB1">Désactiver le support de SMB 1.0 (client et serveur)</string>
                   <string id="DisableSMB1_Explain">Activer cette stratégie désactivera le support de SMB 1.0 (client et serveur)</string>
