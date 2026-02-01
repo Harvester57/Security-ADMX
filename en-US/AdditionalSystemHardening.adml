@@ -188,6 +188,12 @@ Disabling this policy will disable the verification of the components, only if t
 If you enable this setting, co-installer execution will be prevented, and additional configuration software for specific devices (mouse devices, gaming keyboards, etc.) must be downloaded and manually installed from the manufacturer's website.
 
 If you disable this setting, co-installer execution will be permitted, which is a significant security risk (potentially dangerous code execution).</string>
+                  <string id="AMSI_FeatureBits">Enable AMSI Authenticode signature verification</string>
+                  <string id="AMSI_FeatureBits_Explain">This policy enables the verification of the Authenticode signature of the AMSI provider.
+
+If you enable this policy, the AMSI provider must be signed by a trusted certificate.
+
+If you disable or do not configure this policy, the signature verification is disabled (default behavior).</string>
             </stringTable>
             <presentationTable>
                   <presentation id="MSCacheV2_Iteration">

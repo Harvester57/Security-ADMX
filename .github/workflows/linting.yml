@@ -1,7 +1,5 @@
 name: Linting
 on:
-  schedule:
-    - cron: '23 1 * * *'
   push:
     branches: [ main ]
   pull_request:
@@ -17,43 +15,41 @@ jobs:
         strategy:
             matrix:
                 files: [
-                    "AdditionalHardening.admx", 
-                    "AdditionalDebugPolicies.admx", 
-                    "AdditionalDefenderPolicies.admx", 
-                    "AdditionalHardeningFromMicrosoft.admx", 
-                    "AdditionalLegacyHardening.admx", 
-                    "AdditionalNetworkHardening.admx", 
-                    "AdditionalSystemHardening.admx"
-                    ]
+                      "AdditionalHardening.admx", 
+                      "AdditionalDebugPolicies.admx", 
+                      "AdditionalDefenderPolicies.admx", 
+                      "AdditionalHardeningFromMicrosoft.admx", 
+                      "AdditionalLegacyHardening.admx", 
+                      "AdditionalNetworkHardening.admx", 
+                      "AdditionalSystemHardening.admx"
+                      ]
         container:
             image: ghcr.io/harvester57/docker-admxlint:main
         steps:
             - name: Harden the runner (Audit all outbound calls)
-              uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
+              uses: step-security/harden-runner@e3f713f2d8f53843e71c69a996d56f51aa9adfb9 # v2.14.1
               with:
                 egress-policy: audit
 
-            - 
-                name: Checkout
-                uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
-            - 
-                name: Lint ADMX files
-                run: admx-lint --input_file ${{ matrix.files }}
+            -  name: Checkout
+               uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+            -  name: Lint ADMX files
+               run: admx-lint --input_file ${{ matrix.files }}
     
     lint-powershell:
         permissions:
-          contents: read # for actions/checkout to fetch code
           security-events: write # for github/codeql-action/upload-sarif to upload SARIF results
-          actions: read # only required for a private repository by github/codeql-action/upload-sarif to get the Action run status
         name: PSScriptAnalyzer
         runs-on: ubuntu-latest
         steps:
           - name: Harden the runner (Audit all outbound calls)
-            uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
+            uses: step-security/harden-runner@e3f713f2d8f53843e71c69a996d56f51aa9adfb9 # v2.14.1
             with:
               egress-policy: audit
 
-          - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+          - name: Checkout
+            uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
     
           - name: Run PSScriptAnalyzer
             uses: microsoft/psscriptanalyzer-action@6b2948b1944407914a58661c49941824d149734f
@@ -66,7 +62,7 @@ jobs:
     
           # Upload the SARIF file generated in the previous step
           - name: Upload SARIF results file
-            uses: github/codeql-action/upload-sarif@3599b3baa15b485a2e49ef411a7a4bb2452e7f93 # v3.29.5
+            uses: github/codeql-action/upload-sarif@b20883b0cd1f46c72ae0ba6d1090936928f9fa30 # v4.32.0
             with:
               sarif_file: results.sarif
     
