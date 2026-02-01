@@ -120,6 +120,17 @@ The values are set in hexadecimal and should be converted prior to changing the 
 By default, packet level privacy is enabled for RPC for incoming connections.
 
 If you enable or do not configure this policy setting, packet level privacy is enabled for RPC for incoming connections.</string>
+                  <string id="Pol_SecGuide_BlockNtlmV1">Block NTLMv1 usage</string>
+                  <string id="Pol_SecGuide_BlockNtlmV1_Help">This setting controls the behavior of NTLMv1 authentication.
+
+Audit Mode (0): Logs Event ID 4024 (Warning) when NTLMv1-derived credentials are used but allows authentication to proceed.
+Enforce Mode (1): Blocks NTLMv1-derived credential usage and logs Event ID 4025 (Error).
+
+Microsoft plans to change the default behavior to Enforce Mode in future Windows versions (starting with Windows 11, version 24H2 and Windows Server 2025).
+
+For more information, see https://support.microsoft.com/topic/upcoming-changes-to-ntlmv1-in-windows-11-version-24h2-and-windows-server-2025-c0554217-cdbc-420f-b47c-e02b2db49b2e</string>
+                  <string id="BlockNtlmV1_Audit">Audit Mode (Allow and Log)</string>
+                  <string id="BlockNtlmV1_Enforce">Enforce Mode (Block)</string>
             </stringTable>
             <presentationTable>
                   <presentation id="Pol_SecGuide_SMBv1ClientDriver">
@@ -151,6 +162,9 @@ If you enable or do not configure this policy setting, packet level privacy is e
                   <presentation id="CopyFilesPolicy">
                         <text>Select the method by which Queue-specific files will be processed.</text>
                         <dropdownList defaultItem="1" noSort="true" refId="CopyFilesPolicy_Enum">Manage processing of Queue-specific files:</dropdownList>
+                  </presentation>
+                  <presentation id="Pol_SecGuide_BlockNtlmV1">
+                        <dropdownList refId="Pol_SecGuide_BlockNtlmV1_Enum" noSort="true" defaultItem="0">Configure NTLMv1 blocking behavior:</dropdownList>
                   </presentation>
             </presentationTable>
       </resources>

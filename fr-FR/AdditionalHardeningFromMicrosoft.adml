@@ -123,6 +123,17 @@ Les valeurs sont définies en hexadécimal et doivent être converties avant de 
 Par défaut, la confidentialité au niveau des paquets est activée pour RPC pour les connexions entrantes.
 
 Si vous activez ou ne configurez pas ce paramètre de stratégie, la confidentialité au niveau des paquets est activée pour RPC pour les connexions entrantes.</string>
+                  <string id="Pol_SecGuide_BlockNtlmV1">Bloquer l'utilisation de NTLMv1</string>
+                  <string id="Pol_SecGuide_BlockNtlmV1_Help">Ce paramètre contrôle le comportement de l'authentification NTLMv1.
+
+Mode Audit (0) : Enregistre l'événement ID 4024 (Avertissement) lorsque des informations d'identification dérivées de NTLMv1 sont utilisées, mais autorise l'authentification.
+Mode Application (1) : Bloque l'utilisation des informations d'identification dérivées de NTLMv1 et enregistre l'événement ID 4025 (Erreur).
+
+Microsoft prévoit de modifier le comportement par défaut vers le Mode Application dans les futures versions de Windows (à partir de Windows 11, version 24H2 et Windows Server 2025).
+
+Pour plus d'informations, consultez https://support.microsoft.com/topic/upcoming-changes-to-ntlmv1-in-windows-11-version-24h2-and-windows-server-2025-c0554217-cdbc-420f-b47c-e02b2db49b2e</string>
+                  <string id="BlockNtlmV1_Audit">Mode Audit (Autoriser et journaliser)</string>
+                  <string id="BlockNtlmV1_Enforce">Mode Application (Bloquer)</string>
             </stringTable>
             <presentationTable>
                   <presentation id="Pol_SecGuide_SMBv1ClientDriver">
@@ -154,6 +165,9 @@ Si vous activez ou ne configurez pas ce paramètre de stratégie, la confidentia
                   <presentation id="CopyFilesPolicy">
                         <text>Sélectionnez la méthode par laquelle les fichiers spécifiques à la file d'attente seront traités.</text>
                         <dropdownList defaultItem="1" noSort="true" refId="CopyFilesPolicy_Enum">Gérer le traitement des fichiers spécifiques à la file d'attente :</dropdownList>
+                  </presentation>
+                  <presentation id="Pol_SecGuide_BlockNtlmV1">
+                        <dropdownList refId="Pol_SecGuide_BlockNtlmV1_Enum" noSort="true" defaultItem="0">Configurer le blocage de NTLMv1 :</dropdownList>
                   </presentation>
             </presentationTable>
       </resources>
