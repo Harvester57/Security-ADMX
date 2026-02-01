@@ -509,5 +509,24 @@
                 <decimal value="0" />
             </disabledValue>
         </policy>
+        <!-- Block NTLMv1 -->
+        <policy name="Pol_SecGuide_BlockNtlmV1" class="Machine" displayName="$(string.Pol_SecGuide_BlockNtlmV1)" explainText="$(string.Pol_SecGuide_BlockNtlmV1_Help)" presentation="$(presentation.Pol_SecGuide_BlockNtlmV1)" key="SYSTEM\CurrentControlSet\Control\Lsa\MSV1_0">
+            <parentCategory ref="parent:Cat_MSFT" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+            <elements>
+                <enum id="Pol_SecGuide_BlockNtlmV1_Enum" valueName="BlockNtlmv1SSO">
+                    <item displayName="$(string.BlockNtlmV1_Audit)">
+                        <value>
+                            <decimal value="0" />
+                        </value>
+                    </item>
+                    <item displayName="$(string.BlockNtlmV1_Enforce)">
+                        <value>
+                            <decimal value="1" />
+                        </value>
+                    </item>
+                </enum>
+            </elements>
+        </policy>
     </policies>
 </policyDefinitions>
