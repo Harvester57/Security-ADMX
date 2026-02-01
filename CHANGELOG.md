@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 
 - Policy to configure NTLMv1 blocking behavior (Audit/Enforce)
+- Added `DisableRPCOverTCP` and `DisableRemoteScmEndpoints` policies to `AdditionalSystemHardening.admx`, to disable remote access to the Service Control Manager.
 
 ## [v1.2.1] - 2026-01-05
 
