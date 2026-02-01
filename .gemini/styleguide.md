@@ -5,9 +5,9 @@
 * **File Pairing:** Every Policy Definition (`.admx`) file must have a corresponding Policy Definition Resource (`.adml`) file for each supported language.
 * **Naming:** The `fileName` attribute must match the physical filename without the extension.
 * **Directory Layout:**
-    * `PolicyDefinitions\` -> Contains `.admx` files.
-    * `PolicyDefinitions\en-US\` -> Contains `.adml` files for English language.
-    * `PolicyDefinitions\fr-FR\` -> Contains `.adml` files for French language.
+    * `.\` (root folder of the repository) -> Contains `.admx` files.
+    * `.\en-US\` -> Contains `.adml` files for English language.
+    * `.\fr-FR\` -> Contains `.adml` files for French language.
 
 ## 2. XML Prolog and Root Definitions
 
