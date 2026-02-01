@@ -196,6 +196,22 @@ Si vous désactivez ce paramètre, l'exécution des co-installeurs sera autoris�
 Si vous activez cette stratégie, le fournisseur AMSI doit être signé par un certificat de confiance.
 
 Si vous désactivez ou ne configurez pas cette stratégie, la vérification de la signature est désactivée (comportement par défaut).</string>
+                  <string id="DisableRPCOverTCP">Désactiver RPC sur TCP</string>
+                  <string id="DisableRPCOverTCP_Explain">Cette stratégie désactive le protocole RPC sur TCP.
+
+Si vous activez cette stratégie, le protocole RPC sur TCP est désactivé. RPC sur Named Pipes (RPC/NP) restera disponible.
+
+Si vous désactivez ou ne configurez pas cette stratégie, le protocole RPC sur TCP est activé.
+
+Voir : https://learn.microsoft.com/en-us/windows/win32/services/services-and-rpc-tcp</string>
+                  <string id="DisableRemoteScmEndpoints">Désactiver l'accès distant au gestionnaire de contrôle des services (SCM)</string>
+                  <string id="DisableRemoteScmEndpoints_Explain">Cette stratégie désactive l'accès distant au gestionnaire de contrôle des services (SCM).
+
+Si vous activez cette stratégie, l'accès distant au SCM est désactivé. Cela désactivera à la fois RPC/TCP et RPC/NP sur le système.
+
+Si vous désactivez ou ne configurez pas cette stratégie, l'accès distant au SCM est autorisé.
+
+Voir : https://www.gtworek.com/disabling-remote-access-to-windows-services/</string>
             </stringTable>
             <presentationTable>
                   <presentation id="MSCacheV2_Iteration">

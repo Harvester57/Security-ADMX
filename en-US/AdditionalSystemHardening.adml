@@ -194,6 +194,22 @@ If you disable this setting, co-installer execution will be permitted, which is 
 If you enable this policy, the AMSI provider must be signed by a trusted certificate.
 
 If you disable or do not configure this policy, the signature verification is disabled (default behavior).</string>
+                  <string id="DisableRPCOverTCP">Disable RPC over TCP</string>
+                  <string id="DisableRPCOverTCP_Explain">This policy disables the RPC over TCP protocol.
+
+If you enable this policy, the RPC over TCP protocol is disabled. RPC over Named Pipes (RPC/NP) will still be available.
+
+If you disable or do not configure this policy, the RPC over TCP protocol is enabled.
+
+See: https://learn.microsoft.com/en-us/windows/win32/services/services-and-rpc-tcp</string>
+                  <string id="DisableRemoteScmEndpoints">Disable remote access to Service Control Manager (SCM)</string>
+                  <string id="DisableRemoteScmEndpoints_Explain">This policy disables remote access to the Service Control Manager (SCM).
+
+If you enable this policy, remote access to the SCM is disabled. This will disable both RPC/TCP and RPC/NP on the system.
+
+If you disable or do not configure this policy, remote access to the SCM is enabled.
+
+See: https://www.gtworek.com/disabling-remote-access-to-windows-services/</string>
             </stringTable>
             <presentationTable>
                   <presentation id="MSCacheV2_Iteration">

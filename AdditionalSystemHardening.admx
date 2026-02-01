@@ -540,5 +540,27 @@
                 <decimal value="1" />
             </disabledValue>
         </policy>
+        <!-- Disable RPC over TCP -->
+        <policy name="DisableRPCOverTCP" class="Machine" displayName="$(string.DisableRPCOverTCP)" explainText="$(string.DisableRPCOverTCP_Explain)" key="SYSTEM\CurrentControlSet\Control" valueName="DisableRPCOverTCP">
+            <parentCategory ref="System" />
+            <supportedOn ref="windows:SUPPORTED_Windows_6_3" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
+        <!-- Disable Remote SCM Endpoints -->
+        <policy name="DisableRemoteScmEndpoints" class="Machine" displayName="$(string.DisableRemoteScmEndpoints)" explainText="$(string.DisableRemoteScmEndpoints_Explain)" key="SYSTEM\CurrentControlSet\Control" valueName="DisableRemoteScmEndpoints">
+            <parentCategory ref="System" />
+            <supportedOn ref="windows:SUPPORTED_Windows_6_3" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
     </policies>
 </policyDefinitions>
