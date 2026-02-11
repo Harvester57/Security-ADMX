@@ -12,6 +12,38 @@ Custom ADMX template focused on hardening Windows 10 and Windows 11 systems.
 - [System policies](#system-policies)
 - [Network policies](#network-policies)
 - [Debugging policies](#debugging-policies)
+- [Installation procedure](#installation-procedure)
+
+## Installation procedure
+
+### Automatic installation
+
+You can automatically install the ADMX and ADML files to your local machine (Active Directory Central Store is not supported by the script) using the `install.ps1` PowerShell script.
+
+1. Open a PowerShell terminal as Administrator.
+2. Navigate to the directory where you downloaded the project.
+3. Run the script:
+   ```powershell
+   .\install.ps1
+   ```
+
+### Manual installation
+
+#### Active Directory PolicyDefinitions store
+
+To make the policies available to all the machines in your domain, you need to copy the files to the Central Store configuration of your domain controller.
+
+1. Locate the Central Store: `\\yourdomain.com\SYSVOL\yourdomain.com\Policies\PolicyDefinitions`.
+2. Copy the `.admx` files to the root of the `PolicyDefinitions` folder.
+3. Copy the `.adml` files (located in the `en-US` and `fr-FR` folders) to the corresponding language-specific subfolders in the Central Store.
+
+#### Local PolicyDefinitions folder
+
+To install the policies on a standalone machine or for testing purposes:
+
+1. Locate the Local Store: `C:\Windows\PolicyDefinitions`.
+2. Copy the `.admx` files to the root of the `PolicyDefinitions` folder.
+3. Copy the `.adml` files (located in the `en-US` and `fr-FR` folders) to the corresponding language-specific subfolders in the Local Store.
 
 ## Available policies
 
