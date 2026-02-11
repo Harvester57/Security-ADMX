@@ -138,21 +138,21 @@ Enabling this policy can help prevent code signing certificate cloning attacks. 
 Enabling this policy will enable the Generative AI feature.
 
 Disabling this policy will disable the Generative AI feature. For privacy purposes, it is recommended to set this policy to Disabled.</string>
-                  <string id="BlackLotusMitigation">Enable Secure Boot and Code Integrity mitigations for BlackLotus (CVE-2023-24932)</string>
-                  <string id="BlackLotusMitigation_Help">This policy sets the registry keys needed to apply the updated Secure Boot denylist (DBX), the new signing certificate in the allowlist (DB), the anti-rollback mechanism (SVN), and the Code Integrity Boot Policy, to prevent untrusted/vulnerable Windows boot managers from loading when Secure Boot is turned on.
+                  <string id="BlackLotusMitigation">Apply Secure Boot updates for newer certificates</string>
+                  <string id="BlackLotusMitigation_Help">This policy sets the registry key needed to apply the updated Secure Boot denylist (DBX), the new signing certificate in the allowlist (DB), the anti-rollback mechanism (SVN), and the Code Integrity Boot Policy, to prevent untrusted/vulnerable Windows boot managers from loading when Secure Boot is turned on.
 
 IMPORTANT: Carefully read the Microsoft documentation associated with this protection, as it can render your device unable to boot if you do not follow the required preliminary steps:
 
 - https://support.microsoft.com/en-us/topic/kb5025885-how-to-manage-the-windows-boot-manager-revocations-for-secure-boot-changes-associated-with-cve-2023-24932-41a975df-beb2-40c1-99a3-b3ff139f832d
 - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-24932
 
+A FAQ and extensive documentation about this mitigation is available in the following article, which you should read carefully before deploying this policy, to make sure you understand the implications and the necessary steps to take before enabling it:
+
+- https://support.microsoft.com/en-us/topic/windows-secure-boot-certificate-expiration-and-ca-updates-7ff40d33-95dc-4c3c-8725-a9b95457578e
+
 In particular, you should read all the step descriptions present in the list and the associated manual operations you need to perform (reboots, additional checks, etc.) for each of them in the documentation section:
 
 - https://support.microsoft.com/en-us/topic/kb5025885-how-to-manage-the-windows-boot-manager-revocations-for-secure-boot-changes-associated-with-cve-2023-24932-41a975df-beb2-40c1-99a3-b3ff139f832d#bkmk_mitigation_guidelines</string>
-                  <string id="BlackLotusMitigation_Option1">Step 1: add the "Windows UEFI CA 2023" certificate to the DB</string>
-                  <string id="BlackLotusMitigation_Option2">Step 2: update the boot manager of the device</string>
-                  <string id="BlackLotusMitigation_Option3">Step 3: add the "Windows Production CA 2011" certificate to the revocation list (DBX)</string>
-                  <string id="BlackLotusMitigation_Option4">Step 4: apply the SVN update to the firmware</string>
                   <string id="SudoCommand">Configure the Windows Sudo command behavior</string>
                   <string id="SudoCommand_Help">This policy configures the behavior of the Sudo command introduced in Windows 11 24H2.
       
@@ -219,9 +219,6 @@ See: https://www.gtworek.com/disabling-remote-access-to-windows-services/</strin
                         <dropdownList refId="MicroarchHardening_DropdownList" noSort="true" defaultItem="1">Select an option:</dropdownList>
                         <checkBox refId="HyperVMitigations">Enable Hyper-V mitigations for virtual machines below version 8.0</checkBox>
                   </presentation>
-                  <presentation id="BlackLotusMitigation_Presentation">
-                        <dropdownList refId="BlackLotusMitigation_DropdownList" noSort="true" defaultItem="0">Select a step:</dropdownList>
-</presentation>
                   <presentation id="SudoCommand_Presentation">
                         <dropdownList refId="SudoCommand_DropdownList" noSort="true" defaultItem="0">Select an option:</dropdownList>
                   </presentation>

@@ -138,7 +138,7 @@ Activer cette politique permet de limiter les attaques par clonage de certificat
 Activer cette politique activera les fonctionnalités d'IA génératives.
 
 Désactiver cette politique désactivera ces fonctionnalités. Il est recommandé de désactiver cette politique.</string>
-                  <string id="BlackLotusMitigation">Activer les protections additionnelles contre BlackLotus (CVE-2023-24932)</string>
+                  <string id="BlackLotusMitigation">Appliquer les mises à jour pour Secure Boot</string>
                   <string id="BlackLotusMitigation_Help">Cette politique déploie les clefs de Registre nécessaires à l'installation de la nouvelle liste noire de démarrage sécurisé (Secure Boot DBX), l'installation du nouveau certificat de signature dans la liste blanche (DB), le mécanisme d'anti-retour arrière (SVN) et la nouvelle stratégie de démarrage du mécanisme d'intégrité du code de Windows.
 
 Ces stratégies permettent de se prémunir de la CVE-2023-24932, aussi connue sous le nom de BlackLotus, et plus généralement des vulnérabilités récentes liées au chargeur d'amorçage.
@@ -148,13 +148,13 @@ IMPORTANT : veuillez lire attentivement la documentation de Microsoft au sujet d
 - https://support.microsoft.com/fr-fr/topic/kb5025885-comment-g%C3%A9rer-les-r%C3%A9vocations-du-gestionnaire-de-d%C3%A9marrage-windows-pour-les-modifications-de-d%C3%A9marrage-s%C3%A9curis%C3%A9-associ%C3%A9es-%C3%A0-cve-2023-24932-41a975df-beb2-40c1-99a3-b3ff139f832d
 - https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-24932
 
+Une FAQ et une documentation complète sur ce correctif sont disponibles dans l'article suivant, que vous devriez lire attentivement avant de déployer cette politique, pour vous assurer de comprendre les implications et les étapes nécessaires à appliquer avant de l'activer :
+
+- https://support.microsoft.com/fr-fr/topic/windows-secure-boot-certificate-expiration-and-ca-updates-7ff40d33-95dc-4c3c-8725-a9b95457578e
+
 En particulier, vous devriez lire les étapes de déploiement associées à chaque étape présente dans la liste de cette politique, et les actions manuelles associées (redémarrages intermédiaires, vérifications additionnelles, ...). Ces informations sont présentes dans la documentation Microsoft :
 
 - https://support.microsoft.com/fr-fr/topic/kb5025885-comment-g%C3%A9rer-les-r%C3%A9vocations-du-gestionnaire-de-d%C3%A9marrage-windows-pour-les-modifications-de-d%C3%A9marrage-s%C3%A9curis%C3%A9-associ%C3%A9es-%C3%A0-cve-2023-24932-41a975df-beb2-40c1-99a3-b3ff139f832d#bkmk_mitigation_guidelines</string>
-                  <string id="BlackLotusMitigation_Option1">Étape 1 : ajout du certificat "Windows UEFI CA 2023" à la liste blanche d'amorçage (DB)</string>
-                  <string id="BlackLotusMitigation_Option2">Étape 2 : mise à jour du chargeur d'amorçage du système d'exploitation</string>
-                  <string id="BlackLotusMitigation_Option3">Étape 3 : ajout du certificat "Windows Production CA 2011" à la liste noire d'amorçage (DBX)</string>
-                  <string id="BlackLotusMitigation_Option4">Étape 4 : application du mécanisme d'anti-retour arrière (SVN)</string>
                   <string id="SudoCommand">Configurer le comportement de la commande Sudo</string>
                   <string id="SudoCommand_Help">Cette politique configure le comportement de la commande Sudo, introduite dans la version 24H2 de Windows 11.
       
@@ -220,9 +220,6 @@ Voir : https://www.gtworek.com/disabling-remote-access-to-windows-services/</str
                   <presentation id="MicroarchHardening_Presentation">
                         <dropdownList refId="MicroarchHardening_DropdownList" noSort="true" defaultItem="1">Sélectionner une option :</dropdownList>
                         <checkBox refId="HyperVMitigations">Activer le durcissement pour les machines virtuelles Hyper-V (version 8.0 et versions inférieures)</checkBox>
-                  </presentation>
-                  <presentation id="BlackLotusMitigation_Presentation">
-                        <dropdownList refId="BlackLotusMitigation_DropdownList" noSort="true" defaultItem="0">Sélectionner une étape :</dropdownList>
                   </presentation>
                   <presentation id="SudoCommand_Presentation">
                         <dropdownList refId="SudoCommand_DropdownList" noSort="true" defaultItem="0">Sélectionner une option :</dropdownList>
