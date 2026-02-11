@@ -4,13 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [v1.2.2] - 2026-02-xx
+## [v1.2.2] - 2026-02-11
 
 ### Added
 
 - Policy to configure NTLMv1 blocking behavior (Audit/Enforce)
 - Added `DisableRPCOverTCP` and `DisableRemoteScmEndpoints` policies to `AdditionalSystemHardening.admx`, to disable remote access to the Service Control Manager.
 - Option to enable ECDHE-only ciphersuites in the TLS ciphersuite selection policy dropdown menu.
+- Installation instructions in the README.md file.
+
+### Fixed
+
+- Updated the Secure Boot related policy, to implement latest recommendations from Microsoft.
 
 ## [v1.2.1] - 2026-01-05
 
