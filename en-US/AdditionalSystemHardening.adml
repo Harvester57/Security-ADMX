@@ -210,6 +210,12 @@ If you enable this policy, remote access to the SCM is disabled. This will disab
 If you disable or do not configure this policy, remote access to the SCM is enabled.
 
 See: https://www.gtworek.com/disabling-remote-access-to-windows-services/</string>
+                  <string id="LockBatchFilesWhenInUse">Enable secure mode for batch file processing</string>
+                  <string id="LockBatchFilesWhenInUse_Explain">This policy gives administrators additional controls over the processing of batch files and CMD scripts.
+
+If you enable this policy, a more secure mode for processing batch files is enabled, which ensures they do not change during execution by holding an opportunistic lock. This enhances the performance and security of batch file processing when Code Integrity is enabled, as signature validation will only be required to be performed a single time, instead of per statement executed in the batch file.
+
+Note: This functionality is supported on Windows 11 Insider Preview Build 26300.7939 or later.</string>
             </stringTable>
             <presentationTable>
                   <presentation id="MSCacheV2_Iteration">

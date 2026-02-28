@@ -212,6 +212,12 @@ Si vous activez cette stratégie, l'accès distant au SCM est désactivé. Cela 
 Si vous désactivez ou ne configurez pas cette stratégie, l'accès distant au SCM est autorisé.
 
 Voir : https://www.gtworek.com/disabling-remote-access-to-windows-services/</string>
+                  <string id="LockBatchFilesWhenInUse">Activer le mode sécurisé pour le traitement des fichiers batch</string>
+                  <string id="LockBatchFilesWhenInUse_Explain">Cette stratégie donne aux administrateurs des contrôles supplémentaires sur le traitement des fichiers batch et des scripts CMD.
+
+Si vous activez cette stratégie, un mode plus sécurisé pour le traitement des fichiers batch est activé, garantissant qu'ils ne changent pas pendant l'exécution en conservant un verrou opportuniste. Cela améliore les performances et la sécurité du traitement des fichiers batch lorsque l'intégrité du code est activée, car la validation de la signature ne sera requise qu'une seule fois, au lieu d'une fois par instruction exécutée dans le fichier batch.
+
+Remarque : Cette fonctionnalité est prise en charge sur Windows 11 Insider Preview Build 26300.7939 ou ultérieur.</string>
             </stringTable>
             <presentationTable>
                   <presentation id="MSCacheV2_Iteration">
