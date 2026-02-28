@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v1.2.3] - 2026-02-29
+
+### Added
+
+- Policy to configure secure mode for batch file processing (LockBatchFilesWhenInUse)
+
 ## [v1.2.2] - 2026-02-11
 
 ### Added

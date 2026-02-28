@@ -51,6 +51,20 @@ To install the policies on a standalone machine or for testing purposes:
 ### System policies
 
 <details>
+<summary><strong>Enable secure mode for batch file processing</strong></summary>
+
+- **Registry path(s):** SOFTWARE\Microsoft\Command Processor
+- **Registry key(s):** LockBatchFilesWhenInUse
+- **Values:** 0/1
+- **Description:** This policy gives administrators additional controls over the processing of batch files and CMD scripts.
+
+    If you enable this policy, a more secure mode for processing batch files is enabled, which ensures they do not change during execution by holding an opportunistic lock. This enhances the performance and security of batch file processing when Code Integrity is enabled, as signature validation will only be required to be performed a single time, instead of per statement executed in the batch file.
+
+    Note: This functionality is supported on Windows 11 Insider Preview Build 26300.7939 or later.
+
+</details>
+
+<details>
 <summary><strong>Enable Virtualization-Based Security in Mandatory mode</strong></summary>
 
 

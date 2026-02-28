@@ -544,5 +544,16 @@
                 <decimal value="0" />
             </disabledValue>
         </policy>
+        <!-- Enhanced security for batch file processing -->
+        <policy name="LockBatchFilesWhenInUse" class="Machine" displayName="$(string.LockBatchFilesWhenInUse)" explainText="$(string.LockBatchFilesWhenInUse_Explain)" key="SOFTWARE\Microsoft\Command Processor" valueName="LockBatchFilesWhenInUse">
+            <parentCategory ref="System" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
     </policies>
 </policyDefinitions>
