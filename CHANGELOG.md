@@ -4,11 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [v1.2.2] - 2026-02-11
+## [v1.2.3] - 2026-02-29
 
 ### Added
 
 - Policy to configure secure mode for batch file processing (LockBatchFilesWhenInUse)
+
+## [v1.2.2] - 2026-02-11
+
+### Added
+
 - Policy to configure NTLMv1 blocking behavior (Audit/Enforce)
 - Added `DisableRPCOverTCP` and `DisableRemoteScmEndpoints` policies to `AdditionalSystemHardening.admx`, to disable remote access to the Service Control Manager.
 - Option to enable ECDHE-only ciphersuites in the TLS ciphersuite selection policy dropdown menu.
