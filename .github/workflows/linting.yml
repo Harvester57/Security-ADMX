@@ -51,12 +51,13 @@ jobs:
 
           - name: Checkout
             uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+            with:
+              persist-credentials: false
     
           - name: Run PSScriptAnalyzer
             uses: microsoft/psscriptanalyzer-action@6b2948b1944407914a58661c49941824d149734f
             with:
-              # Check https://github.com/microsoft/action-psscriptanalyzer for more info about the options.
-              # The below set up runs PSScriptAnalyzer to your entire repository and runs some basic security rules.
+              # Check https://github.com/microsoft/psscriptanalyzer-action for more info about the options.
               path: .\
               recurse: true
               output: results.sarif
