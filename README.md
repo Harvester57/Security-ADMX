@@ -1449,6 +1449,6 @@ Disable this policy to restore LM and NTLMv1 capabilities, in addition to NTLMv2
 ## Credits
 
 - The Schannel configuration part is taken almost as-is from the [Crosse/SchannelGroupPolicy](https://github.com/Crosse/SchannelGroupPolicy) repository, a big kudo to him for his work :)
-- The legacy MSS and the settings from the Microsoft Security Guide arte imported from the Microsoft Security Compliance Toolkit as-is
+- The legacy MSS and the settings from the Microsoft Security Guide are imported from the Microsoft Security Compliance Toolkit as-is
   - More information: <https://www.microsoft.com/en-us/download/details.aspx?id=55319>
-- The Windows Defender Attack Surface Reduction section is ported from @MichaelGrafnetter [project](<https://github.com/MichaelGrafnetter/defender-asr-admx>)
+- The Windows Defender Attack Surface Reduction section is ported from Michael Grafnetter's [project](<https://github.com/MichaelGrafnetter/defender-asr-admx>).
