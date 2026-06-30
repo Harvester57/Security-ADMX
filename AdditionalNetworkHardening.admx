@@ -168,6 +168,30 @@
         <decimal value="0" />
       </disabledValue>
     </policy>
+    <policy name="DisableIAKerb" class="Machine" displayName="$(string.DisableIAKerb)"
+      explainText="$(string.DisableIAKerb_Explain)"
+      key="SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters" valueName="DisableIAKerb">
+      <parentCategory ref="Network" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="DisableLocalKDC" class="Machine" displayName="$(string.DisableLocalKDC)"
+      explainText="$(string.DisableLocalKDC_Explain)"
+      key="SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters" valueName="DisableLocalKDC">
+      <parentCategory ref="Network" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
     <!-- SMB subsection -->
     <policy name="DisableSMB1" class="Machine" displayName="$(string.DisableSMB1)"
       explainText="$(string.DisableSMB1_Explain)"

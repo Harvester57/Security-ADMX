@@ -52,6 +52,22 @@ NOTE : pour les systèmes Windows 7, Windows Server 2008 R2, Windows Server 2012
 Si cette politique est désactivée, les événements liés à Kerberos ne sont pas consignés.
 
 Par défaut, ces événements ne sont pas consignés. Activer cette option n'est recommandée que pour des questions d'aide au débogage des problèmes liés à Kerberos.</string>
+                  <string id="DisableIAKerb">Désactiver IAKerb</string>
+                  <string id="DisableIAKerb_Explain">Ce paramètre de stratégie vous permet de désactiver la fonctionnalité IAKerb (Initial and Pass-Through Authentication using Kerberos). IAKerb permet à un client d'effectuer une authentification Kerberos via un service cible faisant office de proxy lorsqu'il n'a pas de connectivité directe avec un contrôleur de domaine.
+
+Si vous activez ce paramètre de stratégie, IAKerb sera désactivé, ce qui peut forcer l'authentification à revenir à NTLM dans des segments réseau restreints ou des scénarios d'accès à distance.
+
+Si vous désactivez ou ne configurez pas ce paramètre de stratégie, IAKerb sera activé (il s'agit du comportement par défaut sur les versions de Windows prises en charge).
+
+Remarque : pour la version préliminaire publique (public preview) de cette fonctionnalité, la configuration est exposée via les paramètres du Registre sous HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters.</string>
+                  <string id="DisableLocalKDC">Désactiver le KDC local (LocalKDC)</string>
+                  <string id="DisableLocalKDC_Explain">Ce paramètre de stratégie vous permet de désactiver la fonctionnalité de KDC local (Key Distribution Center). Le KDC local apporte l'authentification Kerberos aux scénarios de comptes locaux (tels que les environnements de groupe de travail, autonomes ou l'accès par compte local à des ressources distantes) qui reposaient historiquement sur NTLM.
+
+Si vous activez ou ne configurez pas ce paramètre de stratégie, le KDC local est désactivé (il s'agit du comportement par défaut sur les versions de Windows prises en charge).
+
+Si vous désactivez ce paramètre de stratégie, le KDC local est activé, ce qui permet à Windows d'utiliser la sémantique Kerberos pour l'authentification des identités locales au lieu de revenir à NTLM.
+
+Remarque : pour la version préliminaire publique (public preview) de cette fonctionnalité, la configuration est exposée via les paramètres du Registre sous HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters.</string>
                   <string id="DisableIPSourceRouting">Configurer le routage par la source</string>
                   <string id="DisableIPSourceRouting_Help">Permet de configurer le niveau de routage par la source.</string>
                   <string id="DisableIPSourceRouting0">Autoriser tous les paquets routés par la source.</string>

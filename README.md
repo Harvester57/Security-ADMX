@@ -652,6 +652,30 @@ Disable this policy to restore LM and NTLMv1 capabilities, in addition to NTLMv2
 
 </details>
 <details>
+<summary><strong>Disable IAKerb (Initial and Pass-Through Authentication using Kerberos)</strong></summary>
+
+
+- **Registry path(s):** SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters
+- **Registry key(s):** DisableIAKerb
+- **Values:** 0/1 (0 = Enabled/Default, 1 = Disabled)
+- **Description:** Disable the IAKerb feature, which allows Kerberos authentication to function when the client has no direct connectivity to a Domain Controller.
+
+    If disabled (registry value set to 0), IAKerb is enabled, allowing target services to proxy Kerberos exchanges. If enabled (registry value set to 1), IAKerb is disabled, potentially falling back to NTLM.
+
+</details>
+<details>
+<summary><strong>Disable Local KDC (Local Key Distribution Center)</strong></summary>
+
+
+- **Registry path(s):** SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters
+- **Registry key(s):** DisableLocalKDC
+- **Values:** 0/1 (0 = Enabled, 1 = Disabled/Default)
+- **Description:** Disable the Local KDC feature, which brings Kerberos-based authentication to local accounts.
+
+    If disabled (registry value set to 0), Local KDC is enabled, extending Kerberos semantics to local account scenarios. If enabled (registry value set to 1), Local KDC is disabled, which defaults authentication for local accounts back to NTLM.
+
+</details>
+<details>
 <summary><strong>Disable SMB 1.0 support (client and server)</strong></summary>
 
 

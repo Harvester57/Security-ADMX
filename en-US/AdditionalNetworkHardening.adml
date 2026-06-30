@@ -50,6 +50,22 @@ NOTE: for Windows 7, Windows Server 2008 R2, Windows Server 2012 and Windows 8 E
                   <string id="KerberosLogging_Explain">Enables logging of debug events related to Kerberos in the System Event log.
 
 If disabled, this policy disables Kerberos-related event logging (this is the default behavior). Enabling this option is only recommended for debugging purposes. Security auditing of Kerberos-related events should be configured with Advanced Auditing policies.</string>
+                  <string id="DisableIAKerb">Disable IAKerb</string>
+                  <string id="DisableIAKerb_Explain">This policy setting allows you to disable the Initial and Pass-Through Authentication using Kerberos (IAKerb) feature. IAKerb enables a client to perform Kerberos authentication through a proxying target service when it does not have direct connectivity to a Domain Controller.
+
+If you enable this policy setting, IAKerb will be disabled, which may force authentication to fall back to NTLM in segmented networks or remote access scenarios.
+
+If you disable or do not configure this policy setting, IAKerb is enabled (this is the default behavior on supported Windows versions).
+
+Note: For the public preview of this feature, configuration is exposed through registry settings under HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters.</string>
+                  <string id="DisableLocalKDC">Disable Local KDC</string>
+                  <string id="DisableLocalKDC_Explain">This policy setting allows you to disable the Local KDC (Key Distribution Center) feature. Local KDC brings Kerberos authentication to local account scenarios (such as standalone, workgroup, or local account access to remote resources) which historically relied on NTLM.
+
+If you enable or do not configure this policy setting, the Local KDC feature is disabled (this is the default behavior on supported Windows versions).
+
+If you disable this policy setting, the Local KDC feature is enabled, allowing Windows to use Kerberos semantics for local identity authentication instead of falling back to NTLM.
+
+Note: For the public preview of this feature, configuration is exposed through registry settings under HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters.</string>
                   <string id="DisableIPSourceRouting">Configure the IP source routing protection level</string>
                   <string id="DisableIPSourceRouting_Help">Configures the protection level for source-routed packets.</string>
                   <string id="DisableIPSourceRouting0">Allow all packets.</string>

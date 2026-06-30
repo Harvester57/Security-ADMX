@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v1.2.4] - 2026-07-01
+
+### Added
+
+- Policies to disable or enable IAKerb and LocalKDC in `AdditionalNetworkHardening.admx` (under `SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters`), to manage NTLM fallback and standalone Kerberos authentication in Windows Insider Preview builds.
+
 ## [v1.2.3] - 2026-02-29
 
 ### Added
