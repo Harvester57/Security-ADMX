@@ -1440,6 +1440,31 @@ Disable this policy to restore LM and NTLMv1 capabilities, in addition to NTLMv2
 
 </details>
 
+<details>
+<summary><strong>Restrict anonymous access to SAM and Named Pipes/Shares</strong></summary>
+
+
+- **Registry path(s):** SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters
+- **Registry key(s):** RestrictNullSessAccess
+- **Values:** 0/1
+- **Description:** This policy controls whether standard anonymous users (null sessions) can access the SAM database and named pipes/shares.
+
+    Enabling this policy restricts anonymous access (value 1).
+
+</details>
+<details>
+<summary><strong>Disable WPAD Override (User Preference)</strong></summary>
+
+
+- **Registry path(s):** Software\Microsoft\Windows\CurrentVersion\Internet Settings\Wpad
+- **Registry key(s):** WpadOverride
+- **Values:** 0/1
+- **Description:** This policy controls whether the current user is restricted from using WPAD auto-discovery proxy overrides.
+
+    Enabling this policy sets WpadOverride to 1, disabling WPAD-based proxy automatic override behaviors to mitigate spoofing/poisoning risks.
+
+</details>
+
 ### Debugging policies
 
 <details>

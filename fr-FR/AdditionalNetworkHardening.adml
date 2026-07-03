@@ -46,6 +46,12 @@ Les événements consignés sont stockés dans le journal d'événements Systèm
 Désactiver cette politique supprimera la valeur de Registre DefaultSecureProtocols et restaurera le comportement par défaut de WinHTTP.
 
 NOTE : pour les systèmes Windows 7, Windows Server 2008 R2, Windows Server 2012 et Windows 8 Embedded, vous devez au préalable appliquer la mise à jour KB3140245.</string>
+                  <string id="WpadOverride">Désactiver le contournement WPAD (préférence de l'utilisateur)</string>
+                  <string id="WpadOverride_Explain">Ce paramètre de stratégie détermine si le contournement WPAD (Web Proxy Auto-Discovery) est activé pour l'utilisateur actuel.
+
+Si vous activez ce paramètre de stratégie, le contournement WPAD est activé (valeur 1), ce qui empêche la détection automatique et le contournement des paramètres de proxy via WPAD pour cet utilisateur, renforçant ainsi le système contre les attaques d'empoisonnement basées sur WPAD.
+
+Si vous désactivez ou ne configurez pas ce paramètre de stratégie, le contournement WPAD est désactivé (valeur 0).</string>
                   <string id="KerberosLogging">Activer la journalisation des événements Kerberos</string>
                   <string id="KerberosLogging_Explain">Cette politique active la journalisation des événements liés à Kerberos. Si cette politique est activée, les événements liés à Kerberos sont consignés dans le journal d'événements Système.
 
@@ -213,6 +219,12 @@ Versions supportées :
                   <string id="MinSMB2Dialect_302">v3.0.2 (Windows 8.1)</string>
                   <string id="MinSMB2Dialect_311">v3.1.1 (Windows 10, Windows Server 2016)</string>
                   <string id="MinSMB2Dialect_Remove">Supprimer la valeur de Registre</string>
+                  <string id="RestrictNullSessAccess">Restreindre l'accès anonyme à SAM et aux canaux nommés/partages</string>
+                  <string id="RestrictNullSessAccess_Explain">Ce paramètre de stratégie détermine si les utilisateurs anonymes standard (sessions nulles) peuvent accéder à la base de données SAM et aux canaux nommés/partages.
+
+Si vous activez ce paramètre de stratégie, l'accès anonyme à la base de données SAM et aux canaux nommés/partages est restreint (valeur 1). C'est la configuration sécurisée recommandée.
+
+Si vous désactivez ou ne configurez pas ce paramètre de stratégie, l'accès anonyme n'est pas restreint par ce paramètre (valeur 0).</string>
                   <!-- PROTOCOLS -->
                   <!-- Multi-Protocol Unified Hello -->
                   <string id="MPUH">Multi-Protocol Unified Hello</string>

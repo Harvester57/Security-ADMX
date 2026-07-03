@@ -46,6 +46,12 @@ Logged events are available in the System event log.</string>
 Disabling this policy will remove the DefaultSecureProtocols value, and restore the default behavior of WinHTTP.
 
 NOTE: for Windows 7, Windows Server 2008 R2, Windows Server 2012 and Windows 8 Embedded, you need to install the KB3140245 update before enabling this policy.</string>
+                  <string id="WpadOverride">Disable WPAD Override (User Preference)</string>
+                  <string id="WpadOverride_Explain">This policy setting determines whether WPAD (Web Proxy Auto-Discovery) override is enabled for the current user.
+ 
+ If you enable this policy setting, WPAD override is enabled (value 1), which blocks the automatic detection and override of proxy settings via WPAD for this user, hardening the system against WPAD-based poisoning attacks.
+ 
+ If you disable or do not configure this policy setting, WPAD override is disabled (value 0).</string>
                   <string id="KerberosLogging">Enable Kerberos events logging</string>
                   <string id="KerberosLogging_Explain">Enables logging of debug events related to Kerberos in the System Event log.
 
@@ -211,6 +217,12 @@ Supported versions:
                   <string id="MinSMB2Dialect_302">v3.0.2 (Windows 8.1)</string>
                   <string id="MinSMB2Dialect_311">v3.1.1 (Windows 10, Windows Server 2016)</string>
                   <string id="MinSMB2Dialect_Remove">Remove the registry key</string>
+                  <string id="RestrictNullSessAccess">Restrict anonymous access to SAM and Named Pipes/Shares</string>
+                  <string id="RestrictNullSessAccess_Explain">This policy setting controls whether standard anonymous users (null sessions) can access the SAM database and named pipes/shares.
+ 
+ If you enable this policy setting, anonymous access to the SAM database and named pipes/shares is restricted (value 1). This is the recommended secure configuration.
+ 
+ If you disable or do not configure this policy setting, anonymous access is not restricted by this setting (value 0).</string>
                   <!-- PROTOCOLS -->
                   <!-- Multi-Protocol Unified Hello -->
                   <string id="MPUH">Multi-Protocol Unified Hello</string>

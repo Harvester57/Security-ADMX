@@ -291,6 +291,18 @@
         </enum>
       </elements>
     </policy>
+    <policy name="RestrictNullSessAccess" class="Machine" displayName="$(string.RestrictNullSessAccess)"
+      explainText="$(string.RestrictNullSessAccess_Explain)"
+      key="SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" valueName="RestrictNullSessAccess">
+      <parentCategory ref="SMB" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
     <!-- WinHTTP subsection -->
     <policy name="WinHTTP_TLS12" class="Machine" displayName="$(string.WinHTTP_TLS12)"
       explainText="$(string.WinHTTP_TLS12_Explain)"
@@ -326,6 +338,19 @@
           </value>
         </item>
       </disabledList>
+    </policy>
+    <policy name="WpadOverride" class="User" displayName="$(string.WpadOverride)"
+      explainText="$(string.WpadOverride_Explain)"
+      key="Software\Microsoft\Windows\CurrentVersion\Internet Settings\Wpad"
+      valueName="WpadOverride">
+      <parentCategory ref="WinHTTP" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
     </policy>
     <!-- Schannel subsection -->
     <policy name="SchannelLogging" class="Machine" displayName="$(string.SchannelLogging)"
