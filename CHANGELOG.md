@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 
+- Policy `VulnerableDriverBlocklist` to `AdditionalSystemHardening.admx` (controls the Microsoft Vulnerable Driver Blocklist).
 - Policy `RestrictNullSessAccess` to `AdditionalNetworkHardening.admx` (restricts anonymous access to SAM and named pipes/shares).
 - Policy `WpadOverride` to `AdditionalNetworkHardening.admx` (disables WPAD proxy auto-discovery overrides for the user).
 

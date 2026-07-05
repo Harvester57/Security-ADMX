@@ -216,6 +216,18 @@ See: https://www.gtworek.com/disabling-remote-access-to-windows-services/</strin
 If you enable this policy, a more secure mode for processing batch files is enabled, which ensures they do not change during execution by holding an opportunistic lock. This enhances the performance and security of batch file processing when Code Integrity is enabled, as signature validation will only be required to be performed a single time, instead of per statement executed in the batch file.
 
 Note: This functionality is supported on Windows 11 Insider Preview Build 26300.7939 or later.</string>
+                  <string id="VulnerableDriverBlocklist">Enable Microsoft Vulnerable Driver Blocklist</string>
+                  <string id="VulnerableDriverBlocklist_Explain">This policy setting configures whether the Microsoft Vulnerable Driver Blocklist is enabled on the system.
+
+The vulnerable driver blocklist is a security feature designed to prevent known insecure, kernel-mode third-party drivers from loading.
+
+If you enable this policy setting, the Vulnerable Driver Blocklist is enabled.
+
+If you disable this policy setting, the Vulnerable Driver Blocklist is disabled, allowing known vulnerable drivers to load. Note: Disabling this feature reduces system security.
+
+If you do not configure this policy setting, the system defaults (enabled on Windows 11 by default, or configured by HVCI/S-mode/Windows Defender Application Control) will apply.
+
+See: https://learn.microsoft.com/en-us/windows/security/application-security/application-control/app-control-for-business/design/microsoft-recommended-driver-block-rules</string>
             </stringTable>
             <presentationTable>
                   <presentation id="MSCacheV2_Iteration">

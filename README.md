@@ -65,6 +65,22 @@ To install the policies on a standalone machine or for testing purposes:
 </details>
 
 <details>
+<summary><strong>Enable Microsoft Vulnerable Driver Blocklist</strong></summary>
+
+- **Registry path(s):** SYSTEM\CurrentControlSet\Control\CI\Config
+- **Registry key(s):** VulnerableDriverBlocklistEnable
+- **Values:** 0/1
+- **Description:** This policy setting configures whether the Microsoft Vulnerable Driver Blocklist is enabled on the system.
+
+    The vulnerable driver blocklist is a security feature designed to prevent known insecure, kernel-mode third-party drivers from loading.
+
+    If you enable this policy setting, the Vulnerable Driver Blocklist is enabled.
+
+    If you disable this policy setting, the Vulnerable Driver Blocklist is disabled, allowing known vulnerable drivers to load. Note: Disabling this feature reduces system security.
+
+</details>
+
+<details>
 <summary><strong>Enable Virtualization-Based Security in Mandatory mode</strong></summary>
 
 

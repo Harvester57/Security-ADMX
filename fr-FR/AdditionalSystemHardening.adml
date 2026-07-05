@@ -218,6 +218,18 @@ Voir : https://www.gtworek.com/disabling-remote-access-to-windows-services/</str
 Si vous activez cette stratégie, un mode plus sécurisé pour le traitement des fichiers batch est activé, garantissant qu'ils ne changent pas pendant l'exécution en conservant un verrou opportuniste. Cela améliore les performances et la sécurité du traitement des fichiers batch lorsque l'intégrité du code est activée, car la validation de la signature ne sera requise qu'une seule fois, au lieu d'une fois par instruction exécutée dans le fichier batch.
 
 Remarque : Cette fonctionnalité est prise en charge sur Windows 11 Insider Preview Build 26300.7939 ou ultérieur.</string>
+                  <string id="VulnerableDriverBlocklist">Activer la liste de blocage des pilotes vulnérables de Microsoft</string>
+                  <string id="VulnerableDriverBlocklist_Explain">Ce paramètre de stratégie configure l'activation de la liste de blocage des pilotes vulnérables de Microsoft sur le système.
+
+La liste de blocage des pilotes vulnérables est une fonctionnalité de sécurité conçue pour empêcher le chargement de pilotes tiers en mode noyau connus pour être non sécurisés.
+
+Si vous activez ce paramètre de stratégie, la liste de blocage des pilotes vulnérables de Microsoft est activée.
+
+Si vous désactivez ce paramètre de stratégie, la liste de blocage des pilotes vulnérables de Microsoft est désactivée, permettant ainsi le chargement de pilotes vulnérables connus. Remarque : La désactivation de cette fonctionnalité réduit la sécurité du système.
+
+Si vous ne configurez pas ce paramètre de stratégie, les paramètres par défaut du système s'appliquent (activé par défaut sur Windows 11, ou configuré via HVCI/mode S/Windows Defender Application Control).
+
+Voir : https://learn.microsoft.com/fr-fr/windows/security/application-security/application-control/app-control-for-business/design/microsoft-recommended-driver-block-rules</string>
             </stringTable>
             <presentationTable>
                   <presentation id="MSCacheV2_Iteration">

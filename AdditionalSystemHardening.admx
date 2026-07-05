@@ -555,5 +555,16 @@
                 <decimal value="0" />
             </disabledValue>
         </policy>
+        <!-- Microsoft Vulnerable Driver Blocklist -->
+        <policy name="VulnerableDriverBlocklist" class="Machine" displayName="$(string.VulnerableDriverBlocklist)" explainText="$(string.VulnerableDriverBlocklist_Explain)" key="SYSTEM\CurrentControlSet\Control\CI\Config" valueName="VulnerableDriverBlocklistEnable">
+            <parentCategory ref="System" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
     </policies>
 </policyDefinitions>
