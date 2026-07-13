@@ -485,8 +485,8 @@ Disable this policy to restore LM and NTLMv1 capabilities, in addition to NTLMv2
 <summary><strong>Enable kernel-level shadow stacks</strong></summary>
 
 
-- **Registry path(s):** SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\KernelShadowStacks
-- **Registry key(s):** Enabled
+- **Registry path(s):** SOFTWARE\Policies\Microsoft\Windows\DeviceGuard
+- **Registry key(s):** ConfigureKernelShadowStacksLaunch
 - **Values:** 0/1
 - **Description:** The policy enable kernel-level shadow stacks, also known as Intel CET (Control-flow Enforcement Technology) or AMD Shadow Stack.
 

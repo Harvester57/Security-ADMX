@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v1.2.6] - 2026-07-13
+
+### Changed
+
+- Updated the kernel shadow stack policy (`KCET_Enable`) in `AdditionalSystemHardening.admx` to align with the official Microsoft Virtualization-Based Security (VBS) registry key and value (`ConfigureKernelShadowStacksLaunch`).
+
 ## [v1.2.5] - 2026-07-03
 
 ### Added

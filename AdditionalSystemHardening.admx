@@ -472,7 +472,7 @@
                 </item>
             </disabledList>
         </policy>
-        <policy name="KCET_Enable" class="Machine" displayName="$(string.KCET)" explainText="$(string.KCET_Explain)" key="SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\KernelShadowStacks" valueName="Enabled">
+        <policy name="KCET_Enable" class="Machine" displayName="$(string.KCET)" explainText="$(string.KCET_Explain)" key="SOFTWARE\Policies\Microsoft\Windows\DeviceGuard" valueName="ConfigureKernelShadowStacksLaunch">
             <parentCategory ref="System" />
             <supportedOn ref="windows:SUPPORTED_Windows_10_0_21H2" />
             <enabledValue>
