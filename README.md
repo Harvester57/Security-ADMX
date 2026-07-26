@@ -51,6 +51,20 @@ To install the policies on a standalone machine or for testing purposes:
 ### System policies
 
 <details>
+<summary><strong>Show file extensions for known file types</strong></summary>
+
+- **Registry path(s):** HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced
+- **Registry key(s):** HideFileExt
+- **Values:** 0/1
+- **Description:** By default, Windows Explorer hides file extensions for known file types, which can allow attackers to disguise malicious executable files using fake extensions or icon spoofing.
+
+    If you enable this policy setting, Windows Explorer will display file extensions for all known file types (Registry DWORD HideFileExt set to 0).
+
+    If you disable this policy setting, Windows Explorer will hide file extensions for known file types (Registry DWORD HideFileExt set to 1).
+
+</details>
+
+<details>
 <summary><strong>Enable secure mode for batch file processing</strong></summary>
 
 - **Registry path(s):** SOFTWARE\Microsoft\Command Processor

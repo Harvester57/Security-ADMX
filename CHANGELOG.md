@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [Unreleased]
+
+### Added
+
+- Policy `HideFileExt` to `AdditionalSystemHardening.admx` (shows file extensions for known file types in Windows Explorer).
+
 ## [v1.2.6] - 2026-07-13
 
 ### Changed

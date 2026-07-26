@@ -228,6 +228,14 @@ If you disable this policy setting, the Vulnerable Driver Blocklist is disabled,
 If you do not configure this policy setting, the system defaults (enabled on Windows 11 by default, or configured by HVCI/S-mode/Windows Defender Application Control) will apply.
 
 See: https://learn.microsoft.com/en-us/windows/security/application-security/application-control/app-control-for-business/design/microsoft-recommended-driver-block-rules</string>
+                  <string id="HideFileExt">Show file extensions for known file types</string>
+                  <string id="HideFileExt_Explain">By default, Windows Explorer hides file extensions for known file types (such as .exe, .dll, .vbs, .pdf.exe), which can allow attackers to disguise malicious files using fake file extensions or icon spoofing.
+
+If you enable this policy setting, Windows Explorer will display file extensions for all known file types.
+
+If you disable this policy setting, Windows Explorer will hide file extensions for known file types.
+
+If you do not configure this policy setting, the user setting or default Windows behavior will apply.</string>
             </stringTable>
             <presentationTable>
                   <presentation id="MSCacheV2_Iteration">

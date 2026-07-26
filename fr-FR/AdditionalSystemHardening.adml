@@ -230,6 +230,14 @@ Si vous désactivez ce paramètre de stratégie, la liste de blocage des pilotes
 Si vous ne configurez pas ce paramètre de stratégie, les paramètres par défaut du système s'appliquent (activé par défaut sur Windows 11, ou configuré via HVCI/mode S/Windows Defender Application Control).
 
 Voir : https://learn.microsoft.com/fr-fr/windows/security/application-security/application-control/app-control-for-business/design/microsoft-recommended-driver-block-rules</string>
+                  <string id="HideFileExt">Afficher les extensions des fichiers dont le type est connu</string>
+                  <string id="HideFileExt_Explain">Par défaut, l'Explorateur Windows masque les extensions des fichiers dont le type est connu (tels que .exe, .dll, .vbs, .pdf.exe), ce qui peut permettre à des attaquants de masquer des fichiers malveillants à l'aide de fausses extensions ou d'usurpation d'icônes.
+
+Si vous activez ce paramètre de stratégie, l'Explorateur Windows affichera les extensions de tous les types de fichiers connus.
+
+Si vous désactivez ce paramètre de stratégie, l'Explorateur Windows masquera les extensions des fichiers dont le type est connu.
+
+Si vous ne configurez pas ce paramètre de stratégie, le paramètre utilisateur ou le comportement par défaut de Windows s'appliquera.</string>
             </stringTable>
             <presentationTable>
                   <presentation id="MSCacheV2_Iteration">
