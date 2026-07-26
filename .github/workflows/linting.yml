@@ -21,7 +21,8 @@ jobs:
                       "AdditionalHardeningFromMicrosoft.admx", 
                       "AdditionalLegacyHardening.admx", 
                       "AdditionalNetworkHardening.admx", 
-                      "AdditionalSystemHardening.admx"
+                      "AdditionalSystemHardening.admx",
+                      "AdditionalUserHardening.admx"
                       ]
         container:
             image: ghcr.io/harvester57/docker-admxlint:main

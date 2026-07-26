@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+      <displayName>
+		Additional user hardening policies
+	</displayName>
+      <description>
+		Additional user hardening policies
+	</description>
+      <resources>
+            <stringTable>
+                  <!-- CATEGORIES -->
+                  <string id="System">Additional system hardening settings</string>
+                  <string id="Network">Additional network hardening settings</string>
+                  <string id="WinHTTP">WinHTTP configuration</string>
+                  <!-- POLICIES -->
+                  <string id="WpadOverride">Disable WPAD Override (User Preference)</string>
+                  <string id="WpadOverride_Explain">This policy setting determines whether WPAD (Web Proxy Auto-Discovery) override is enabled for the current user.
+
+If you enable this policy setting, WPAD override is enabled (value 1), which blocks the automatic detection and override of proxy settings via WPAD for this user, hardening the system against WPAD-based poisoning attacks.
+
+If you disable or do not configure this policy setting, WPAD override is disabled (value 0).</string>
+                  <string id="HideFileExt">Show file extensions for known file types</string>
+                  <string id="HideFileExt_Explain">By default, Windows Explorer hides file extensions for known file types (such as .exe, .dll, .vbs, .pdf.exe), which can allow attackers to disguise malicious files using fake file extensions or icon spoofing.
+
+If you enable this policy setting, Windows Explorer will display file extensions for all known file types.
+
+If you disable this policy setting, Windows Explorer will hide file extensions for known file types.
+
+If you do not configure this policy setting, the user setting or default Windows behavior will apply.</string>
+            </stringTable>
+      </resources>
+</policyDefinitionResources>

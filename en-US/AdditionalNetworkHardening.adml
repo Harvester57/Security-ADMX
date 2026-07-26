@@ -46,12 +46,6 @@ Logged events are available in the System event log.</string>
 Disabling this policy will remove the DefaultSecureProtocols value, and restore the default behavior of WinHTTP.
 
 NOTE: for Windows 7, Windows Server 2008 R2, Windows Server 2012 and Windows 8 Embedded, you need to install the KB3140245 update before enabling this policy.</string>
-                  <string id="WpadOverride">Disable WPAD Override (User Preference)</string>
-                  <string id="WpadOverride_Explain">This policy setting determines whether WPAD (Web Proxy Auto-Discovery) override is enabled for the current user.
- 
- If you enable this policy setting, WPAD override is enabled (value 1), which blocks the automatic detection and override of proxy settings via WPAD for this user, hardening the system against WPAD-based poisoning attacks.
- 
- If you disable or do not configure this policy setting, WPAD override is disabled (value 0).</string>
                   <string id="KerberosLogging">Enable Kerberos events logging</string>
                   <string id="KerberosLogging_Explain">Enables logging of debug events related to Kerberos in the System Event log.
 

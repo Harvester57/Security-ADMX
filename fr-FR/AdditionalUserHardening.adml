@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+      <displayName>
+            Paramètres de durcissement utilisateur additionnels
+      </displayName>
+      <description>
+            Paramètres de durcissement utilisateur additionnels
+      </description>
+      <resources>
+            <stringTable>
+                  <!-- CATEGORIES -->
+                  <string id="System">Paramètres de durcissement système</string>
+                  <string id="Network">Paramètres de durcissement réseau</string>
+                  <string id="WinHTTP">Configuration de WinHTTP</string>
+                  <!-- POLICIES -->
+                  <string id="WpadOverride">Désactiver le contournement WPAD (préférence de l'utilisateur)</string>
+                  <string id="WpadOverride_Explain">Ce paramètre de stratégie détermine si le contournement WPAD (Web Proxy Auto-Discovery) est activé pour l'utilisateur actuel.
+
+Si vous activez ce paramètre de stratégie, le contournement WPAD est activé (valeur 1), ce qui empêche la détection automatique et le contournement des paramètres de proxy via WPAD pour cet utilisateur, renforçant ainsi le système contre les attaques d'empoisonnement basées sur WPAD.
+
+Si vous désactivez ou ne configurez pas ce paramètre de stratégie, le contournement WPAD est désactivé (valeur 0).</string>
+                  <string id="HideFileExt">Afficher les extensions des fichiers dont le type est connu</string>
+                  <string id="HideFileExt_Explain">Par défaut, l'Explorateur Windows masque les extensions des fichiers dont le type est connu (tels que .exe, .dll, .vbs, .pdf.exe), ce qui peut permettre à des attaquants de masquer des fichiers malveillants à l'aide de fausses extensions ou d'usurpation d'icônes.
+
+Si vous activez ce paramètre de stratégie, l'Explorateur Windows affichera les extensions de tous les types de fichiers connus.
+
+Si vous désactivez ce paramètre de stratégie, l'Explorateur Windows masquera les extensions des fichiers dont le type est connu.
+
+Si vous ne configurez pas ce paramètre de stratégie, le paramètre utilisateur ou le comportement par défaut de Windows s'appliquera.</string>
+            </stringTable>
+      </resources>
+</policyDefinitionResources>

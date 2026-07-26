@@ -566,16 +566,6 @@
                 <decimal value="0" />
             </disabledValue>
         </policy>
-        <!-- Show file extensions for known file types -->
-        <policy name="HideFileExt" class="User" displayName="$(string.HideFileExt)" explainText="$(string.HideFileExt_Explain)" key="Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" valueName="HideFileExt">
-            <parentCategory ref="System" />
-            <supportedOn ref="windows:SUPPORTED_Windows7" />
-            <enabledValue>
-                <decimal value="0" />
-            </enabledValue>
-            <disabledValue>
-                <decimal value="1" />
-            </disabledValue>
-        </policy>
+
     </policies>
 </policyDefinitions>

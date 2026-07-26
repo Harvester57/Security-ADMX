@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0"
+    xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+    <policyNamespaces>
+        <target prefix="AddUserHard" namespace="AddUserHard.Policies.AddUserHard" />
+        <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+        <using prefix="parent" namespace="AddHard.Policies.AddHard" />
+    </policyNamespaces>
+    <resources minRequiredRevision="1.0" />
+    <categories>
+        <!-- Subcategories -->
+        <category name="System" displayName="$(string.System)">
+            <parentCategory ref="parent:Cat_AddHard" />
+        </category>
+        <category name="Network" displayName="$(string.Network)">
+            <parentCategory ref="parent:Cat_AddHard" />
+        </category>
+        <category name="WinHTTP" displayName="$(string.WinHTTP)">
+            <parentCategory ref="Network" />
+        </category>
+    </categories>
+    <policies>
+        <!-- WPAD Override -->
+        <policy name="WpadOverride" class="User" displayName="$(string.WpadOverride)"
+            explainText="$(string.WpadOverride_Explain)"
+            key="Software\Microsoft\Windows\CurrentVersion\Internet Settings\Wpad"
+            valueName="WpadOverride">
+            <parentCategory ref="WinHTTP" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
+        <!-- Show file extensions for known file types -->
+        <policy name="HideFileExt" class="User" displayName="$(string.HideFileExt)"
+            explainText="$(string.HideFileExt_Explain)"
+            key="Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced"
+            valueName="HideFileExt">
+            <parentCategory ref="System" />
+            <supportedOn ref="windows:SUPPORTED_Windows7" />
+            <enabledValue>
+                <decimal value="0" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="1" />
+            </disabledValue>
+        </policy>
+    </policies>
+</policyDefinitions>
