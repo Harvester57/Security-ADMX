@@ -4,13 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [Unreleased]
+## [v1.2.7] - 2026-08-23
 
 ### Added
 
-- Policy `HideFileExt` to `AdditionalSystemHardening.admx` (shows file extensions for known file types in Windows Explorer).
 - New `AdditionalUserHardening.admx` policy definition file (and associated ADML files in `en-US` and `fr-FR`) containing policies that apply specifically to the user class (`class="User"`).
-- Extracted user-class policies (`HideFileExt` and `WpadOverride`) from `AdditionalSystemHardening.admx` and `AdditionalNetworkHardening.admx` into `AdditionalUserHardening.admx`.
+- Policy `HideFileExt` to `AdditionalUserHardening.admx` (shows file extensions for known file types in Windows Explorer).
+
+### Changed
+
+- Moved user-class policy `WpadOverride` from `AdditionalNetworkHardening.admx` to `AdditionalUserHardening.admx`.
 
 ## [v1.2.6] - 2026-07-13
 
