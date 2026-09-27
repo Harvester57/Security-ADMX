@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v1.2.8] - 2026-09-27
+
+### Added
+
+- Option to enable Branch History Injection (BHI / CVE-2022-0001) mitigations only (`MicroarchHardening_Option8`) to `MicroarchHardening` policy in `AdditionalSystemHardening.admx` (and associated ADML files in `en-US` and `fr-FR`) (<https://github.com/Harvester57/Security-ADMX/issues/130>).
+
+### Changed
+
+- Updated `MicroarchHardening` policy values in `AdditionalSystemHardening.admx` (<https://github.com/Harvester57/Security-ADMX/issues/130>):
+  - `MicroarchHardening_Option1` updated from `72` (`0x00000048`) to `8388680` (`0x00800048`) to include Branch History Injection (BHI / CVE-2022-0001) mitigation with Hyper-Threading enabled, per Microsoft KB4073119 & KB4072698.
+  - `MicroarchHardening_Option2` updated from `8264` (`0x00002048`) to `8396872` (`0x00802048`) to include Branch History Injection (BHI / CVE-2022-0001) mitigation with Hyper-Threading disabled.
+
 ## [v1.2.7] - 2026-08-23
 
 ### Added

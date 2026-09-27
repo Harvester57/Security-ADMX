@@ -327,7 +327,7 @@ To install the policies on a standalone machine or for testing purposes:
 
 </details>
 <details>
-<summary><strong>Enable Spectre and Meltdown mitigations</strong></summary>
+<summary><strong>Enable Spectre, Meltdown, and BHI mitigations</strong></summary>
 
 
 - **Registry path(s):**
@@ -338,12 +338,12 @@ To install the policies on a standalone machine or for testing purposes:
   - FeatureSettingsOverrideMask
   - MinVmVersionForCpuBasedMitigations
 - **Values:**
-  - 72/8264/8/0/1/64/3
+  - 8388680/8396872/8/0/1/64/3/8388608
   - 3
   - 1.0
-- **Description:** The FeatureSettingsOverride registry key in Windows, typically found under SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management and often managed alongside FeatureSettingsOverrideMask, provides administrators with granular control over software-based mitigations for CPU speculative execution vulnerabilities like Spectre and Meltdown.
+- **Description:** The FeatureSettingsOverride registry key in Windows, typically found under SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management and often managed alongside FeatureSettingsOverrideMask, provides administrators with granular control over software-based mitigations for CPU speculative execution vulnerabilities like Spectre, Meltdown, and Branch History Injection (BHI) (CVE-2022-0001).
 
-    These vulnerabilities can potentially allow unauthorized access to sensitive data. Windows implements various mitigations to counter these threats, but they can sometimes introduce performance overhead. The FeatureSettingsOverride key allows for a tailored approach, enabling administrators to selectively enable or disable specific mitigations—such as those for different variants of Spectre (like v2 or Speculative Store Bypass - SSB) and Meltdown—or even to disable all of them if the performance impact is deemed too high for a particular environment, or to apply specific configurations like disabling Hyper-Threading on Intel CPUs in conjunction with these mitigations.
+    These vulnerabilities can potentially allow unauthorized access to sensitive data. Windows implements various mitigations to counter these threats, but they can sometimes introduce performance overhead. The FeatureSettingsOverride key allows for a tailored approach, enabling administrators to selectively enable or disable specific mitigations—such as those for different variants of Spectre (like v2 or Speculative Store Bypass - SSB), Meltdown, and Branch History Injection (BHI)—or even to disable all of them if the performance impact is deemed too high for a particular environment, or to apply specific configurations like disabling Hyper-Threading on Intel CPUs in conjunction with these mitigations.
 
     This policy also allows to enable Hyper-V mitigations for virtual machines below version 8.0 (MinVmVersionForCpuBasedMitigations).
 
@@ -355,6 +355,7 @@ To install the policies on a standalone machine or for testing purposes:
   - Intel: enable mitigations for Meltdown only
   - AMD and ARM: enable mitigations for Spectre v2
   - Disable all mitigations
+  - Intel: enable mitigations for Branch History Injection (BHI) only
 
 </details>
 <details>

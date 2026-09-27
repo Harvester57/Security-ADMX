@@ -239,7 +239,7 @@
                 <enum id="MicroarchHardening_DropdownList" valueName="FeatureSettingsOverride" required="true">
                     <item displayName="$(string.MicroarchHardening_Option1)">
                         <value>
-                            <decimal value="72" />
+                            <decimal value="8388680" />
                         </value>
                         <valueList defaultKey="SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management">
                             <item valueName="FeatureSettingsOverrideMask">
@@ -251,7 +251,7 @@
                     </item>
                     <item displayName="$(string.MicroarchHardening_Option2)">
                         <value>
-                            <decimal value="8264" />
+                            <decimal value="8396872" />
                         </value>
                         <valueList defaultKey="SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management">
                             <item valueName="FeatureSettingsOverrideMask">
@@ -312,6 +312,18 @@
                     <item displayName="$(string.MicroarchHardening_Option7)">
                         <value>
                             <decimal value="3" />
+                        </value>
+                        <valueList defaultKey="SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management">
+                            <item valueName="FeatureSettingsOverrideMask">
+                                <value>
+                                    <decimal value="3" />
+                                </value>
+                            </item>
+                        </valueList>
+                    </item>
+                    <item displayName="$(string.MicroarchHardening_Option8)">
+                        <value>
+                            <decimal value="8388608" />
                         </value>
                         <valueList defaultKey="SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management">
                             <item valueName="FeatureSettingsOverrideMask">
