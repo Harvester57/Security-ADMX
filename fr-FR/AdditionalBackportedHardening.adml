@@ -1,0 +1,689 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+    <displayName>
+        Paramètres de durcissement rétroportés supplémentaires
+    </displayName>
+    <description>
+        Paramètres de durcissement rétroportés supplémentaires
+    </description>
+    <resources>
+        <stringTable>
+            <string id="Backported_System">Paramètres d'intégrité du système, des pilotes et des fichiers</string>
+            <string id="Backported_Defender">Protection comportementale Defender, anti-rançongiciel et ASR</string>
+            <string id="Backported_Network">Paramètres réseau, RPC, DNS et authentification</string>
+            <string id="Backported_Legacy">Confinement des scripts et navigateurs hérités</string>
+            <string id="AllowAllCopyFGDDestinations_DisplayName">Autoriser les opérations de descripteur de groupe de fichiers à écrire dans n’importe quel chemin de destination</string>
+            <string id="AllowAllCopyFGDDestinations_Help">Ce paramètre de stratégie détermine si les vérifications d’autonomie de traversée de chemin sont appliquées lors de l’écriture de fichiers reçus via le Presse-papiers ou par glisser-déplacer des descripteurs de groupe de fichiers (CFSTR_FILEDESCRIPTOR).
+
+Si vous activez ce paramètre de stratégie, les vérifications de l’autonomie du parcours de chemin ne sont pas appliquées et les fichiers peuvent être écrits dans n’importe quel chemin accessible par le dossier de destination. Activez cette stratégie uniquement si le comportement par défaut interrompt un flux de travail requis.
+
+Si vous désactivez ce paramètre de stratégie ou si vous ne le configurez pas, les opérations de descripteur de groupe de fichiers appliquent l’autonomie du chemin d’accès et rejettent les noms de fichiers qui tentent d’échapper du dossier de destination via des composants de chemin relatifs.</string>
+            <string id="AllowCustomSSPsAPs">Autoriser le chargement des SSP et des adresses IP personnalisées dans LSASS</string>
+            <string id="AllowCustomSSPsAPs_Help">Cette stratégie contrôle la configuration sous laquelle LSASS charge des SPS et des adresses IP personnalisées.
+
+Si vous activez ce paramètre ou si vous ne le configurez pas, LSA autorise le chargement des fournisseurs de service personnalisés et des adresses IP personnalisées.
+
+Si vous désactivez ce paramètre, LSA ne charge pas les SPS et les adresses IP personnalisées.</string>
+            <string id="AllowLegacyURLFields">Autoriser les anciennes fonctionnalités de fichiers de raccourcis Internet</string>
+            <string id="AllowNonStandardUserProfilePaths">Autoriser les ruches du Registre du profil utilisateur et AppData depuis des chemins non standard</string>
+            <string id="AllowNonStandardUserProfilePaths_Help">Ce paramètre de stratégie contrôle si les branches de registre des profils utilisateur et les emplacements des dossiers AppData peuvent accepter des formats de chemin non standard.
+
+Si vous activez ce paramètre de stratégie, les emplacements des profils utilisateur acceptent une gamme plus large de formats de chemin d’accès aux fichiers.
+
+Si vous désactivez ou ne configurez pas ce paramètre de stratégie, les emplacements des profils utilisateur n’acceptent que les chemins d’accès standard aux dossiers Windows.
+
+Remarque : activer ce paramètre peut exposer le système à des risques de sécurité. Activez-le uniquement si une application spécifique de votre entreprise l’exige, et seulement après avoir évalué tous les risques pour votre environnement.</string>
+            <string id="AllowTrustedOfflineScan">Autoriser l’analyse hors connexion à partir de l’Environnement de récupération Windows approuvé</string>
+            <string id="AllowTrustedOfflineScan_help">    Configuration requise : Windows 10
+    Description : ce paramètre de stratégie contrôle si l’analyse hors connexion peut être autorisée à partir d’un Environnement de récupération Windows approuvé.
+
+    Si vous activez ce paramètre de stratégie, l’analyse hors connexion s’exécute sans demander la clé de récupération BitLocker, tant que BitLocker fait confiance à l’Environnement de récupération Windows.
+
+    Si vous désactivez ce paramètre de stratégie ou ne le configurez pas, l’analyse hors connexion requête à l’utilisateur(-trice) la clé de récupération BitLocker pour déverrouiller le volume du système d’exploitation. Si l’utilisateur(-trice) ignore le déverrouillage du volume du système d’exploitation, l’analyse hors connexion ne s’exécute pas. Il s’agit du paramètre par défaut.</string>
+            <string id="AutomaticAccountManagementTarget_Item0">Gérer le compte d’administrateur intégré</string>
+            <string id="AutomaticAccountManagementTarget_Item1">Gérer un compte d’administrateur personnalisé</string>
+            <string id="ClfsAuthenticationChecking">Activer/désactiver l’authentification du fichier journal CLFS</string>
+            <string id="ClfsAuthenticationCheckingExplain">Ce paramètre de stratégie configure l’authentification des fichiers journaux CLFS, une fonctionnalité de sécurité qui vise à renforcer l’analyse des fichiers journaux.
+
+L’authentification des fichiers journaux permet au pilote CLFS de détecter les modifications malveillantes apportées aux fichiers journaux. Si des modifications sont détectées, CLFS considère que le fichier journal présente un risque pour l’analyse et renvoie une erreur à l’appelant. CLFS est en mesure de détecter les modifications en écrivant des codes d’authentification dans les fichiers journaux, qui combinent les données de fichier avec une clé de chiffrement propre au système. 
+
+L’un des effets secondaires de l’authentification des fichiers journaux est que CLFS ne peut pas ouvrir les fichiers journaux créés sur d’autres systèmes, car ces fichiers contiennent des codes d’authentification créés à l’aide d’une clé de chiffrement propre au système. Pour ouvrir un fichier journal créé sur un autre système, l’administrateur doit d’abord utiliser la commande « fsutil.exe clfs authenticate » pour corriger les codes d’authentification.
+
+Si vous activez ou ne configurez pas ce paramètre, CLFS se réfère aux paramètres du registre local pour déterminer si vous devez ou non procéder à l’authentification des fichiers journaux. Par défaut, CLFS effectue l’authentification des fichiers journaux. Les paramètres du registre local pour cette fonctionnalité sont disponibles dans « HKLM:\SYSTEM\CurrentControlSet\Services\CLFS\Authentication ». 
+
+Si vous désactivez ce paramètre, CLFS n’effectuera plus l’authentification des fichiers journaux. Vous pourrez déplacer et ouvrir les fichiers journaux d’un système à l’autre sans intervention de l’administration. Cependant, CLFS ouvrira et analysera tous les fichiers journaux, y compris ceux qui ont été conçus de manière malveillante et qui peuvent compromettre le système.</string>
+            <string id="ConfigCIPolicy">Déployer le contrôle d’application pour les entreprises</string>
+            <string id="ConfigCIPolicyHelp">Déployer le contrôle d’application pour Les entreprises
+
+Ce paramètre de stratégie vous permet de déployer une stratégie d’intégrité du code sur un ordinateur pour contrôler ce qui est autorisé à s’exécuter sur cet ordinateur.
+
+Si vous déployez une stratégie d’intégrité du code, Windows restreint ce qui peut s’exécuter à la fois en mode noyau et sur le Bureau Windows en fonction de la stratégie. Pour activer cette stratégie, l’ordinateur doit être redémarré.
+
+Le chemin de fichier doit être un chemin UNC (par exemple, \\ServerName\ShareName\SIPolicy.p7b) ou un chemin d’accès valide localement (par exemple, C :\FolderName\SIPolicy.p7b).  Le compte d’ordinateur local (SYSTÈME LOCAL) doit avoir l’autorisation d’accès au fichier de stratégie.
+
+Si vous utilisez une stratégie signée et protégée, la désactivation de ce paramètre de stratégie ne supprime pas la fonctionnalité de l’ordinateur. À la place, vous devez :
+
+1) mettez d’abord à jour la stratégie vers une stratégie non protégée, puis désactivez le paramètre, ou
+   2) désactivez le paramètre, puis supprimez la stratégie de chaque ordinateur, avec un utilisateur physiquement présent.
+      </string>
+            <string id="DNS_Doh">Configurer la résolution de noms chiffrés</string>
+            <string id="DNS_Doh_Auto">Autoriser le chiffrement</string>
+            <string id="DNS_Doh_Disabled">Interdire le chiffrement</string>
+            <string id="DNS_Doh_Force">Nécessite le chiffrement</string>
+            <string id="DNS_Doh_Help">Spécifie si le client DNS effectue la résolution de noms sur des protocoles chiffrés.
+
+Par défaut, le client DNS effectue la résolution de noms DNS classique (sur le port UDP ou TCP 53). Ce paramètre peut améliorer le client DNS afin d’utiliser des protocoles chiffrés pour résoudre les noms de domaine.
+
+Pour utiliser ce paramètre de stratégie, cliquez sur Activer, puis sélectionnez l’une des options suivantes dans la liste déroulante :
+
+Interdire le chiffrement : aucune résolution de nom chiffrée ne sera effectuée.
+
+Autoriser le chiffrement : utiliser la résolution de noms chiffrés si les serveurs configurés le prennent en charge. S’ils ne la prennent pas en charge, essayez la résolution de noms classique.
+
+Exiger le chiffrement : autoriser uniquement la résolution de noms chiffrés. Si aucun serveur DNS configuré ne gère le chiffrement, la résolution de noms échouera.
+
+En plus de la stratégie de chiffrement générique, des stratégies supplémentaires peuvent être configurées au niveau du protocole individuel.
+
+Par exemple, pour forcer la résolution de nom DoT uniquement, une combinaison de « Exiger le chiffrement » et « Bloquer DoH » est nécessaire (inversement pour forcer DoH).
+
+Pour l’exemple ci-dessus, il est de la responsabilité de l’administrateur de s’assurer que si DoT est forcé, des serveurs DoT valides sont configurés sur l’ordinateur (inversement pour DoH).
+
+Si vous désactivez ce paramètre de stratégie ou si vous ne le configurez pas, le client DNS utilise les paramètres configurés localement. Le trafic en texte clair DDR (Détection des résolveurs désignés) sera autorisé, car il est nécessaire pour la découverte automatique des paramètres de chiffrement.</string>
+            <string id="DNS_Doh_Setting_Allow">Autoriser DoH</string>
+            <string id="DNS_Doh_Setting_Block">Bloquer DoH</string>
+            <string id="DNS_Dot_Setting_Allow">Autoriser DoT</string>
+            <string id="DNS_Dot_Setting_Block">Bloquer le DoT</string>
+            <string id="DNS_MDNS">Configurer le protocole DNS de multidiffusion (mDNS)</string>
+            <string id="DNS_MDNS_Help">Spécifie si le client DNS effectue la résolution de noms sur mDNS.
+
+Si vous activez cette stratégie, le client DNS utilise le protocole mDNS.
+
+Si vous désactivez ce paramètre de stratégie ou si vous ne le configurez pas, le client DNS utilise les paramètres configurés localement.</string>
+            <string id="DNS_TurnOffIPv6DefaultDnsServers">Désactiver les serveurs DNS IPv6 par défaut</string>
+            <string id="DNS_TurnOffIPv6DefaultDnsServers_Help">Si vous activez cette stratégie, le client DNS n’utilise pas les adresses de serveur DNS IPv6 par défaut fournies par Windows.</string>
+            <string id="DeviceInstall_Allow_Deny_Layered">Appliquer un ordre superposé de niveaux d’évaluation pour autoriser et empêcher les stratégies d’installation d’appareils sur tous les critères de correspondance des appareils</string>
+            <string id="DeviceInstall_Allow_Deny_Layered_Help">Ce paramètre de stratégie modifie l’ordre d’évaluation dans lequel les paramètres de stratégie d’autorisation et d’interdiction sont appliqués lorsque plusieurs paramètres de stratégie d’installation sont applicables à un appareil. Activez ce paramètre de stratégie pour vérifier que les critères de correspondance des appareils qui se chevauchent sont appliqués en fonction d’une hiérarchie établie où les critères de correspondance plus spécifiques remplacent des critères de correspondance moins spécifiques. L’ordre hiérarchique d’évaluation pour les paramètres de stratégie qui spécifient des critères de correspondance de périphérique est le suivant :
+
+ID d’instance de périphérique &gt; ID de périphérique &gt; classe d’installation de périphérique &gt; des périphériques amovibles
+
+ID d’instance de périphérique
+1. empêcher l’installation de périphériques à l’aide de pilotes correspondant à ces ID d’instance de périphérique
+2. autoriser l’installation de périphériques à l’aide de pilotes correspondant à ces ID d’instance de périphérique
+
+ID de l’appareil
+3. empêcher l’installation de périphériques à l’aide de pilotes qui correspondent à ces ID de périphériques
+4. autoriser l’installation de périphériques à l’aide de pilotes qui correspondent à ces ID de périphériques
+
+Classe d’installation de périphérique
+5. empêcher l’installation de périphériques à l’aide de pilotes correspondant à ces classes d’installation de périphériques
+6. autoriser l’installation de périphériques à l’aide de pilotes correspondant à ces classes d’installation de périphériques
+
+Périphériques amovibles
+7. empêcher l’installation de périphériques amovibles
+
+
+Remarque : ce paramètre de stratégie fournit un contrôle plus granulaire que le paramètre de stratégie « Empêcher l’installation de périphériques non décrits par d’autres paramètres de stratégie ». Si ces paramètres de stratégie conflictuels sont activés en même temps, le paramètre de stratégie « Appliquer un ordre de tri superposé pour autoriser et empêcher les stratégies d’installation de périphériques sur tous les critères de correspondance des appareils » sera activé et l’autre paramètre de stratégie sera ignoré.
+
+Si vous désactivez ce paramètre de stratégie ou si vous ne le configurez pas, l’évaluation par défaut est utilisée. Par défaut, tous les paramètres de stratégie « Empêcher l’installation... » ont priorité sur tout autre paramètre de stratégie qui permet à Windows d’installer un périphérique.</string>
+            <string id="DeviceMetadata_PreventDeviceMetadataFromNetwork">Empêcher le téléchargement automatique des applications associées aux métadonnées de l’appareil</string>
+            <string id="DeviceMetadata_PreventDeviceMetadataFromNetwork_Help">Ce paramètre de stratégie vous permet d’empêcher Windows de télécharger les applications associées aux métadonnées de l’appareil.
+
+Si vous activez ce paramètre de stratégie, Windows ne télécharge pas les applications associées aux métadonnées d’appareil pour les appareils installés. Ce paramètre de stratégie remplace le paramètre dans la boîte de dialogue Paramètres d’installation de périphériques (Panneau de configuration &gt; Système et sécurité &gt; Système &gt; Paramètres système avancés &gt; onglet Matériel).
+
+Si vous désactivez ou ne configurez pas ce paramètre de stratégie, le paramètre de la boîte de dialogue Paramètres d’installation de périphérique contrôle si Windows télécharge les applications associées aux métadonnées de l’appareil.</string>
+            <string id="DisableDatagramProcessing">Ce paramètre contrôle le traitement du datagramme pour la protection du réseau.</string>
+            <string id="DisableDatagramProcessing_Explain">
+    Désactivé (par défaut) : 
+    Si cette option n’est pas configurée ou désactivée, le traitement des datagrammes est activé pour la protection réseau.
+
+Activé: 
+    Si cette option est activée, le traitement des datagrammes est désactivé pour la protection du réseau.</string>
+            <string id="DisableInternetExplorerLaunchViaCOM">Désactiver le lancement d’Internet Explorer 11 via COM Automation</string>
+            <string id="DisableMotWOnInsecurePathCopy_DisplayName">Ne pas appliquer la marque de la balise Web aux fichiers copiés à partir de sources non sécurisées</string>
+            <string id="DisableMotWOnInsecurePathCopy_Help">Ce paramètre de stratégie détermine l’application de la balise Marque du Web aux fichiers provenant d’emplacements non sécurisés.
+
+Si vous activez ce paramètre de stratégie, les fichiers copiés à partir de sources non sécurisées ne porteront pas la balise Marque du web.
+
+Si vous désactivez ou ne configurez pas ce paramètre de stratégie, les fichiers copiés à partir de sources non sécurisées porteront la balise Marque du web appropriée.
+
+Remarque : le fait de ne pas marquer les fichiers provenant de sources non sécurisées avec la marque du web peut exposer les ordinateurs des utilisateurs à des risques de sécurité.</string>
+            <string id="DisablePerUserUnsignedPackagesByDefault">Ne pas autoriser l’installation des packages non signés par utilisateur par défaut (nécessite explicitement l’autorisation par installation)</string>
+            <string id="DisablePerUserUnsignedPackagesByDefaultExplanation">Ne pas autoriser l’installation des packages non signés par utilisateur par défaut (nécessite explicitement l’autorisation par installation)
+
+Si vous activez cette stratégie, l’option AllowUnsigned a la valeur par défaut « false ».
+
+Si vous désactivez cette stratégie, l’option AllowUnsigned a la valeur par défaut « true ».
+
+La valeur par défaut est 'disabled' (clé absente).
+      </string>
+            <string id="DisableWinRETrust_Help">Ce paramètre de stratégie contrôle si BitLocker fait confiance à l’Environnement de récupération Windows (WinRE).
+
+Lorsque BitLocker fait confiance à l’Environnement de récupération Windows (WinRE), celui-ci peut accéder au volume du système d’exploitation protégé par BitLocker sans nécessiter la clé de récupération BitLocker. Cela prend en charge les opérations de récupération qui nécessitent l’accès au volume du système d’exploitation.
+
+Important : l’activation de cette stratégie modifie le comportement de récupération. Si vous activez ce paramètre de stratégie, BitLocker ne fait pas confiance à l’Environnement de récupération Windows (WinRE). La clé de récupération BitLocker est requise pour toute opération d’Environnement de récupération Windows (WinRE) qui doit accéder au volume du système d’exploitation protégé par BitLocker. Les opérations de récupération qui reposent sur l’accès de l’Environnement de récupération Windows (WinRE) au volume du système d’exploitation peuvent nécessiter l’intervention de l’utilisateur ou de l’administrateur et ne pas s’effectuer automatiquement, notamment la réparation du démarrage, la récupération rapide de la machine, la récupération par bouton-poussoir et la réinitialisation à distance initiée par MDM ou l’effacement à distance à l’aide du fournisseur de services de configuration RemoteWipe.
+
+Si vous désactivez ce paramètre de stratégie ou si vous ne le configurez pas, BitLocker fait confiance à une image d’Environnement de récupération Windows (WinRE) validée pour que l’Environnement de récupération Windows (WinRE) puisse accéder au volume du système d’exploitation protégé par BitLocker sans clé de récupération.
+
+Ce paramètre de stratégie est appliqué seulement lorsque BitLocker ou le chiffrement de l’appareil est activé.</string>
+            <string id="DisableWinRETrust_Name">Désactiver l’approbation BitLocker de l’Environnement de récupération Windows (WinRE)</string>
+            <string id="DriverValidationLevel">Gérer la validation de la signature du pilote d’impression</string>
+            <string id="DriverValidationLevel_Help">
+          Ce paramètre de stratégie contrôle le mécanisme de validation de signature du pilote d’impression. Cette stratégie contrôle le type de signature numérique requis pour qu’un pilote d’impression soit considéré comme valide et installé sur le système.
+
+Dans le cadre de cette validation, la signature du catalogue/incorporé est vérifiée et tous les fichiers du pilote doivent faire partie du catalogue ou avoir leur propre signature incorporée qui peut être utilisée pour la validation.
+
+Vous pouvez activer ce paramètre pour modifier la méthode de validation de signature par défaut. Pour utiliser ce paramètre, sélectionnez l’une des options ci-dessous dans la zone « Sélectionner le mécanisme de signature du pilote pour cet ordinateur ».
+
+Si vous désactivez ou ne configurez pas ce paramètre de stratégie, la méthode par défaut est « Autoriser tous les pilotes signés de manière valide ».
+
+-- « Exiger des pilotes signés dans la boîte de réception » spécifie que seuls les pilotes expédiés dans le cadre d’une image Windows sont autorisés sur cet ordinateur.
+
+-- « Autoriser les pilotes signés dans le Magasin de confiance et PrintDrivers » spécifie uniquement les pilotes expédiés dans le cadre d’une image Windows ou les pilotes signés par des certificats installés dans le magasin de certificats « PrintDrivers » sont autorisés sur cet ordinateur.
+
+-- « Autoriser la boîte de réception, le magasin approuvé PrintDrivers et les pilotes signés WHQL » spécifie que les seuls pilotes autorisés sur cet ordinateur sont ceux fournis dans le cadre d’une image Windows, signés par des certificats installés dans le magasin de certificats « PrintDrivers » ou signés par le Laboratoire de qualité matérielle Windows (WHQL).
+
+-- « Autoriser la boîte de réception, le magasin approuvé PrintDrivers, WHQL et les pilotes signés du Magasin des éditeurs approuvés » spécifie que les seuls pilotes autorisés sur cet ordinateur sont ceux qui sont : expédiés dans le cadre d’une image Windows, signés par des certificats installés dans le magasin de certificats « PrintDrivers », signés par le Laboratoire de qualité matérielle Windows (WHQL) ou signés par des certificats installés dans le magasin de certificats « Éditeurs approuvés ».
+
+-- « Autoriser tous les pilotes signés de manière valide » spécifie que tout pilote d’impression ayant une signature incorporée valide ou pouvant être validé par rapport au catalogue de pilotes d’impression peut être installé sur cet ordinateur.
+
+Le magasin de certificats « PrintDrivers » doit être créé par un administrateur sous l’emplacement du magasin de l’ordinateur local.
+
+Le magasin de certificats « Éditeurs approuvés » peut contenir des certificats provenant de sources qui ne sont pas liées aux pilotes d’impression.
+
+      </string>
+            <string id="DriverValidationLevel_Inbox">Exiger des pilotes signés dans la boîte de réception</string>
+            <string id="DriverValidationLevel_Legacy">Autoriser tous les pilotes signés de manière valide</string>
+            <string id="DriverValidationLevel_Trusted">Autoriser les pilotes signés du Magasin approuvé des pilotes de boîte de réception et d’impression</string>
+            <string id="DriverValidationLevel_TrustedShared">Autoriser la boîte de réception, le magasin approuvé des pilotes d’impression, WHQL et le magasin d’éditeurs approuvés</string>
+            <string id="DriverValidationLevel_WHQL">Autoriser la boîte de réception, le magasin approuvé des pilotes d’impression et les pilotes signés WHQL</string>
+            <string id="EnableBypassCertificatePinningForMicrosoftStore">Activer Programme d'installation d'application Microsoft Store contournement de la validation du certificat source</string>
+            <string id="EnableBypassCertificatePinningForMicrosoftStoreExplanation">Cette stratégie contrôle si le Gestionnaire de package Windows valide si les correspondances de hachage de certificat Microsoft Store correspondent à un certificat Microsoft Store connu lors de l’initialisation d’une connexion à la source Microsoft Store. 
+
+Si vous activez cette stratégie, le Gestionnaire de package Windows contourne la validation du certificat Microsoft Store. 
+
+Si vous désactivez cette stratégie, le Gestionnaire de package Windows vérifie que le certificat Microsoft Store utilisé est valide et appartient au Microsoft Store avant de communiquer avec la source Microsoft Store. 
+
+Si vous ne configurez pas cette stratégie, les paramètres d’administrateur Gestionnaire de package Windows sont respectés.</string>
+            <string id="EnableConvertWarnToBlock">Convertir le verdict d’avertissement en bloc</string>
+            <string id="EnableConvertWarnToBlock_Explain">
+    La protection réseau inspecte le trafic réseau et détermine si elle autorise ou bloque le trafic ou affiche un avertissement.
+   
+    Désactivée (par défaut) : 
+    Si elle est réglée sur Non configurée ou Désactivée, la protection réseau affiche un avertissement pour les avertissements.
+
+    Activée : 
+   Si ce paramètre est Activée, la protection réseau bloque le trafic réseau au lieu d’afficher un avertissement.</string>
+            <string id="EnableHashOverride">Activer le remplacement du code de hachage du Programme d'installation d'application</string>
+            <string id="EnableHashOverrideExplanation">Cette stratégie détermine si les utilisateurs peuvent configurer le Gestionnaire de package Windows ou non pour activer la fonction de remplacement de la validation de sécurité SHA256 dans les paramètres.
+
+Si vous activez ou ne configurez pas cette stratégie, les utilisateurs pourront activer la fonction de remplacement la validation de sécurité SHA256 dans les paramètres du Gestionnaire de package Windows.
+
+Si vous désactivez cette stratégie, les utilisateurs ne pourront pas activer la fonction de remplacement la validation de sécurité SHA256 dans les paramètres du Gestionnaire de package Windows.</string>
+            <string id="EnableLocalArchiveMalwareScanOverride">Activer le remplacement de l’analyse des programmes malveillants des archives locales Windows Programme d'installation d'application</string>
+            <string id="EnableLocalArchiveMalwareScanOverrideExplanation">Cette stratégie contrôle la possibilité de remplacer les analyses de vulnérabilités de programmes malveillants lors de l’installation d’un fichier d’archive à l’aide d’un manifeste local à l’aide des arguments de ligne de commande.
+
+Si vous activez ce paramètre de stratégie, les utilisateurs peuvent remplacer l’analyse des programmes malveillants lors de l’installation d’un manifeste local d’un fichier d’archive.
+
+Si vous désactivez cette stratégie, les utilisateurs ne peuvent pas remplacer l’analyse des programmes malveillants d’un fichier d’archive lors de l’installation à l’aide d’un manifeste local.
+
+Si vous ne configurez pas cette stratégie, les paramètres d’administrateur Gestionnaire de package Windows sont conformes.</string>
+            <string id="EnableMPRNotifications">Configurez la transmission du mot de passe de l’utilisateur dans le contenu des notifications MPR envoyées par winlogon.</string>
+            <string id="EnableMPRNotifications_Help">Cette stratégie contrôle si le mot de passe de l’utilisateur est inclus dans le contenu des notifications MPR envoyées par winlogon dans le système.
+
+Si vous désactivez ce paramètre ou si vous ne le configurez pas, winlogon envoie des notifications MPR avec des champs de mot de passe vides des informations d’authentification de l’utilisateur.
+
+Si vous activez ce paramètre, winlogon envoie des notifications MPR contenant le mot de passe de l’utilisateur dans les informations d’authentification.</string>
+            <string id="ExploitGuard_ASR_ASROnlyPerRuleExclusions">Appliquer une liste d’exclusions à des règles de réduction de la surface d’attaque (RSA) spécifiques</string>
+            <string id="ExploitGuard_ASR_ASROnlyPerRuleExclusions_Explain">
+    Cette stratégie permet à un administrateur de spécifier une liste d’exclusions pour des règles RSA spécifiques.
+    Chaque entrée est une paire nom-valeur. La clé indique le GUID de la règle, et la valeur est un ensemble de chemins d’accès complets séparés par le caractère &gt; indiquant les exclusions de cette règle RSA particulière.
+
+    REMARQUE : le GUID est une clé, et non une valeur.
+
+    Exemple :
+    CLÉ : « {75668C1F-73B5-4CF0-BB93-3ECF5DB7C484} »
+    VALEUR : « C:\Notepad.exe&gt;c:\regedit.exe&gt; C:\SomeFolder\test.exe »
+    </string>
+            <string id="Features_PassiveRemediation">Activer EDR en mode blocage</string>
+            <string id="Features_PassiveRemediation_Explain">Ce paramètre de stratégie active ou désactive EDR en mode de blocage (également appelé « correction passive »). EDR en mode blocage est recommandé pour les appareils exécutant Microsoft Defender Antivirus en mode passif. Disponible avec la version de plateforme : 4.18.2202.X
+
+Le type de données est un entier
+
+Valeurs prises en charge :
+
+1 : Activer EDR en mode blocage
+        0 : Désactiver EDR en mode blocage</string>
+            <string id="Features_TDTFeatureEnabled">Niveau d’intégration Intel TDT</string>
+            <string id="Features_TDTFeatureEnabled_Explain">Ce paramètre de stratégie configure le niveau d’intégration Intel TDT pour les appareils compatibles Avec Intel TDT.
+
+          Si vous ne configurez pas ce paramètre, la valeur par défaut est appliquée. La valeur par défaut est contrôlée par les mises à jour du renseignement de sécurité Microsoft. Microsoft active Intel TDT s’il existe une menace connue. 
+           Si vous configurez ce paramètre pour l’activer, l’intégration Intel TDT s’active.
+           Si vous configurez ce paramètre sur désactivé, l’intégration Intel TDT sera désactivée.</string>
+            <string id="HideExclusionsFromLocalAdmins">Contrôler si les exclusions sont visibles ou non par les administrateurs locaux</string>
+            <string id="HideExclusionsFromLocalAdmins_Explain">
+    Ce paramètre de stratégie contrôle si les exclusions sont visibles ou non par les administrateurs locaux.  Pour les utilisateurs finaux (qui ne sont pas des administrateurs locaux), les exclusions ne sont pas visibles, que ce paramètre soit activé ou non.
+    Désactivé (par défaut) :
+        Si vous désactivez ou ne configurez pas ce paramètre, les administrateurs locaux peuvent voir les exclusions dans l’application Sécurité Windows ou via PowerShell.
+
+Activé: 
+        Si vous activez ce paramètre, les administrateurs locaux ne peuvent plus voir la liste d’exclusion dans Sécurité Windows Application ou via PowerShell.
+        Remarque : l’application de ce paramètre ne supprime pas les exclusions, elle empêche uniquement leur affichage par les administrateurs locaux. Cela est reflété dans  Get-MpPreference.</string>
+            <string id="HideExclusionsFromLocalUsers">Contrôler si les exclusions sont visibles par les utilisateurs locaux</string>
+            <string id="HideExclusionsFromLocalUsers_Explain">
+    Ce paramètre de stratégie contrôle si les exclusions sont visibles par les utilisateurs locaux sur l’appareil.
+    Utilisez le paramètre de stratégie HideExclusionsFromLocalAdmins pour masquer les exclusions des utilisateurs locaux standard et administratifs.</string>
+            <string id="IE_ExplainAllowLegacyURLFields">Ce paramètre de stratégie autorise l’utilisation de certaines fonctionnalités désactivées, telles que le champ WorkingDirectory ou la gestion de protocole enfichable, dans les fichiers de raccourci Internet.
+
+Si vous activez ce paramètre de stratégie, les fonctionnalités désactivées pour les fichiers de raccourci Internet seront réactivées.
+
+Si vous désactivez ou ne configurez pas cette stratégie, certaines fonctionnalités pour les fichiers de raccourci Internet, telles que le champ WorkingDirectory ou la gestion des protocoles enfichables, sont désactivées.</string>
+            <string id="IE_ExplainDisableInternetExplorerLaunchViaCOM">Cette stratégie vous permet de limiter le lancement de Explorer Internet à l’aide de l’automatisation COM.
+
+Si vous activez cette stratégie, elle empêche le lancement d’Internet Explorer 11 à l’aide de l’automatisation COM.
+
+Si vous désactivez ou ne configurez pas cette stratégie, les lancements d’automatisation COM Explorer 11 sur Internet sont autorisés.</string>
+            <string id="IE_ExplainJScriptReplacement">Ce paramètre de stratégie spécifie si JScript ou JScript9Legacy est chargé.
+      
+Si vous activez ce paramètre de stratégie ou s'il n'est pas configuré, JScript9Legacy sera chargé dans les situations où JScript est instancié.
+
+Si vous désactivez cette stratégie, JScript est utilisé.</string>
+            <string id="JScriptReplacement">Remplacez JScript en chargeant JScript9Legacy à la place de JScript.</string>
+            <string id="LAPS_AutomaticAccountManagementPolicy">Configurer la gestion automatique des comptes</string>
+            <string id="LAPS_AutomaticAccountManagementPolicy_Help">Cette stratégie configure les options de stratégie de gestion automatique des comptes.
+
+Spécifiez le compte cible à gérer : spécifie si le compte d’administrateur intégré ou un compte personnalisé doit être géré.
+
+Nom du compte automatique (ou préfixe de nom) : spécifie le nom, ou le préfixe de nom, à utiliser pour le compte géré.
+
+Si ce paramètre de stratégie est configuré, Windows LAPS l'utilisera comme nom de compte ou préfixe de nom pour le compte cible.
+
+Si ce paramètre de stratégie n’est pas configuré, Windows LAPS utilise « WLapsAdmin » comme préfixe de nom ou de nom de compte.
+
+Remarque : ce nom est traité comme un préfixe lorsque le choix au hasard des noms de comptes est configurée, voir les commentaires ci-dessous.
+
+Activer le compte géré : spécifie si le compte géré doit être activé ou non.
+
+Si ce paramètre de stratégie est configuré, Windows LAPS active le compte géré spécifié.
+
+Si ce paramètre de stratégie n’est pas configuré, Windows LAPS désactive le compte géré spécifié.
+
+Remarque : Windows LAPS maintient et renouvelle régulièrement le code d'accès du compte géré, que le compte soit maintenu dans un état activé ou désactivé.
+
+Choisir au hasard le nom du compte géré : spécifie si le nom du compte géré doit être choisi au hasard avec un suffixe numérique aléatoire.
+
+Si ce paramètre de stratégie est configuré, Windows LAPS ajoute un suffixe numérique aléatoire à huit chiffres au nom du compte automatique managé et rend aléatoire à nouveau le nom du compte géré chaque fois que le code d'accès est renouvelé.
+
+Si ce paramètre de stratégie n’est pas configuré, Windows LAPS utilise le nom du compte automatique géré tel qu'il a été configuré.
+
+Si le préfixe du nom du compte automatique géré est configuré, Windows LAPS utilise jusqu'aux douze (12) premiers caractères de ce nom comme préfixe pour le nom aléatoire. Si ce paramètre de stratégie n’est pas configuré, Windows LAPS utilise « WLapsAdmin » comme préfixe de nom.
+
+Remarque : le compte DSRM sur les contrôleurs de domaine ne peut pas être configuré pour la gestion automatique des comptes. Cette stratégie n’a aucun effet sur les contrôleurs de domaine et sera ignorée même si elle est configurée pour un contrôleur de domaine.
+
+Voir « https://go.microsoft.com/fwlink/?linkid=2188435 » pour plus d'informations.
+      </string>
+            <string id="NC_AllowNetBridge_NLA">Interdisez l’installation et la configuration d’un pont réseau sur votre réseau.</string>
+            <string id="NC_AllowNetBridge_NLA_Help">Détermine si un utilisateur peut installer et configurer le Pont Réseau.
+
+Important : Ce paramètre est sensible à l'emplacement sur les appareils joints à un domaine AD. Il ne s'applique que lorsqu'un ordinateur est connecté au même réseau de domaine DNS auquel il était connecté lorsque le paramètre a été actualisé sur cet ordinateur. Si un ordinateur est connecté à un réseau de domaine DNS autre que celui auquel il était connecté lorsque le paramètre a été actualisé, ce paramètre ne s'applique pas. Sur les appareils joints à Entra, ce paramètre s'appliquera à tous les réseaux.
+
+Le Pont Réseau permet aux utilisateurs de créer un pont MAC de couche 2, leur permettant de connecter deux ou plusieurs segments de réseau ensemble. Cette connexion apparaît dans le dossier Connexions Réseau.
+
+Si vous désactivez ce paramètre ou ne le configurez pas, l'utilisateur pourra créer et modifier la configuration d'un Pont Réseau. Activer ce paramètre ne supprime pas un Pont Réseau existant de l'ordinateur de l'utilisateur.</string>
+            <string id="Netlogon_BlockNetbiosDiscovery">Bloquer la découverte NetBIOS pour l’emplacement du contrôleur de domaine</string>
+            <string id="Netlogon_BlockNetbiosDiscovery_Help">Ce paramètre de stratégie vous permet de contrôler si l’algorithme d’emplacement du contrôleur de domaine utilise NetBIOS_based découverte pour l’emplacement du contrôleur de domaine.
+
+Si vous activez ou ne configurez pas ce paramètre de stratégie, l’algorithme d’emplacement du contrôleur de domaine n’utilise jamais la découverte NetBIOS. Il s’agit du comportement par défaut.
+
+Si vous désactivez ce paramètre de stratégie, l’algorithme d’emplacement du contrôleur de domaine peut utiliser la découverte NetBIOS si nécessaire. Le comportement final est davantage régi par le paramètre AvoidFallbackNetbiosDiscovery.
+
+La découverte NetBIOS est considérée comme non sécurisée, présente de nombreuses limitations et sera dépréciée dans une prochaine version. Pour ces raisons, la découverte NetBIOS n’est pas recommandée. Pour plus d’informations, consultez https://aka.ms/dclocatornetbiosdeprecation.</string>
+            <string id="Pol_AuditClientDoesNotSupportSigning_Help">Cette stratégie détermine si le serveur SMB enregistre l’événement lorsque le client SMB ne prend pas en charge la signature.
+
+Si vous activez ce paramètre de stratégie, le serveur SMB enregistrera l’événement lorsque le client SMB ne prend pas en charge la signature.
+      </string>
+            <string id="Pol_AuditClientDoesNotSupportSigning_Name">Le client d’audit ne prend pas en charge la signature</string>
+            <string id="Pol_AuditClientSpnSupport_Help">Cette stratégie contrôle si le serveur SMB audite le nom de principal du service (SPN) fourni par les clients SMB pendant l’authentification.
+
+Si vous activez ce paramètre de stratégie, le serveur SMB enregistrera un événement chaque fois qu’un client SMB n’envoie pas de SPN ou envoie un SPN non valide lors de l’authentification. Ces données d’audit peuvent aider à identifier les clients qui pourraient être incompatibles avec la validation SPN avant que l’application ne soit activée sur le serveur SMB.
+
+Si vous désactivez ou ne configurez pas ce paramètre de stratégie, le serveur SMB n’enregistrera pas l'événement.
+      </string>
+            <string id="Pol_AuditClientSpnSupport_Name">Audit de la prise en charge du SPN du client SMB</string>
+            <string id="RealtimeProtection_DisableSriptScanning">Activer l’analyse de script</string>
+            <string id="RealtimeProtection_DisableSriptScanning_Explain">Ce paramètre de stratégie vous permet de configurer l’analyse des scripts.
+
+Si vous activez ou ne configurez pas ce paramètre, l’analyse des scripts est activée.
+
+Si vous désactivez ce paramètre, l’analyse des scripts est désactivée.</string>
+            <string id="RealtimeProtection_OobeEnableRtpAndSigUpdate">Configurer la protection en temps réel et les mises à jour des informations de sécurité pendant OOBE</string>
+            <string id="RealtimeProtection_OobeEnableRtpAndSigUpdate_Explain">Ce paramètre de stratégie vous permet de configurer l’activation de la protection en temps réel et des mises à jour des renseignements de sécurité sont activées pendant la phase OOBE (expérience out of box).
+ 
+    Si vous activez ce paramètre, la protection en temps réel et les mises à jour du renseignements de sécurité sont activées pendant la phase OOBE.
+ 
+    Si vous désactivez ou ne configurez pas ce paramètre de stratégie, la protection en temps réel et les mises à jour des renseignements de sécurité pendant la phase OOBE ne sont pas activées.</string>
+            <string id="RedirectionGuardPolicy">Configurer Redirection Guard</string>
+            <string id="RedirectionGuardPolicy_AuditOnly">Audit redirection Guard uniquement</string>
+            <string id="RedirectionGuardPolicy_Disabled">Redirection Guard désactivée</string>
+            <string id="RedirectionGuardPolicy_Enabled">Redirection Guard activé</string>
+            <string id="RedirectionGuardPolicy_Help">
+Détermine si Redirection Guard est activé pour le spouleur d’impression.
+
+Vous pouvez activer ce paramètre pour configurer la stratégie Redirection Guard appliquée au spouleur.
+
+Si vous désactivez ou ne configurez pas ce paramètre de stratégie, Redirection Guard est par défaut « Activé ».
+
+Si vous activez ce paramètre, vous pouvez sélectionner les options suivantes :
+
+-- Activé : Redirection Guard empêche le suivi des redirections de fichiers
+
+-- Désactivé : Redirection Guard ne sera pas activé et les redirections de fichiers peuvent être utilisées dans le processus spouleur
+
+-- Audit : Redirection Guard enregistre les événements comme s’ils étaient activés, mais n’empêchera pas réellement l’utilisation des redirections de fichiers dans le spouleur.
+      </string>
+            <string id="Remediation_BNB_BFP_BruteForceProtectionExclusions">Définir les exclusions de Brute-Force Protection</string>
+            <string id="Remediation_BNB_BFP_BruteForceProtectionExclusions_Explain">
+    Spécifiez les adresses IP, les sous-réseaux ou les noms de station de travail à exclure de Brute-Force Protection. Les adresses IP exclues ne sont pas vérifiées pour une activité de force brute possible.
+    
+    Notez que les attaquants peuvent usurper des adresses et des noms exclus pour contourner la protection. Vérifiez que les noms sont uniques et peu susceptibles d’être devinés par les attaquants.
+
+    Entrez chaque adresse ou sous-réseau sur une nouvelle ligne en tant que paire nom-valeur :
+    - Colonne Nom : entrez une adresse IP, un nom de sous-réseau ou un nom de station de travail. Par exemple, « 1.1.127.0 » empêche cette adresse IP d’être bloquée par BFP.
+    - Colonne valeur : entrez « 0 » pour chaque élément
+    </string>
+            <string id="Remediation_BNB_BFP_BruteForceProtection_Aggressiveness">Configurer l’agressif de la protection Brute-Force</string>
+            <string id="Remediation_BNB_BFP_BruteForceProtection_Aggressiveness_0">Faible</string>
+            <string id="Remediation_BNB_BFP_BruteForceProtection_Aggressiveness_1">Moyen</string>
+            <string id="Remediation_BNB_BFP_BruteForceProtection_Aggressiveness_2">Élevée</string>
+            <string id="Remediation_BNB_BFP_BruteForceProtection_Aggressiveness_Explain">
+    Définissez les critères pour lesquels Brute-Force Protection bloque les adresses IP.
+
+Paramètres pris en charge :
+    *0 - Faible : bloquer uniquement lorsque le niveau de confiance est 100% (par défaut)
+    *1 - Moyen : utiliser l’agrégation cloud et bloquer lorsque le niveau de confiance est supérieur 99%
+    *2 - Élevé : utilisez les informations et le contexte cloud, et bloquez lorsque le niveau de confiance est supérieur 90%
+    </string>
+            <string id="Remediation_BNB_BFP_BruteForceProtection_ConfiguredState_0">Par défaut</string>
+            <string id="Remediation_BNB_BFP_BruteForceProtection_ConfiguredState_1">Refuser</string>
+            <string id="Remediation_BNB_BFP_BruteForceProtection_ConfiguredState_2">Audit</string>
+            <string id="Remediation_BNB_BFP_BruteForceProtection_ConfiguredState_3">Désactivé</string>
+            <string id="Remediation_BNB_BFP_BruteForceProtection_ConfiguredState_Explain">
+    Définissez le mode de protection Brute-Force dans Microsoft Defender Antivirus, qui peut détecter et bloquer les tentatives d’initialisation forcée de la connexion et de lancement de sessions.
+
+Paramètres pris en charge :
+    * 0 - Non configuré ou par défaut : appliquer les valeurs par défaut, qui peuvent varier en fonction de la version du moteur antivirus et de la plateforme
+    * 1 - Bloquer : empêcher les comportements suspects et malveillants
+    * 2 - Audit : Générer les détections EDR sans blocage
+    * 4 - Désactivé : la fonctionnalité est désactivée sans impact sur les performances
+    </string>
+            <string id="Remediation_BNB_BFP_BruteForceProtection_MaxBlockTime">Configurer le temps de blocage de la protection par force brute</string>
+            <string id="Remediation_BNB_BFP_BruteForceProtection_MaxBlockTime_Explain">
+    Définissez la durée maximale pendant laquelle une adresse IP est bloquée par Brute-Force Protection. Après cette période, les adresses IP bloquées pourront se connecter et lancer des sessions.
+
+Paramètres pris en charge :
+    * 0 - Aucun : la logique de fonctionnalité interne détermine le temps de blocage réel
+    * Spécifiez d’autres heures par incréments de 15 minutes
+    </string>
+            <string id="Remediation_BNB_REP_RemoteEncryptionProtectionExclusions"> Définir les exclusions de la protection de chiffrement à distance</string>
+            <string id="Remediation_BNB_REP_RemoteEncryptionProtectionExclusions_Explain">
+    Spécifiez les adresses IP, les sous-réseaux et les noms de domaine à exclure de la protection de chiffrement à distance. Notez que les attaquants peuvent usurper des adresses et des noms exclus pour contourner la protection.
+
+    Entrez chaque adresse ou sous-réseau sur une nouvelle ligne en tant que paire nom-valeur :
+    - Colonne Nom : entrez une adresse IP ou un nom de sous-réseau. Par exemple, « 1.1.127.0 » exclut cette adresse IP du blocage.
+    - Colonne valeur : entrez « 0 » pour chaque élément
+    </string>
+            <string id="Remediation_BNB_REP_RemoteEncryptionProtection_Aggressiveness">Configurer la manière dont la Protection contre le chiffrement à distance bloque les menaces</string>
+            <string id="Remediation_BNB_REP_RemoteEncryptionProtection_Aggressiveness_0">Faible</string>
+            <string id="Remediation_BNB_REP_RemoteEncryptionProtection_Aggressiveness_1">Moyen</string>
+            <string id="Remediation_BNB_REP_RemoteEncryptionProtection_Aggressiveness_2">Élevée</string>
+            <string id="Remediation_BNB_REP_RemoteEncryptionProtection_Aggressiveness_Explain">
+    Définissez les critères pour lesquels la protection du chiffrement à distance bloque les adresses IP.
+
+Paramètres pris en charge :
+    *0 - Faible : bloquer uniquement lorsque le niveau de confiance est 100% (par défaut)
+    *1 - Moyen : utiliser l’agrégation cloud et bloquer lorsque le niveau de confiance est supérieur 99%
+    *2 - Élevé : utilisez les informations et le contexte cloud, et bloquez lorsque le niveau de confiance est supérieur 90%
+    </string>
+            <string id="Remediation_BNB_REP_RemoteEncryptionProtection_ConfiguredState">Configurer le mode de protection contre le chiffrement à distance</string>
+            <string id="Remediation_BNB_REP_RemoteEncryptionProtection_ConfiguredState_0">Par défaut</string>
+            <string id="Remediation_BNB_REP_RemoteEncryptionProtection_ConfiguredState_1">Refuser</string>
+            <string id="Remediation_BNB_REP_RemoteEncryptionProtection_ConfiguredState_2">Audit</string>
+            <string id="Remediation_BNB_REP_RemoteEncryptionProtection_ConfiguredState_3">Désactivé</string>
+            <string id="Remediation_BNB_REP_RemoteEncryptionProtection_ConfiguredState_Explain">
+    Définissez le mode de protection contre le chiffrement à distance dans Microsoft Defender Antivirus, qui peut détecter et bloquer les tentatives de remplacement des fichiers locaux par des versions chiffrées d’un autre appareil. 
+
+Paramètres pris en charge :
+    * 0 - Non configuré ou par défaut : appliquer les valeurs par défaut, qui peuvent varier en fonction de la version du moteur antivirus et de la plateforme
+    * 1 - Bloquer : empêcher les comportements suspects et malveillants
+    * 2 - Audit : Générer les détections EDR sans blocage
+    * 4 - Désactivé : la fonctionnalité est désactivée sans impact sur les performances
+    </string>
+            <string id="Remediation_BNB_REP_RemoteEncryptionProtection_MaxBlockTime">Configurer le temps de blocage de la protection contre le chiffrement à distance</string>
+            <string id="Remediation_BNB_REP_RemoteEncryptionProtection_MaxBlockTime_Explain">
+    Définissez la durée maximale pendant laquelle une adresse IP est bloquée par la protection de chiffrement à distance. Après cette période, les adresses IP bloquées pourront relancer les connexions. 
+
+Paramètres pris en charge :
+    * 0 - Aucun : la logique de fonctionnalité interne détermine le temps de blocage réel
+    * Spécifiez d’autres heures par incréments de 15 minutes
+    </string>
+            <string id="Reporting_EnableDynamicSignatureDroppedEventReporting">Configurer s’il faut signaler les événements de suppression de signature dynamique</string>
+            <string id="Reporting_EnableDynamicSignatureDroppedEventReporting_Explain">Ce paramètre de stratégie configure s’il faut signaler les événements de suppression de signature dynamique.
+
+Si vous ne configurez pas ce paramètre, la valeur par défaut est appliquée. La valeur par défaut est désactivée (de tels événements ne sont pas signalés).
+    Si vous configurez ce paramètre sur Activé, les événements de suppression de signature dynamique sont signalés.
+    Si vous configurez ce paramètre sur Désactivé, les événements de suppression de signature dynamique ne sont pas signalés.</string>
+            <string id="RestrictDriverInstallationToAdministrators">Limite l’installation du pilote d’impression aux administrateurs</string>
+            <string id="RestrictDriverInstallationToAdministrators_Help">
+Détermine si les utilisateurs qui ne sont pas administrateurs peuvent installer des pilotes d’impression sur cet ordinateur.
+
+Par défaut, les utilisateurs qui ne sont pas administrateurs ne peuvent pas installer de pilotes d’impression sur cet ordinateur.
+
+Si vous activez ce paramètre ou si vous ne le configurez pas, le système limite l’installation des pilotes d’impression aux administrateurs de cet ordinateur.
+
+Si vous désactivez ce paramètre, le système ne limitera pas l’installation des pilotes d’impression sur cet ordinateur.
+        </string>
+            <string id="RpcAuthenticationProtocol_Kerberos">Kerberos</string>
+            <string id="RpcAuthenticationProtocol_Negotiate">Négocier</string>
+            <string id="RpcConnectionAuthenticationDefault">Par défaut</string>
+            <string id="RpcConnectionAuthenticationDisabled">Authentification désactivée</string>
+            <string id="RpcConnectionAuthenticationEnabled">Authentification activée</string>
+            <string id="RpcConnectionPolicy">Configurer les paramètres de connexion RPC</string>
+            <string id="RpcConnectionPolicy_Help">
+Ce paramètre de stratégie contrôle les paramètres de protocole et de protocole à utiliser pour les connexions RPC sortantes à un spouleur d’impression distant.
+
+Par défaut, RPC sur TCP est utilisé et l’authentification est toujours activée. Pour RPC sur des canaux nommés, l’authentification est toujours activée pour les ordinateurs joints à un domaine, mais désactivée pour les ordinateurs qui ne sont pas joints à un domaine.
+
+Protocole à utiliser pour les connexions RPC sortantes :
+    -- « RPC sur TCP » : utiliser RPC sur TCP pour les connexions RPC sortantes à un spouleur d’impression distant
+    -- « RPC sur canaux nommés » : utiliser RPC sur les canaux nommés pour les connexions RPC sortantes à un spouleur d’impression distant
+
+Utiliser l’authentification pour les connexions RPC sortantes sur des canaux nommés :
+    -- « Par défaut » : par défaut, les ordinateurs joints à un domaine activent l’authentification RPC pour RPC sur des canaux nommés alors que les ordinateurs non joints à un domaine désactivent l’authentification RPC pour RPC sur les canaux nommés
+    -- « Authentification activée » : l’authentification RPC est utilisée pour les connexions RPC sortantes sur des canaux nommés
+    -- « Authentification désactivée » : l’authentification RPC ne sera pas utilisée pour les connexions RPC sortantes sur des canaux nommés
+
+Si vous désactivez ou ne configurez pas ce paramètre de stratégie, les valeurs par défaut ci-dessus sont utilisées.
+      </string>
+            <string id="RpcListenerPolicy">Configurer les paramètres de l’écouteur RPC</string>
+            <string id="RpcListenerPolicy_Help">
+Ce paramètre de stratégie contrôle quels protocoles de connexions RPC entrantes au spouleur d’impression sont autorisées à utiliser.
+
+Par défaut, RPC sur TCP est activé et Negotiate est utilisé pour le protocole d’authentification.
+
+Protocole pour autoriser les connexions RPC entrantes :
+    : « RPC sur des canaux nommés » : les connexions RPC entrantes sont uniquement autorisées sur les canaux nommés
+    « RPC sur TCP » : les connexions RPC entrantes sont uniquement autorisées sur TCP (option par défaut)
+    « RPC sur des canaux nommés et TCP » : les connexions RPC entrantes sont autorisées sur TCP et les canaux nommés
+
+Protocole d’authentification à utiliser pour les connexions RPC entrantes : 
+    « Negotiate » : utilisez le protocole d’authentification Negotiate (option par défaut) 
+    « Kerberos » : utilisez le protocole d’authentification Kerberos
+
+Si vous désactivez ou ne configurez pas ce paramètre de stratégie, les valeurs par défaut ci-dessus seront utilisées.
+      </string>
+            <string id="RpcOverNamedPipes">RPC sur des canaux nommés</string>
+            <string id="RpcOverNamedPipesAndTcp">RPC sur les canaux nommés et TCP</string>
+            <string id="RpcOverTcp">RPC sur TCP</string>
+            <string id="SamrChangeUserPasswordApiPolicy">Configurer la stratégie de méthodes RPC de modification de mot de passe SAM</string>
+            <string id="SamrChangeUserPasswordApiPolicyAllowAll">Autoriser toutes les méthodes RPC de modification du mot de passe</string>
+            <string id="SamrChangeUserPasswordApiPolicyAllowSecure">Autoriser uniquement la méthode RPC de modification de mot de passe par chiffrement fort</string>
+            <string id="SamrChangeUserPasswordApiPolicyBlockAll">Bloquer toutes les méthodes RPC de modification du mot de passe</string>
+            <string id="SamrChangeUserPasswordApiPolicyExplain">Cette stratégie permet à un administrateur de configurer l’utilisation à distance des méthodes RPC de changement de mot de passe utilisateur dans le gestionnaire de compte de sécurité (SAM).
+
+Lorsque la stratégie est activée, les options suivantes sont prises en charge :
+
+Bloquer toutes les méthodes RPC de modification de mot de passe : bloquer l’utilisation à distance de toutes les méthodes RPC de modification du mot de passe du gestionnaire de comptes de sécurité (SAM).
+
+Autoriser la méthode RPC de modification du mot de passe de chiffrement fort : autoriser l’utilisation à distance de la méthode RPC de changement de mot de passe qui utilise un chiffrement fort et bloque l’utilisation à distance de méthodes de chiffrement faibles.
+
+Autoriser toutes les méthodes RPC de changement de mot de passe : autorise l’utilisation à distance de toutes les méthodes RPC de mot de passe modifiées indépendamment du chiffrement.
+
+Stratégie par défaut : 1. Ordinateurs membres du domaine – bloquer toutes les méthodes RPC de changement de mot de passe.
+                2. Contrôleurs de domaine : autorisez la méthode RPC de changement de mot de passe de chiffrement fort.
+
+ Remarque : si la stratégie est désactivée ou non configurée, l’ordinateur utilise la stratégie par défaut.
+</string>
+            <string id="Scan_DisablePackedExeScanning">Analyser les fichiers exécutables compressés</string>
+            <string id="Scan_DisablePackedExeScanning_Explain">Ce paramètre de stratégie vous permet de configurer l’analyse des fichiers exécutables compressés. Il est recommandé que ce type d’analyse reste activé.
+
+Si vous activez ou ne configurez pas ce paramètre, les fichiers exécutables compressés sont analysés.
+
+Si vous désactivez ce paramètre, les fichiers exécutables compressés ne sont pas analysés.</string>
+            <string id="Scan_DisableScanningNetworkFiles">Configurer l’analyse des fichiers réseau</string>
+            <string id="Scan_DisableScanningNetworkFiles_Explain">Ce paramètre de stratégie permet l’analyse des fichiers réseau à l’aide de la protection d’accès. La valeur par défaut est activée. Il est recommandé de rester activé dans la plupart des cas.
+
+Si vous activez ou ne configurez pas ce paramètre, les fichiers réseau sont analysés.
+
+Si vous désactivez ce paramètre, les fichiers réseau ne sont pas analysés.</string>
+            <string id="Scan_QuickScanIncludeExclusions">Analyser les fichiers et répertoires exclus pendant les analyses rapides</string>
+            <string id="Scan_QuickScanIncludeExclusions_Disabled">0</string>
+            <string id="Scan_QuickScanIncludeExclusions_Explain">
+        Ce paramètre de stratégie vous permet d’analyser les fichiers et répertoires exclus pendant les analyses rapides.
+
+Si vous définissez ce paramètre de stratégie sur 1, tous les fichiers et répertoires exclus de la protection en temps réel à l’aide d’exclusions contextuelles sont analysés lors d’une analyse rapide.
+
+Si vous définissez cette stratégie sur 0 ou si vous ne la configurez pas, les exclusions ne sont pas analysées pendant les analyses rapides.
+    </string>
+            <string id="Scan_QuickScanIncludeExclusions_RtpExclusions">1</string>
+            <string id="StrongNameMatches">Autoriser les mappages forts basés sur un nom pour les certificats</string>
+            <string id="StrongNameMatches_explain">Ce paramètre de stratégie permet l’utilisation d’identifiants alternatifs basés sur le nom pour mapper fortement les certificats émis aux comptes d’utilisateurs Active Directory et spécifie quels certificats sont mappés à quels comptes. Sans ce paramètre activé, les certificats doivent répondre aux critères de « mappage fort » spécifiés dans aka.ms/StrongCertMapKB, qui interdisent généralement les identifiants basés sur le nom.
+
+Chaque mappage spécifié dans cette politique doit inclure un OID de politique ainsi qu'un IssuerSubject et/ou un suffixe UPN en utilisant la syntaxe spécifiée ci-dessous. Si un mappage valide pour un certificat donné est introuvable dans cette stratégie, Active Directory tentera de trouver une correspondance à l'aide des critères de mappage forts existants spécifiés dans KB5014754. Les mappages de certificats qui ne sont pas conformes aux critères de « mappage de nom fort » (cette politique) ou aux critères de « mappage fort » existants seront considérés comme invalides pour l'authentification.
+
+Le format général de la politique et quelques exemples sont répertoriés ci-dessous. Cette politique s'applique uniquement aux comptes d'utilisateurs Active Directory.
+
+Syntaxe générale
+==============
+&lt;thumbprint&gt;; &lt;list of oids&gt;; &lt;name-match methods&gt;
+
+Exemples
+==============
+IssuerThumbprint1; oid1, oid2, oid3; UpnSuffix=domain.com
+IssuerThumbprint2; oid1; UpnSuffix=domain.com, UpnSuffix=other.domain.com, IssuerSubject
+IssuerThumbprint3; oid1, oid2; IssuerSubject
+
+La stratégie doit contenir exactement une empreinte de certificat par règle, chaque règle étant représentée sous forme de tuple. Les empreintes digitales doivent être uniques et ne peuvent pas être répétées dans plusieurs règles. Les sections de chaque tuple séparées par des points-virgules doivent être dans l'ordre indiqué, tandis que les champs séparés par des virgules peuvent être dans n'importe quel ordre. Les règles elles-mêmes sont séparées par des nouvelles lignes.
+      </string>
+            <string id="TS_CLIENT_TRUSTED_CERTIFICATE_THUMBPRINTS">Spécifier les empreintes numériques des certificats représentant des éditeurs .rdp approuvés</string>
+            <string id="TS_CLIENT_TRUSTED_CERTIFICATE_THUMBPRINTS_MACHINE_EXPLAIN">Ce paramètre de stratégie vous permet de spécifier une liste d’empreintes de certificat qui déclarent les éditeurs approuvés de fichiers .rdp (Remote Desktop Protocol). Les empreintes SHA-256, SHA-384 et SHA-512 sont prises en charge. Les empreintes SHA-1 sont déconseillées : SHA-1 n’est plus considéré comme sécurisé et la prise en charge des empreintes SHA-1 sera désactivée par défaut dans une mise à jour de sécurité à venir. Les administrateurs doivent migrer dès que possible toutes les entrées d’empreinte vers SHA-256 ou vers une version plus robuste.
+
+Les empreintes peuvent être préfixées par l’algorithme de hachage utilisé pour les produire. Les préfixes pris en charge sont « sha256: », « sha384: » et « sha512: » (non sensibles à la casse). Par exemple : sha256:AB0356F2... Si aucun préfixe n’est spécifié, l’entrée est traitée comme une empreinte numérique SHA-1 héritée.
+
+Si la case « Ne pas autoriser les empreintes SHA-1 » est cochée, les entrées sans préfixes sont ignorées. Seules les empreintes SHA-256, SHA-384 et SHA-512 seront mises en correspondance. Nous recommandons vivement de cocher dès maintenant cette case pour vous préparer au changement par défaut à venir.
+
+Si vous activez ce paramètre de stratégie, tout certificat dont l’empreinte correspond à une empreinte de la liste est approuvé. Si un utilisateur tente de démarrer un fichier .rdp signé par un certificat approuvé, il ne reçoit aucun message d’avertissement au démarrage du fichier.
+
+Si vous désactivez ou ne configurez pas ce paramètre de stratégie, aucun éditeur n’est considéré comme éditeur approuvé de .rdp.
+
+Remarques :
+
+Vous pouvez définir ce paramètre de stratégie dans le nœud de configuration d’ordinateur ou dans le nœud de configuration d’utilisateur. Si vous configurez ce paramètre de stratégie pour l’ordinateur, la liste des empreintes de certificat approuvées pour un utilisateur est une combinaison de la liste définie pour l’ordinateur et de celle définie pour l’utilisateur.
+
+Ce paramètre de stratégie remplace le comportement du paramètre de stratégie « Autoriser les fichiers .rdp issus d’éditeurs valides et les paramètres .rdp par défaut de l’utilisateur ».
+
+Si la liste contient une chaîne qui n’est pas une empreinte numérique de certificat, elle est ignorée.
+
+Consultez https://go.microsoft.com/fwlink/?LinkId=2368223 pour en savoir plus.
+</string>
+        </stringTable>
+        <presentationTable>
+            <presentation id="ClfsAuthenticationCheckingOptions" />
+            <presentation id="ConfigCIPolicy">
+                <textBox refId="ConfigCIPolicyFilePathText">
+                    <label>Chemin d'accès aux fichiers de stratégie d'intégrité du code :</label>
+                </textBox>
+            </presentation>
+            <presentation id="DNS_Doh">
+                <dropdownList refId="DNS_Doh_Box" defaultItem="0">Configurer les options de chiffrement :</dropdownList>
+                <dropdownList refId="DNS_Doh_Setting_Box" defaultItem="0">Configurer des options spécifiques au DoH :</dropdownList>
+                <dropdownList refId="DNS_Dot_Setting_Box" defaultItem="0">Configurer les options spécifiques à DoT :</dropdownList>
+            </presentation>
+            <presentation id="DriverValidationLevel">
+                <dropdownList defaultItem="4" noSort="true" refId="DriverValidationLevel_Enum">Sélectionnez le mécanisme de signature du pilote pour cet ordinateur :</dropdownList>
+            </presentation>
+            <presentation id="ExploitGuard_ASR_ASROnlyPerRuleExclusions">
+                <listBox refId="ExploitGuard_ASR_ASROnlyPerRuleExclusions">Exclusions pour chaque règle RSA :</listBox>
+            </presentation>
+            <presentation id="LAPS_AutomaticAccountManagementPolicy">
+                <dropdownList refId="LAPS_AutomaticAccountManagementTarget" defaultItem="0">Spécifiez le compte cible à gérer :</dropdownList>
+                <textBox refId="LAPS_AutomaticAccountManagementNameOrPrefix">
+                    <label>Nom du compte automatique (ou préfixe du nom) :</label>
+                </textBox>
+                <checkBox refId="LAPS_AutomaticAccountManagementEnableAccount">Activer le compte géré</checkBox>
+                <checkBox refId="LAPS_AutomaticAccountManagementRandomizeName">Choisir au hasard le nom du compte géré</checkBox>
+            </presentation>
+            <presentation id="RedirectionGuardPolicy">
+                <text>Configurer les options pour Redirection Guard</text>
+                <dropdownList defaultItem="1" noSort="true" refId="RedirectionGuardPolicy_Enum">Options de Redirection Guard</dropdownList>
+            </presentation>
+            <presentation id="Remediation_BNB_BFP_BruteForceProtectionExclusions">
+                <listBox refId="Remediation_BNB_BFP_BruteForceProtectionExclusions">Exclusions de protection Brute-Force</listBox>
+            </presentation>
+            <presentation id="Remediation_BNB_BFP_BruteForceProtection_Aggressiveness">
+                <dropdownList refId="Remediation_BNB_BFP_BruteForceProtection_Aggressiveness" noSort="true" defaultItem="0">Spécifier la manière dont la protection Brute-Force bloque les menaces</dropdownList>
+            </presentation>
+            <presentation id="Remediation_BNB_BFP_BruteForceProtection_ConfiguredState">
+                <dropdownList refId="Remediation_BNB_BFP_BruteForceProtection_ConfiguredState" noSort="true" defaultItem="0">Spécifier l’état de la protection par force brute</dropdownList>
+            </presentation>
+            <presentation id="Remediation_BNB_BFP_BruteForceProtection_MaxBlockTime">
+                <decimalTextBox refId="Remediation_BNB_BFP_BruteForceProtection_MaxBlockTime" defaultValue="15">Spécifiez la durée de blocage des détections, en minutes</decimalTextBox>
+            </presentation>
+            <presentation id="Remediation_BNB_REP_RemoteEncryptionProtectionExclusions">
+                <listBox refId="Remediation_BNB_REP_RemoteEncryptionProtectionExclusions">Exclusions de la protection de chiffrement à distance</listBox>
+            </presentation>
+            <presentation id="Remediation_BNB_REP_RemoteEncryptionProtection_Aggressiveness">
+                <dropdownList refId="Remediation_BNB_REP_RemoteEncryptionProtection_Aggressiveness" noSort="true" defaultItem="0">Spécifier la manière dont la Protection contre le chiffrement à distance bloque les menaces</dropdownList>
+            </presentation>
+            <presentation id="Remediation_BNB_REP_RemoteEncryptionProtection_ConfiguredState">
+                <dropdownList refId="Remediation_BNB_REP_RemoteEncryptionProtection_ConfiguredState" noSort="true" defaultItem="0">Spécifier l’état de la protection de chiffrement à distance</dropdownList>
+            </presentation>
+            <presentation id="Remediation_BNB_REP_RemoteEncryptionProtection_MaxBlockTime">
+                <decimalTextBox refId="Remediation_BNB_REP_RemoteEncryptionProtection_MaxBlockTime" defaultValue="15">Spécifiez la durée de blocage des détections, en minutes</decimalTextBox>
+            </presentation>
+            <presentation id="RpcConnectionPolicy">
+                <text>Configurez les options de protocole pour les connexions RPC sortantes.</text>
+                <dropdownList defaultItem="0" noSort="true" refId="RpcConnectionProtocol_Enum">Protocole à utiliser pour les connexions RPC sortantes :</dropdownList>
+                <dropdownList defaultItem="0" noSort="true" refId="RpcConnectionAuthentication_Enum">Utilisez l’authentification pour les connexions RPC sortantes :</dropdownList>
+            </presentation>
+            <presentation id="RpcListenerPolicy">
+                <text>Configurez les options de protocole pour les connexions RPC entrantes.</text>
+                <dropdownList defaultItem="1" noSort="true" refId="RpcListenerProtocols_Enum">Protocoles pour autoriser les connexions RPC entrantes :</dropdownList>
+                <dropdownList defaultItem="0" noSort="true" refId="RpcAuthenticationProtocol_Enum">Protocole d’authentification à utiliser pour les connexions RPC entrantes :</dropdownList>
+            </presentation>
+            <presentation id="SamrChangeUserPasswordApiPolicy">
+                <dropdownList refId="SamrChangeUserPasswordApiPolicySettings" noSort="true" defaultItem="1">Options pour la stratégie de méthode RPC de modification du mot de passe Sam :</dropdownList>
+            </presentation>
+            <presentation id="Scan_QuickScanIncludeExclusions">
+                <dropdownList refId="Scan_QuickScanIncludeExclusions" noSort="true" defaultItem="0" />
+            </presentation>
+            <presentation id="StrongNameMatches">
+                <multiTextBox refId="StrongNameMatchesList">Règles de correspondance de nom fort :</multiTextBox>
+            </presentation>
+            <presentation id="TS_TRUSTED_CERTIFICATE_THUMBPRINTS_1">
+                <textBox refId="TRUSTED_CERTIFICATE_THUMBPRINTS">
+                    <label>Liste séparée par des virgules des empreintes numériques des certificats approuvés (préfixez par sha256:, sha384: ou sha512:) :</label>
+                </textBox>
+                <checkBox refId="DISABLE_SHA1_THUMBPRINTS">Ne pas autoriser les empreintes numériques SHA-1</checkBox>
+            </presentation>
+        </presentationTable>
+    </resources>
+</policyDefinitionResources>

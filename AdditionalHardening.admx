@@ -15,5 +15,6 @@ Date: 2025-05-13
 		<category name="Cat_Debug" displayName="$(string.Cat_Debug)" />
 		<category name="Cat_MSFT" displayName="$(string.Cat_MSFT)" />
 		<category name="Cat_Legacy" displayName="$(string.Cat_Legacy)" />
+		<category name="Cat_Backported" displayName="$(string.Cat_Backported)" />
 	</categories>
 </policyDefinitions>

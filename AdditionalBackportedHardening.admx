@@ -1,0 +1,799 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Author: Florian Stosse <florian.stosse@gmail.com>
+Version: 1.0.0
+Date: 2026-10-03
+-->
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+    <policyNamespaces>
+        <target prefix="AddBackportHard" namespace="AddBackportHard.Policies.AddBackportHard" />
+        <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+        <using prefix="parent" namespace="AddHard.Policies.AddHard" />
+    </policyNamespaces>
+    <resources minRequiredRevision="1.0" />
+    <categories>
+        <category name="Backported_System" displayName="$(string.Backported_System)">
+            <parentCategory ref="parent:Cat_Backported" />
+        </category>
+        <category name="Backported_Defender" displayName="$(string.Backported_Defender)">
+            <parentCategory ref="parent:Cat_Backported" />
+        </category>
+        <category name="Backported_Network" displayName="$(string.Backported_Network)">
+            <parentCategory ref="parent:Cat_Backported" />
+        </category>
+        <category name="Backported_Legacy" displayName="$(string.Backported_Legacy)">
+            <parentCategory ref="parent:Cat_Backported" />
+        </category>
+    </categories>
+    <policies>
+        <policy name="ClfsAuthenticationChecking" class="Machine" displayName="$(string.ClfsAuthenticationChecking)" explainText="$(string.ClfsAuthenticationCheckingExplain)" presentation="$(presentation.ClfsAuthenticationCheckingOptions)" key="System\CurrentControlSet\Policies" valueName="ClfsAuthenticationChecking">
+            <parentCategory ref="Backported_System" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS1" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
+        <policy name="EnableMPRNotifications" class="Machine" displayName="$(string.EnableMPRNotifications)" explainText="$(string.EnableMPRNotifications_Help)" key="Software\Microsoft\Windows\CurrentVersion\Policies\System" valueName="EnableMPR">
+            <parentCategory ref="Backported_System" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS6_NOSERVER" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
+        <policy name="AllowAllCopyFGDDestinations" class="Machine" displayName="$(string.AllowAllCopyFGDDestinations_DisplayName)" explainText="$(string.AllowAllCopyFGDDestinations_Help)" key="Software\Policies\Microsoft\Windows\Explorer" valueName="AllowAllCopyFGDDestinations">
+            <parentCategory ref="Backported_System" />
+            <supportedOn ref="windows:SUPPORTED_Windows8" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
+        <policy name="DisableMotWOnInsecurePathCopy" class="Machine" displayName="$(string.DisableMotWOnInsecurePathCopy_DisplayName)" explainText="$(string.DisableMotWOnInsecurePathCopy_Help)" key="Software\Policies\Microsoft\Windows\Explorer" valueName="DisableMotWOnInsecurePathCopy">
+            <parentCategory ref="Backported_System" />
+            <supportedOn ref="windows:SUPPORTED_Windows8" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
+        <policy name="DisableWinRETrust_Name" class="Machine" displayName="$(string.DisableWinRETrust_Name)" explainText="$(string.DisableWinRETrust_Help)" key="Software\Policies\Microsoft\FVE" valueName="DisableWinRETrust">
+            <parentCategory ref="Backported_System" />
+            <supportedOn ref="windows:SUPPORTED_Windows_6_3" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
+        <policy name="AllowTrustedOfflineScan" class="Machine" displayName="$(string.AllowTrustedOfflineScan)" explainText="$(string.AllowTrustedOfflineScan_help)" key="SOFTWARE\Policies\Microsoft\Windows\WinRE" valueName="AllowTrustedOfflineScan">
+            <parentCategory ref="Backported_System" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
+        <policy name="AllowNonStandardUserProfilePaths" class="Machine" displayName="$(string.AllowNonStandardUserProfilePaths)" explainText="$(string.AllowNonStandardUserProfilePaths_Help)" key="Software\Policies\Microsoft\Windows\System" valueName="AllowNonStandardUserProfilePaths">
+            <parentCategory ref="Backported_System" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0_20H1" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
+        <policy name="DeviceInstall_Allow_Deny_Layered" class="Machine" displayName="$(string.DeviceInstall_Allow_Deny_Layered)" explainText="$(string.DeviceInstall_Allow_Deny_Layered_Help)" key="Software\Policies\Microsoft\Windows\DeviceInstall\Restrictions" valueName="AllowDenyLayered">
+            <parentCategory ref="Backported_System" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0_21H2" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
+        <policy class="Machine" displayName="$(string.RedirectionGuardPolicy)" explainText="$(string.RedirectionGuardPolicy_Help)" key="Software\Policies\Microsoft\Windows NT\Printers" name="ConfigureRedirectionGuardPolicy" presentation="$(presentation.RedirectionGuardPolicy)">
+            <parentCategory ref="Backported_System" />
+            <supportedOn ref="windows:SUPPORTED_Windows7" />
+            <elements>
+                <enum id="RedirectionGuardPolicy_Enum" valueName="RedirectionGuardPolicy">
+                    <item displayName="$(string.RedirectionGuardPolicy_Disabled)">
+                        <value>
+                            <decimal value="0" />
+                        </value>
+                    </item>
+                    <item displayName="$(string.RedirectionGuardPolicy_Enabled)">
+                        <value>
+                            <decimal value="1" />
+                        </value>
+                    </item>
+                    <item displayName="$(string.RedirectionGuardPolicy_AuditOnly)">
+                        <value>
+                            <decimal value="2" />
+                        </value>
+                    </item>
+                </enum>
+            </elements>
+        </policy>
+        <policy name="AllowCustomSSPsAPs" class="Machine" displayName="$(string.AllowCustomSSPsAPs)" explainText="$(string.AllowCustomSSPsAPs_Help)" key="Software\Policies\Microsoft\Windows\System" valueName="AllowCustomSSPsAPs">
+            <parentCategory ref="Backported_System" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS6_NOSERVER" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
+        <policy name="DeviceMetadata_PreventDeviceMetadataFromNetwork" class="Machine" displayName="$(string.DeviceMetadata_PreventDeviceMetadataFromNetwork)" explainText="$(string.DeviceMetadata_PreventDeviceMetadataFromNetwork_Help)" key="SOFTWARE\Policies\Microsoft\Windows\Device Metadata" valueName="PreventDeviceMetadataFromNetwork">
+            <parentCategory ref="Backported_System" />
+            <supportedOn ref="windows:SUPPORTED_Windows7" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
+        <policy name="DisablePerUserUnsignedPackagesByDefault" class="Machine" displayName="$(string.DisablePerUserUnsignedPackagesByDefault)" explainText="$(string.DisablePerUserUnsignedPackagesByDefaultExplanation)" key="Software\Policies\Microsoft\Windows\Appx" valueName="DisablePerUserUnsignedPackagesByDefault">
+            <parentCategory ref="Backported_System" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0_22H2" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
+        <policy name="EnableBypassCertificatePinningForMicrosoftStore" class="Machine" displayName="$(string.EnableBypassCertificatePinningForMicrosoftStore)" explainText="$(string.EnableBypassCertificatePinningForMicrosoftStoreExplanation)" key="Software\Policies\Microsoft\Windows\AppInstaller" valueName="EnableBypassCertificatePinningForMicrosoftStore">
+            <parentCategory ref="Backported_System" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS5" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
+        <policy name="EnableHashOverride" class="Machine" displayName="$(string.EnableHashOverride)" explainText="$(string.EnableHashOverrideExplanation)" key="Software\Policies\Microsoft\Windows\AppInstaller" valueName="EnableHashOverride">
+            <parentCategory ref="Backported_System" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS5" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
+        <policy name="EnableLocalArchiveMalwareScanOverride" class="Machine" displayName="$(string.EnableLocalArchiveMalwareScanOverride)" explainText="$(string.EnableLocalArchiveMalwareScanOverrideExplanation)" key="Software\Policies\Microsoft\Windows\AppInstaller" valueName="EnableLocalArchiveMalwareScanOverride">
+            <parentCategory ref="Backported_System" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS5" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
+        <policy name="ConfigCIPolicy" clientExtension="{FC491EF1-C4AA-4CE1-B329-414B101DB823}" displayName="$(string.ConfigCIPolicy)" explainText="$(string.ConfigCIPolicyHelp)" presentation="$(presentation.ConfigCIPolicy)" class="Machine" key="SOFTWARE\Policies\Microsoft\Windows\DeviceGuard" valueName="DeployConfigCIPolicy">
+            <parentCategory ref="Backported_System" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+            <elements>
+                <text id="ConfigCIPolicyFilePathText" valueName="ConfigCIPolicyFilePath" maxLength="255" required="true" />
+            </elements>
+        </policy>
+        <policy class="Machine" displayName="$(string.LAPS_AutomaticAccountManagementPolicy)" explainText="$(string.LAPS_AutomaticAccountManagementPolicy_Help)" key="SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\LAPS" name="LAPS_AutomaticAccountManagementPolicy" valueName="AutomaticAccountManagementEnabled" presentation="$(presentation.LAPS_AutomaticAccountManagementPolicy)">
+            <parentCategory ref="Backported_System" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+            <elements>
+                <enum id="LAPS_AutomaticAccountManagementTarget" valueName="AutomaticAccountManagementTarget">
+                    <item displayName="$(string.AutomaticAccountManagementTarget_Item0)">
+                        <value>
+                            <decimal value="0" />
+                        </value>
+                    </item>
+                    <item displayName="$(string.AutomaticAccountManagementTarget_Item1)">
+                        <value>
+                            <decimal value="1" />
+                        </value>
+                    </item>
+                </enum>
+                <text id="LAPS_AutomaticAccountManagementNameOrPrefix" valueName="AutomaticAccountManagementNameOrPrefix" maxLength="20" />
+                <boolean id="LAPS_AutomaticAccountManagementEnableAccount" valueName="AutomaticAccountManagementEnableAccount" />
+                <boolean id="LAPS_AutomaticAccountManagementRandomizeName" valueName="AutomaticAccountManagementRandomizeName" />
+            </elements>
+        </policy>
+        <policy name="Remediation_BNB_REP_RemoteEncryptionProtection_ConfiguredState" class="Machine" displayName="$(string.Remediation_BNB_REP_RemoteEncryptionProtection_ConfiguredState)" explainText="$(string.Remediation_BNB_REP_RemoteEncryptionProtection_ConfiguredState_Explain)" key="Software\Policies\Microsoft\Windows Defender\Remediation\Behavioral Network Blocks\Remote Encryption Protection" valueName="RemoteEncryptionProtectionConfiguredState" presentation="$(presentation.Remediation_BNB_REP_RemoteEncryptionProtection_ConfiguredState)">
+            <parentCategory ref="Backported_Defender" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS1" />
+            <elements>
+                <enum id="Remediation_BNB_REP_RemoteEncryptionProtection_ConfiguredState" valueName="RemoteEncryptionProtectionConfiguredState" required="true">
+                    <item displayName="$(string.Remediation_BNB_REP_RemoteEncryptionProtection_ConfiguredState_0)">
+                        <value>
+                            <decimal value="0" />
+                        </value>
+                    </item>
+                    <item displayName="$(string.Remediation_BNB_REP_RemoteEncryptionProtection_ConfiguredState_1)">
+                        <value>
+                            <decimal value="1" />
+                        </value>
+                    </item>
+                    <item displayName="$(string.Remediation_BNB_REP_RemoteEncryptionProtection_ConfiguredState_2)">
+                        <value>
+                            <decimal value="2" />
+                        </value>
+                    </item>
+                    <item displayName="$(string.Remediation_BNB_REP_RemoteEncryptionProtection_ConfiguredState_3)">
+                        <value>
+                            <decimal value="4" />
+                        </value>
+                    </item>
+                </enum>
+            </elements>
+        </policy>
+        <policy name="Remediation_BNB_REP_RemoteEncryptionProtection_MaxBlockTime" class="Machine" displayName="$(string.Remediation_BNB_REP_RemoteEncryptionProtection_MaxBlockTime)" explainText="$(string.Remediation_BNB_REP_RemoteEncryptionProtection_MaxBlockTime_Explain)" key="Software\Policies\Microsoft\Windows Defender\Remediation\Behavioral Network Blocks\Remote Encryption Protection" valueName="RemoteEncryptionProtectionMaxBlockTime" presentation="$(presentation.Remediation_BNB_REP_RemoteEncryptionProtection_MaxBlockTime)">
+            <parentCategory ref="Backported_Defender" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS1" />
+            <elements>
+                <decimal id="Remediation_BNB_REP_RemoteEncryptionProtection_MaxBlockTime" valueName="RemoteEncryptionProtectionMaxBlockTime" minValue="0" maxValue="4294967295" />
+            </elements>
+        </policy>
+        <policy name="Remediation_BNB_REP_RemoteEncryptionProtection_Aggressiveness" class="Machine" displayName="$(string.Remediation_BNB_REP_RemoteEncryptionProtection_Aggressiveness)" explainText="$(string.Remediation_BNB_REP_RemoteEncryptionProtection_Aggressiveness_Explain)" key="Software\Policies\Microsoft\Windows Defender\Remediation\Behavioral Network Blocks\Remote Encryption Protection" valueName="RemoteEncryptionProtectionAggressiveness" presentation="$(presentation.Remediation_BNB_REP_RemoteEncryptionProtection_Aggressiveness)">
+            <parentCategory ref="Backported_Defender" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS1" />
+            <elements>
+                <enum id="Remediation_BNB_REP_RemoteEncryptionProtection_Aggressiveness" valueName="RemoteEncryptionProtectionAggressiveness" required="true">
+                    <item displayName="$(string.Remediation_BNB_REP_RemoteEncryptionProtection_Aggressiveness_0)">
+                        <value>
+                            <decimal value="0" />
+                        </value>
+                    </item>
+                    <item displayName="$(string.Remediation_BNB_REP_RemoteEncryptionProtection_Aggressiveness_1)">
+                        <value>
+                            <decimal value="1" />
+                        </value>
+                    </item>
+                    <item displayName="$(string.Remediation_BNB_REP_RemoteEncryptionProtection_Aggressiveness_2)">
+                        <value>
+                            <decimal value="2" />
+                        </value>
+                    </item>
+                </enum>
+            </elements>
+        </policy>
+        <policy name="Remediation_BNB_REP_RemoteEncryptionProtectionExclusions" class="Machine" displayName="$(string.Remediation_BNB_REP_RemoteEncryptionProtectionExclusions)" explainText="$(string.Remediation_BNB_REP_RemoteEncryptionProtectionExclusions_Explain)" key="Software\Policies\Microsoft\Windows Defender\Remediation\Behavioral Network Blocks\Remote Encryption Protection" valueName="RemoteEncryptionProtection_Exclusions" presentation="$(presentation.Remediation_BNB_REP_RemoteEncryptionProtectionExclusions)">
+            <parentCategory ref="Backported_Defender" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS1" />
+            <elements>
+                <list id="Remediation_BNB_REP_RemoteEncryptionProtectionExclusions" additive="true" explicitValue="true" key="Software\Policies\Microsoft\Windows Defender\Remediation\Behavioral Network Blocks\Remote Encryption Protection\RemoteEncryptionProtectionExclusions" />
+            </elements>
+        </policy>
+        <policy name="Remediation_BNB_BFP_BruteForceProtection_ConfiguredState" class="Machine" displayName="$(string.Remediation_BNB_REP_RemoteEncryptionProtection_ConfiguredState)" explainText="$(string.Remediation_BNB_BFP_BruteForceProtection_ConfiguredState_Explain)" key="Software\Policies\Microsoft\Windows Defender\Remediation\Behavioral Network Blocks\Brute Force Protection" valueName="BruteForceProtectionConfiguredState" presentation="$(presentation.Remediation_BNB_BFP_BruteForceProtection_ConfiguredState)">
+            <parentCategory ref="Backported_Defender" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS1" />
+            <elements>
+                <enum id="Remediation_BNB_BFP_BruteForceProtection_ConfiguredState" valueName="BruteForceProtectionConfiguredState" required="true">
+                    <item displayName="$(string.Remediation_BNB_BFP_BruteForceProtection_ConfiguredState_0)">
+                        <value>
+                            <decimal value="0" />
+                        </value>
+                    </item>
+                    <item displayName="$(string.Remediation_BNB_BFP_BruteForceProtection_ConfiguredState_1)">
+                        <value>
+                            <decimal value="1" />
+                        </value>
+                    </item>
+                    <item displayName="$(string.Remediation_BNB_BFP_BruteForceProtection_ConfiguredState_2)">
+                        <value>
+                            <decimal value="2" />
+                        </value>
+                    </item>
+                    <item displayName="$(string.Remediation_BNB_BFP_BruteForceProtection_ConfiguredState_3)">
+                        <value>
+                            <decimal value="4" />
+                        </value>
+                    </item>
+                </enum>
+            </elements>
+        </policy>
+        <policy name="Remediation_BNB_BFP_BruteForceProtection_MaxBlockTime" class="Machine" displayName="$(string.Remediation_BNB_BFP_BruteForceProtection_MaxBlockTime)" explainText="$(string.Remediation_BNB_BFP_BruteForceProtection_MaxBlockTime_Explain)" key="Software\Policies\Microsoft\Windows Defender\Remediation\Behavioral Network Blocks\Brute Force Protection" valueName="BruteForceProtectionMaxBlockTime" presentation="$(presentation.Remediation_BNB_BFP_BruteForceProtection_MaxBlockTime)">
+            <parentCategory ref="Backported_Defender" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS1" />
+            <elements>
+                <decimal id="Remediation_BNB_BFP_BruteForceProtection_MaxBlockTime" valueName="BruteForceProtectionMaxBlockTime" minValue="0" maxValue="4294967295" />
+            </elements>
+        </policy>
+        <policy name="Remediation_BNB_BFP_BruteForceProtection_Aggressiveness" class="Machine" displayName="$(string.Remediation_BNB_BFP_BruteForceProtection_Aggressiveness)" explainText="$(string.Remediation_BNB_BFP_BruteForceProtection_Aggressiveness_Explain)" key="Software\Policies\Microsoft\Windows Defender\Remediation\Behavioral Network Blocks\Brute Force Protection" valueName="BruteForceProtectionAggressiveness" presentation="$(presentation.Remediation_BNB_BFP_BruteForceProtection_Aggressiveness)">
+            <parentCategory ref="Backported_Defender" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS1" />
+            <elements>
+                <enum id="Remediation_BNB_BFP_BruteForceProtection_Aggressiveness" valueName="BruteForceProtectionAggressiveness" required="true">
+                    <item displayName="$(string.Remediation_BNB_BFP_BruteForceProtection_Aggressiveness_0)">
+                        <value>
+                            <decimal value="0" />
+                        </value>
+                    </item>
+                    <item displayName="$(string.Remediation_BNB_BFP_BruteForceProtection_Aggressiveness_1)">
+                        <value>
+                            <decimal value="1" />
+                        </value>
+                    </item>
+                    <item displayName="$(string.Remediation_BNB_BFP_BruteForceProtection_Aggressiveness_2)">
+                        <value>
+                            <decimal value="2" />
+                        </value>
+                    </item>
+                </enum>
+            </elements>
+        </policy>
+        <policy name="Remediation_BNB_BFP_BruteForceProtectionExclusions" class="Machine" displayName="$(string.Remediation_BNB_BFP_BruteForceProtectionExclusions)" explainText="$(string.Remediation_BNB_BFP_BruteForceProtectionExclusions_Explain)" key="Software\Policies\Microsoft\Windows Defender\Remediation\Behavioral Network Blocks\Brute Force Protection" valueName="BruteForceProtection_Exclusions" presentation="$(presentation.Remediation_BNB_BFP_BruteForceProtectionExclusions)">
+            <parentCategory ref="Backported_Defender" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS1" />
+            <elements>
+                <list id="Remediation_BNB_BFP_BruteForceProtectionExclusions" additive="true" explicitValue="true" key="Software\Policies\Microsoft\Windows Defender\Remediation\Behavioral Network Blocks\Brute Force Protection\BruteForceProtectionExclusions" />
+            </elements>
+        </policy>
+        <policy name="HideExclusionsFromLocalAdmins" class="Machine" displayName="$(string.HideExclusionsFromLocalAdmins)" explainText="$(string.HideExclusionsFromLocalAdmins_Explain)" key="Software\Policies\Microsoft\Windows Defender" valueName="HideExclusionsFromLocalAdmins">
+            <parentCategory ref="Backported_Defender" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS1" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
+        <policy name="HideExclusionsFromLocalUsers" class="Machine" displayName="$(string.HideExclusionsFromLocalUsers)" explainText="$(string.HideExclusionsFromLocalUsers_Explain)" key="Software\Policies\Microsoft\Windows Defender" valueName="HideExclusionsFromLocalUsers">
+            <parentCategory ref="Backported_Defender" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS1" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
+        <policy name="EnableConvertWarnToBlock" class="Machine" displayName="$(string.EnableConvertWarnToBlock)" explainText="$(string.EnableConvertWarnToBlock_Explain)" key="Software\Policies\Microsoft\Windows Defender\NIS" valueName="EnableConvertWarnToBlock">
+            <parentCategory ref="Backported_Defender" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS3" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
+        <policy name="ExploitGuard_ASR_ASROnlyPerRuleExclusions" class="Machine" displayName="$(string.ExploitGuard_ASR_ASROnlyPerRuleExclusions)" explainText="$(string.ExploitGuard_ASR_ASROnlyPerRuleExclusions_Explain)" key="Software\Policies\Microsoft\Windows Defender\Windows Defender Exploit Guard\ASR" valueName="ExploitGuard_ASR_ASROnlyPerRuleExclusions" presentation="$(presentation.ExploitGuard_ASR_ASROnlyPerRuleExclusions)">
+            <parentCategory ref="Backported_Defender" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS3" />
+            <elements>
+                <list id="ExploitGuard_ASR_ASROnlyPerRuleExclusions" additive="true" explicitValue="true" key="Software\Policies\Microsoft\Windows Defender\Windows Defender Exploit Guard\ASR\ASROnlyPerRuleExclusions" />
+            </elements>
+        </policy>
+        <policy name="Features_TDTFeatureEnabled" class="Machine" displayName="$(string.Features_TDTFeatureEnabled)" explainText="$(string.Features_TDTFeatureEnabled_Explain)" key="Software\Policies\Microsoft\Windows Defender\Features" valueName="TDTFeatureEnabled">
+            <parentCategory ref="Backported_Defender" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="2" />
+            </disabledValue>
+        </policy>
+        <policy name="Features_PassiveRemediation" class="Machine" displayName="$(string.Features_PassiveRemediation)" explainText="$(string.Features_PassiveRemediation_Explain)" key="Software\Policies\Microsoft\Windows Defender\Features" valueName="PassiveRemediation">
+            <parentCategory ref="Backported_Defender" />
+            <supportedOn ref="windows:SUPPORTED_Windows8" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
+        <policy name="Scan_DisablePackedExeScanning" class="Machine" displayName="$(string.Scan_DisablePackedExeScanning)" explainText="$(string.Scan_DisablePackedExeScanning_Explain)" key="Software\Policies\Microsoft\Windows Defender\Scan" valueName="DisablePackedExeScanning">
+            <parentCategory ref="Backported_Defender" />
+            <supportedOn ref="windows:SUPPORTED_Windows8" />
+            <enabledValue>
+                <decimal value="0" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="1" />
+            </disabledValue>
+        </policy>
+        <policy name="RealtimeProtection_DisableSriptScanning" class="Machine" displayName="$(string.RealtimeProtection_DisableSriptScanning)" explainText="$(string.RealtimeProtection_DisableSriptScanning_Explain)" key="Software\Policies\Microsoft\Windows Defender\Real-Time Protection" valueName="DisableScriptScanning">
+            <parentCategory ref="Backported_Defender" />
+            <supportedOn ref="windows:SUPPORTED_Windows8" />
+            <enabledValue>
+                <decimal value="0" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="1" />
+            </disabledValue>
+        </policy>
+        <policy name="Scan_DisableScanningNetworkFiles" class="Machine" displayName="$(string.Scan_DisableScanningNetworkFiles)" explainText="$(string.Scan_DisableScanningNetworkFiles_Explain)" key="Software\Policies\Microsoft\Windows Defender\Scan" valueName="DisableScanningNetworkFiles">
+            <parentCategory ref="Backported_Defender" />
+            <supportedOn ref="windows:SUPPORTED_Windows8" />
+            <enabledValue>
+                <decimal value="0" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="1" />
+            </disabledValue>
+        </policy>
+        <policy name="Scan_QuickScanIncludeExclusions" class="Machine" displayName="$(string.Scan_QuickScanIncludeExclusions)" explainText="$(string.Scan_QuickScanIncludeExclusions_Explain)" key="Software\Policies\Microsoft\Windows Defender\Scan" valueName="QuickScanIncludeExclusions" presentation="$(presentation.Scan_QuickScanIncludeExclusions)">
+            <parentCategory ref="Backported_Defender" />
+            <supportedOn ref="windows:SUPPORTED_Windows8" />
+            <elements>
+                <enum id="Scan_QuickScanIncludeExclusions" valueName="QuickScanIncludeExclusions" required="true">
+                    <item displayName="$(string.Scan_QuickScanIncludeExclusions_Disabled)">
+                        <value>
+                            <decimal value="0" />
+                        </value>
+                    </item>
+                    <item displayName="$(string.Scan_QuickScanIncludeExclusions_RtpExclusions)">
+                        <value>
+                            <decimal value="1" />
+                        </value>
+                    </item>
+                </enum>
+            </elements>
+        </policy>
+        <policy name="RealtimeProtection_OobeEnableRtpAndSigUpdate" class="Machine" displayName="$(string.RealtimeProtection_OobeEnableRtpAndSigUpdate)" explainText="$(string.RealtimeProtection_OobeEnableRtpAndSigUpdate_Explain)" key="Software\Policies\Microsoft\Windows Defender\Real-Time Protection" valueName="OobeEnableRtpAndSigUpdate">
+            <parentCategory ref="Backported_Defender" />
+            <supportedOn ref="windows:SUPPORTED_Windows8" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
+        <policy name="DisableDatagramProcessing" class="Machine" displayName="$(string.DisableDatagramProcessing)" explainText="$(string.DisableDatagramProcessing_Explain)" key="Software\Policies\Microsoft\Windows Defender\NIS" valueName="DisableDatagramProcessing">
+            <parentCategory ref="Backported_Defender" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS3" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
+        <policy name="Reporting_EnableDynamicSignatureDroppedEventReporting" class="Machine" displayName="$(string.Reporting_EnableDynamicSignatureDroppedEventReporting)" explainText="$(string.Reporting_EnableDynamicSignatureDroppedEventReporting_Explain)" key="Software\Policies\Microsoft\Windows Defender\Reporting" valueName="EnableDynamicSignatureDroppedEventReporting">
+            <parentCategory ref="Backported_Defender" />
+            <supportedOn ref="windows:SUPPORTED_Windows8" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
+        <policy name="Netlogon_BlockNetbiosDiscovery" class="Machine" displayName="$(string.Netlogon_BlockNetbiosDiscovery)" explainText="$(string.Netlogon_BlockNetbiosDiscovery_Help)" key="Software\Policies\Microsoft\Netlogon\Parameters" valueName="BlockNetbiosDiscovery">
+            <parentCategory ref="Backported_Network" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
+        <policy class="Machine" displayName="$(string.SamrChangeUserPasswordApiPolicy)" explainText="$(string.SamrChangeUserPasswordApiPolicyExplain)" key="Software\Microsoft\Windows\CurrentVersion\Policies\System\SAM" name="SamrChangeUserPasswordApiPolicy" presentation="$(presentation.SamrChangeUserPasswordApiPolicy)">
+            <parentCategory ref="Backported_Network" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+            <elements>
+                <enum id="SamrChangeUserPasswordApiPolicySettings" valueName="SamrChangeUserPasswordApiPolicy">
+                    <item displayName="$(string.SamrChangeUserPasswordApiPolicyBlockAll)">
+                        <value>
+                            <decimal value="1" />
+                        </value>
+                    </item>
+                    <item displayName="$(string.SamrChangeUserPasswordApiPolicyAllowSecure)">
+                        <value>
+                            <decimal value="2" />
+                        </value>
+                    </item>
+                    <item displayName="$(string.SamrChangeUserPasswordApiPolicyAllowAll)">
+                        <value>
+                            <decimal value="3" />
+                        </value>
+                    </item>
+                </enum>
+            </elements>
+        </policy>
+        <policy name="NC_AllowNetBridge_NLA" class="Machine" displayName="$(string.NC_AllowNetBridge_NLA)" explainText="$(string.NC_AllowNetBridge_NLA_Help)" key="Software\Policies\Microsoft\Windows\Network Connections" valueName="NC_AllowNetBridge_NLA">
+            <parentCategory ref="Backported_Network" />
+            <supportedOn ref="windows:SUPPORTED_WindowsXP" />
+            <enabledValue>
+                <decimal value="0" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="1" />
+            </disabledValue>
+        </policy>
+        <policy name="DNS_TurnOffIPv6DefaultDnsServers" class="Machine" displayName="$(string.DNS_TurnOffIPv6DefaultDnsServers)" explainText="$(string.DNS_TurnOffIPv6DefaultDnsServers_Help)" key="Software\Policies\Microsoft\Windows NT\DNSClient" valueName="DisableIPv6DefaultDnsServers">
+            <parentCategory ref="Backported_Network" />
+            <supportedOn ref="windows:SUPPORTED_Windows8" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
+        <policy name="DNS_MDNS" class="Machine" displayName="$(string.DNS_MDNS)" explainText="$(string.DNS_MDNS_Help)" key="Software\Policies\Microsoft\Windows NT\DNSClient" valueName="EnableMDNS">
+            <parentCategory ref="Backported_Network" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS2" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
+        <policy name="DNS_Doh" class="Machine" displayName="$(string.DNS_Doh)" explainText="$(string.DNS_Doh_Help)" presentation="$(presentation.DNS_Doh)" key="Software\Policies\Microsoft\Windows NT\DNSClient">
+            <parentCategory ref="Backported_Network" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0_20H2_SERVER_20H2" />
+            <elements>
+                <enum id="DNS_Doh_Box" valueName="DoHPolicy" required="true">
+                    <item displayName="$(string.DNS_Doh_Force)">
+                        <value>
+                            <decimal value="3" />
+                        </value>
+                    </item>
+                    <item displayName="$(string.DNS_Doh_Auto)">
+                        <value>
+                            <decimal value="2" />
+                        </value>
+                    </item>
+                    <item displayName="$(string.DNS_Doh_Disabled)">
+                        <value>
+                            <decimal value="1" />
+                        </value>
+                    </item>
+                </enum>
+                <enum id="DNS_Doh_Setting_Box" valueName="DohPolicySetting" required="true">
+                    <item displayName="$(string.DNS_Doh_Setting_Allow)">
+                        <value>
+                            <decimal value="0" />
+                        </value>
+                    </item>
+                    <item displayName="$(string.DNS_Doh_Setting_Block)">
+                        <value>
+                            <decimal value="1" />
+                        </value>
+                    </item>
+                </enum>
+                <enum id="DNS_Dot_Setting_Box" valueName="DotPolicySetting" required="true">
+                    <item displayName="$(string.DNS_Dot_Setting_Allow)">
+                        <value>
+                            <decimal value="0" />
+                        </value>
+                    </item>
+                    <item displayName="$(string.DNS_Dot_Setting_Block)">
+                        <value>
+                            <decimal value="1" />
+                        </value>
+                    </item>
+                </enum>
+            </elements>
+        </policy>
+        <policy name="TS_CLIENT_TRUSTED_CERTIFICATE_THUMBPRINTS_1" class="Machine" displayName="$(string.TS_CLIENT_TRUSTED_CERTIFICATE_THUMBPRINTS)" explainText="$(string.TS_CLIENT_TRUSTED_CERTIFICATE_THUMBPRINTS_MACHINE_EXPLAIN)" presentation="$(presentation.TS_TRUSTED_CERTIFICATE_THUMBPRINTS_1)" key="SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services">
+            <parentCategory ref="Backported_Network" />
+            <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+            <elements>
+                <text id="TRUSTED_CERTIFICATE_THUMBPRINTS" valueName="TrustedCertThumbprints" required="true" />
+                <boolean id="DISABLE_SHA1_THUMBPRINTS" valueName="DisableSHA1CertThumbprints">
+                    <trueValue>
+                        <decimal value="1" />
+                    </trueValue>
+                    <falseValue>
+                        <decimal value="0" />
+                    </falseValue>
+                </boolean>
+            </elements>
+        </policy>
+        <policy class="Machine" displayName="$(string.Pol_AuditClientDoesNotSupportSigning_Name)" explainText="$(string.Pol_AuditClientDoesNotSupportSigning_Help)" key="Software\Policies\Microsoft\Windows\LanmanServer" name="Pol_AuditClientDoesNotSupportSigning" valueName="AuditClientDoesNotSupportSigning">
+            <parentCategory ref="Backported_Network" />
+            <supportedOn ref="windows:SUPPORTED_Windows7" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
+        <policy class="Machine" displayName="$(string.Pol_AuditClientSpnSupport_Name)" explainText="$(string.Pol_AuditClientSpnSupport_Help)" key="Software\Policies\Microsoft\Windows\LanmanServer" name="Pol_AuditClientSpnSupport" valueName="AuditClientSpnSupport">
+            <parentCategory ref="Backported_Network" />
+            <supportedOn ref="windows:SUPPORTED_Windows7" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
+        <policy class="Machine" displayName="$(string.RestrictDriverInstallationToAdministrators)" explainText="$(string.RestrictDriverInstallationToAdministrators_Help)" key="Software\Policies\Microsoft\Windows NT\Printers\PointAndPrint" name="RestrictDriverInstallationToAdministrators" valueName="RestrictDriverInstallationToAdministrators">
+            <parentCategory ref="Backported_Network" />
+            <supportedOn ref="windows:SUPPORTED_Windows7" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
+        <policy class="Machine" displayName="$(string.RpcListenerPolicy)" explainText="$(string.RpcListenerPolicy_Help)" key="Software\Policies\Microsoft\Windows NT\Printers\RPC" name="ConfigureRpcListenerPolicy" presentation="$(presentation.RpcListenerPolicy)">
+            <parentCategory ref="Backported_Network" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+            <elements>
+                <enum id="RpcListenerProtocols_Enum" valueName="RpcProtocols">
+                    <item displayName="$(string.RpcOverNamedPipes)">
+                        <value>
+                            <decimal value="3" />
+                        </value>
+                    </item>
+                    <item displayName="$(string.RpcOverTcp)">
+                        <value>
+                            <decimal value="5" />
+                        </value>
+                    </item>
+                    <item displayName="$(string.RpcOverNamedPipesAndTcp)">
+                        <value>
+                            <decimal value="7" />
+                        </value>
+                    </item>
+                </enum>
+                <enum id="RpcAuthenticationProtocol_Enum" valueName="ForceKerberosForRpc">
+                    <item displayName="$(string.RpcAuthenticationProtocol_Negotiate)">
+                        <value>
+                            <decimal value="0" />
+                        </value>
+                    </item>
+                    <item displayName="$(string.RpcAuthenticationProtocol_Kerberos)">
+                        <value>
+                            <decimal value="1" />
+                        </value>
+                    </item>
+                </enum>
+            </elements>
+        </policy>
+        <policy class="Machine" displayName="$(string.RpcConnectionPolicy)" explainText="$(string.RpcConnectionPolicy_Help)" key="Software\Policies\Microsoft\Windows NT\Printers\RPC" name="ConfigureRpcConnectionPolicy" presentation="$(presentation.RpcConnectionPolicy)">
+            <parentCategory ref="Backported_Network" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+            <elements>
+                <enum id="RpcConnectionProtocol_Enum" valueName="RpcUseNamedPipeProtocol">
+                    <item displayName="$(string.RpcOverTcp)">
+                        <value>
+                            <decimal value="0" />
+                        </value>
+                    </item>
+                    <item displayName="$(string.RpcOverNamedPipes)">
+                        <value>
+                            <decimal value="1" />
+                        </value>
+                    </item>
+                </enum>
+                <enum id="RpcConnectionAuthentication_Enum" valueName="RpcAuthentication">
+                    <item displayName="$(string.RpcConnectionAuthenticationDefault)">
+                        <value>
+                            <decimal value="0" />
+                        </value>
+                    </item>
+                    <item displayName="$(string.RpcConnectionAuthenticationEnabled)">
+                        <value>
+                            <decimal value="1" />
+                        </value>
+                    </item>
+                    <item displayName="$(string.RpcConnectionAuthenticationDisabled)">
+                        <value>
+                            <decimal value="2" />
+                        </value>
+                    </item>
+                </enum>
+            </elements>
+        </policy>
+        <policy class="Machine" displayName="$(string.DriverValidationLevel)" explainText="$(string.DriverValidationLevel_Help)" key="Software\Policies\Microsoft\Windows NT\Printers\Driver" name="ConfigureDriverValidationLevel" presentation="$(presentation.DriverValidationLevel)">
+            <parentCategory ref="Backported_Network" />
+            <supportedOn ref="windows:SUPPORTED_Windows8" />
+            <elements>
+                <enum id="DriverValidationLevel_Enum" valueName="ValidationLevel">
+                    <item displayName="$(string.DriverValidationLevel_Inbox)">
+                        <value>
+                            <decimal value="0" />
+                        </value>
+                    </item>
+                    <item displayName="$(string.DriverValidationLevel_Trusted)">
+                        <value>
+                            <decimal value="1" />
+                        </value>
+                    </item>
+                    <item displayName="$(string.DriverValidationLevel_WHQL)">
+                        <value>
+                            <decimal value="2" />
+                        </value>
+                    </item>
+                    <item displayName="$(string.DriverValidationLevel_TrustedShared)">
+                        <value>
+                            <decimal value="3" />
+                        </value>
+                    </item>
+                    <item displayName="$(string.DriverValidationLevel_Legacy)">
+                        <value>
+                            <decimal value="4" />
+                        </value>
+                    </item>
+                </enum>
+            </elements>
+        </policy>
+        <policy name="StrongNameMatches" class="Machine" displayName="$(string.StrongNameMatches)" explainText="$(string.StrongNameMatches_explain)" presentation="$(presentation.StrongNameMatches)" key="Software\Microsoft\Windows\CurrentVersion\Policies\System\KDC\Parameters" valueName="UseStrongNameMatches">
+            <parentCategory ref="Backported_Network" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0_20H1" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+            <elements>
+                <multiText id="StrongNameMatchesList" key="Software\Microsoft\Windows\CurrentVersion\Policies\System\KDC\Parameters" valueName="StrongNameMatchesList" required="true" />
+            </elements>
+        </policy>
+        <policy name="DisableInternetExplorerLaunchViaCOM" class="Both" displayName="$(string.DisableInternetExplorerLaunchViaCOM)" explainText="$(string.IE_ExplainDisableInternetExplorerLaunchViaCOM)" key="Software\Policies\Microsoft\Internet Explorer\Main" valueName="DisableInternetExplorerLaunchViaCOM">
+            <parentCategory ref="Backported_Legacy" />
+            <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
+        <policy name="JScriptReplacement" class="Both" displayName="$(string.JScriptReplacement)" explainText="$(string.IE_ExplainJScriptReplacement)" key="Software\Policies\Microsoft\Internet Explorer\Main" valueName="JScriptReplacement">
+            <parentCategory ref="Backported_Legacy" />
+            <supportedOn ref="windows:SUPPORTED_Windows7" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
+        <policy name="AllowLegacyURLFields" class="Both" displayName="$(string.AllowLegacyURLFields)" explainText="$(string.IE_ExplainAllowLegacyURLFields)" key="Software\Policies\Microsoft\Internet Explorer\Main" valueName="AllowLegacyURLFields">
+            <parentCategory ref="Backported_Legacy" />
+            <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+            <enabledValue>
+                <decimal value="1" />
+            </enabledValue>
+            <disabledValue>
+                <decimal value="0" />
+            </disabledValue>
+        </policy>
+    </policies>
+</policyDefinitions>

@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+    <displayName>
+        Additional backported hardening policies
+    </displayName>
+    <description>
+        Additional backported hardening policies
+    </description>
+    <resources>
+        <stringTable>
+            <string id="Backported_System">System, Driver &amp; File Integrity Settings</string>
+            <string id="Backported_Defender">Defender Behavioral, Anti-Ransomware &amp; ASR Protection</string>
+            <string id="Backported_Network">Network, RPC, DNS &amp; Authentication Settings</string>
+            <string id="Backported_Legacy">Legacy Browser &amp; Script Containment</string>
+            <string id="AllowAllCopyFGDDestinations_DisplayName">Allow file group descriptor operations to write to any destination path</string>
+            <string id="AllowAllCopyFGDDestinations_Help">This policy setting determines whether path traversal containment checks are enforced when writing files received via clipboard or drag-drop file group descriptors (CFSTR_FILEDESCRIPTOR).
+
+If you enable this policy setting, path traversal containment checks are not enforced and files may be written to any path reachable by the destination folder. Enable this policy only if the default behavior breaks a required workflow.
+
+If you disable or do not configure this policy setting, file group descriptor operations enforce path containment and reject file names that attempt to escape the destination folder via relative path components.</string>
+            <string id="AllowCustomSSPsAPs">Allow Custom SSPs and APs to be loaded into LSASS</string>
+            <string id="AllowCustomSSPsAPs_Help">This policy controls the configuration under which LSASS loads custom SSPs and APs.
+
+If you enable this setting or do not configure it, LSA allows custom SSPs and APs to be loaded.
+
+If you disable this setting, LSA does not load custom SSPs and APs.</string>
+            <string id="AllowLegacyURLFields">Allow legacy functionality for Internet Shortcut files</string>
+            <string id="AllowNonStandardUserProfilePaths">Allow user profile registry hives and AppData from non-standard paths</string>
+            <string id="AllowNonStandardUserProfilePaths_Help">This policy setting controls whether user profile registry hives and AppData folder locations are allowed to accept non-standard path formats.
+
+If you enable this policy setting, user profile locations accept a wider range of file path formats.
+
+If you disable or do not configure this policy setting, user profile locations accept only standard Windows folder paths.
+
+Note: Enabling this setting can expose the system to security risks. Enable it only if a specific application in your organization requires it, and only after evaluating all the risks for your environment.</string>
+            <string id="AllowTrustedOfflineScan">Allow offline scan from trusted Windows Recovery Environment</string>
+            <string id="AllowTrustedOfflineScan_help">    Requirements: Windows 10
+    Description: This policy setting controls whether offline scan should be allowed from a trusted Windows Recovery Environment.
+
+    If you enable this policy setting, offline scan will execute without prompting for BitLocker recovery key, as long as the Windows Recovery Environment is trusted by BitLocker.
+
+    If you disable or do not configure this policy setting, offline scan will prompt the user for BitLocker recovery key to unlock the OS volume. If user skips unlock the OS volume, offline scan will not execute. This is the default setting.</string>
+            <string id="AutomaticAccountManagementTarget_Item0">Manage the built-in admin account</string>
+            <string id="AutomaticAccountManagementTarget_Item1">Manage a custom admin account</string>
+            <string id="ClfsAuthenticationChecking">Enable / disable CLFS logfile authentication</string>
+            <string id="ClfsAuthenticationCheckingExplain">This policy setting configures CLFS logfile authentication, a security feature which aims to harden logfile parsing.
+
+Logfile authentication provides the ability for the CLFS driver to detect malicious modications made to logfiles. If modifications are detected, CLFS will deem the logfile as unsafe for parsing and return an error to the caller. CLFS is able to detect modifications by writing authentication codes to logfiles, which combines file data with a system-unique cryptographic key. 
+
+A side effect of logfile authentication is that CLFS will fail to open logfiles that were created on other systems, as these logfiles contain authentication codes created using a system-unique cryptographic key. To open a logfile that was created on another system, an administrator must first use the "fsutil.exe clfs authenticate" command to correct the authentication codes.
+
+If you enable or do not configure this setting, CLFS will refer to local registry settings on whether logfile authentication should be done or not. By default, CLFS will do logfile authentication. The local registry settings for this feature can be found at "HKLM:\SYSTEM\CurrentControlSet\Services\CLFS\Authentication". 
+
+If you disable his setting, CLFS will no longer perform logfile authentication. Logfiles will be able to be moved and opened across systems without Administrative action. However, CLFS will open and parse all logfiles, including maliciously crafted logfiles that may compromise the system.</string>
+            <string id="ConfigCIPolicy">Deploy App Control for Business</string>
+            <string id="ConfigCIPolicyHelp">Deploy App Control for Business
+
+This policy setting lets you deploy a Code Integrity Policy to a machine to control what is allowed to run on that machine.
+
+If you deploy a Code Integrity Policy, Windows will restrict what can run in both kernel mode and on the Windows Desktop based on the policy. To enable this policy the machine must be rebooted.
+
+The file path must be either a UNC path (for example, \\ServerName\ShareName\SIPolicy.p7b), or a locally valid path (for example, C:\FolderName\SIPolicy.p7b).  The local machine account (LOCAL SYSTEM) must have access permission to the policy file.
+
+If using a signed and protected policy then disabling this policy setting doesn't remove the feature from the computer. Instead, you must either:
+
+   1) first update the policy to a non-protected policy and then disable the setting, or
+   2) disable the setting and then remove the policy from each computer, with a physically present user.
+      </string>
+            <string id="DNS_Doh">Configure encrypted name resolution</string>
+            <string id="DNS_Doh_Auto">Allow encryption</string>
+            <string id="DNS_Doh_Disabled">Prohibit encryption</string>
+            <string id="DNS_Doh_Force">Require encryption</string>
+            <string id="DNS_Doh_Help">Specifies if the DNS client will perform name resolution over encrypted protocols.
+
+By default, the DNS client will do classic DNS name resolution (over UDP or TCP port 53). This setting can enhance the DNS client to use encrypted protocols to resolve domain names.
+
+To use this policy setting, click Enabled, and then select one of the following options from the drop-down list:
+
+Prohibit encryption: no encrypted name resolution will be performed.
+
+Allow encryption: Use encrypted name resolution if the configured servers support it. If they don't support it, try classic name resolution.
+
+Require encryption: Allow only encrypted name resolution. If there are no configured DNS servers that handle encryption, name resolution will fail.
+
+In addition to the generic encryption policy, additional policies can be configured at the individual protocol level.
+
+For example, in order to force DoT name resolution only, a combination of "Require encryption" and "Block DoH" would be needed (vice versa to force DoH).
+
+For the example above, it is the admin's responsibility to ensure that if DoT is forced, there are valid DoT servers configured on the machine (vice versa for DoH).
+
+If you disable this policy setting, or if you do not configure this policy setting, the DNS client will use locally configured settings. DDR (Discovery of Designated Resolvers) plaintext traffic will be allowed as it is necessary for auto-discovering encryption settings.</string>
+            <string id="DNS_Doh_Setting_Allow">Allow DoH</string>
+            <string id="DNS_Doh_Setting_Block">Block DoH</string>
+            <string id="DNS_Dot_Setting_Allow">Allow DoT</string>
+            <string id="DNS_Dot_Setting_Block">Block DoT</string>
+            <string id="DNS_MDNS">Configure multicast DNS (mDNS) protocol</string>
+            <string id="DNS_MDNS_Help">Specifies if the DNS client will perform name resolution over mDNS.
+
+If you enable this policy, the DNS client will use mDNS protocol.
+
+If you disable this policy setting, or if you do not configure this policy setting, the DNS client will use locally configured settings.</string>
+            <string id="DNS_TurnOffIPv6DefaultDnsServers">Turn off default IPv6 DNS Servers</string>
+            <string id="DNS_TurnOffIPv6DefaultDnsServers_Help">If you enable this policy, the DNS client will not use the default IPv6 DNS server addresses provided by Windows.</string>
+            <string id="DeviceInstall_Allow_Deny_Layered">Apply layered order of evaluation for Allow and Prevent device installation policies across all device match criteria</string>
+            <string id="DeviceInstall_Allow_Deny_Layered_Help">This policy setting will change the evaluation order in which Allow and Prevent policy settings are applied when more than one install policy setting is applicable for a given device. Enable this policy setting to ensure that overlapping device match criteria is applied based on an established hierarchy where more specific match criteria supersedes less specific match criteria. The hierarchical order of evaluation for policy settings that specify device match criteria is as follows:
+
+Device instance IDs &gt; Device IDs &gt; Device setup class &gt; Removable devices
+
+Device instance IDs
+1. Prevent installation of devices using drivers that match these device instance IDs
+2. Allow installation of devices using drivers that match these device instance IDs
+
+Device IDs
+3. Prevent installation of devices using drivers that match these device IDs
+4. Allow installation of devices using drivers that match these device IDs
+
+Device setup class
+5. Prevent installation of devices using drivers that match these device setup classes
+6. Allow installation of devices using drivers that match these device setup classes
+
+Removable devices
+7. Prevent installation of removable devices
+
+NOTE: This policy setting provides more granular control than the "Prevent installation of devices not described by other policy settings" policy setting. If these conflicting policy settings are enabled at the same time, the "Apply layered order of evaluation for Allow and Prevent device installation policies across all device match criteria" policy setting will be enabled and the other policy setting will be ignored.
+
+If you disable or do not configure this policy setting, the default evaluation is used. By default, all "Prevent installation..." policy settings have precedence over any other policy setting that allows Windows to install a device.</string>
+            <string id="DeviceMetadata_PreventDeviceMetadataFromNetwork">Prevent automatic download of applications associated with device metadata</string>
+            <string id="DeviceMetadata_PreventDeviceMetadataFromNetwork_Help">This policy setting allows you to prevent Windows from downloading applications associated with device metadata.
+
+If you enable this policy setting, Windows does not download applications associated with device metadata for installed devices. This policy setting overrides the setting in the Device Installation Settings dialog box (Control Panel &gt; System and Security &gt; System &gt; Advanced System Settings &gt; Hardware tab).
+
+If you disable or do not configure this policy setting, the setting in the Device Installation Settings dialog box controls whether Windows downloads applications associated with device metadata.</string>
+            <string id="DisableDatagramProcessing">This setting controls datagram processing for network protection.</string>
+            <string id="DisableDatagramProcessing_Explain">
+    Disabled (Default): 
+    If Not Configured or Disabled, datagram processing will be enabled for network protection.
+
+    Enabled: 
+    If Enabled, datagram processing will be disabled for network protection.</string>
+            <string id="DisableInternetExplorerLaunchViaCOM">Disable Internet Explorer 11 Launch Via COM Automation</string>
+            <string id="DisableMotWOnInsecurePathCopy_DisplayName">Do not apply the Mark of the Web tag to files copied from insecure sources</string>
+            <string id="DisableMotWOnInsecurePathCopy_Help">This policy setting determines the application of the Mark of the Web tag to files sourced from insecure locations.
+
+If you enable this policy setting, files copied from unsecure sources will not be tagged with the Mark of the Web.
+
+If you disable or do not configure this policy setting, files copied from unsecure sources will be tagged with the appropriate Mark of the Web.
+
+Note: Failure to tag files from unsecure sources with the Mark of the Web can expose users’ computers to security risks.</string>
+            <string id="DisablePerUserUnsignedPackagesByDefault">Not allow per-user unsigned packages to install by default (requires explicitly allow per install)</string>
+            <string id="DisablePerUserUnsignedPackagesByDefaultExplanation">Not allow per-user unsigned packages to install by default (requires explicitly allow per install)
+
+        If you enable this policy, the AllowUnsigned option defaults to 'false'.
+
+        If you disable this policy, the AllowUnsigned option defaults to 'true'.
+
+        Default is 'disabled' (key not present).
+      </string>
+            <string id="DisableWinRETrust_Help">This policy setting controls whether BitLocker trusts Windows Recovery Environment (WinRE).
+
+When BitLocker trusts WinRE, WinRE can access the BitLocker-protected operating system volume without requiring the BitLocker recovery key. This supports recovery operations that need access to the operating system volume.
+
+Important: Enabling this policy changes recovery behavior. If you enable this policy setting, BitLocker doesn't trust WinRE. The BitLocker recovery key is required for any WinRE operation that needs to access the BitLocker-protected operating system volume. Recovery operations that rely on WinRE access to the operating system volume might require user or administrator intervention and might not complete automatically, including Startup Repair, Quick Machine Recovery, Push-button Recovery, and MDM-initiated remote reset or wipe using the RemoteWipe CSP.
+
+If you disable or don't configure this policy setting, BitLocker trusts a validated WinRE image so that WinRE can access the BitLocker-protected operating system volume without the recovery key.
+
+This policy setting is enforced only when BitLocker or device encryption is enabled.</string>
+            <string id="DisableWinRETrust_Name">Disable BitLocker trust of Windows Recovery Environment (WinRE)</string>
+            <string id="DriverValidationLevel">Manage Print Driver signature validation</string>
+            <string id="DriverValidationLevel_Help">
+          This policy setting controls the print driver signature validation mechanism. This policy controls the type of digital signature that is required for a print driver to be considered valid and installed on the system.
+
+          As part of this validation the catalog/embedded signature is verified and all files in the driver must be a part of the catalog or have their own embedded signature that can be used for validation.
+
+          You can enable this setting to change the default signature validation method. To use this setting, select one of the options below from the "Select the driver signature mechanism for this computer" box.
+
+          If you disable or do not configure this policy setting, the default method is "Allow all validly signed drivers".
+
+          -- "Require inbox signed drivers" specifies only drivers that are shipped as part of a Windows image are allowed on this computer.
+
+          -- "Allow inbox and PrintDrivers Trusted Store signed drivers" specifies only drivers that are shipped as part of a Windows image or drivers that are signed by certificates installed in the 'PrintDrivers' certificate store are allowed on this computer.
+
+          -- "Allow inbox, PrintDrivers Trusted Store, and WHQL signed drivers" specifies the only drivers allowed on this computer are those that are: shipped as part of a Windows image, signed by certificates installed in the 'PrintDrivers' certificate store, or signed by the Windows Hardware Quality Lab (WHQL).
+
+          -- "Allow inbox, PrintDrivers Trusted Store, WHQL, and Trusted Publishers Store signed drivers" specifies the only drivers allowed on this computer are those that are: shipped as part of a Windows image, signed by certificates installed in the 'PrintDrivers' certificate store, signed by the Windows Hardware Quality Lab (WHQL), or signed by certificates installed in the 'Trusted Publishers' certificate store.
+
+          -- "Allow all validly signed drivers" specfies that any print driver that has a valid embedded signature or can be validated against the print driver catalog can be installed on this computer.
+
+          The 'PrintDrivers' certificate store needs to be created by an administrator under the local machine store location.
+
+          The 'Trusted Publishers' certificate store can contain certificates from sources that are not related to print drivers.
+
+      </string>
+            <string id="DriverValidationLevel_Inbox">Require inbox signed drivers</string>
+            <string id="DriverValidationLevel_Legacy">Allow all validly signed drivers</string>
+            <string id="DriverValidationLevel_Trusted">Allow inbox and Print Drivers Trusted Store signed drivers</string>
+            <string id="DriverValidationLevel_TrustedShared">Allow inbox, Print Drivers Trusted Store, WHQL, and Trusted Publisher Store signed drivers</string>
+            <string id="DriverValidationLevel_WHQL">Allow inbox, Print Drivers Trusted Store, and WHQL signed drivers</string>
+            <string id="EnableBypassCertificatePinningForMicrosoftStore">Enable App Installer Microsoft Store Source Certificate Validation Bypass</string>
+            <string id="EnableBypassCertificatePinningForMicrosoftStoreExplanation">This policy controls whether the Windows Package Manager will validate the Microsoft Store certificate hash matches to a known Microsoft Store certificate when initiating a connection to the Microsoft Store Source. 
+
+If you enable this policy, the Windows Package Manager will bypass the Microsoft Store certificate validation. 
+
+If you disable this policy, the Windows Package Manager will validate the Microsoft Store certificate used is valid and belongs to the Microsoft Store before communicating with the Microsoft Store source. 
+
+If you do not configure this policy, the Windows Package Manager administrator settings will be adhered to.</string>
+            <string id="EnableConvertWarnToBlock">Convert warn verdict to block</string>
+            <string id="EnableConvertWarnToBlock_Explain">
+    Network protection inspects network traffic and determines whether it allows or blocks traffic or displays a warning.
+    
+    Disabled (Default): 
+    If Not Configured or Disabled, network protection will display a warning for warn verdicts.
+
+    Enabled: 
+    If this setting is Enabled, network protection blocks network traffic instead of displaying a warning.</string>
+            <string id="EnableHashOverride">Enable App Installer Hash Override</string>
+            <string id="EnableHashOverrideExplanation">This policy controls whether or not the Windows Package Manager can be configured to enable the ability override the SHA256 security validation in settings.
+
+If you enable or do not configure this policy, users will be able to enable the ability override the SHA256 security validation in the Windows Package Manager settings.
+
+If you disable this policy, users will not be able to enable the ability override the SHA256 security validation in the Windows Package Manager settings.</string>
+            <string id="EnableLocalArchiveMalwareScanOverride">Enable App Installer Local Archive Malware Scan Override</string>
+            <string id="EnableLocalArchiveMalwareScanOverrideExplanation">This policy controls the ability to override malware vulnerability scans when installing an archive file using a local manifest using the command line arguments.
+
+If you enable this policy, users can override the malware scan when performing a local manifest install of an archive file.
+
+If you disable this policy, users will be unable to override the malware scan of an archive file when installing using a local manifest.
+
+If you do not configure this policy, the Windows Package Manager administrator settings will be adhered to.</string>
+            <string id="EnableMPRNotifications">Configure the transmission of the user's password in the content of MPR notifications sent by winlogon.</string>
+            <string id="EnableMPRNotifications_Help">This policy controls whether the user's password is included in the content of MPR notifications sent by winlogon in the system.
+
+If you disable this setting or do not configure it, winlogon sends MPR notifications with empty password fields of the user's authentication info.
+
+If you enable this setting, winlogon sends MPR notifications containing the user's password in the authentication info.</string>
+            <string id="ExploitGuard_ASR_ASROnlyPerRuleExclusions">Apply a list of exclusions to specific attack surface reduction (ASR) rules</string>
+            <string id="ExploitGuard_ASR_ASROnlyPerRuleExclusions_Explain">
+    This policy allows an administrator to specify a list of exclusions for specific ASR rules.
+    Each entry is a name-value pair. The key indicates the rule GUID, and the value is a set of full paths separated by the &gt; character, indicating the exclusions for that particular ASR rule.
+
+    NOTE: The GUID is a KEY, not a value.
+
+    Example:
+    KEY: "{75668C1F-73B5-4CF0-BB93-3ECF5DB7C484}"
+    VALUE: "C:\Notepad.exe&gt;c:\regedit.exe&gt;C:\SomeFolder\test.exe"
+    </string>
+            <string id="Features_PassiveRemediation">Enable EDR in block mode</string>
+            <string id="Features_PassiveRemediation_Explain">This policy setting enables or disables EDR in block mode (also known as "passive remediation"). EDR in block mode is recommended for devices running Microsoft Defender Antivirus in passive mode. Available with platform release: 4.18.2202.X
+
+        The data type is integer
+
+        Supported values:
+
+        1: Turn EDR in block mode on
+        0: Turn EDR in block mode off</string>
+            <string id="Features_TDTFeatureEnabled">Intel TDT Integration Level</string>
+            <string id="Features_TDTFeatureEnabled_Explain">This policy setting configures the Intel TDT integration level for Intel TDT-capable devices.
+
+        If you do not configure this setting, the default value will be applied. The default value is controlled by Microsoft security intelligence updates. Microsoft will enable Intel TDT if there is a known threat.
+        If you configure this setting to enabled, Intel TDT integration will turn on.
+        If you configure this setting to disabled, Intel TDT integration will turn off.</string>
+            <string id="HideExclusionsFromLocalAdmins">Control whether or not exclusions are visible to Local Admins</string>
+            <string id="HideExclusionsFromLocalAdmins_Explain">
+    This policy setting controls whether or not exclusions are visible to Local Admins.  For end users (that are not Local Admins) exclusions are not visible, whether or not this setting is enabled.
+    Disabled(Default):
+        If you disable or do not configure this setting, Local Admins will be able to see exclusions in the Windows Security App or via PowerShell.
+
+    Enabled: 
+        If you enable this setting, Local Admins will no longer be able to see the exclusion list in Windows Security App or via PowerShell.
+        Note: Applying this setting will not remove exclusions, it will only prevent them from being visible to Local Admins. This is reflected in Get-MpPreference.</string>
+            <string id="HideExclusionsFromLocalUsers">Control whether exclusions are visible to local users</string>
+            <string id="HideExclusionsFromLocalUsers_Explain">
+    This policy setting controls whether exclusions are visible to local users on the device.
+    Use the policy setting HideExclusionsFromLocalAdmins to hide exclusions from both standard and administrative local users.</string>
+            <string id="IE_ExplainAllowLegacyURLFields">This policy setting allows the use of some disabled functionality, such as WorkingDirectory field or pluggable protocol handling, in Internet Shortcut files.
+
+If you enable this policy, disabled functionality for Internet Shortcut files will be re-enabled.
+
+If you disable, or don't configure this policy, some functionality for Internet Shortcut files, such as WorkingDirectory field or pluggable protocol handling, will be disabled.</string>
+            <string id="IE_ExplainDisableInternetExplorerLaunchViaCOM">This policy lets you restrict launching of Internet Explorer using COM automation.
+
+If you enable this policy, it prevents Internet Explorer 11 from being launched using COM automation.
+
+If you disable, or don’t configure this policy, Internet Explorer 11 COM automation launches are allowed.</string>
+            <string id="IE_ExplainJScriptReplacement">This policy setting specifies whether JScript or JScript9Legacy is loaded.
+      
+If you enable this policy setting or not configured, JScript9Legacy will be loaded in situations where JScript is instantiated.
+
+If you disable this policy, then JScript will be utilized.</string>
+            <string id="JScriptReplacement">Replace JScript by loading JScript9Legacy in place of JScript.</string>
+            <string id="LAPS_AutomaticAccountManagementPolicy">Configure automatic account management</string>
+            <string id="LAPS_AutomaticAccountManagementPolicy_Help">This policy configures automatic account management policy options.
+
+Specify the target account to manage: specifies whether the built-in admin account or a custom account should be managed.
+
+Automatic account name (or name prefix): specifies the name, or name prefix, to use for the managed account.
+
+If this policy setting is configured, Windows LAPS will use it as the account name or name prefix for the target account.
+
+If this policy setting is not configured, Windows LAPS will use "WLapsAdmin" as the account name or name prefix.
+
+Note: this name is treated as a prefix when account name randomization is configured, see comments below.
+
+Enable the managed account: specifies whether the managed account should be enabled or not.
+
+If this policy setting is configured, Windows LAPS will enable the specified managed account.
+
+If this policy setting is not configured, Windows LAPS will disable the specified managed account.
+
+Note: Windows LAPS will regularly maintain and rotate the password of the managed account regardless of whether the account is maintained in an enabled\disabled status.
+
+Randomize the name of the managed account: specifies whether the name of the managed account should be randomized with a random numeric suffix.
+
+If this policy setting is configured, Windows LAPS will add an eight digit random numeric suffix to the managed automatic account name, and will re-randomize the name of the managed account every time the password is rotated.
+
+If this policy setting is not configured, Windows LAPS will use the managed automatic account name as configured.
+
+If the managed automatic account name prefix is configured, Windows LAPS will use up to the first twelve (12) characters of that name as a prefix for the random name. If the managed automatic account name is not configured, Windows LAPS will use "WLapsAdmin" as the name prefix.
+
+Note: the DSRM account on domain controllers cannot be configured for automatic account management. This policy has no effect on domain controllers and will be ignored even if configured for a DC.
+
+See https://go.microsoft.com/fwlink/?linkid=2188435 for more information.
+      </string>
+            <string id="NC_AllowNetBridge_NLA">Prohibit installation and configuration of Network Bridge on your network.</string>
+            <string id="NC_AllowNetBridge_NLA_Help">Determines whether a user can install and configure the Network Bridge.
+
+Important: This setting is location aware on AD domain-joined devices. It only applies when a computer is connected to the same DNS domain network it was connected to when the setting was refreshed on that computer. If a computer is connected to a DNS domain network other than the one it was connected to when the setting was refreshed, this setting doesn't apply. On Entra-joined devices, this setting will apply to all networks.
+
+The Network Bridge allows users to create a layer 2 MAC bridge, enabling them to connect two or more network segements together. This connection appears in the Network Connections folder.
+
+If you disable this setting or do not configure it, the user will be able to create and modify the configuration of a Network Bridge. Enabling this setting does not remove an existing Network Bridge from the user's computer.</string>
+            <string id="Netlogon_BlockNetbiosDiscovery">Block NetBIOS-based discovery for domain controller location</string>
+            <string id="Netlogon_BlockNetbiosDiscovery_Help">This policy setting allows you to control whether domain controller (DC) location algorithm uses NetBIOS_based discovery for domain controller location.
+
+If you enable or do not configure this policy setting, the DC location algorithm will never use NetBIOS-based discovery. This is the default behavior.
+
+If you disable this policy setting, the DC location algorithm may use NetBIOS-based discovery when necessary. The final behavior is further governed by the AvoidFallbackNetbiosDiscovery setting.
+
+NetBIOS-based discovery is considered unsecure, has many limitations, and will be deprecated in a future release. For these reasons, NetBIOS-based discovery is not recommended. See https://aka.ms/dclocatornetbiosdeprecation for more information.</string>
+            <string id="Pol_AuditClientDoesNotSupportSigning_Help">This policy controls whether the SMB server will log the event when the SMB client doesn't support signing.
+
+If you enable this policy setting, the SMB server will log the event when the SMB client doesn't support signing.
+      </string>
+            <string id="Pol_AuditClientDoesNotSupportSigning_Name">Audit client does not support signing</string>
+            <string id="Pol_AuditClientSpnSupport_Help">This policy controls whether the SMB server audits the Service Principal Name (SPN) provided by SMB clients during authentication.
+
+If you enable this policy setting, the SMB server will log an event whenever an SMB client doesn't send SPN or sends an invalid SPN during authentication. This audit data can help identify clients that may be incompatible with SPN validation before enforcement is enabled on SMB server.
+
+If you disable or do not configure this policy setting, the SMB server will not log the event.
+      </string>
+            <string id="Pol_AuditClientSpnSupport_Name">Audit SMB client SPN support</string>
+            <string id="RealtimeProtection_DisableSriptScanning">Turn on script scanning</string>
+            <string id="RealtimeProtection_DisableSriptScanning_Explain">This policy setting allows you to configure script scanning.
+
+    If you enable or do not configure this setting, script scanning will be enabled.
+
+    If you disable this setting, script scanning will be disabled.</string>
+            <string id="RealtimeProtection_OobeEnableRtpAndSigUpdate">Configure real-time protection and Security Intelligence Updates during OOBE</string>
+            <string id="RealtimeProtection_OobeEnableRtpAndSigUpdate_Explain">This policy setting allows you to configure whether real-time protection and Security Intelligence Updates are enabled during OOBE (Out of Box experience).
+ 
+    If you enable this setting, real-time protection and Security Intelligence Updates are enabled during OOBE.
+ 
+    If you either disable or do not configure this policy setting, real-time protection and Security Intelligence Updates during OOBE is not enabled.</string>
+            <string id="RedirectionGuardPolicy">Configure Redirection Guard</string>
+            <string id="RedirectionGuardPolicy_AuditOnly">Redirection Guard Audit Only</string>
+            <string id="RedirectionGuardPolicy_Disabled">Redirection Guard Disabled</string>
+            <string id="RedirectionGuardPolicy_Enabled">Redirection Guard Enabled</string>
+            <string id="RedirectionGuardPolicy_Help">
+Determines whether Redirection Guard is enabled for the print spooler.
+
+You can enable this setting to configure the Redirection Guard policy being applied to spooler.
+
+If you disable or do not configure this policy setting, Redirection Guard will default to being 'Enabled'.
+
+If you enable this setting you may select the following options:
+
+-- Enabled : Redirection Guard will prevent any file redirections from being followed
+
+-- Disabed : Redirection Guard will not be enabled and file redirections may be used within the spooler process
+
+-- Audit   : Redirection Guard will log events as though it were enabled but will not actually prevent file redirections from being used within the spooler.
+      </string>
+            <string id="Remediation_BNB_BFP_BruteForceProtectionExclusions">Set exclusions from Brute-Force Protection</string>
+            <string id="Remediation_BNB_BFP_BruteForceProtectionExclusions_Explain">
+    Specify IP addresses, subnets or workstation names to exclude from Brute-Force Protection. Excluded IP addresses will not be checked for possible brute force activity.
+    
+    Note that attackers can spoof excluded addresses and names to bypass protection. Ensure the names are unique and unlikely to be guessed by attackers.
+
+    Enter each address or subnet on a new line as a name-value pair:
+    - Name column: Enter an IP address, subnet name, or workstation name. For example, "1.1.127.0" will exclude this IP address from getting blocked by BFP.
+    - Value column: Enter "0" for each item
+    </string>
+            <string id="Remediation_BNB_BFP_BruteForceProtection_Aggressiveness">Configure Brute-Force Protection aggressiveness</string>
+            <string id="Remediation_BNB_BFP_BruteForceProtection_Aggressiveness_0">Low</string>
+            <string id="Remediation_BNB_BFP_BruteForceProtection_Aggressiveness_1">Medium</string>
+            <string id="Remediation_BNB_BFP_BruteForceProtection_Aggressiveness_2">High</string>
+            <string id="Remediation_BNB_BFP_BruteForceProtection_Aggressiveness_Explain">
+    Set the criteria for when Brute-Force Protection blocks IP addresses.
+
+    Supported settings:
+    *0 - Low: Block only when confidence level is 100% (Default)
+    *1 - Medium: Use cloud aggregation and block when confidence level is above 99%
+    *2 - High: Use cloud intel and context, and block when confidence level is above 90%
+    </string>
+            <string id="Remediation_BNB_BFP_BruteForceProtection_ConfiguredState_0">Default</string>
+            <string id="Remediation_BNB_BFP_BruteForceProtection_ConfiguredState_1">Block</string>
+            <string id="Remediation_BNB_BFP_BruteForceProtection_ConfiguredState_2">Audit</string>
+            <string id="Remediation_BNB_BFP_BruteForceProtection_ConfiguredState_3">Off</string>
+            <string id="Remediation_BNB_BFP_BruteForceProtection_ConfiguredState_Explain">
+    Set the mode for Brute-Force Protection in Microsoft Defender Antivirus, which can detect and block attempts to forcibly initiate sign in and initiate sessions.
+
+    Supported settings:
+    * 0 - Not configured or Default: Apply defaults, which can vary depending on the antivirus engine version and the platform
+    * 1 - Block: Prevent suspicious and malicious behaviors
+    * 2 - Audit: Generate EDR detections without blocking
+    * 4 - Off: Feature is off with no performance impact
+    </string>
+            <string id="Remediation_BNB_BFP_BruteForceProtection_MaxBlockTime">Configure Brute-Force Protection blocking time</string>
+            <string id="Remediation_BNB_BFP_BruteForceProtection_MaxBlockTime_Explain">
+    Set the maximum time an IP address is blocked by Brute-Force Protection. After this time, blocked IP addresses will be able to sign-in and initiate sessions.
+
+    Supported settings:
+    * 0 - None: Internal feature logic will determine the actual blocking time
+    * Specify other times in 15-minute increments
+    </string>
+            <string id="Remediation_BNB_REP_RemoteEncryptionProtectionExclusions"> Set exclusions from Remote Encryption Protection</string>
+            <string id="Remediation_BNB_REP_RemoteEncryptionProtectionExclusions_Explain">
+    Specify IP addresses, subnets, and domain names to exclude from Remote Encryption Protection. Note that attackers can spoof excluded addresses and names to bypass protection.
+
+    Enter each address or subnet on a new line as a name-value pair:
+    - Name column: Enter an IP address or subnet name. For example, ""1.1.127.0"" will exclude this IP address from getting blocked.
+    - Value column: Enter ""0"" for each item
+    </string>
+            <string id="Remediation_BNB_REP_RemoteEncryptionProtection_Aggressiveness">Configure how aggressively Remote Encryption Protection blocks threats</string>
+            <string id="Remediation_BNB_REP_RemoteEncryptionProtection_Aggressiveness_0">Low</string>
+            <string id="Remediation_BNB_REP_RemoteEncryptionProtection_Aggressiveness_1">Medium</string>
+            <string id="Remediation_BNB_REP_RemoteEncryptionProtection_Aggressiveness_2">High</string>
+            <string id="Remediation_BNB_REP_RemoteEncryptionProtection_Aggressiveness_Explain">
+    Set the criteria for when remote encryption preventionprotection blocks IP addresses.
+
+    Supported settings:
+    *0 - Low: Block only when confidence level is 100% (Default)
+    *1 - Medium: Use cloud aggregation and block when confidence level is above 99%
+    *2 - High: Use cloud intel and context, and block when confidence level is above 90%
+    </string>
+            <string id="Remediation_BNB_REP_RemoteEncryptionProtection_ConfiguredState">Configure Remote Encryption Protection Mode</string>
+            <string id="Remediation_BNB_REP_RemoteEncryptionProtection_ConfiguredState_0">Default</string>
+            <string id="Remediation_BNB_REP_RemoteEncryptionProtection_ConfiguredState_1">Block</string>
+            <string id="Remediation_BNB_REP_RemoteEncryptionProtection_ConfiguredState_2">Audit</string>
+            <string id="Remediation_BNB_REP_RemoteEncryptionProtection_ConfiguredState_3">Off</string>
+            <string id="Remediation_BNB_REP_RemoteEncryptionProtection_ConfiguredState_Explain">
+    Set the mode for Remote Encryption Protection in Microsoft Defender Antivirus, which can detect and block attempts to replace local files with encrypted versions from another device. 
+
+    Supported settings:
+    * 0 - Not configured or Default: Apply defaults, which can vary depending on the antivirus engine version and the platform
+    * 1 - Block: Prevent suspicious and malicious behaviors
+    * 2 - Audit: Generate EDR detections without blocking
+    * 4 - Off: Feature is off with no performance impact
+    </string>
+            <string id="Remediation_BNB_REP_RemoteEncryptionProtection_MaxBlockTime">Configure Remote Encryption Protection blocking time</string>
+            <string id="Remediation_BNB_REP_RemoteEncryptionProtection_MaxBlockTime_Explain">
+    Set the maximum time an IP address is blocked by Remote Encryption Protection. After this time, blocked IP addresses will be able to reinitiate connections. 
+
+    Supported settings:
+    * 0 - None: Internal feature logic will determine the actual blocking time
+    * Specify other times in 15-minute increments
+    </string>
+            <string id="Reporting_EnableDynamicSignatureDroppedEventReporting">Configure whether to report Dynamic Signature dropped events</string>
+            <string id="Reporting_EnableDynamicSignatureDroppedEventReporting_Explain">This policy setting configures whether to report Dynamic Signature dropped events.
+
+    If you do not configure this setting, the default value will be applied. The default value is set to disabled (such events are not reported).
+    If you configure this setting to enabled, Dynamic Signature dropped events will be reported.
+    If you configure this setting to disabled, Dynamic Signature dropped events will not be reported.</string>
+            <string id="RestrictDriverInstallationToAdministrators">Limits print driver installation to Administrators</string>
+            <string id="RestrictDriverInstallationToAdministrators_Help">
+Determines whether users that aren't Administrators can install print drivers on this computer.
+
+By default, users that aren't Administrators can't install print drivers on this computer.
+
+If you enable this setting or do not configure it, the system will limit installation of print drivers to Administrators of this computer.
+
+If you disable this setting, the system won't limit installation of print drivers to this computer.
+        </string>
+            <string id="RpcAuthenticationProtocol_Kerberos">Kerberos</string>
+            <string id="RpcAuthenticationProtocol_Negotiate">Negotiate</string>
+            <string id="RpcConnectionAuthenticationDefault">Default</string>
+            <string id="RpcConnectionAuthenticationDisabled">Authentication disabled</string>
+            <string id="RpcConnectionAuthenticationEnabled">Authentication enabled</string>
+            <string id="RpcConnectionPolicy">Configure RPC connection settings</string>
+            <string id="RpcConnectionPolicy_Help">
+This policy setting controls which protocol and protocol settings to use for outgoing RPC connections to a remote print spooler.
+
+By default, RPC over TCP is used and authentication is always enabled. For RPC over named pipes, authentication is always enabled for domain joined machines but disabled for non domain joined machines.
+
+Protocol to use for outgoing RPC connections:
+    -- "RPC over TCP": Use RPC over TCP for outgoing RPC connections to a remote print spooler
+    -- "RPC over named pipes": Use RPC over named pipes for outgoing RPC connections to a remote print spooler
+
+Use authentication for outgoing RPC over named pipes connections:
+    -- "Default": By default domain joined computers enable RPC authentication for RPC over named pipes while non domain joined computers disable RPC authentication for RPC over named pipes
+    -- "Authentication enabled": RPC authentication will be used for outgoing RPC over named pipes connections
+    -- "Authentication disabled": RPC authentication will not be used for outgoing RPC over named pipes connections
+
+If you disable or do not configure this policy setting, the above defaults will be used.
+      </string>
+            <string id="RpcListenerPolicy">Configure RPC listener settings</string>
+            <string id="RpcListenerPolicy_Help">
+This policy setting controls which protocols incoming RPC connections to the print spooler are allowed to use.
+
+By default, RPC over TCP is enabled and Negotiate is used for the authentication protocol.
+
+Protocols to allow for incoming RPC connections:
+    -- "RPC over named pipes": Incoming RPC connections are only allowed over named pipes
+    -- "RPC over TCP": Incoming RPC connections are only allowed over TCP (the default option)
+    -- "RPC over named pipes and TCP": Incoming RPC connections will be allowed over TCP and named pipes
+
+Authentication protocol to use for incoming RPC connections:
+    -- "Negotiate": Use the Negotiate authentication protocol (the default option)
+    -- "Kerberos": Use the Kerberos authentication protocol
+
+If you disable or do not configure this policy setting, the above defaults will be used.
+      </string>
+            <string id="RpcOverNamedPipes">RPC over named pipes</string>
+            <string id="RpcOverNamedPipesAndTcp">RPC over named pipes and TCP</string>
+            <string id="RpcOverTcp">RPC over TCP</string>
+            <string id="SamrChangeUserPasswordApiPolicy">Configure SAM change password RPC methods policy</string>
+            <string id="SamrChangeUserPasswordApiPolicyAllowAll">Allow all change password RPC methods</string>
+            <string id="SamrChangeUserPasswordApiPolicyAllowSecure">Allow strong encryption change password RPC method only</string>
+            <string id="SamrChangeUserPasswordApiPolicyBlockAll">Block all change password RPC methods</string>
+            <string id="SamrChangeUserPasswordApiPolicyExplain">This policy enables an administrator to configure the remote usage of change user password RPC methods in security account manager(SAM).
+
+When the policy is enabled, following options are supported:
+
+Block all change password RPC methods: block remote usage of all the security account manager(SAM) change password RPC methods.
+
+Allow strong encryption change password RPC method: allow remote use of the change password RPC method which uses strong encryption and blocks remote use of weak encryption methods.
+
+Allow all change password RPC methods: allows remote usage of all the change password RPC methods irrespetive of the encryption.
+
+Default policy: 1. Domain member computers - block all change password RPC methods.
+                2. Domain controllers - allow strong encryption change password RPC method.
+
+Note: If the policy is disabled or not configured, the machine will use the default policy.
+</string>
+            <string id="Scan_DisablePackedExeScanning">Scan packed executables</string>
+            <string id="Scan_DisablePackedExeScanning_Explain">This policy setting allows you to configure scanning for packed executables. It is recommended that this type of scanning remain enabled.
+
+    If you enable or do not configure this setting, packed executables will  be scanned.
+
+    If you disable this setting, packed executables will not be scanned.</string>
+            <string id="Scan_DisableScanningNetworkFiles">Configure scanning of network files</string>
+            <string id="Scan_DisableScanningNetworkFiles_Explain">This policy setting allows the scanning of network files using on access protection. The default is enabled. Recommended to remain enabled in most cases.
+
+    If you enable or do not configure this setting, network files will be scanned.
+
+    If you disable this setting, network files will not be scanned.</string>
+            <string id="Scan_QuickScanIncludeExclusions">Scan excluded files and directories during quick scans</string>
+            <string id="Scan_QuickScanIncludeExclusions_Disabled">0</string>
+            <string id="Scan_QuickScanIncludeExclusions_Explain">
+        This policy setting allows you to scan excluded files and directories during quick scans.
+
+        If you set this policy setting to 1, all files and directories that are excluded from real-time protection using contextual exclusions are scanned during a quick scan.
+
+        If you set this policy to 0 or do not configure it, exclusions are not scanned during quick scans.
+    </string>
+            <string id="Scan_QuickScanIncludeExclusions_RtpExclusions">1</string>
+            <string id="StrongNameMatches">Allow name-based strong mappings for certificates</string>
+            <string id="StrongNameMatches_explain">This policy setting enables the use of alternative, name-based identifiers to strongly map certificates issued to Active Directory user accounts and specifies which certificates map to which accounts. Without this setting enabled, certificates must meet the “strong mapping” criteria specified in aka.ms/StrongCertMapKB, which generally disallow name-based identifiers.
+
+Each mapping specified in this policy must include a policy OID alongside an IssuerSubject and/or a UPN Suffix using the syntax specified below. If a valid mapping for a given certificate cannot be found in this policy, Active Directory will attempt to find a match using the existing strong mapping criteria specified in KB5014754. Certificate mappings which do not conform to either “strong name mapping” criteria (this policy) or the existing “strong mapping” criteria will be considered invalid for authentication.
+
+The general policy format and some examples are listed below. This policy only applies to Active Directory user accounts.
+
+General syntax
+==============
+&lt;thumbprint&gt;; &lt;list of oids&gt;; &lt;name-match methods&gt;
+
+Examples
+==============
+IssuerThumbprint1; oid1, oid2, oid3; UpnSuffix=domain.com
+IssuerThumbprint2; oid1; UpnSuffix=domain.com, UpnSuffix=other.domain.com, IssuerSubject
+IssuerThumbprint3; oid1, oid2; IssuerSubject
+
+The policy must contain exactly one certificate thumbprint per rule, with each rule represented as a tuple. Thumbprints must be unique and cannot be repeated in multiple rules. The sections of each tuple that are separated by semi-colons must be in the stated order, while the fields separated by commas can be in any order. The rules themselves are separated by newlines.
+      </string>
+            <string id="TS_CLIENT_TRUSTED_CERTIFICATE_THUMBPRINTS">Specify thumbprints of certificates representing trusted .rdp publishers</string>
+            <string id="TS_CLIENT_TRUSTED_CERTIFICATE_THUMBPRINTS_MACHINE_EXPLAIN">This policy setting allows you to specify a list of certificate thumbprints that represent trusted Remote Desktop Protocol (.rdp) file publishers. SHA-256, SHA-384, and SHA-512 thumbprints are supported. SHA-1 thumbprints are deprecated: SHA-1 is no longer considered secure and support for SHA-1 thumbprints will be disabled by default in an upcoming security update. Administrators should migrate all thumbprint entries to SHA-256 or stronger as soon as possible.
+
+Thumbprints may be prefixed with the hash algorithm used to produce them. Supported prefixes are "sha256:", "sha384:", and "sha512:" (case-insensitive). For example: sha256:AB0356F2... If no prefix is specified, the entry is treated as a legacy SHA-1 thumbprint.
+
+If the "Do not allow SHA-1 thumbprints" checkbox is enabled, unprefixed entries are ignored. Only SHA-256, SHA-384, and SHA-512 thumbprints will be matched. It is strongly recommended to enable this checkbox now to prepare for the upcoming default change.
+
+If you enable this policy setting, any certificate with a thumbprint that matches a thumbprint on the list is trusted. If a user tries to start an .rdp file that is signed by a trusted certificate, the user does not receive any warning messages when they start the file.
+
+If you disable or do not configure this policy setting, no publisher is treated as a trusted .rdp publisher.
+
+Notes:
+
+You can define this policy setting in the Computer Configuration node or in the User Configuration node. If you configure this policy setting for the computer, the list of certificate thumbprints trusted for a user is a combination of the list defined for the computer and the list defined for the user.
+
+This policy setting overrides the behavior of the "Allow .rdp files from valid publishers and user's default .rdp settings" policy setting.
+
+If the list contains a string that is not a certificate thumbprint, it is ignored.
+
+See https://go.microsoft.com/fwlink/?LinkId=2368223 for more information.
+</string>
+        </stringTable>
+        <presentationTable>
+            <presentation id="ClfsAuthenticationCheckingOptions" />
+            <presentation id="ConfigCIPolicy">
+                <textBox refId="ConfigCIPolicyFilePathText">
+                    <label>Code Integrity Policy file path:</label>
+                </textBox>
+            </presentation>
+            <presentation id="DNS_Doh">
+                <dropdownList refId="DNS_Doh_Box" defaultItem="0">Configure encryption options:</dropdownList>
+                <dropdownList refId="DNS_Doh_Setting_Box" defaultItem="0">Configure DoH specific options:</dropdownList>
+                <dropdownList refId="DNS_Dot_Setting_Box" defaultItem="0">Configure DoT specific options:</dropdownList>
+            </presentation>
+            <presentation id="DriverValidationLevel">
+                <dropdownList defaultItem="4" noSort="true" refId="DriverValidationLevel_Enum">Select the driver signature mechanism for this computer:</dropdownList>
+            </presentation>
+            <presentation id="ExploitGuard_ASR_ASROnlyPerRuleExclusions">
+                <listBox refId="ExploitGuard_ASR_ASROnlyPerRuleExclusions">Exclusions for each ASR rules:</listBox>
+            </presentation>
+            <presentation id="LAPS_AutomaticAccountManagementPolicy">
+                <dropdownList refId="LAPS_AutomaticAccountManagementTarget" defaultItem="0">Specify the target account to manage:</dropdownList>
+                <textBox refId="LAPS_AutomaticAccountManagementNameOrPrefix">
+                    <label>Automatic account name (or name prefix):</label>
+                </textBox>
+                <checkBox refId="LAPS_AutomaticAccountManagementEnableAccount">Enable the managed account</checkBox>
+                <checkBox refId="LAPS_AutomaticAccountManagementRandomizeName">Randomize the name of the managed account</checkBox>
+            </presentation>
+            <presentation id="RedirectionGuardPolicy">
+                <text>Configure options for Redirection Guard</text>
+                <dropdownList defaultItem="1" noSort="true" refId="RedirectionGuardPolicy_Enum">Redirection Guard Options</dropdownList>
+            </presentation>
+            <presentation id="Remediation_BNB_BFP_BruteForceProtectionExclusions">
+                <listBox refId="Remediation_BNB_BFP_BruteForceProtectionExclusions">Brute-Force Protection Exclusions</listBox>
+            </presentation>
+            <presentation id="Remediation_BNB_BFP_BruteForceProtection_Aggressiveness">
+                <dropdownList refId="Remediation_BNB_BFP_BruteForceProtection_Aggressiveness" noSort="true" defaultItem="0">Specify how aggressively Brute-Force Protection blocks threats</dropdownList>
+            </presentation>
+            <presentation id="Remediation_BNB_BFP_BruteForceProtection_ConfiguredState">
+                <dropdownList refId="Remediation_BNB_BFP_BruteForceProtection_ConfiguredState" noSort="true" defaultItem="0">Specify the state of Brute-Force Protection</dropdownList>
+            </presentation>
+            <presentation id="Remediation_BNB_BFP_BruteForceProtection_MaxBlockTime">
+                <decimalTextBox refId="Remediation_BNB_BFP_BruteForceProtection_MaxBlockTime" defaultValue="15">Specify how long to block detections for, in minutes</decimalTextBox>
+            </presentation>
+            <presentation id="Remediation_BNB_REP_RemoteEncryptionProtectionExclusions">
+                <listBox refId="Remediation_BNB_REP_RemoteEncryptionProtectionExclusions">Remote Encryption Protection Exclusions</listBox>
+            </presentation>
+            <presentation id="Remediation_BNB_REP_RemoteEncryptionProtection_Aggressiveness">
+                <dropdownList refId="Remediation_BNB_REP_RemoteEncryptionProtection_Aggressiveness" noSort="true" defaultItem="0">Specify how aggressively Remote Encryption Protection blocks threats</dropdownList>
+            </presentation>
+            <presentation id="Remediation_BNB_REP_RemoteEncryptionProtection_ConfiguredState">
+                <dropdownList refId="Remediation_BNB_REP_RemoteEncryptionProtection_ConfiguredState" noSort="true" defaultItem="0">Specify the state of Remote Encryption Protection</dropdownList>
+            </presentation>
+            <presentation id="Remediation_BNB_REP_RemoteEncryptionProtection_MaxBlockTime">
+                <decimalTextBox refId="Remediation_BNB_REP_RemoteEncryptionProtection_MaxBlockTime" defaultValue="15">Specify how long to block detections for, in minutes</decimalTextBox>
+            </presentation>
+            <presentation id="RpcConnectionPolicy">
+                <text>Configure protocol options for outgoing RPC connections.</text>
+                <dropdownList defaultItem="0" noSort="true" refId="RpcConnectionProtocol_Enum">Protocol to use for outgoing RPC connections:</dropdownList>
+                <dropdownList defaultItem="0" noSort="true" refId="RpcConnectionAuthentication_Enum">Use authentication for outgoing RPC connections:</dropdownList>
+            </presentation>
+            <presentation id="RpcListenerPolicy">
+                <text>Configure protocol options for incoming RPC connections.</text>
+                <dropdownList defaultItem="1" noSort="true" refId="RpcListenerProtocols_Enum">Protocols to allow for incoming RPC connections:</dropdownList>
+                <dropdownList defaultItem="0" noSort="true" refId="RpcAuthenticationProtocol_Enum">Authentication protocol to use for incoming RPC connections:</dropdownList>
+            </presentation>
+            <presentation id="SamrChangeUserPasswordApiPolicy">
+                <dropdownList refId="SamrChangeUserPasswordApiPolicySettings" noSort="true" defaultItem="1">Options for Sam password change RPC method policy:</dropdownList>
+            </presentation>
+            <presentation id="Scan_QuickScanIncludeExclusions">
+                <dropdownList refId="Scan_QuickScanIncludeExclusions" noSort="true" defaultItem="0" />
+            </presentation>
+            <presentation id="StrongNameMatches">
+                <multiTextBox refId="StrongNameMatchesList">Strong Name Match Rules:</multiTextBox>
+            </presentation>
+            <presentation id="TS_TRUSTED_CERTIFICATE_THUMBPRINTS_1">
+                <textBox refId="TRUSTED_CERTIFICATE_THUMBPRINTS">
+                    <label>Comma-separated list of trusted certificate thumbprints (prefix with sha256:, sha384:, or sha512:):</label>
+                </textBox>
+                <checkBox refId="DISABLE_SHA1_THUMBPRINTS">Do not allow SHA-1 thumbprints</checkBox>
+            </presentation>
+        </presentationTable>
+    </resources>
+</policyDefinitionResources>

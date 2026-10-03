@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v1.3.0] - 2026-10-03
+
+### Added
+
+- New `AdditionalBackportedHardening.admx` policy definition file (and associated ADML files in `en-US` and `fr-FR`) providing 55 security and hardening policies introduced in Windows 11 that are compatible with Windows 10:
+  - **System, Driver & File Integrity Settings**: CLFS logfile authentication (`ClfsAuthenticationChecking`), WinRE BitLocker recovery trust (`DisableWinRETrust`), Windows Defender offline scan without BitLocker prompt (`AllowTrustedOfflineScan`), Multiple Provider Router hardening (`EnableMPR`), Print Spooler Redirection Guard (`RedirectionGuardPolicy`), custom SSP/AP prevention in LSASS (`AllowCustomSSPsAPs`), ConfigCI policy deployment (`DeployConfigCIPolicy`), Windows LAPS automatic account management (`AutomaticAccountManagement`), layered device installation restrictions (`AllowDenyLayered`), and package manager security controls.
+  - **Defender Behavioral, Anti-Ransomware & ASR Protection**: Remote Encryption Protection suite (ConfiguredState, MaxBlockTime, Aggressiveness, Exclusions), Brute-Force Protection suite (ConfiguredState, MaxBlockTime, Aggressiveness, Exclusions), hiding exclusions from local admins and users, converting SmartScreen/Defender warnings to blocks, ASR per-rule exclusions, Intel Threat Detection Technology (TDT), and passive remediation.
+  - **Network, RPC, DNS & Authentication Settings**: Print Spooler RPC listener and connection policy (`RpcProtocols` & `ForceKerberosForRpc`), driver validation level (`ValidationLevel`), NetBIOS discovery blocking (`BlockNetbiosDiscovery`), SAMR password change policy (`SamrChangeUserPasswordApiPolicy`), DNS-over-HTTPS (`DoHPolicy`), Multicast DNS (`EnableMDNS`), IPv6 default DNS disabling, RDP SHA-256 trusted certificate thumbprints (`TrustedCertThumbprints`), and SMB client signing/SPN auditing.
+  - **Legacy Browser & Script Containment**: Disabling IE launch via COM, JScript replacement with JScript9, and legacy URL shortcut field restrictions.
+- Registered dedicated `Cat_Backported` category in `AdditionalHardening.admx` and associated language files (`en-US` and `fr-FR`).
+- Excluded untracked `inputs` directory in `install.ps1`.
+- Added `AdditionalBackportedHardening.admx` to GitHub Actions linting workflow matrix.
+
 ## [v1.2.8] - 2026-09-27
 
 ### Added

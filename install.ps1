@@ -1,4 +1,4 @@
-﻿#Requires -RunAsAdministrator
+#Requires -RunAsAdministrator
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop' # Stop on non-terminating errors to ensure they are caught by try/catch
 
@@ -29,7 +29,8 @@ try {
         '.vscode', # VS Code workspace settings
         '.github', # GitHub workflow files and configuration
         'LICENSE',
-        '.pre-commit-config.yaml'
+        '.pre-commit-config.yaml',
+        'inputs' # Reference files and raw templates
     )
 
     Write-Output "Copying ADMX and ADML files from '$SourceDirectory' to '$DestinationDirectory'..."

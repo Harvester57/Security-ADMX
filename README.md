@@ -13,6 +13,7 @@ Custom ADMX template focused on hardening Windows 10 and Windows 11 systems.
 - [Network policies](#network-policies)
 - [User policies](#user-policies)
 - [Debugging policies](#debugging-policies)
+- [Backported policies (Windows 11 to Windows 10)](#backported-policies-windows-11-to-windows-10)
 - [Installation procedure](#installation-procedure)
 
 ## Installation procedure
@@ -1526,6 +1527,93 @@ Disable this policy to restore LM and NTLMv1 capabilities, in addition to NTLMv2
 
     - If this policy is disabled, Windows will not display detailed stop error information on the blue screen (default).
     - If this policy is enabled, Windows will display detailed information, similar to older versions of Windows, which can be useful for troubleshooting the cause of the BSOD.
+
+</details>
+
+### Backported policies (Windows 11 to Windows 10)
+
+The `AdditionalBackportedHardening.admx` template consolidates 55 security and hardening policies that were introduced or updated in Windows 11 (including 22H2, 23H2, and 24H2) but have been backported and verified compatible with downlevel Windows 10 builds (1809 through 22H2).
+
+These policies are organized into four dedicated subcategories under **Additional backported hardening settings**:
+
+1. **System, Driver & File Integrity Settings (`Backported_System`)**
+   - CLFS logfile authentication (`ClfsAuthenticationChecking`)
+   - Require BitLocker recovery key for WinRE access (`DisableWinRETrust`)
+   - Allow Windows Defender offline scan without BitLocker prompt (`AllowTrustedOfflineScan`)
+   - Multiple Provider Router (MPR) network path hardening (`EnableMPR`)
+   - Print Spooler Redirection Guard protection (`RedirectionGuardPolicy`)
+   - Block custom SSPs and APs from loading into LSASS (`AllowCustomSSPsAPs`)
+   - Deploy ConfigCI / App Control application control policies (`DeployConfigCIPolicy`)
+   - Windows LAPS automatic account management (`AutomaticAccountManagement`)
+   - Layered evaluation order for device installation allow/deny policies (`AllowDenyLayered`)
+   - File Group Descriptor copy restrictions & Mark of the Web preservation (`AllowAllCopyFGDDestinations`, `DisableMotWOnInsecurePathCopy`)
+   - Block per-user installation of unsigned MSIX packages (`DisablePerUserUnsignedPackagesByDefault`)
+   - Desktop App Installer certificate pinning & local archive override controls
+
+2. **Defender Behavioral, Anti-Ransomware & ASR Protection (`Backported_Defender`)**
+   - Behavioral Network Blocks - Remote Encryption Protection suite (State, MaxBlockTime, Aggressiveness, Exclusions)
+   - Behavioral Network Blocks - Brute-Force Protection suite (State, MaxBlockTime, Aggressiveness, Exclusions)
+   - Hide exclusions from local administrators and local standard users (`HideExclusionsFromLocalAdmins`, `HideExclusionsFromLocalUsers`)
+   - Convert SmartScreen / Defender warnings into hard blocks (`EnableConvertWarnToBlock`)
+   - Attack Surface Reduction per-rule exclusions (`ExploitGuard_ASR_ASROnlyPerRuleExclusions`)
+   - Intel Threat Detection Technology hardware telemetry (`TDTFeatureEnabled`)
+   - Passive remediation mode, dynamic signature dropped event reporting, and scan enhancements
+
+3. **Network, RPC, DNS & Authentication Settings (`Backported_Network`)**
+   - Print Spooler RPC listener and connection policies (`RpcProtocols`, `ForceKerberosForRpc`)
+   - Print Spooler driver validation level enforcement (`ValidationLevel`)
+   - Block NetBIOS discovery for domain controllers (`BlockNetbiosDiscovery`)
+   - SAMR ChangeUserPassword API hardening policy (`SamrChangeUserPasswordApiPolicy`)
+   - DNS-over-HTTPS resolution mode policy (`DoHPolicy`)
+   - Multicast DNS (mDNS) resolution control (`EnableMDNS`)
+   - Disable IPv6 default DNS servers (`DisableIPv6DefaultDnsServers`)
+   - Restrict Network Bridge on domain-authenticated networks (`NC_AllowNetBridge_NLA`)
+   - Specify SHA-256 trusted certificate thumbprints for RDP (`TrustedCertThumbprints`, `DisableSHA1CertThumbprints`)
+   - Audit SMB clients that do not support signing or SPN validation (`AuditClientDoesNotSupportSigning`, `AuditClientSpnSupport`)
+   - Strong name certificate mappings for Kerberos KDC (`StrongNameMatches`)
+
+4. **Legacy Browser & Script Containment (`Backported_Legacy`)**
+   - Disable launching Internet Explorer via COM automation (`DisableInternetExplorerLaunchViaCOM`)
+   - Replace legacy JScript engine execution with JScript9 (`JScriptReplacement`)
+   - Restrict legacy URL fields in internet shortcuts (`AllowLegacyURLFields`)
+
+<details>
+<summary><strong>Allow Windows Defender offline scan without prompting for BitLocker recovery key</strong></summary>
+
+- **Registry path(s):** SOFTWARE\Policies\Microsoft\Windows\WinRE
+- **Registry key(s):** AllowTrustedOfflineScan
+- **Values:** 0/1
+- **Description:** This policy setting allows the Windows Defender offline scan feature to run from the Windows Recovery Environment (WinRE) on BitLocker-encrypted drives without requiring the user to enter their BitLocker recovery password each time.
+
+</details>
+
+<details>
+<summary><strong>Configure Remote Encryption Protection</strong></summary>
+
+- **Registry path(s):** Software\Policies\Microsoft\Windows Defender\Remediation\Behavioral Network Blocks\Remote Encryption Protection
+- **Registry key(s):** RemoteEncryptionProtectionConfiguredState, RemoteEncryptionProtectionMaxBlockTime, RemoteEncryptionProtectionAggressiveness
+- **Values:** Disabled / Audit / Block
+- **Description:** Configures Microsoft Defender Behavioral Network Blocks to detect and remediate remote ransomware encryption attacks across the network in real-time.
+
+</details>
+
+<details>
+<summary><strong>Configure Brute Force Protection</strong></summary>
+
+- **Registry path(s):** Software\Policies\Microsoft\Windows Defender\Remediation\Behavioral Network Blocks\Brute Force Protection
+- **Registry key(s):** BruteForceProtectionConfiguredState, BruteForceProtectionMaxBlockTime, BruteForceProtectionAggressiveness
+- **Values:** Disabled / Audit / Block
+- **Description:** Configures Microsoft Defender Behavioral Network Blocks to detect and remediate network-based brute-force authentication attacks against local services.
+
+</details>
+
+<details>
+<summary><strong>Configure RPC listener settings for Print Spooler</strong></summary>
+
+- **Registry path(s):** Software\Policies\Microsoft\Windows NT\Printers\RPC
+- **Registry key(s):** RpcProtocols, ForceKerberosForRpc
+- **Values:** Protocols (Named Pipes / TCP / Both), Authentication (Negotiate / Kerberos)
+- **Description:** Configures protocol and authentication constraints for incoming RPC connections to the Print Spooler, mitigating print-based relay and impersonation attacks.
 
 </details>
 

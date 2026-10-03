@@ -16,6 +16,7 @@ jobs:
             matrix:
                 files: [
                       "AdditionalHardening.admx", 
+                      "AdditionalBackportedHardening.admx",
                       "AdditionalDebugPolicies.admx", 
                       "AdditionalDefenderPolicies.admx", 
                       "AdditionalHardeningFromMicrosoft.admx", 
