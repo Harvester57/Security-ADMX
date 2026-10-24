@@ -1,4 +1,5 @@
-<policyDefinitionResources revision="1.0" schemaVersion="1.0">
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
   <displayName>MSS (Hérité)</displayName>
   <description>Les paramètres "MSS" hérités qui étaient exposés dans Secpol, Options de sécurité, en utilisant LocalGPO.wsf /ConfigSCE.</description>
   <resources>
