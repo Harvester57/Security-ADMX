@@ -156,6 +156,48 @@
         </enum>
       </elements>
     </policy>
+    <policy name="ConfigureIPv6" class="Machine"
+      displayName="$(string.ConfigureIPv6)"
+      explainText="$(string.ConfigureIPv6_Explain)"
+      presentation="$(presentation.ConfigureIPv6)"
+      key="SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters">
+      <parentCategory ref="Network" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <elements>
+        <enum id="ConfigureIPv6_DropdownList" valueName="DisabledComponents" required="true">
+          <item displayName="$(string.ConfigureIPv6_PreferIPv4)">
+            <value>
+              <decimal value="32" />
+            </value>
+          </item>
+          <item displayName="$(string.ConfigureIPv6_DisableTunnels)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.ConfigureIPv6_DisableNonTunnels)">
+            <value>
+              <decimal value="16" />
+            </value>
+          </item>
+          <item displayName="$(string.ConfigureIPv6_DisableAllExceptLoopback)">
+            <value>
+              <decimal value="17" />
+            </value>
+          </item>
+          <item displayName="$(string.ConfigureIPv6_DisableAll)">
+            <value>
+              <decimal value="255" />
+            </value>
+          </item>
+          <item displayName="$(string.ConfigureIPv6_EnableAll)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
     <policy name="Kerberos_Logging" class="Machine" displayName="$(string.KerberosLogging)"
       explainText="$(string.KerberosLogging_Explain)"
       key="SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters" valueName="LogLevel">

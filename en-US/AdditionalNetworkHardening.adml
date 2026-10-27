@@ -73,6 +73,28 @@ Note: For the public preview of this feature, configuration is exposed through r
                   <string id="DisableIPSourceRouting2">Highest protection; source routing is completely disabled.</string>
                   <string id="DisableIPSourceRoutingIPv6">Configure the IP source routing protection level for IPv6</string>
                   <string id="DisableIPSourceRoutingIPv6_Help">Configures the protection level for source-routed packets.</string>
+                  <string id="ConfigureIPv6">Configure IPv6 status and components</string>
+                  <string id="ConfigureIPv6_Explain">This policy setting configures IPv6 functionality via the DisabledComponents registry value under HKLM\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters.
+
+Available options:
+- Prefer IPv4 over IPv6 in prefix policies (0x20 / 32): Modifies the prefix policy table to favor IPv4 over IPv6. Recommended by Microsoft instead of disabling IPv6.
+- Disable IPv6 on all tunnel interfaces (0x01 / 1): Disables IPv6 on all tunnel interfaces (such as 6to4, ISATAP, and Teredo).
+- Disable IPv6 on all nontunnel interfaces (0x10 / 16): Disables IPv6 on all native (LAN, PPP) interfaces.
+- Disable IPv6 on all nontunnel and tunnel interfaces except loopback (0x11 / 17): Disables IPv6 on all nontunnel interfaces (except the loopback) and on IPv6 tunnel interfaces.
+- Disable IPv6 on all interfaces (0xFF / 255): Disables IPv6 on all interfaces except the IPv6 loopback interface.
+- Re-enable all IPv6 components (0x00 / 0): Enables all IPv6 components and prefers IPv6 over IPv4 (Windows default).
+
+IMPORTANT: Internet Protocol version 6 (IPv6) is a mandatory part of Windows Vista, Windows Server 2008, and newer versions. Microsoft does not recommend disabling IPv6 or its components, as some Windows components might not function properly. Additionally, values other than 0 or 32 cause the Routing and Remote Access service to fail.
+
+Note: You must restart the computer for changes to this setting to take effect.
+
+Reference: https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/configure-ipv6-in-windows</string>
+                  <string id="ConfigureIPv6_PreferIPv4">Prefer IPv4 over IPv6 in prefix policies (recommended)</string>
+                  <string id="ConfigureIPv6_DisableTunnels">Disable IPv6 on all tunnel interfaces</string>
+                  <string id="ConfigureIPv6_DisableNonTunnels">Disable IPv6 on all nontunnel interfaces</string>
+                  <string id="ConfigureIPv6_DisableAllExceptLoopback">Disable IPv6 on all nontunnel (except loopback) and tunnel interfaces</string>
+                  <string id="ConfigureIPv6_DisableAll">Disable IPv6 on all interfaces</string>
+                  <string id="ConfigureIPv6_EnableAll">Re-enable all IPv6 components (Windows default)</string>
                   <string id="TLS_Ciphersuites">TLS cipher suites configuration</string>
                   <string id="TLS_Ciphersuites_Help">This policy allows you to select from several TLS cipher suite configuration profiles.
 
@@ -598,6 +620,9 @@ The only restriction is that the assembly must be fully trusted because its zone
                   </presentation>
                   <presentation id="DisableIPSourceRoutingIPv6">
                         <dropdownList refId="DisableIPSourceRoutingIPv6" noSort="true" defaultItem="1">Routing level:</dropdownList>
+                  </presentation>
+                  <presentation id="ConfigureIPv6">
+                        <dropdownList refId="ConfigureIPv6_DropdownList" noSort="true" defaultItem="0">Select IPv6 configuration:</dropdownList>
                   </presentation>
                   <presentation id="DHServer">
                         <dropdownList refId="DHServer_MinLength" noSort="true" defaultItem="0">Server side DH modulus minimum length:</dropdownList>

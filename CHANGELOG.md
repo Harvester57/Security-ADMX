@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [v1.2.9] - 2026-10-27
+
+### Added
+
+- Policy `ConfigureIPv6` to `AdditionalNetworkHardening.admx` (and associated ADML files in `en-US` and `fr-FR`) to control IPv6 status and components via the `DisabledComponents` registry value under `SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters` (<https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/configure-ipv6-in-windows>).
+
 ## [v1.2.8] - 2026-09-27
 
 ### Added

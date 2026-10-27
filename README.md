@@ -658,6 +658,26 @@ Disable this policy to restore LM and NTLMv1 capabilities, in addition to NTLMv2
 
 </details>
 <details>
+<summary><strong>Configure IPv6 status and components</strong></summary>
+
+
+- **Registry path(s):** SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters
+- **Registry key(s):** DisabledComponents
+- **Values:** 32/1/16/17/255/0
+- **Description:** Configures IPv6 functionality via the DisabledComponents registry value.
+
+    Available options:
+  - Prefer IPv4 over IPv6 in prefix policies (`0x20` / `32`, recommended by Microsoft instead of disabling IPv6)
+  - Disable IPv6 on all tunnel interfaces (`0x01` / `1`)
+  - Disable IPv6 on all nontunnel interfaces (`0x10` / `16`)
+  - Disable IPv6 on all nontunnel (except loopback) and tunnel interfaces (`0x11` / `17`)
+  - Disable IPv6 on all interfaces (`0xFF` / `255`)
+  - Re-enable all IPv6 components (`0x00` / `0`, Windows default)
+
+    Additional information: <https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/configure-ipv6-in-windows>
+
+</details>
+<details>
 <summary><strong>Enable Kerberos events logging</strong></summary>
 
 

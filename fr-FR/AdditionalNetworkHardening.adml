@@ -75,6 +75,28 @@ Remarque : pour la version préliminaire publique (public preview) de cette fonc
                   <string id="DisableIPSourceRouting2">Désactiver le routage par la source.</string>
                   <string id="DisableIPSourceRoutingIPv6">Configurer le routage par la source sur IPv6</string>
                   <string id="DisableIPSourceRoutingIPv6_Help">Permet de configurer le niveau de routage par la source sur IPv6.</string>
+                  <string id="ConfigureIPv6">Configurer le statut et les composants IPv6</string>
+                  <string id="ConfigureIPv6_Explain">Ce paramètre de stratégie configure le fonctionnement d'IPv6 via la valeur de Registre DisabledComponents sous HKLM\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters.
+
+Options disponibles :
+- Préférer IPv4 à IPv6 dans les stratégies de préfixe (0x20 / 32) : Modifie la table de stratégie de préfixe pour privilégier IPv4 par rapport à IPv6. Recommandé par Microsoft au lieu de désactiver IPv6.
+- Désactiver IPv6 sur toutes les interfaces de tunnel (0x01 / 1) : Désactive IPv6 sur toutes les interfaces de tunnel (telles que 6to4, ISATAP et Teredo).
+- Désactiver IPv6 sur toutes les interfaces hors tunnel (0x10 / 16) : Désactive IPv6 sur toutes les interfaces natives (LAN, PPP).
+- Désactiver IPv6 sur toutes les interfaces hors tunnel (sauf bouclage) et de tunnel (0x11 / 17) : Désactive IPv6 sur toutes les interfaces hors tunnel (à l'exception de l'interface de bouclage) ainsi que sur les interfaces de tunnel IPv6.
+- Désactiver IPv6 sur toutes les interfaces (0xFF / 255) : Désactive IPv6 sur toutes les interfaces à l'exception de l'interface de bouclage IPv6.
+- Réactiver tous les composants IPv6 (0x00 / 0) : Active tous les composants IPv6 et privilégie IPv6 par rapport à IPv4 (comportement par défaut de Windows).
+
+IMPORTANT : Le protocole Internet version 6 (IPv6) fait partie intégrante de Windows Vista, Windows Server 2008 et des versions ultérieures. Microsoft déconseille de désactiver IPv6 ou ses composants, car certains composants Windows pourraient ne plus fonctionner correctement. De plus, toute valeur autre que 0 ou 32 entraîne l'échec du service Routage et accès distant (RRAS).
+
+Remarque : Vous devez redémarrer l'ordinateur pour que les modifications apportées à ce paramètre prennent effet.
+
+Référence : https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/configure-ipv6-in-windows</string>
+                  <string id="ConfigureIPv6_PreferIPv4">Préférer IPv4 à IPv6 dans les stratégies de préfixe (recommandé)</string>
+                  <string id="ConfigureIPv6_DisableTunnels">Désactiver IPv6 sur toutes les interfaces de tunnel</string>
+                  <string id="ConfigureIPv6_DisableNonTunnels">Désactiver IPv6 sur toutes les interfaces hors tunnel</string>
+                  <string id="ConfigureIPv6_DisableAllExceptLoopback">Désactiver IPv6 sur toutes les interfaces hors tunnel (sauf bouclage) et de tunnel</string>
+                  <string id="ConfigureIPv6_DisableAll">Désactiver IPv6 sur toutes les interfaces</string>
+                  <string id="ConfigureIPv6_EnableAll">Réactiver tous les composants IPv6 (par défaut)</string>
                   <string id="TLS_Ciphersuites">Configurer les suites de chiffrement TLS autorisées</string>
                   <string id="TLS_Ciphersuites_Help">Cette politique vous permet de sélectionner un profil prédéfini de suites de chiffrement utilisées par Schannel pour établir une connexion TLS.
 
@@ -602,6 +624,9 @@ La seule restriction est que l'assembly doit être entièrement fiable, car sa z
                   </presentation>
                   <presentation id="DisableIPSourceRoutingIPv6">
                         <dropdownList refId="DisableIPSourceRoutingIPv6" noSort="true" defaultItem="1">Sélectionner un niveau de routage :</dropdownList>
+                  </presentation>
+                  <presentation id="ConfigureIPv6">
+                        <dropdownList refId="ConfigureIPv6_DropdownList" noSort="true" defaultItem="0">Sélectionner la configuration IPv6 :</dropdownList>
                   </presentation>
                   <presentation id="DHServer">
                   <dropdownList refId="DHServer_MinLength" noSort="true" defaultItem="0">Taille minimale du module DH côté serveur :</dropdownList>
