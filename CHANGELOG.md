@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - Policy `ConfigureIPv6` to `AdditionalNetworkHardening.admx` (and associated ADML files in `en-US` and `fr-FR`) to control IPv6 status and components via the `DisabledComponents` registry value under `SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters` (<https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/configure-ipv6-in-windows>).
 
+### Fixed
+
+- Removed invalid `Area` and `AreaCategory` policy attributes in `AdditionalHardeningFromMicrosoft.admx` and added missing XML namespaces in `AdditionalLegacyHardening.adml` (`en-US` and `fr-FR`).
+
 ## [v1.2.8] - 2026-09-27
 
 ### Added
